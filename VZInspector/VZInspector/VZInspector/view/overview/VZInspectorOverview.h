@@ -1,19 +1,18 @@
 //
-//  VZInspectOverView.h
+//  VZInspectorOverview.h
 //  VZInspector
 //
-//  Created by moxin.xt on 14-9-23.
+//  Created by moxin.xt on 14-11-26.
 //  Copyright (c) 2014年 VizLabe. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "VZInspectorView.h"
 
-@interface VZInspectOverView : UIView
+@interface VZInspectorOverview : VZInspectorView
 
 - (void)updateGlobalInfo;
 - (void)handleRead;
 - (void)handleWrite;
 - (void)performMemoryWarning:(BOOL)b;
-
 
 @end

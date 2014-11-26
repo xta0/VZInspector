@@ -14,6 +14,17 @@
 		AF0FC51819D11C66009CCBE4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF0FC51719D11C66009CCBE4 /* Images.xcassets */; };
 		AF0FC51B19D11C66009CCBE4 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF0FC51919D11C66009CCBE4 /* LaunchScreen.xib */; };
 		AF0FC52719D11C66009CCBE4 /* VZInspectorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AF0FC52619D11C66009CCBE4 /* VZInspectorTests.m */; };
+		AFA10F5E1A261A340071F5A5 /* VZSandBoxInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA10F5D1A261A340071F5A5 /* VZSandBoxInspector.m */; };
+		AFA10F611A261A440071F5A5 /* VZHeapInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA10F601A261A440071F5A5 /* VZHeapInspector.m */; };
+		AFA10F721A261C280071F5A5 /* VZInspectorLogView.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA10F711A261C280071F5A5 /* VZInspectorLogView.m */; };
+		AFA10F751A261C450071F5A5 /* VZInspectorCrashView.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA10F741A261C450071F5A5 /* VZInspectorCrashView.m */; };
+		AFA10F781A261C520071F5A5 /* VZInspectorConsoleView.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA10F771A261C520071F5A5 /* VZInspectorConsoleView.m */; };
+		AFA10F7B1A261C670071F5A5 /* VZInspectorGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA10F7A1A261C670071F5A5 /* VZInspectorGridView.m */; };
+		AFA10F7E1A261C780071F5A5 /* VZInspectorSettingView.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA10F7D1A261C780071F5A5 /* VZInspectorSettingView.m */; };
+		AFA10F831A261D590071F5A5 /* VZInspectorSandBoxRootView.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA10F801A261D590071F5A5 /* VZInspectorSandBoxRootView.m */; };
+		AFA10F841A261D590071F5A5 /* VZInspectorSandBoxSubView.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA10F821A261D590071F5A5 /* VZInspectorSandBoxSubView.m */; };
+		AFA10F871A261E2B0071F5A5 /* VZInspectorOverview.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA10F861A261E2B0071F5A5 /* VZInspectorOverview.m */; };
+		AFA10F8A1A261FA80071F5A5 /* VZInspectorView.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA10F891A261FA80071F5A5 /* VZInspectorView.m */; };
 		AFF5AF8D19D14BA800265FF1 /* NSObject+VZInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = AFF5AF8C19D14BA800265FF1 /* NSObject+VZInspector.m */; };
 		AFF5AF9019D14BDB00265FF1 /* UIWindow+VZInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = AFF5AF8F19D14BDB00265FF1 /* UIWindow+VZInspector.m */; };
 		AFF5AF9319D14C6500265FF1 /* VZMemoryInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = AFF5AF9219D14C6500265FF1 /* VZMemoryInspector.m */; };
@@ -22,7 +33,6 @@
 		AFF5AF9C19D14E9B00265FF1 /* VZInspectorOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = AFF5AF9B19D14E9B00265FF1 /* VZInspectorOverlay.m */; };
 		AFF5AF9F19D14EB000265FF1 /* VZInspectorWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = AFF5AF9E19D14EB000265FF1 /* VZInspectorWindow.m */; };
 		AFF5AFA219D14F8900265FF1 /* VZInspectController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFF5AFA119D14F8900265FF1 /* VZInspectController.m */; };
-		AFF5AFAD19D1503400265FF1 /* VZInspectOverView.m in Sources */ = {isa = PBXBuildFile; fileRef = AFF5AFAC19D1503400265FF1 /* VZInspectOverView.m */; };
 		AFF5AFB019D150B500265FF1 /* VZNetworkInspectorOverView.m in Sources */ = {isa = PBXBuildFile; fileRef = AFF5AFAF19D150B500265FF1 /* VZNetworkInspectorOverView.m */; };
 		AFF5AFB319D150ED00265FF1 /* VZMemoryInspectorOverView.m in Sources */ = {isa = PBXBuildFile; fileRef = AFF5AFB219D150ED00265FF1 /* VZMemoryInspectorOverView.m */; };
 		AFF5AFB619D1513E00265FF1 /* VZInspectorPlotView.m in Sources */ = {isa = PBXBuildFile; fileRef = AFF5AFB519D1513E00265FF1 /* VZInspectorPlotView.m */; };
@@ -53,6 +63,28 @@
 		AF0FC52019D11C66009CCBE4 /* VZInspectorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VZInspectorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF0FC52519D11C66009CCBE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AF0FC52619D11C66009CCBE4 /* VZInspectorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VZInspectorTests.m; sourceTree = "<group>"; };
+		AFA10F5C1A261A340071F5A5 /* VZSandBoxInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZSandBoxInspector.h; sourceTree = "<group>"; };
+		AFA10F5D1A261A340071F5A5 /* VZSandBoxInspector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZSandBoxInspector.m; sourceTree = "<group>"; };
+		AFA10F5F1A261A440071F5A5 /* VZHeapInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZHeapInspector.h; sourceTree = "<group>"; };
+		AFA10F601A261A440071F5A5 /* VZHeapInspector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZHeapInspector.m; sourceTree = "<group>"; };
+		AFA10F701A261C280071F5A5 /* VZInspectorLogView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorLogView.h; sourceTree = "<group>"; };
+		AFA10F711A261C280071F5A5 /* VZInspectorLogView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorLogView.m; sourceTree = "<group>"; };
+		AFA10F731A261C450071F5A5 /* VZInspectorCrashView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorCrashView.h; sourceTree = "<group>"; };
+		AFA10F741A261C450071F5A5 /* VZInspectorCrashView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorCrashView.m; sourceTree = "<group>"; };
+		AFA10F761A261C520071F5A5 /* VZInspectorConsoleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorConsoleView.h; sourceTree = "<group>"; };
+		AFA10F771A261C520071F5A5 /* VZInspectorConsoleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorConsoleView.m; sourceTree = "<group>"; };
+		AFA10F791A261C670071F5A5 /* VZInspectorGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorGridView.h; sourceTree = "<group>"; };
+		AFA10F7A1A261C670071F5A5 /* VZInspectorGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorGridView.m; sourceTree = "<group>"; };
+		AFA10F7C1A261C780071F5A5 /* VZInspectorSettingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorSettingView.h; sourceTree = "<group>"; };
+		AFA10F7D1A261C780071F5A5 /* VZInspectorSettingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorSettingView.m; sourceTree = "<group>"; };
+		AFA10F7F1A261D590071F5A5 /* VZInspectorSandBoxRootView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorSandBoxRootView.h; sourceTree = "<group>"; };
+		AFA10F801A261D590071F5A5 /* VZInspectorSandBoxRootView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorSandBoxRootView.m; sourceTree = "<group>"; };
+		AFA10F811A261D590071F5A5 /* VZInspectorSandBoxSubView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorSandBoxSubView.h; sourceTree = "<group>"; };
+		AFA10F821A261D590071F5A5 /* VZInspectorSandBoxSubView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorSandBoxSubView.m; sourceTree = "<group>"; };
+		AFA10F851A261E2B0071F5A5 /* VZInspectorOverview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorOverview.h; sourceTree = "<group>"; };
+		AFA10F861A261E2B0071F5A5 /* VZInspectorOverview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorOverview.m; sourceTree = "<group>"; };
+		AFA10F881A261FA80071F5A5 /* VZInspectorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorView.h; sourceTree = "<group>"; };
+		AFA10F891A261FA80071F5A5 /* VZInspectorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorView.m; sourceTree = "<group>"; };
 		AFF5AF8B19D14BA800265FF1 /* NSObject+VZInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+VZInspector.h"; sourceTree = "<group>"; };
 		AFF5AF8C19D14BA800265FF1 /* NSObject+VZInspector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+VZInspector.m"; sourceTree = "<group>"; };
 		AFF5AF8E19D14BDB00265FF1 /* UIWindow+VZInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+VZInspector.h"; sourceTree = "<group>"; };
@@ -69,8 +101,6 @@
 		AFF5AF9E19D14EB000265FF1 /* VZInspectorWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorWindow.m; sourceTree = "<group>"; };
 		AFF5AFA019D14F8900265FF1 /* VZInspectController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectController.h; sourceTree = "<group>"; };
 		AFF5AFA119D14F8900265FF1 /* VZInspectController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectController.m; sourceTree = "<group>"; };
-		AFF5AFAB19D1503400265FF1 /* VZInspectOverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectOverView.h; sourceTree = "<group>"; };
-		AFF5AFAC19D1503400265FF1 /* VZInspectOverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectOverView.m; sourceTree = "<group>"; };
 		AFF5AFAE19D150B500265FF1 /* VZNetworkInspectorOverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZNetworkInspectorOverView.h; sourceTree = "<group>"; };
 		AFF5AFAF19D150B500265FF1 /* VZNetworkInspectorOverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZNetworkInspectorOverView.m; sourceTree = "<group>"; };
 		AFF5AFB119D150ED00265FF1 /* VZMemoryInspectorOverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZMemoryInspectorOverView.h; sourceTree = "<group>"; };
@@ -159,6 +189,17 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		AFA10F631A261A7A0071F5A5 /* sandbox */ = {
+			isa = PBXGroup;
+			children = (
+				AFA10F7F1A261D590071F5A5 /* VZInspectorSandBoxRootView.h */,
+				AFA10F801A261D590071F5A5 /* VZInspectorSandBoxRootView.m */,
+				AFA10F811A261D590071F5A5 /* VZInspectorSandBoxSubView.h */,
+				AFA10F821A261D590071F5A5 /* VZInspectorSandBoxSubView.m */,
+			);
+			path = sandbox;
+			sourceTree = "<group>";
+		};
 		AFF5AF8319D14AC900265FF1 /* VZInspector */ = {
 			isa = PBXGroup;
 			children = (
@@ -188,12 +229,16 @@
 		AFF5AF8819D14B5B00265FF1 /* monitor */ = {
 			isa = PBXGroup;
 			children = (
+				AFA10F5C1A261A340071F5A5 /* VZSandBoxInspector.h */,
+				AFA10F5D1A261A340071F5A5 /* VZSandBoxInspector.m */,
 				AFF5AF9119D14C6500265FF1 /* VZMemoryInspector.h */,
 				AFF5AF9219D14C6500265FF1 /* VZMemoryInspector.m */,
 				AFF5AF9419D14DA800265FF1 /* VZCrashInspector.h */,
 				AFF5AF9519D14DA800265FF1 /* VZCrashInspector.m */,
 				AFF5AFB719D1527600265FF1 /* VZNetworkInspector.h */,
 				AFF5AFB819D1527600265FF1 /* VZNetworkInspector.m */,
+				AFA10F5F1A261A440071F5A5 /* VZHeapInspector.h */,
+				AFA10F601A261A440071F5A5 /* VZHeapInspector.m */,
 			);
 			path = monitor;
 			sourceTree = "<group>";
@@ -214,9 +259,11 @@
 		AFF5AF8A19D14B5B00265FF1 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				AFA10F881A261FA80071F5A5 /* VZInspectorView.h */,
+				AFA10F891A261FA80071F5A5 /* VZInspectorView.m */,
+				AFA10F631A261A7A0071F5A5 /* sandbox */,
 				AFF5AFA319D1501C00265FF1 /* console */,
 				AFF5AFA419D1501C00265FF1 /* crash */,
-				AFF5AFA519D1501C00265FF1 /* file */,
 				AFF5AFA619D1501C00265FF1 /* grid */,
 				AFF5AFA719D1501C00265FF1 /* log */,
 				AFF5AFA819D1501C00265FF1 /* overview */,
@@ -229,6 +276,8 @@
 		AFF5AFA319D1501C00265FF1 /* console */ = {
 			isa = PBXGroup;
 			children = (
+				AFA10F761A261C520071F5A5 /* VZInspectorConsoleView.h */,
+				AFA10F771A261C520071F5A5 /* VZInspectorConsoleView.m */,
 			);
 			path = console;
 			sourceTree = "<group>";
@@ -236,20 +285,17 @@
 		AFF5AFA419D1501C00265FF1 /* crash */ = {
 			isa = PBXGroup;
 			children = (
+				AFA10F731A261C450071F5A5 /* VZInspectorCrashView.h */,
+				AFA10F741A261C450071F5A5 /* VZInspectorCrashView.m */,
 			);
 			path = crash;
-			sourceTree = "<group>";
-		};
-		AFF5AFA519D1501C00265FF1 /* file */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = file;
 			sourceTree = "<group>";
 		};
 		AFF5AFA619D1501C00265FF1 /* grid */ = {
 			isa = PBXGroup;
 			children = (
+				AFA10F791A261C670071F5A5 /* VZInspectorGridView.h */,
+				AFA10F7A1A261C670071F5A5 /* VZInspectorGridView.m */,
 			);
 			path = grid;
 			sourceTree = "<group>";
@@ -257,6 +303,8 @@
 		AFF5AFA719D1501C00265FF1 /* log */ = {
 			isa = PBXGroup;
 			children = (
+				AFA10F701A261C280071F5A5 /* VZInspectorLogView.h */,
+				AFA10F711A261C280071F5A5 /* VZInspectorLogView.m */,
 			);
 			path = log;
 			sourceTree = "<group>";
@@ -264,12 +312,12 @@
 		AFF5AFA819D1501C00265FF1 /* overview */ = {
 			isa = PBXGroup;
 			children = (
-				AFF5AFAB19D1503400265FF1 /* VZInspectOverView.h */,
-				AFF5AFAC19D1503400265FF1 /* VZInspectOverView.m */,
 				AFF5AFAE19D150B500265FF1 /* VZNetworkInspectorOverView.h */,
 				AFF5AFAF19D150B500265FF1 /* VZNetworkInspectorOverView.m */,
 				AFF5AFB119D150ED00265FF1 /* VZMemoryInspectorOverView.h */,
 				AFF5AFB219D150ED00265FF1 /* VZMemoryInspectorOverView.m */,
+				AFA10F851A261E2B0071F5A5 /* VZInspectorOverview.h */,
+				AFA10F861A261E2B0071F5A5 /* VZInspectorOverview.m */,
 			);
 			path = overview;
 			sourceTree = "<group>";
@@ -277,6 +325,8 @@
 		AFF5AFA919D1501C00265FF1 /* settings */ = {
 			isa = PBXGroup;
 			children = (
+				AFA10F7C1A261C780071F5A5 /* VZInspectorSettingView.h */,
+				AFA10F7D1A261C780071F5A5 /* VZInspectorSettingView.m */,
 			);
 			path = settings;
 			sourceTree = "<group>";
@@ -389,8 +439,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				AFF5AFB919D1527600265FF1 /* VZNetworkInspector.m in Sources */,
+				AFA10F781A261C520071F5A5 /* VZInspectorConsoleView.m in Sources */,
 				AFF5AFB019D150B500265FF1 /* VZNetworkInspectorOverView.m in Sources */,
 				AFF5AFB319D150ED00265FF1 /* VZMemoryInspectorOverView.m in Sources */,
+				AFA10F721A261C280071F5A5 /* VZInspectorLogView.m in Sources */,
 				AFF5AF9019D14BDB00265FF1 /* UIWindow+VZInspector.m in Sources */,
 				AFF5AF9F19D14EB000265FF1 /* VZInspectorWindow.m in Sources */,
 				AF0FC51319D11C66009CCBE4 /* ViewController.m in Sources */,
@@ -398,12 +450,20 @@
 				AF0FC51019D11C66009CCBE4 /* AppDelegate.m in Sources */,
 				AFF5AFA219D14F8900265FF1 /* VZInspectController.m in Sources */,
 				AF0FC50D19D11C66009CCBE4 /* main.m in Sources */,
+				AFA10F751A261C450071F5A5 /* VZInspectorCrashView.m in Sources */,
 				AFF5AF9319D14C6500265FF1 /* VZMemoryInspector.m in Sources */,
 				AFF5AFB619D1513E00265FF1 /* VZInspectorPlotView.m in Sources */,
+				AFA10F7B1A261C670071F5A5 /* VZInspectorGridView.m in Sources */,
+				AFA10F7E1A261C780071F5A5 /* VZInspectorSettingView.m in Sources */,
 				AFF5AF8D19D14BA800265FF1 /* NSObject+VZInspector.m in Sources */,
+				AFA10F841A261D590071F5A5 /* VZInspectorSandBoxSubView.m in Sources */,
+				AFA10F611A261A440071F5A5 /* VZHeapInspector.m in Sources */,
 				AFF5AF9619D14DA800265FF1 /* VZCrashInspector.m in Sources */,
+				AFA10F831A261D590071F5A5 /* VZInspectorSandBoxRootView.m in Sources */,
+				AFA10F8A1A261FA80071F5A5 /* VZInspectorView.m in Sources */,
+				AFA10F871A261E2B0071F5A5 /* VZInspectorOverview.m in Sources */,
+				AFA10F5E1A261A340071F5A5 /* VZSandBoxInspector.m in Sources */,
 				AFF5AF9919D14E8D00265FF1 /* VZInspector.m in Sources */,
-				AFF5AFAD19D1503400265FF1 /* VZInspectOverView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
