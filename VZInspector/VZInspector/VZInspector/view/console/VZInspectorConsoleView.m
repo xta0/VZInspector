@@ -175,24 +175,52 @@
     {
         //[self log:[TBCityGlobal version]];
     }
+    else if ([text isEqualToString:@"show_grid"])
+    {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wundeclared-selector"
+        [self.parentViewController performSelector:@selector(showGrid) withObject:nil];
+#pragma clang diagnostic pop
+    
+    }
+    else if ([text isEqualToString:@"show_border"])
+    {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wundeclared-selector"
+        [self.parentViewController performSelector:@selector(showBorder) withObject:nil];
+#pragma clang diagnostic pop
+    }
+    else if ([text isEqualToString:@"show_crashes"])
+    {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wundeclared-selector"
+        [self.parentViewController performSelector:@selector(showCrashLogs) withObject:nil];
+#pragma clang diagnostic pop
+    }
+    else if ([text isEqualToString:@"show_heap"])
+    {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wundeclared-selector"
+        [self.parentViewController performSelector:@selector(showHeap) withObject:nil];
+#pragma clang diagnostic pop
+    }
+    else if ([text isEqualToString:@"show_sandbox"])
+    {
+        [self.parentViewController performSelector:@selector(showSandBox) withObject:nil];
+    }
     else if ([text isEqualToString:@"mw on"])
     {
         [self.parentViewController setValue:@(YES) forKey:@"performMemoryWarning"];
-        [self handleEnterText:@"exit"];
         
     }
     else if ([text isEqualToString:@"mw off"])
     {
         [self.parentViewController setValue:@(NO) forKeyPath:@"performMemoryWarning"];
-        [self handleEnterText:@"exit"];
     }
-    else if ([text isEqualToString:@"crash"])
-    {
-        exit(0);
-    }
+
     else if ([text isEqualToString:@"help"])
     {
-        [self log:@"try:\n exit \n version \n po self \n mw on \n mw off \n crash\n"];
+        [self log:@"try:\n exit \n version \n show_grid \n show_border \n show_crashes \n show_heap \n mw on \n mw off \n"];
         
     }
     else

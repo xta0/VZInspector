@@ -66,9 +66,6 @@
 
 - (UIView* )hitTest:(CGPoint)point withEvent:(UIEvent *)event
 {
-    NSLog(@"touch point: %@",NSStringFromCGPoint(point));
-    
-    
     CGPoint pt = [self convertPoint:point toView:self.debuggerVC.view];
     
     if ([self.debuggerVC canTouchPassThrough:pt]) {

@@ -84,6 +84,8 @@
 - (void)loadRootView
 {
     VZInspectorSandBoxSubView* rootView = [[VZInspectorSandBoxSubView alloc]initWithFrame:CGRectMake(0, 44, self.frame.size.width, self.frame.size.height-44) Dir:self.homepath];
+    rootView.layer.borderColor = [UIColor colorWithWhite:0.5f alpha:1.0f].CGColor;
+    rootView.layer.borderWidth = 2.0f;
     rootView.delegate = self;
     
 
@@ -129,7 +131,7 @@
         
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wundeclared-selector"
-        [self.parentViewController performSelector:@selector(onClose)];
+        [self.parentViewController performSelector:@selector(onBack)];
 #pragma clang diagnostic pop
         
     }

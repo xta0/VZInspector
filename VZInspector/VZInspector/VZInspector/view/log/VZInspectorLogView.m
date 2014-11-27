@@ -28,7 +28,7 @@
         
         self.requestLogs = [NSMutableArray new];
         self.responseLogs = [NSMutableArray new];
-        self.maxLogs = 5;
+        self.maxLogs = 2;
         
         _requestView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height / 2)];
         _requestView.font = [UIFont fontWithName:@"Courier-Bold" size:10];
@@ -80,8 +80,8 @@
         [self addSubview:responseClearBtn];
         
         
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(requestLog:) name:@"SBRequestLog" object:nil];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(responseLog:) name:@"SBResponseLog" object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(requestLog:) name:@"VZHTTPRequestLog" object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(responseLog:) name:@"VZHTTPResponseLog" object:nil];
         
         
         [self setText:1];
@@ -151,7 +151,7 @@
     //requst log:
     if (request) {
         
-        NSString* info = @"request comes from => SBMTOPRequest";
+        NSString* info = @"request comes from => VZHTTPRequest";
         info = [info stringByAppendingString:@"\n--------------------------------------\n"];
         info = [info stringByAppendingString:[[self.requestLogs arrayByAddingObject:@">"] componentsJoinedByString:@"\n"]];
         
@@ -161,7 +161,7 @@
     else
     {
         //response log:
-        NSString* info = @"response comes from => SBMTOPRequest";
+        NSString* info = @"response comes from => VZHTTPRequest";
         info = [info stringByAppendingString:@"\n--------------------------------------\n"];
         info = [info stringByAppendingString:[[self.responseLogs arrayByAddingObject:@">"] componentsJoinedByString:@"\n"]];
         
@@ -176,7 +176,7 @@
 {
     [self.requestLogs removeAllObjects];
     
-    NSString* info = @"request comes from => SBMTOPRequest";
+    NSString* info = @"request comes from => VZHTTPRequest";
     info = [info stringByAppendingString:@"\n--------------------------------------\n"];
     info = [info stringByAppendingString:[[self.requestLogs arrayByAddingObject:@">"] componentsJoinedByString:@"\n"]];
     
@@ -188,7 +188,7 @@
     [self.responseLogs removeAllObjects];
     
     //response log:
-    NSString* info = @"response comes from => SBMTOPRequest";
+    NSString* info = @"response comes from => VZHTTPRequest";
     info = [info stringByAppendingString:@"\n--------------------------------------\n"];
     info = [info stringByAppendingString:[[self.responseLogs arrayByAddingObject:@">"] componentsJoinedByString:@"\n"]];
     _responseView.text = info;

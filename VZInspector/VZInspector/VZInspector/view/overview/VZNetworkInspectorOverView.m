@@ -93,8 +93,7 @@
 
 - (void)writeHeartBeat
 {
-    //int http_count = [[TBCitySBASINetworkMonitor sharedInstance] countOfNetworkOP];
-    
+ 
     NSMutableString * text = [NSMutableString string];
     [text appendFormat:@"请求数: %ld",(long)[VZNetworkInspector sharedInstance].totalNetworkCount];
     [text appendFormat:@"  流量:%@  ",[self number2String:[VZNetworkInspector sharedInstance].totalResponseBytes]];

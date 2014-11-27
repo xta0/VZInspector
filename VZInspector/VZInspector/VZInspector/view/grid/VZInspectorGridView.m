@@ -76,11 +76,10 @@
 
 - (void)onClicked:(id)sender
 {
-    UIButton* btn = [UIButton new];
-    btn.tag = 10;
+
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wundeclared-selector"
-    [self.parentViewController performSelector:@selector(onBtnClikced:) withObject:btn];
+    [self.parentViewController performSelector:@selector(onBack) withObject:nil];
 #pragma clang diagnostic pop
     
 }

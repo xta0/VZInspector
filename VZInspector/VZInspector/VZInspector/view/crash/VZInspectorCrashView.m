@@ -12,7 +12,8 @@
 @interface VZInspectorCrashView()
 
 @property(nonatomic,strong) UITextView* crashLogs;
-
+@property(nonatomic,strong) UILabel* textLabel;
+@property(nonatomic,strong) UIButton* backBtn;
 
 @end
 
@@ -23,23 +24,43 @@
     self = [super initWithFrame:frame];
     if (self) {
         
+        self.textLabel = [[UILabel alloc]initWithFrame:CGRectMake(40, 0, frame.size.width-80, 44)];
+        self.textLabel.text = @"CrashLogs";
+        self.textLabel.textAlignment = NSTextAlignmentCenter;
+        self.textLabel.textColor = [UIColor whiteColor];
+        self.textLabel.backgroundColor = [UIColor clearColor];
+        self.textLabel.font = [UIFont systemFontOfSize:18.0f];
+        [self addSubview:self.textLabel];
+        
+        self.backBtn = [[UIButton alloc]initWithFrame:CGRectMake(10, 0, 44, 44)];
+        self.backBtn.backgroundColor = [UIColor clearColor];
+        [self.backBtn setTitle:@"<-" forState:UIControlStateNormal];
+        [self.backBtn setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
+        self.backBtn.titleLabel.font = [UIFont systemFontOfSize:18.0f];
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wundeclared-selector"
+        [self.backBtn addTarget:self.parentViewController action:@selector(onBack) forControlEvents:UIControlEventTouchUpInside];
+#pragma clang diagnostic pop
+        [self addSubview:self.backBtn];
+        
         
         // Initialization code
-        _crashLogs = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
+        _crashLogs = [[UITextView alloc] initWithFrame:CGRectMake(0, 44 , frame.size.width, frame.size.height-44)];
         _crashLogs.font = [UIFont fontWithName:@"Courier-Bold" size:10];
         _crashLogs.textColor = [UIColor orangeColor];
         _crashLogs.backgroundColor = [UIColor clearColor];
         _crashLogs.indicatorStyle = 0;
         _crashLogs.editable = NO;
         _crashLogs.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-        _crashLogs.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.6f];
+//        _crashLogs.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.6f];
+        _crashLogs.backgroundColor = [UIColor clearColor];
         _crashLogs.layer.borderColor = [UIColor colorWithWhite:0.5f alpha:1.0f].CGColor;
         _crashLogs.layer.borderWidth = 2.0f;
         [self addSubview:_crashLogs];
         
         NSDictionary* logs = [VZCrashInspector sharedInstance].crashReport;
         
-        NSString* header = @"crashes comes from => TBCityCrashHandler";
+        NSString* header = @"crashes comes from => VZCrashInspector";
         header = [header stringByAppendingString:@"\n--------------------------------------\n"];
         _crashLogs.text = header;
         
