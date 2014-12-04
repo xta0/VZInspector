@@ -20,7 +20,7 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     [VZHeapInspector trackObjectsWithPrefix:@"VZ"];
-    NSSet* set = [VZHeapInspector livingObjects];
+    NSSet* set = [VZHeapInspector livingObjectsWithPrefix];
     NSLog(@"%@",set);
 }
 

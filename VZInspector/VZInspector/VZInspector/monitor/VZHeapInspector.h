@@ -12,6 +12,7 @@
 
 + (void)trackObjectsWithPrefix:(NSString* )prefix;
 + (NSSet* )livingObjects;
++ (NSSet* )livingObjectsWithPrefix;
 
 
 @end

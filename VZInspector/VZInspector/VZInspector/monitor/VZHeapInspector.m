@@ -59,14 +59,9 @@ vz_ranges_callback (task_t task, void *context, unsigned type, vm_range_t *ptrs,
         
         if (CFSetContainsValue(vz_registeredClasses, (__bridge const void *)(clz)))
         {
-            const char* clzname = object_getClassName((__bridge id)(obj));
-        
-            if (vz_isTrackingObject(clzname)) {
-             
-                if (block) {
-                    
-                    block((__bridge id)(obj),clz);
-                }
+            
+            if (block) {
+                block((__bridge id)(obj),clz);
             }
         }
     }
@@ -146,6 +141,24 @@ static inline bool vz_isTrackingObject(const char* className)
         [ret addObject:string];
         
     }];
+    return ret;
+}
+
++ (NSSet* )livingObjectsWithPrefix
+{
+    NSMutableSet* ret = [NSMutableSet set];
+    [self startTrackingHeapObjects:^(id obj, __unsafe_unretained Class clz) {
+        
+        const char* clzname = object_getClassName(obj);
+        
+        if (vz_isTrackingObject(clzname))
+        {
+            NSString *string = [NSString stringWithFormat:@"%@: %p",clz,obj];
+            [ret addObject:string];
+        }
+        
+    }];
+    
     return ret;
 }
 
