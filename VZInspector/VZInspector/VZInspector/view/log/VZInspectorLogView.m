@@ -80,8 +80,8 @@
         [self addSubview:responseClearBtn];
         
         
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(requestLog:) name:@"VZHTTPRequestLog" object:nil];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(responseLog:) name:@"VZHTTPResponseLog" object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(requestLog:) name:@"VZRequestLog" object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(responseLog:) name:@"VZResponseLog" object:nil];
         
         
         [self setText:1];
@@ -120,20 +120,20 @@
     
 }
 
-- (void)responseLog:(NSNotification* )nofity
+- (void)responseLog:(NSNotification* )notify
 {
-    NSString*  json = nofity.userInfo[@"json"];
+    NSString*  json = notify.userInfo[@"json"];
     
     if (json.length> 0 ) {
         
-        id error = nofity.userInfo[@"error"];
+        id error = notify.userInfo[@"error"];
         
         if (error) {
             json = [@"请求失败:" stringByAppendingString:json];
         }
         
-        NSData* data =  [json dataUsingEncoding:NSUTF8StringEncoding];
-        id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+//        NSData* data =  [json dataUsingEncoding:NSUTF8StringEncoding];
+//        id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
         
         [self.responseLogs addObject:[@"> " stringByAppendingString:[NSString stringWithFormat:@"%@",json]]];
         if ([self.responseLogs count] > self.maxLogs)

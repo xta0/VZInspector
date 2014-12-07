@@ -10,9 +10,9 @@
 
 @interface VZHeapInspector : NSObject
 
-+ (void)trackObjectsWithPrefix:(NSString* )prefix;
-+ (NSSet* )livingObjects;
-+ (NSSet* )livingObjectsWithPrefix;
++ (NSString* )classPrefixName;
++ (void)setClassPrefixName:(NSString* )name;
++ (NSSet* )livingObjectsWithClassPrefix:(NSString* )prefix;
 
 
 @end

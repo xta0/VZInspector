@@ -10,14 +10,15 @@
 #import "VZMemoryInspectorOverView.h"
 #import "VZNetworkInspectorOverView.h"
 #import "VZMemoryInspector.h"
+#import "VZOverviewInspector.h"
 #import "NSObject+VZInspector.h"
-
+#import <objc/runtime.h>
 
 @interface VZInspectorOverview()
 
 @property(nonatomic,strong) VZNetworkInspectorOverView* httpView;
 @property(nonatomic,strong) VZMemoryInspectorOverView* memoryView;
-
+@property(nonatomic,strong) UITextView* infoView;
 
 @end
 
@@ -54,13 +55,40 @@
         [self addSubview:_httpView];
         
         
+        CGRect infoFrame;
+        infoFrame.origin = CGPointMake(0, networkFrame.origin.y + networkFrame.size.height);
+        infoFrame.size.width = width;
+        infoFrame.size.height = frame.size.height - infoFrame.origin.y;
+  
+        _infoView = [[UITextView alloc] initWithFrame:CGRectInset(infoFrame, 10, 10)];
+        _infoView.font = [UIFont fontWithName:@"Courier-Bold" size:14];
+        _infoView.textColor = [UIColor orangeColor];
+        _infoView.indicatorStyle = 0;
+        _infoView.editable = NO;
+        _infoView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+        _infoView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.6f];
+       // _infoView.backgroundColor = [UIColor clearColor];
+        [self addSubview:_infoView];
+        
+        if ([VZOverviewInspector sharedInstance].observingCallback) {
+            
+            NSString* result = [VZOverviewInspector sharedInstance].observingCallback();
+            _infoView.text = result;
+    
+        }
+        
     }
     return self;
 }
 
 - (void)updateGlobalInfo
 {
-    
+    if ([VZOverviewInspector sharedInstance].observingCallback) {
+        
+        NSString* result = [VZOverviewInspector sharedInstance].observingCallback();
+        _infoView.text = result;
+        
+    }
 }
 
 - (void)handleRead
@@ -98,11 +126,6 @@
     
 }
 
-- (void)toConsole:(id)sender
-{
-    
-}
-
 - (void)close:(id)sender
 {
 #pragma clang diagnostic push
@@ -110,6 +133,7 @@
     [self.parentViewController performSelector:@selector(onClose)];
 #pragma clang pop
 }
+
 
 
 

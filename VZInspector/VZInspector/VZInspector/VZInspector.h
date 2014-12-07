@@ -10,8 +10,14 @@
 
 @interface VZInspector : NSObject
 
++ (void)showOnStatusBar;
 + (BOOL)isShow;
 + (void)show;
 + (void)hide;
+
++ (void)setClassPrefixName:(NSString* )name;
++ (void)setShouldHandleCrash:(BOOL)b;
++ (void)setObserveCallback:(NSString* (^)(void)) callback;
+
 
 @end

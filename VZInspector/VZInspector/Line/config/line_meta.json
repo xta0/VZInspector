@@ -1,0 +1,122 @@
+{
+  "controller": [
+    {
+      "class": "VLLineListViewController",
+      "superclass": "VZListViewController",
+      "model": [
+        {
+          "name": "lineListModel",
+          "class": "VLLineListModel",
+          "superclass": "VZHTTPListModel"
+        }
+      ],
+      "logic": {
+        "name": "lineLogic",
+        "class": "VLLineLogic",
+        "superclass": "VZViewControllerLogic"
+      },
+      "datasource": {
+        "name": "ds",
+        "class": "VLLineListViewDataSource",
+        "superclass": "VZListViewDataSource"
+      },
+      "delegate": {
+        "name": "dl",
+        "class": "VLLineListViewDelegate",
+        "superclass": "VZListViewDelegate"
+      },
+      "tpath": "./template/vizzle/template_listviewcontroller.rb",
+      "namespace": "T_ListViewController",
+      "filepath": "./Line/controller/"
+    }
+  ],
+  "model": [
+    {
+      "class": "VLLineListModel",
+      "superclass": "VZHTTPListModel",
+      "api": "",
+      "tpath": "./template/vizzle/template_httplistmodel.rb",
+      "namespace": "T_HTTPListModel",
+      "filepath": "./Line/model/"
+    }
+  ],
+  "modeltest": [
+    {
+      "class": "VLLineListModelTest",
+      "superclass": "XCTestCase",
+      "modelclass": "VLLineListModel",
+      "sdkheader": "VizzleConfig.h",
+      "tpath": "./template/vizzle/template_modeltest.rb",
+      "namespace": "T_ModelTest",
+      "filepath": "./Line/test/"
+    }
+  ],
+  "logic": [
+    {
+      "class": "VLLineLogic",
+      "superclass": "VZViewControllerLogic",
+      "tpath": "./template/vizzle/template_viewcontrollerlogic.rb",
+      "namespace": "T_ViewControllerLogic",
+      "filepath": "./Line/logic/"
+    }
+  ],
+  "logictest": [
+    {
+      "class": "VLLineLogicTest",
+      "superclass": "XCTestCase",
+      "logicclass": "VLLineLogic",
+      "sdkheader": "VizzleConfig.h",
+      "tpath": "./template/vizzle/template_logictest.rb",
+      "namespace": "T_LogicTest",
+      "filepath": "./Line/test/"
+    }
+  ],
+  "item": [
+    {
+      "class": "VLLineListItem",
+      "superclass": "VZListItem",
+      "response": null,
+      "tpath": "./template/vizzle/template_listItem.rb",
+      "namespace": "T_ListItem",
+      "filepath": "./Line/item/"
+    }
+  ],
+  "cell": [
+    {
+      "class": "VLLineListCell",
+      "superclass": "VZListCell",
+      "itemclass": "VLLineListItem",
+      "height": "44",
+      "tpath": "./template/vizzle/template_listcell.rb",
+      "namespace": "T_ListCell",
+      "filepath": "./Line/cell/"
+    }
+  ],
+  "datasource": [
+    {
+      "class": "VLLineListViewDataSource",
+      "superclass": "VZListViewDataSource",
+      "cellclass": "VLLineListCell",
+      "tpath": "./template/vizzle/template_listviewdatasource.rb",
+      "namespace": "T_ListViewDataSource",
+      "filepath": "./Line/datasource/"
+    }
+  ],
+  "delegate": [
+    {
+      "class": "VLLineListViewDelegate",
+      "superclass": "VZListViewDelegate",
+      "tpath": "./template/vizzle/template_listviewdelegate.rb",
+      "namespace": "T_ListViewDelegate",
+      "filepath": "./Line/delegate/"
+    }
+  ],
+  "config": {
+    "class": "VLLineConfig",
+    "proj": "VZListExample",
+    "package_name": "Line",
+    "tpath": "./template/vizzle/template_config.rb",
+    "namespace": "T_Config",
+    "filepath": "./Line/config/"
+  }
+}

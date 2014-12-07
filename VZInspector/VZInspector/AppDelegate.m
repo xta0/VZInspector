@@ -7,7 +7,8 @@
 //
 
 #import "AppDelegate.h"
-#import "VZInspectorOverlay.h"
+#import "VZInspector.h"
+
 
 @interface AppDelegate ()
 
@@ -19,7 +20,18 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    [VZInspectorOverlay show];
+    [VZInspector setClassPrefixName:@"VZ"];
+    [VZInspector setObserveCallback:^NSString *{
+       
+        NSString* v = [NSString stringWithFormat:@"System Ver:%@\n",[UIDevice currentDevice].systemVersion];
+        NSString* n = [NSString stringWithFormat:@"System Name:%@\n",[UIDevice currentDevice].systemName];
+        
+        NSString* ret = [v stringByAppendingString:n];
+       
+        return ret;
+    }];
+    
+    [VZInspector showOnStatusBar];
     
     return YES;
 }

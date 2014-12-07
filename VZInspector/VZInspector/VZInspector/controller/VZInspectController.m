@@ -71,10 +71,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
 
-    [[VZCrashInspector sharedInstance] install];
-    
     self.currentIndex = 0;
     
     //create content view
@@ -102,11 +99,11 @@
     
 
     //4:tab
-    for (int i=0; i<4; i++) {
+    for (int i=0; i<5; i++) {
         
         
         CGRect screenBounds = [UIScreen mainScreen].bounds;
-        int w = screenBounds.size.width/4;
+        int w = screenBounds.size.width/5;
         UIButton* btn = [[UIButton alloc]initWithFrame:CGRectMake(w*i, self.view.frame.size.height-40, w, 40)];
         btn.tag = i+10;
         btn.backgroundColor = [UIColor darkGrayColor];
@@ -129,25 +126,13 @@
         if (i==3) {
             [btn setTitle:@"ENV" forState:UIControlStateNormal];
         }
+        if (i==4) {
+            
+            [btn setTitle:@"Close" forState:UIControlStateNormal];
+            [btn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+        }
         [self.contentView addSubview:btn];
     }
-    
-    int w = self.overview.bounds.size.width;
-    int h = self.overview.bounds.size.height;
-    
-    //关闭
-    UIButton* closeBtn = [[UIButton alloc]initWithFrame:CGRectMake(w-50, h-50, 40, 40)];
-    closeBtn.tag = 100;
-    closeBtn.backgroundColor = [UIColor darkGrayColor];
-    closeBtn.layer.borderColor = [UIColor lightGrayColor].CGColor;
-    closeBtn.layer.borderWidth = 2.0f;
-    closeBtn.layer.cornerRadius = 20.0f;
-    closeBtn.titleLabel.font = [UIFont boldSystemFontOfSize:20.0f];
-    //closeBtn.titleLabel.textColor = [UIColor orangeColor];
-    [closeBtn setTitle:@"X" forState:UIControlStateNormal];
-    [closeBtn setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
-    [closeBtn addTarget:self action:@selector(onClose) forControlEvents:UIControlEventTouchUpInside];
-    [self.overview addSubview:closeBtn];
     
 }
 
@@ -352,6 +337,11 @@
             
             break;
         }
+        case 14:
+        {
+            [self onClose];
+            break;
+        }
         default:
             break;
     }
@@ -378,13 +368,6 @@
     }];
 
 }
-
-- (void)onUpdate
-{
-    [self.overview updateGlobalInfo];
-}
-
-
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark - console callback

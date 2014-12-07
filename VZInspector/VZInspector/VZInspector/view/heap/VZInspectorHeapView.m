@@ -71,7 +71,7 @@
 
 - (void)heapShot
 {
-    self.items = [[VZHeapInspector livingObjects] allObjects];
+    self.items = [[VZHeapInspector livingObjectsWithClassPrefix:[VZHeapInspector classPrefixName]] allObjects];
     [self.tableView reloadData];
 }
 

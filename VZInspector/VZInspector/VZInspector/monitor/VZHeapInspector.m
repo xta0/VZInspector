@@ -59,9 +59,13 @@ vz_ranges_callback (task_t task, void *context, unsigned type, vm_range_t *ptrs,
         
         if (CFSetContainsValue(vz_registeredClasses, (__bridge const void *)(clz)))
         {
+            const char* clzname = object_getClassName((__bridge id)(obj));
             
-            if (block) {
-                block((__bridge id)(obj),clz);
+            if (vz_isTrackingObject(clzname))
+            {
+                if (block) {
+                    block((__bridge id)(obj),clz);
+                }
             }
         }
     }
@@ -75,6 +79,12 @@ static inline bool vz_isTrackingObject(const char* className)
     if ([clznameStr hasPrefix:vz_tracking_classPrefix]) {
         ret = true;
     }
+    
+    if([clznameStr isEqualToString:@"NSAutoreleasePool"])
+    {
+        ret = false;
+    }
+    
     return ret;
 }
 
@@ -86,11 +96,6 @@ static inline bool vz_isTrackingObject(const char* className)
         instance = [VZHeapInspector new];
     });
     return instance;
-}
-
-+ (void)trackObjectsWithPrefix:(NSString* )prefix
-{
-    vz_tracking_classPrefix = prefix;
 }
 
 
@@ -131,31 +136,28 @@ static inline bool vz_isTrackingObject(const char* className)
     
 }
 
-
-+ (NSSet* )livingObjects
++ (NSString* )classPrefixName
 {
-    NSMutableSet* ret = [NSMutableSet set];
-    [self startTrackingHeapObjects:^(id obj, __unsafe_unretained Class clz) {
-        
-        NSString *string = [NSString stringWithFormat:@"%@: %p",clz,obj];
-        [ret addObject:string];
-        
-    }];
-    return ret;
+    return vz_tracking_classPrefix;
+}
++ (void)setClassPrefixName:(NSString* )name
+{
+    vz_tracking_classPrefix = name;
 }
 
-+ (NSSet* )livingObjectsWithPrefix
++ (NSSet* )livingObjectsWithClassPrefix:(NSString *)prefix
 {
+    if (prefix.length == 0) {
+        return nil;
+    }
+    else
+        vz_tracking_classPrefix = prefix;
+    
     NSMutableSet* ret = [NSMutableSet set];
     [self startTrackingHeapObjects:^(id obj, __unsafe_unretained Class clz) {
-        
-        const char* clzname = object_getClassName(obj);
-        
-        if (vz_isTrackingObject(clzname))
-        {
-            NSString *string = [NSString stringWithFormat:@"%@: %p",clz,obj];
-            [ret addObject:string];
-        }
+  
+        NSString *string = [NSString stringWithFormat:@"%@: %p",clz,obj];
+        [ret addObject:string];
         
     }];
     

@@ -9,9 +9,16 @@
 #import "VZInspector.h"
 #import "VZInspectorOverlay.h"
 #import "VZInspectorWindow.h"
+#import "VZHeapInspector.h"
+#import "VZCrashInspector.h"
+#import "VZOverviewInspector.h"
 
 @implementation VZInspector
 
++ (void)showOnStatusBar
+{
+    [VZInspectorOverlay show];
+}
 + (BOOL)isShow
 {
     return ![VZInspectorWindow sharedInstance].hidden;
@@ -28,4 +35,20 @@
     
 }
 
++ (void)setClassPrefixName:(NSString *)name
+{
+    [VZHeapInspector setClassPrefixName:name];
+}
+
++ (void)setShouldHandleCrash:(BOOL)b
+{
+    if (b) {
+        [[VZCrashInspector sharedInstance] install];
+    }
+    
+}
++ (void)setObserveCallback:(NSString* (^)(void)) callback;
+{
+    [VZOverviewInspector sharedInstance].observingCallback = callback;
+}
 @end
