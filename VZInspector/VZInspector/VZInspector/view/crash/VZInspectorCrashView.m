@@ -3,7 +3,7 @@
 //  VZInspector
 //
 //  Created by moxin.xt on 14-11-26.
-//  Copyright (c) 2014年 VizLabe. All rights reserved.
+//  Copyright (c) 2014年 VizLab. All rights reserved.
 //
 
 #import "VZInspectorCrashView.h"
@@ -37,9 +37,8 @@
         [self.backBtn setTitle:@"<-" forState:UIControlStateNormal];
         [self.backBtn setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
         self.backBtn.titleLabel.font = [UIFont systemFontOfSize:18.0f];
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wundeclared-selector"
-        [self.backBtn addTarget:self.parentViewController action:@selector(onBack) forControlEvents:UIControlEventTouchUpInside];
+
+        [self.backBtn addTarget:self action:@selector(onBack) forControlEvents:UIControlEventTouchUpInside];
 #pragma clang diagnostic pop
         [self addSubview:self.backBtn];
         
@@ -52,53 +51,62 @@
         _crashLogs.indicatorStyle = 0;
         _crashLogs.editable = NO;
         _crashLogs.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-//        _crashLogs.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.6f];
         _crashLogs.backgroundColor = [UIColor clearColor];
         _crashLogs.layer.borderColor = [UIColor colorWithWhite:0.5f alpha:1.0f].CGColor;
         _crashLogs.layer.borderWidth = 2.0f;
         [self addSubview:_crashLogs];
         
-        NSDictionary* logs = [VZCrashInspector sharedInstance].crashReport;
-        
-        NSString* header = @"crashes comes from => VZCrashInspector";
-        header = [header stringByAppendingString:@"\n--------------------------------------\n"];
-        _crashLogs.text = header;
-        
-        if (logs) {
-            
-            NSString* date = logs[@"date"];
-            _crashLogs.text = [_crashLogs.text stringByAppendingString:[[@"> date :"stringByAppendingString:date] stringByAppendingString:@"\n"]];
-            
-            NSDictionary* info = logs[@"info"];
-            
-            //reason
-            NSString* reason = info[@"reason"];
-            _crashLogs.text = [[[_crashLogs.text stringByAppendingString:@"> reason: "] stringByAppendingString:reason] stringByAppendingString:@"\n"];
-            
-            //name
-            NSString* name = info[@"name"];
-            _crashLogs.text = [[[_crashLogs.text stringByAppendingString:@"> name: "] stringByAppendingString:name] stringByAppendingString:@"\n"];
-            
-            //call stack
-            NSArray* callStack  = info[@"callStack"];
-            //过滤出有用的信息：
-            NSMutableArray* sublist = [NSMutableArray new];
-            NSString* mark = @"]";
-            [callStack enumerateObjectsUsingBlock:^(NSString* obj, NSUInteger idx, BOOL *stop) {
-                
-                if ([obj rangeOfString:mark].location != NSNotFound) {
-                    [sublist addObject:obj];
-                }
-            }];
-            
-            _crashLogs.text = [[[_crashLogs.text stringByAppendingString:@"> callStack: \n"] stringByAppendingString:[NSString stringWithFormat:@"%@",sublist]] stringByAppendingString:@"\n"];
-            
-        }
-        
-        
-        
     }
     return self;
+}
+
+- (void)setPath:(NSString *)path
+{
+    _path = path;
+    
+    NSDictionary* logs = [[VZCrashInspector sharedInstance] crashForKey:path];
+    
+    NSString* header = @"crashes comes from => VZCrashInspector";
+    header = [header stringByAppendingString:@"\n--------------------------------------\n"];
+    _crashLogs.text = header;
+    
+    if (logs) {
+        
+        NSString* date = logs[@"date"];
+        _crashLogs.text = [_crashLogs.text stringByAppendingString:[[@"> date :"stringByAppendingString:date] stringByAppendingString:@"\n"]];
+        
+        NSDictionary* info = logs[@"info"];
+        
+        //reason
+        NSString* reason = info[@"reason"];
+        _crashLogs.text = [[[_crashLogs.text stringByAppendingString:@"> reason: "] stringByAppendingString:reason] stringByAppendingString:@"\n"];
+        
+        //name
+        NSString* name = info[@"name"];
+        _crashLogs.text = [[[_crashLogs.text stringByAppendingString:@"> name: "] stringByAppendingString:name] stringByAppendingString:@"\n"];
+        
+        //call stack
+        NSArray* callStack  = info[@"callStack"];
+        //过滤出有用的信息：
+        NSMutableArray* sublist = [NSMutableArray new];
+        NSString* mark = @"]";
+        [callStack enumerateObjectsUsingBlock:^(NSString* obj, NSUInteger idx, BOOL *stop) {
+            
+            if ([obj rangeOfString:mark].location != NSNotFound) {
+                [sublist addObject:obj];
+            }
+        }];
+        
+        _crashLogs.text = [[[_crashLogs.text stringByAppendingString:@"> callStack: \n"] stringByAppendingString:[NSString stringWithFormat:@"%@",sublist]] stringByAppendingString:@"\n"];
+        
+    }
+}
+
+- (void)onBack
+{
+    if (self.delegate) {
+        [self.delegate onBack];
+    }
 }
 
 

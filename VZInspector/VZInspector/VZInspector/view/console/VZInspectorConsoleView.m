@@ -45,7 +45,7 @@
         [self addSubview:_consoleView];
         
         
-        _inputField = [[UITextField alloc] initWithFrame:CGRectMake(10,frame.size.height - 28 - 10 ,300,28)];
+        _inputField = [[UITextField alloc] initWithFrame:CGRectMake(10,frame.size.height - 28 - 10 ,frame.size.width-20,28)];
         _inputField.borderStyle = UITextBorderStyleRoundedRect;
         _inputField.font = [UIFont fontWithName:@"Courier" size:12];
         _inputField.autocapitalizationType = UITextAutocapitalizationTypeNone;
@@ -175,7 +175,7 @@
     {
         //[self log:[TBCityGlobal version]];
     }
-    else if ([text isEqualToString:@"show_grid"])
+    else if ([text isEqualToString:@"grid"])
     {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wundeclared-selector"
@@ -183,30 +183,33 @@
 #pragma clang diagnostic pop
     
     }
-    else if ([text isEqualToString:@"show_border"])
+    else if ([text isEqualToString:@"border"])
     {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wundeclared-selector"
         [self.parentViewController performSelector:@selector(showBorder) withObject:nil];
 #pragma clang diagnostic pop
     }
-    else if ([text isEqualToString:@"show_crashes"])
+    else if ([text isEqualToString:@"crash"])
     {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wundeclared-selector"
         [self.parentViewController performSelector:@selector(showCrashLogs) withObject:nil];
 #pragma clang diagnostic pop
     }
-    else if ([text isEqualToString:@"show_heap"])
+    else if ([text isEqualToString:@"heap"])
     {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wundeclared-selector"
         [self.parentViewController performSelector:@selector(showHeap) withObject:nil];
 #pragma clang diagnostic pop
     }
-    else if ([text isEqualToString:@"show_sandbox"])
+    else if ([text isEqualToString:@"sandbox"])
     {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wundeclared-selector"
         [self.parentViewController performSelector:@selector(showSandBox) withObject:nil];
+#pragma clang diagnostic pop
     }
     else if ([text isEqualToString:@"mw on"])
     {
@@ -220,7 +223,7 @@
 
     else if ([text isEqualToString:@"help"])
     {
-        [self log:@"try:\n exit \n version \n show_grid \n show_border \n show_crashes \n show_heap \n mw on \n mw off \n"];
+        [self log:@"try:\n exit \n version \n grid \n border \n crashes \n heap \n mw on \n mw off \n"];
         
     }
     else

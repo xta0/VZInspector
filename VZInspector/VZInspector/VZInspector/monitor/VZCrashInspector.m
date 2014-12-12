@@ -3,7 +3,7 @@
 //  VZInspector
 //
 //  Created by moxin.xt on 14-9-23.
-//  Copyright (c) 2014年 VizLabe. All rights reserved.
+//  Copyright (c) 2014年 VizLab. All rights reserved.
 //
 
 #import "VZCrashInspector.h"
@@ -40,8 +40,7 @@ void HandleException(NSException *exception)
 
 void SignalHandler(int signal)
 {
-    //[[ETCrashHandler sharedInstance] saveSignal:signal];
-    //raise( signal );
+
 }
 
 + (NSArray *)backtrace
@@ -72,7 +71,7 @@ void SignalHandler(int signal)
         NSString* sandBoxPath  = [paths objectAtIndex:0];
         
     
-        _crashLogPath = [sandBoxPath stringByAppendingPathComponent:@"ETCrashLog"];
+        _crashLogPath = [sandBoxPath stringByAppendingPathComponent:@"VZCrashLog"];
         
         if ( NO == [[NSFileManager defaultManager] fileExistsAtPath:_crashLogPath] )
         {
@@ -93,21 +92,32 @@ void SignalHandler(int signal)
     return self;
 }
 
-- (void)printCrashReport
+- (NSDictionary* )crashForKey:(NSString *)key
 {
-    NSLog(@"///////////Crash_Report//////////////////");
+    NSString* filePath = [[_crashLogPath stringByAppendingPathComponent:key] stringByAppendingString:@".plist"];
+    NSDictionary* dict = [NSDictionary dictionaryWithContentsOfFile:filePath];
     
+    return dict;
+}
+
+- (NSArray* )crashPlist
+{
+    return [_plist copy];
+}
+
+- (NSArray* )crashLogs
+{
+    NSMutableArray* ret = [NSMutableArray new];
     for (NSString* key in _plist) {
         
         NSString* filePath = [_crashLogPath stringByAppendingPathComponent:key];
-        
-        NSDictionary* dict = [NSDictionary dictionaryWithContentsOfFile:filePath];
-        
-        NSLog(@"%@",dict);
+        NSString* path = [filePath stringByAppendingString:@".plist"];
+        NSDictionary* log = [NSDictionary dictionaryWithContentsOfFile:path];
+        [ret addObject:log];
     }
-    
-    NSLog(@"/////////////////////////////////////////");
+    return [ret copy];
 }
+
 
 - (NSDictionary* )crashReport
 {
@@ -202,7 +212,7 @@ void SignalHandler(int signal)
     [dict setObject:dateString forKey:@"date"];
     
     //save path
-    NSString* savePath = [_crashLogPath stringByAppendingPathComponent:dateString];
+    NSString* savePath = [[_crashLogPath stringByAppendingPathComponent:dateString] stringByAppendingString:@".plist"];
     
     //save to disk
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{

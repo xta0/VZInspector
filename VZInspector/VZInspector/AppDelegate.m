@@ -21,6 +21,7 @@
     // Override point for customization after application launch.
     
     [VZInspector setClassPrefixName:@"VZ"];
+    [VZInspector setShouldHandleCrash:true];
     [VZInspector setObserveCallback:^NSString *{
        
         NSString* v = [NSString stringWithFormat:@"System Ver:%@\n",[UIDevice currentDevice].systemVersion];

@@ -3,7 +3,7 @@
 //  VZInspector
 //
 //  Created by moxin.xt on 14-9-23.
-//  Copyright (c) 2014年 VizLabe. All rights reserved.
+//  Copyright (c) 2014年 VizLab. All rights reserved.
 //
 
 #import "VZInspector.h"
@@ -13,7 +13,7 @@
 #import "VZInspectorOverlay.h"
 
 #import "VZInspectorLogView.h"
-#import "VZInspectorCrashView.h"
+#import "VZInspectorCrashRootView.h"
 #import "VZInspectorSettingView.h"
 #import "VZInspectorConsoleView.h"
 #import "VZInspectorGridView.h"
@@ -202,7 +202,7 @@
     else if (self.currentView.class == [VZInspectorLogView class]
              ||self.currentView.class == [VZInspectorSandBoxRootView class]
              ||self.currentView.class == [VZInspectorHeapView class]
-             ||self.currentView.class == [VZInspectorCrashView class]
+             ||self.currentView.class == [VZInspectorCrashRootView class]
              )
     {
         return NO;
@@ -435,7 +435,7 @@
 
 - (void)showCrashLogs
 {
-    VZInspectorCrashView* crashView = [[VZInspectorCrashView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) parentViewController:self];
+    VZInspectorCrashRootView* crashView = [[VZInspectorCrashRootView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) parentViewController:self];
     
     [UIView transitionFromView:self.contentView toView:crashView
                       duration:0.4 options:UIViewAnimationOptionTransitionFlipFromLeft

@@ -128,6 +128,7 @@
     [super viewWillAppear:animated];
     
     //todo..
+    //    [@"1" stringByAppendingString:nil];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -142,6 +143,7 @@
     [super viewWillDisappear:animated];
     
     //todo..
+
 }
 
 - (void)viewDidDisappear:(BOOL)animated

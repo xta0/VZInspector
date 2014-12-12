@@ -3,11 +3,24 @@
 //  VZInspector
 //
 //  Created by moxin.xt on 14-11-26.
-//  Copyright (c) 2014年 VizLabe. All rights reserved.
+//  Copyright (c) 2014年 VizLab. All rights reserved.
 //
 
 #import "VZInspectorView.h"
 
-@interface VZInspectorCrashView : VZInspectorView
+@protocol VZInspectorCrashViewCallBackProtocol  <NSObject>
+
+@optional
+- (void)onBack;
+
+
+@end
+
+
+@interface VZInspectorCrashView : UIView
+
+@property(nonatomic,weak) id<VZInspectorCrashViewCallBackProtocol> delegate;
+@property(nonatomic,strong) NSString* path;
+
 
 @end
