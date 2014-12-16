@@ -72,15 +72,15 @@ static void (*g_sendEvent)(id,SEL,UIEvent* );
                 
                 if (touch.tapCount == 1)
                 {
-                    UIWindow* keywindow = [UIApplication sharedApplication].keyWindow;
+                    UIWindow* appWnd = [UIApplication sharedApplication].delegate.window;
                     
-                    if (keywindow == self)
+                    if (appWnd == self)
                     {
                         switch (touch.phase) {
                                 
                             case UITouchPhaseBegan:
                             {
-                                NSLog( @"view '%@', touch began\n%@", [[touch.view class] description], [touch.view description] );
+                                //NSLog( @"view '%@', touch began\n%@", [[touch.view class] description], [touch.view description] );
                                 
                                 UIView* border = [[UIView alloc]initWithFrame:CGRectMake(0, 0, touch.view.bounds.size.width, touch.view.bounds.size.height)];
                                 border.layer.borderColor = [UIColor redColor].CGColor;

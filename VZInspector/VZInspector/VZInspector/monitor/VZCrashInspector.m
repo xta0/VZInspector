@@ -220,10 +220,10 @@ void SignalHandler(int signal)
         BOOL succeed = [ dict writeToFile:savePath atomically:YES];
         if ( NO == succeed )
         {
-            NSLog(@"【save crash report failed!】");
+            NSLog(@"VZInspector:Save crash report failed!");
         }
         else
-            NSLog(@"【save crash report succeed!】");
+            NSLog(@"VZInspector:save crash report succeed!");
         
         [_plist addObject:dateString];
         [_plist writeToFile:[_crashLogPath stringByAppendingPathComponent:@"crashLog.plist"] atomically:YES];

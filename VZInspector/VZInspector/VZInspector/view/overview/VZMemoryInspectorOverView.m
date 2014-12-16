@@ -86,7 +86,7 @@ const int kThreshHold = 60.0f;
 
 - (void)dealloc
 {
-    NSLog(@"[%@]-->dealloc",self.class);
+    //NSLog(@"[%@]-->dealloc",self.class);
 }
 
 - (void)handleRead
