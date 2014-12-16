@@ -8,6 +8,8 @@
 
 #import "VZNetworkInspector.h"
 #import "NSObject+VZInspector.h"
+#import "VZLogInspector.h"
+
 
 @interface VZNetworkInspector()
 
@@ -33,8 +35,8 @@
     
     if (self) {
         
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onRequestReceived:) name:@"VZRequestLog" object:nil];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onRequestFinished:) name:@"VZResponseLog" object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onRequestReceived:) name:[VZLogInspector requestLogIdentifier] object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onRequestFinished:) name:[VZLogInspector responseLogIdentifier]object:nil];
         
         
     }

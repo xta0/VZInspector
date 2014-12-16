@@ -7,6 +7,8 @@
 //
 
 #import "VZInspectorLogView.h"
+#import "VZLogInspector.h"
+
 
 @interface VZInspectorLogView()
 
@@ -80,8 +82,8 @@
         [self addSubview:responseClearBtn];
         
         
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(requestLog:) name:@"VZRequestLog" object:nil];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(responseLog:) name:@"VZResponseLog" object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(requestLog:) name:[VZLogInspector requestLogIdentifier] object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(responseLog:) name:[VZLogInspector responseLogIdentifier] object:nil];
         
         
         [self setText:1];
@@ -93,7 +95,8 @@
 
 - (void)requestLog:(NSNotification* )notify
 {
-    NSURL* message = notify.userInfo[@"url"];
+    NSString* urlpath = [VZLogInspector requestLogURLPath];
+    NSURL* message = notify.userInfo[urlpath];
     
     if ([message isEqual:[NSNull null]]) {
         return;
@@ -122,11 +125,13 @@
 
 - (void)responseLog:(NSNotification* )notify
 {
-    NSString*  json = notify.userInfo[@"json"];
+    NSString* response = [VZLogInspector responseLogStringPath];
+    NSString*  json = notify.userInfo[response];
     
     if (json.length> 0 ) {
         
-        id error = notify.userInfo[@"error"];
+        NSString* errorpath = [VZLogInspector responseLogErrorPath];
+        id error = notify.userInfo[errorpath];
         
         if (error) {
             json = [@"请求失败:" stringByAppendingString:json];

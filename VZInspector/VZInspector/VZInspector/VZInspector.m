@@ -12,6 +12,9 @@
 #import "VZHeapInspector.h"
 #import "VZCrashInspector.h"
 #import "VZOverviewInspector.h"
+#import "VZSettingInspector.h"
+#import "VZLogInspector.h"
+
 
 @implementation VZInspector
 
@@ -51,4 +54,34 @@
 {
     [VZOverviewInspector sharedInstance].observingCallback = callback;
 }
+
++ (void)setRequestLogNotificationIdentifier:(NSString* )identifier urlKey:(NSString* )url;
+{
+    [VZLogInspector setRequestLogIdentifier:identifier];
+    [VZLogInspector setRequestLogURLPath:url];
+    
+}
+
++ (void)setResponseLogNotificationIdentifier:(NSString *)identifier responseKey:(NSString *)response errorKey:(NSString *)error
+{
+    [VZLogInspector setResponseLogIdentifier:identifier];
+    [VZLogInspector setResponseLogStringPath:response];
+    [VZLogInspector setResponseLogErrorPath:error];
+}
+
++ (void)setDevAPIEnvCallback:(void(^)(void))callback
+{
+    [VZSettingInspector sharedInstance].apiDevCallback = callback;
+}
+
++ (void)setTestAPIEnvCallback:(void(^)(void))callback
+{
+    [VZSettingInspector sharedInstance].apiTestCallback = callback;
+}
+
++ (void)setProductionAPIEnvCallback:(void(^)(void))callback
+{
+    [VZSettingInspector sharedInstance].apiProductionCallback = callback;
+}
+
 @end

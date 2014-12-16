@@ -28,7 +28,7 @@
     self.tableView.dataSource = self;
     [self.view addSubview:self.tableView];
     
-    [[[NSURLSession sharedSession] dataTaskWithURL:[NSURL URLWithString:@"http://106.186.20.246:3000/statuses.json"] completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+    [[[NSURLSession sharedSession] dataTaskWithURL:[NSURL URLWithString:@"http://106.186.20.246:2000/statuses.json"] completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
        
         NSArray* list = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
         

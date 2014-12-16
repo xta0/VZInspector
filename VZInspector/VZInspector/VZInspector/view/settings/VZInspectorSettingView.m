@@ -7,6 +7,8 @@
 //
 
 #import "VZInspectorSettingView.h"
+#import "VZSettingInspector.h"
+
 
 @implementation VZInspectorSettingView
 
@@ -15,9 +17,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code
-        //4:tab
-#ifdef DEBUG
+
         for (int i=0; i<3; i++) {
             
             UIButton* btn = [[UIButton alloc]initWithFrame:CGRectMake(frame.size.width/3*i, 0, frame.size.width/3, 40)];
@@ -33,23 +33,21 @@
             
             if (i==0) {
                 [btn setTitle:@"线上" forState:UIControlStateNormal];
+                
+            
             }
             if (i==1) {
                 [btn setTitle:@"预发" forState:UIControlStateNormal];
+            
             }
             if (i==2) {
                 [btn setTitle:@"日常" forState:UIControlStateNormal];
+       
             }
             
-            
-//            int e = [TBCityGlobal apiEnv];
-//            if (i==e) {
-//                [btn setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
-//            }
             [self addSubview:btn];
             
         }
-#endif
     }
     
     return self;
@@ -71,20 +69,27 @@
         case 0:
         {
             //todo:
-   
+            if ([VZSettingInspector sharedInstance].apiProductionCallback) {
+                [VZSettingInspector sharedInstance].apiProductionCallback();
+            }
             
             break;
         }
         case 1:
         {
             //todo:
+            if ([VZSettingInspector sharedInstance].apiTestCallback) {
+                [VZSettingInspector sharedInstance].apiTestCallback();
+            }
 
             break;
         }
         case 2:
         {
             //todo:
-            //登录
+            if ([VZSettingInspector sharedInstance].apiDevCallback) {
+                [VZSettingInspector sharedInstance].apiDevCallback();
+            }
      
             break;
         }

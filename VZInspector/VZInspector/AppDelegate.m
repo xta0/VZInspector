@@ -3,7 +3,7 @@
 //  VZInspector
 //
 //  Created by moxin.xt on 14-9-23.
-//  Copyright (c) 2014年 VizLabe. All rights reserved.
+//  Copyright (c) 2014年 VizLab. All rights reserved.
 //
 
 #import "AppDelegate.h"
@@ -31,6 +31,8 @@
        
         return ret;
     }];
+    [VZInspector setRequestLogNotificationIdentifier:@"VZRequestLog" urlKey:@"url"];
+    [VZInspector setResponseLogNotificationIdentifier:@"VZResponseLog" responseKey:@"json" errorKey:@"error"];
     
     [VZInspector showOnStatusBar];
     

@@ -223,7 +223,7 @@
 
     else if ([text isEqualToString:@"help"])
     {
-        [self log:@"try:\n exit \n version \n grid \n border \n crashes \n heap \n mw on \n mw off \n"];
+        [self log:@"try:\n exit \n sandbox \n grid \n border \n crashes \n heap \n mw on \n mw off \n"];
         
     }
     else

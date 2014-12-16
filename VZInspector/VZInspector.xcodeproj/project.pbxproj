@@ -66,6 +66,8 @@
 		AF1A3B3E1A345927003C38E8 /* UIProgressView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1A3B291A345927003C38E8 /* UIProgressView+AFNetworking.m */; };
 		AF1A3B3F1A345927003C38E8 /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1A3B2B1A345927003C38E8 /* UIRefreshControl+AFNetworking.m */; };
 		AF1A3B401A345927003C38E8 /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1A3B2D1A345927003C38E8 /* UIWebView+AFNetworking.m */; };
+		AF6BE85E1A3FE132000CF41E /* VZSettingInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6BE85D1A3FE132000CF41E /* VZSettingInspector.m */; };
+		AF6BE8611A3FFB46000CF41E /* VZLogInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6BE8601A3FFB46000CF41E /* VZLogInspector.m */; };
 		AFA10F611A261A440071F5A5 /* VZHeapInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA10F601A261A440071F5A5 /* VZHeapInspector.m */; };
 		AFA10F721A261C280071F5A5 /* VZInspectorLogView.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA10F711A261C280071F5A5 /* VZInspectorLogView.m */; };
 		AFA10F751A261C450071F5A5 /* VZInspectorCrashView.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA10F741A261C450071F5A5 /* VZInspectorCrashView.m */; };
@@ -220,6 +222,10 @@
 		AF1A3B2B1A345927003C38E8 /* UIRefreshControl+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIRefreshControl+AFNetworking.m"; sourceTree = "<group>"; };
 		AF1A3B2C1A345927003C38E8 /* UIWebView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+AFNetworking.h"; sourceTree = "<group>"; };
 		AF1A3B2D1A345927003C38E8 /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
+		AF6BE85C1A3FE132000CF41E /* VZSettingInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZSettingInspector.h; sourceTree = "<group>"; };
+		AF6BE85D1A3FE132000CF41E /* VZSettingInspector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZSettingInspector.m; sourceTree = "<group>"; };
+		AF6BE85F1A3FFB46000CF41E /* VZLogInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZLogInspector.h; sourceTree = "<group>"; };
+		AF6BE8601A3FFB46000CF41E /* VZLogInspector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZLogInspector.m; sourceTree = "<group>"; };
 		AFA10F5F1A261A440071F5A5 /* VZHeapInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZHeapInspector.h; sourceTree = "<group>"; };
 		AFA10F601A261A440071F5A5 /* VZHeapInspector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZHeapInspector.m; sourceTree = "<group>"; };
 		AFA10F701A261C280071F5A5 /* VZInspectorLogView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorLogView.h; sourceTree = "<group>"; };
@@ -741,6 +747,10 @@
 				AFA10F601A261A440071F5A5 /* VZHeapInspector.m */,
 				AF1A3A041A33370F003C38E8 /* VZOverviewInspector.h */,
 				AF1A3A051A33370F003C38E8 /* VZOverviewInspector.m */,
+				AF6BE85C1A3FE132000CF41E /* VZSettingInspector.h */,
+				AF6BE85D1A3FE132000CF41E /* VZSettingInspector.m */,
+				AF6BE85F1A3FFB46000CF41E /* VZLogInspector.h */,
+				AF6BE8601A3FFB46000CF41E /* VZLogInspector.m */,
 			);
 			path = monitor;
 			sourceTree = "<group>";
@@ -969,9 +979,11 @@
 				AF1A3B391A345927003C38E8 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				AFA10F901A270FA60071F5A5 /* VZInspectorHeapView.m in Sources */,
 				AF1A3AAB1A343CE6003C38E8 /* VLLineListModel.m in Sources */,
+				AF6BE85E1A3FE132000CF41E /* VZSettingInspector.m in Sources */,
 				AFA942AB1A3AEF4A0075EC01 /* VZInspectorCrashRootView.m in Sources */,
 				AFF5AF9C19D14E9B00265FF1 /* VZInspectorOverlay.m in Sources */,
 				AF1A3B2E1A345927003C38E8 /* AFHTTPRequestOperation.m in Sources */,
+				AF6BE8611A3FFB46000CF41E /* VZLogInspector.m in Sources */,
 				AF1A3B311A345927003C38E8 /* AFNetworkReachabilityManager.m in Sources */,
 				AF1A3A561A3420F4003C38E8 /* VZTemplate.m in Sources */,
 				AF1A3A431A3420F4003C38E8 /* NSObject+VZChannel.m in Sources */,
