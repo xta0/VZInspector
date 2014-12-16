@@ -15,57 +15,6 @@
 		AF0FC51B19D11C66009CCBE4 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF0FC51919D11C66009CCBE4 /* LaunchScreen.xib */; };
 		AF0FC52719D11C66009CCBE4 /* VZInspectorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AF0FC52619D11C66009CCBE4 /* VZInspectorTests.m */; };
 		AF1A3A061A33370F003C38E8 /* VZOverviewInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1A3A051A33370F003C38E8 /* VZOverviewInspector.m */; };
-		AF1A3A421A3420F4003C38E8 /* VZAFRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1A3A0A1A3420F4003C38E8 /* VZAFRequest.m */; };
-		AF1A3A431A3420F4003C38E8 /* NSObject+VZChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1A3A0D1A3420F4003C38E8 /* NSObject+VZChannel.m */; };
-		AF1A3A441A3420F4003C38E8 /* VZChannel.mm in Sources */ = {isa = PBXBuildFile; fileRef = AF1A3A0F1A3420F4003C38E8 /* VZChannel.mm */; };
-		AF1A3A451A3420F4003C38E8 /* VZListViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1A3A141A3420F4003C38E8 /* VZListViewDataSource.m */; };
-		AF1A3A461A3420F4003C38E8 /* VZListViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1A3A171A3420F4003C38E8 /* VZListViewDelegate.m */; };
-		AF1A3A471A3420F4003C38E8 /* VZListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1A3A191A3420F4003C38E8 /* VZListViewController.m */; };
-		AF1A3A481A3420F4003C38E8 /* VZViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1A3A1B1A3420F4003C38E8 /* VZViewController.m */; };
-		AF1A3A491A3420F4003C38E8 /* VZListDefaultTextItem.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1A3A1F1A3420F4003C38E8 /* VZListDefaultTextItem.m */; };
-		AF1A3A4A1A3420F4003C38E8 /* VZListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1A3A211A3420F4003C38E8 /* VZListItem.m */; };
-		AF1A3A4B1A3420F4003C38E8 /* VZItem.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1A3A231A3420F4003C38E8 /* VZItem.m */; };
-		AF1A3A4C1A3420F4003C38E8 /* VZViewControllerLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1A3A261A3420F4003C38E8 /* VZViewControllerLogic.m */; };
-		AF1A3A4D1A3420F4003C38E8 /* VZHTTPListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1A3A291A3420F4003C38E8 /* VZHTTPListModel.m */; };
-		AF1A3A4E1A3420F4003C38E8 /* VZHTTPModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1A3A2B1A3420F4003C38E8 /* VZHTTPModel.m */; };
-		AF1A3A4F1A3420F4003C38E8 /* VZHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1A3A2D1A3420F4003C38E8 /* VZHTTPRequest.m */; };
-		AF1A3A501A3420F4003C38E8 /* VZModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1A3A2F1A3420F4003C38E8 /* VZModel.m */; };
-		AF1A3A511A3420F4003C38E8 /* VZFooterViewFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1A3A331A3420F4003C38E8 /* VZFooterViewFactory.m */; };
-		AF1A3A521A3420F4003C38E8 /* VZListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1A3A351A3420F4003C38E8 /* VZListCell.m */; };
-		AF1A3A531A3420F4003C38E8 /* VZListDefaultErrorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1A3A371A3420F4003C38E8 /* VZListDefaultErrorCell.m */; };
-		AF1A3A541A3420F4003C38E8 /* VZListDefaultLoadingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1A3A391A3420F4003C38E8 /* VZListDefaultLoadingCell.m */; };
-		AF1A3A551A3420F4003C38E8 /* VZListDefaultTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1A3A3B1A3420F4003C38E8 /* VZListDefaultTextCell.m */; };
-		AF1A3A561A3420F4003C38E8 /* VZTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1A3A3D1A3420F4003C38E8 /* VZTemplate.m */; };
-		AF1A3A571A3420F4003C38E8 /* VZView.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1A3A3F1A3420F4003C38E8 /* VZView.m */; };
-		AF1A3AA41A343CE6003C38E8 /* VLLineListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1A3A891A343CE6003C38E8 /* VLLineListCell.m */; };
-		AF1A3AA51A343CE6003C38E8 /* line_meta.json in Resources */ = {isa = PBXBuildFile; fileRef = AF1A3A8B1A343CE6003C38E8 /* line_meta.json */; };
-		AF1A3AA61A343CE6003C38E8 /* VLLineListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1A3A8F1A343CE6003C38E8 /* VLLineListViewController.m */; };
-		AF1A3AA71A343CE6003C38E8 /* VLLineListViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1A3A921A343CE6003C38E8 /* VLLineListViewDataSource.m */; };
-		AF1A3AA81A343CE6003C38E8 /* VLLineListViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1A3A951A343CE6003C38E8 /* VLLineListViewDelegate.m */; };
-		AF1A3AA91A343CE6003C38E8 /* VLLineListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1A3A981A343CE6003C38E8 /* VLLineListItem.m */; };
-		AF1A3AAA1A343CE6003C38E8 /* VLLineLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1A3A9B1A343CE6003C38E8 /* VLLineLogic.m */; };
-		AF1A3AAB1A343CE6003C38E8 /* VLLineListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1A3A9E1A343CE6003C38E8 /* VLLineListModel.m */; };
-		AF1A3AB11A343D20003C38E8 /* VLLineListModelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1A3AAF1A343D20003C38E8 /* VLLineListModelTest.m */; };
-		AF1A3AB21A343D20003C38E8 /* VLLineLogicTest.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1A3AB01A343D20003C38E8 /* VLLineLogicTest.m */; };
-		AF1A3B2E1A345927003C38E8 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1A3B081A345927003C38E8 /* AFHTTPRequestOperation.m */; };
-		AF1A3B2F1A345927003C38E8 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1A3B0A1A345927003C38E8 /* AFHTTPRequestOperationManager.m */; };
-		AF1A3B301A345927003C38E8 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1A3B0C1A345927003C38E8 /* AFHTTPSessionManager.m */; };
-		AF1A3B311A345927003C38E8 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1A3B0F1A345927003C38E8 /* AFNetworkReachabilityManager.m */; };
-		AF1A3B321A345927003C38E8 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1A3B111A345927003C38E8 /* AFSecurityPolicy.m */; };
-		AF1A3B331A345927003C38E8 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1A3B131A345927003C38E8 /* AFURLConnectionOperation.m */; };
-		AF1A3B341A345927003C38E8 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1A3B151A345927003C38E8 /* AFURLRequestSerialization.m */; };
-		AF1A3B351A345927003C38E8 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1A3B171A345927003C38E8 /* AFURLResponseSerialization.m */; };
-		AF1A3B361A345927003C38E8 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1A3B191A345927003C38E8 /* AFURLSessionManager.m */; };
-		AF1A3B371A345927003C38E8 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = AF1A3B1A1A345927003C38E8 /* LICENSE */; };
-		AF1A3B381A345927003C38E8 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = AF1A3B1B1A345927003C38E8 /* README.md */; };
-		AF1A3B391A345927003C38E8 /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1A3B1E1A345927003C38E8 /* AFNetworkActivityIndicatorManager.m */; };
-		AF1A3B3A1A345927003C38E8 /* UIActivityIndicatorView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1A3B201A345927003C38E8 /* UIActivityIndicatorView+AFNetworking.m */; };
-		AF1A3B3B1A345927003C38E8 /* UIAlertView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1A3B221A345927003C38E8 /* UIAlertView+AFNetworking.m */; };
-		AF1A3B3C1A345927003C38E8 /* UIButton+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1A3B241A345927003C38E8 /* UIButton+AFNetworking.m */; };
-		AF1A3B3D1A345927003C38E8 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1A3B261A345927003C38E8 /* UIImageView+AFNetworking.m */; };
-		AF1A3B3E1A345927003C38E8 /* UIProgressView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1A3B291A345927003C38E8 /* UIProgressView+AFNetworking.m */; };
-		AF1A3B3F1A345927003C38E8 /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1A3B2B1A345927003C38E8 /* UIRefreshControl+AFNetworking.m */; };
-		AF1A3B401A345927003C38E8 /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1A3B2D1A345927003C38E8 /* UIWebView+AFNetworking.m */; };
 		AF6BE85E1A3FE132000CF41E /* VZSettingInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6BE85D1A3FE132000CF41E /* VZSettingInspector.m */; };
 		AF6BE8611A3FFB46000CF41E /* VZLogInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6BE8601A3FFB46000CF41E /* VZLogInspector.m */; };
 		AFA10F611A261A440071F5A5 /* VZHeapInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA10F601A261A440071F5A5 /* VZHeapInspector.m */; };
@@ -120,108 +69,7 @@
 		AF0FC52619D11C66009CCBE4 /* VZInspectorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VZInspectorTests.m; sourceTree = "<group>"; };
 		AF1A3A041A33370F003C38E8 /* VZOverviewInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZOverviewInspector.h; sourceTree = "<group>"; };
 		AF1A3A051A33370F003C38E8 /* VZOverviewInspector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZOverviewInspector.m; sourceTree = "<group>"; };
-		AF1A3A091A3420F4003C38E8 /* VZAFRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZAFRequest.h; sourceTree = "<group>"; };
-		AF1A3A0A1A3420F4003C38E8 /* VZAFRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZAFRequest.m; sourceTree = "<group>"; };
-		AF1A3A0C1A3420F4003C38E8 /* NSObject+VZChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+VZChannel.h"; sourceTree = "<group>"; };
-		AF1A3A0D1A3420F4003C38E8 /* NSObject+VZChannel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+VZChannel.m"; sourceTree = "<group>"; };
-		AF1A3A0E1A3420F4003C38E8 /* VZChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZChannel.h; sourceTree = "<group>"; };
-		AF1A3A0F1A3420F4003C38E8 /* VZChannel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = VZChannel.mm; sourceTree = "<group>"; };
-		AF1A3A131A3420F4003C38E8 /* VZListViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZListViewDataSource.h; sourceTree = "<group>"; };
-		AF1A3A141A3420F4003C38E8 /* VZListViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZListViewDataSource.m; sourceTree = "<group>"; };
-		AF1A3A161A3420F4003C38E8 /* VZListViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZListViewDelegate.h; sourceTree = "<group>"; };
-		AF1A3A171A3420F4003C38E8 /* VZListViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZListViewDelegate.m; sourceTree = "<group>"; };
-		AF1A3A181A3420F4003C38E8 /* VZListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZListViewController.h; sourceTree = "<group>"; };
-		AF1A3A191A3420F4003C38E8 /* VZListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZListViewController.m; sourceTree = "<group>"; };
-		AF1A3A1A1A3420F4003C38E8 /* VZViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZViewController.h; sourceTree = "<group>"; };
-		AF1A3A1B1A3420F4003C38E8 /* VZViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZViewController.m; sourceTree = "<group>"; };
-		AF1A3A1E1A3420F4003C38E8 /* VZListDefaultTextItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZListDefaultTextItem.h; sourceTree = "<group>"; };
-		AF1A3A1F1A3420F4003C38E8 /* VZListDefaultTextItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZListDefaultTextItem.m; sourceTree = "<group>"; };
-		AF1A3A201A3420F4003C38E8 /* VZListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZListItem.h; sourceTree = "<group>"; };
-		AF1A3A211A3420F4003C38E8 /* VZListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZListItem.m; sourceTree = "<group>"; };
-		AF1A3A221A3420F4003C38E8 /* VZItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZItem.h; sourceTree = "<group>"; };
-		AF1A3A231A3420F4003C38E8 /* VZItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZItem.m; sourceTree = "<group>"; };
-		AF1A3A251A3420F4003C38E8 /* VZViewControllerLogic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZViewControllerLogic.h; sourceTree = "<group>"; };
-		AF1A3A261A3420F4003C38E8 /* VZViewControllerLogic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZViewControllerLogic.m; sourceTree = "<group>"; };
-		AF1A3A281A3420F4003C38E8 /* VZHTTPListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZHTTPListModel.h; sourceTree = "<group>"; };
-		AF1A3A291A3420F4003C38E8 /* VZHTTPListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZHTTPListModel.m; sourceTree = "<group>"; };
-		AF1A3A2A1A3420F4003C38E8 /* VZHTTPModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZHTTPModel.h; sourceTree = "<group>"; };
-		AF1A3A2B1A3420F4003C38E8 /* VZHTTPModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZHTTPModel.m; sourceTree = "<group>"; };
-		AF1A3A2C1A3420F4003C38E8 /* VZHTTPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZHTTPRequest.h; sourceTree = "<group>"; };
-		AF1A3A2D1A3420F4003C38E8 /* VZHTTPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZHTTPRequest.m; sourceTree = "<group>"; };
-		AF1A3A2E1A3420F4003C38E8 /* VZModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZModel.h; sourceTree = "<group>"; };
-		AF1A3A2F1A3420F4003C38E8 /* VZModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZModel.m; sourceTree = "<group>"; };
-		AF1A3A321A3420F4003C38E8 /* VZFooterViewFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZFooterViewFactory.h; sourceTree = "<group>"; };
-		AF1A3A331A3420F4003C38E8 /* VZFooterViewFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZFooterViewFactory.m; sourceTree = "<group>"; };
-		AF1A3A341A3420F4003C38E8 /* VZListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZListCell.h; sourceTree = "<group>"; };
-		AF1A3A351A3420F4003C38E8 /* VZListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZListCell.m; sourceTree = "<group>"; };
-		AF1A3A361A3420F4003C38E8 /* VZListDefaultErrorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZListDefaultErrorCell.h; sourceTree = "<group>"; };
-		AF1A3A371A3420F4003C38E8 /* VZListDefaultErrorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZListDefaultErrorCell.m; sourceTree = "<group>"; };
-		AF1A3A381A3420F4003C38E8 /* VZListDefaultLoadingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZListDefaultLoadingCell.h; sourceTree = "<group>"; };
-		AF1A3A391A3420F4003C38E8 /* VZListDefaultLoadingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZListDefaultLoadingCell.m; sourceTree = "<group>"; };
-		AF1A3A3A1A3420F4003C38E8 /* VZListDefaultTextCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZListDefaultTextCell.h; sourceTree = "<group>"; };
-		AF1A3A3B1A3420F4003C38E8 /* VZListDefaultTextCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZListDefaultTextCell.m; sourceTree = "<group>"; };
-		AF1A3A3C1A3420F4003C38E8 /* VZTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZTemplate.h; sourceTree = "<group>"; };
-		AF1A3A3D1A3420F4003C38E8 /* VZTemplate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZTemplate.m; sourceTree = "<group>"; };
-		AF1A3A3E1A3420F4003C38E8 /* VZView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZView.h; sourceTree = "<group>"; };
-		AF1A3A3F1A3420F4003C38E8 /* VZView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZView.m; sourceTree = "<group>"; };
-		AF1A3A411A3420F4003C38E8 /* VizzleConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VizzleConfig.h; sourceTree = "<group>"; };
-		AF1A3A881A343CE6003C38E8 /* VLLineListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VLLineListCell.h; sourceTree = "<group>"; };
-		AF1A3A891A343CE6003C38E8 /* VLLineListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VLLineListCell.m; sourceTree = "<group>"; };
-		AF1A3A8B1A343CE6003C38E8 /* line_meta.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = line_meta.json; sourceTree = "<group>"; };
-		AF1A3A8C1A343CE6003C38E8 /* VLLineConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VLLineConfig.h; sourceTree = "<group>"; };
-		AF1A3A8E1A343CE6003C38E8 /* VLLineListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VLLineListViewController.h; sourceTree = "<group>"; };
-		AF1A3A8F1A343CE6003C38E8 /* VLLineListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VLLineListViewController.m; sourceTree = "<group>"; };
-		AF1A3A911A343CE6003C38E8 /* VLLineListViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VLLineListViewDataSource.h; sourceTree = "<group>"; };
-		AF1A3A921A343CE6003C38E8 /* VLLineListViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VLLineListViewDataSource.m; sourceTree = "<group>"; };
-		AF1A3A941A343CE6003C38E8 /* VLLineListViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VLLineListViewDelegate.h; sourceTree = "<group>"; };
-		AF1A3A951A343CE6003C38E8 /* VLLineListViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VLLineListViewDelegate.m; sourceTree = "<group>"; };
-		AF1A3A971A343CE6003C38E8 /* VLLineListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VLLineListItem.h; sourceTree = "<group>"; };
-		AF1A3A981A343CE6003C38E8 /* VLLineListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VLLineListItem.m; sourceTree = "<group>"; };
-		AF1A3A9A1A343CE6003C38E8 /* VLLineLogic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VLLineLogic.h; sourceTree = "<group>"; };
-		AF1A3A9B1A343CE6003C38E8 /* VLLineLogic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VLLineLogic.m; sourceTree = "<group>"; };
-		AF1A3A9D1A343CE6003C38E8 /* VLLineListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VLLineListModel.h; sourceTree = "<group>"; };
-		AF1A3A9E1A343CE6003C38E8 /* VLLineListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VLLineListModel.m; sourceTree = "<group>"; };
-		AF1A3AAF1A343D20003C38E8 /* VLLineListModelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VLLineListModelTest.m; sourceTree = "<group>"; };
-		AF1A3AB01A343D20003C38E8 /* VLLineLogicTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VLLineLogicTest.m; sourceTree = "<group>"; };
 		AF1A3B041A344431003C38E8 /* VZInspector.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspector.pch; sourceTree = SOURCE_ROOT; };
-		AF1A3B071A345927003C38E8 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
-		AF1A3B081A345927003C38E8 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
-		AF1A3B091A345927003C38E8 /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
-		AF1A3B0A1A345927003C38E8 /* AFHTTPRequestOperationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperationManager.m; sourceTree = "<group>"; };
-		AF1A3B0B1A345927003C38E8 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
-		AF1A3B0C1A345927003C38E8 /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
-		AF1A3B0D1A345927003C38E8 /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
-		AF1A3B0E1A345927003C38E8 /* AFNetworkReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkReachabilityManager.h; sourceTree = "<group>"; };
-		AF1A3B0F1A345927003C38E8 /* AFNetworkReachabilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkReachabilityManager.m; sourceTree = "<group>"; };
-		AF1A3B101A345927003C38E8 /* AFSecurityPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFSecurityPolicy.h; sourceTree = "<group>"; };
-		AF1A3B111A345927003C38E8 /* AFSecurityPolicy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFSecurityPolicy.m; sourceTree = "<group>"; };
-		AF1A3B121A345927003C38E8 /* AFURLConnectionOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLConnectionOperation.h; sourceTree = "<group>"; };
-		AF1A3B131A345927003C38E8 /* AFURLConnectionOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLConnectionOperation.m; sourceTree = "<group>"; };
-		AF1A3B141A345927003C38E8 /* AFURLRequestSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLRequestSerialization.h; sourceTree = "<group>"; };
-		AF1A3B151A345927003C38E8 /* AFURLRequestSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLRequestSerialization.m; sourceTree = "<group>"; };
-		AF1A3B161A345927003C38E8 /* AFURLResponseSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLResponseSerialization.h; sourceTree = "<group>"; };
-		AF1A3B171A345927003C38E8 /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
-		AF1A3B181A345927003C38E8 /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
-		AF1A3B191A345927003C38E8 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
-		AF1A3B1A1A345927003C38E8 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		AF1A3B1B1A345927003C38E8 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		AF1A3B1D1A345927003C38E8 /* AFNetworkActivityIndicatorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkActivityIndicatorManager.h; sourceTree = "<group>"; };
-		AF1A3B1E1A345927003C38E8 /* AFNetworkActivityIndicatorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkActivityIndicatorManager.m; sourceTree = "<group>"; };
-		AF1A3B1F1A345927003C38E8 /* UIActivityIndicatorView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActivityIndicatorView+AFNetworking.h"; sourceTree = "<group>"; };
-		AF1A3B201A345927003C38E8 /* UIActivityIndicatorView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIActivityIndicatorView+AFNetworking.m"; sourceTree = "<group>"; };
-		AF1A3B211A345927003C38E8 /* UIAlertView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+AFNetworking.h"; sourceTree = "<group>"; };
-		AF1A3B221A345927003C38E8 /* UIAlertView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+AFNetworking.m"; sourceTree = "<group>"; };
-		AF1A3B231A345927003C38E8 /* UIButton+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+AFNetworking.h"; sourceTree = "<group>"; };
-		AF1A3B241A345927003C38E8 /* UIButton+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+AFNetworking.m"; sourceTree = "<group>"; };
-		AF1A3B251A345927003C38E8 /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
-		AF1A3B261A345927003C38E8 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
-		AF1A3B271A345927003C38E8 /* UIKit+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIKit+AFNetworking.h"; sourceTree = "<group>"; };
-		AF1A3B281A345927003C38E8 /* UIProgressView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIProgressView+AFNetworking.h"; sourceTree = "<group>"; };
-		AF1A3B291A345927003C38E8 /* UIProgressView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIProgressView+AFNetworking.m"; sourceTree = "<group>"; };
-		AF1A3B2A1A345927003C38E8 /* UIRefreshControl+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIRefreshControl+AFNetworking.h"; sourceTree = "<group>"; };
-		AF1A3B2B1A345927003C38E8 /* UIRefreshControl+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIRefreshControl+AFNetworking.m"; sourceTree = "<group>"; };
-		AF1A3B2C1A345927003C38E8 /* UIWebView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+AFNetworking.h"; sourceTree = "<group>"; };
-		AF1A3B2D1A345927003C38E8 /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
 		AF6BE85C1A3FE132000CF41E /* VZSettingInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZSettingInspector.h; sourceTree = "<group>"; };
 		AF6BE85D1A3FE132000CF41E /* VZSettingInspector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZSettingInspector.m; sourceTree = "<group>"; };
 		AF6BE85F1A3FFB46000CF41E /* VZLogInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZLogInspector.h; sourceTree = "<group>"; };
@@ -315,9 +163,6 @@
 		AF0FC50919D11C66009CCBE4 /* VZInspector */ = {
 			isa = PBXGroup;
 			children = (
-				AF1A3B051A345927003C38E8 /* AFNetworking */,
-				AF1A3A861A343CE6003C38E8 /* Line */,
-				AF1A3A071A3420F4003C38E8 /* Vizzle */,
 				AFF5AF8319D14AC900265FF1 /* VZInspector */,
 				AF0FC50E19D11C66009CCBE4 /* AppDelegate.h */,
 				AF0FC50F19D11C66009CCBE4 /* AppDelegate.m */,
@@ -344,7 +189,6 @@
 		AF0FC52319D11C66009CCBE4 /* VZInspectorTests */ = {
 			isa = PBXGroup;
 			children = (
-				AF1A3AAE1A343D20003C38E8 /* test */,
 				AF0FC52619D11C66009CCBE4 /* VZInspectorTests.m */,
 				AF0FC52419D11C66009CCBE4 /* Supporting Files */,
 			);
@@ -357,335 +201,6 @@
 				AF0FC52519D11C66009CCBE4 /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		AF1A3A071A3420F4003C38E8 /* Vizzle */ = {
-			isa = PBXGroup;
-			children = (
-				AF1A3A081A3420F4003C38E8 /* adapter */,
-				AF1A3A0B1A3420F4003C38E8 /* channel */,
-				AF1A3A101A3420F4003C38E8 /* controller */,
-				AF1A3A1C1A3420F4003C38E8 /* item */,
-				AF1A3A241A3420F4003C38E8 /* logic */,
-				AF1A3A271A3420F4003C38E8 /* model */,
-				AF1A3A301A3420F4003C38E8 /* view */,
-				AF1A3A401A3420F4003C38E8 /* viewmodel */,
-				AF1A3A411A3420F4003C38E8 /* VizzleConfig.h */,
-			);
-			path = Vizzle;
-			sourceTree = "<group>";
-		};
-		AF1A3A081A3420F4003C38E8 /* adapter */ = {
-			isa = PBXGroup;
-			children = (
-				AF1A3A091A3420F4003C38E8 /* VZAFRequest.h */,
-				AF1A3A0A1A3420F4003C38E8 /* VZAFRequest.m */,
-			);
-			path = adapter;
-			sourceTree = "<group>";
-		};
-		AF1A3A0B1A3420F4003C38E8 /* channel */ = {
-			isa = PBXGroup;
-			children = (
-				AF1A3A0C1A3420F4003C38E8 /* NSObject+VZChannel.h */,
-				AF1A3A0D1A3420F4003C38E8 /* NSObject+VZChannel.m */,
-				AF1A3A0E1A3420F4003C38E8 /* VZChannel.h */,
-				AF1A3A0F1A3420F4003C38E8 /* VZChannel.mm */,
-			);
-			path = channel;
-			sourceTree = "<group>";
-		};
-		AF1A3A101A3420F4003C38E8 /* controller */ = {
-			isa = PBXGroup;
-			children = (
-				AF1A3A111A3420F4003C38E8 /* list */,
-				AF1A3A1A1A3420F4003C38E8 /* VZViewController.h */,
-				AF1A3A1B1A3420F4003C38E8 /* VZViewController.m */,
-			);
-			path = controller;
-			sourceTree = "<group>";
-		};
-		AF1A3A111A3420F4003C38E8 /* list */ = {
-			isa = PBXGroup;
-			children = (
-				AF1A3A121A3420F4003C38E8 /* datasource */,
-				AF1A3A151A3420F4003C38E8 /* delegate */,
-				AF1A3A181A3420F4003C38E8 /* VZListViewController.h */,
-				AF1A3A191A3420F4003C38E8 /* VZListViewController.m */,
-			);
-			path = list;
-			sourceTree = "<group>";
-		};
-		AF1A3A121A3420F4003C38E8 /* datasource */ = {
-			isa = PBXGroup;
-			children = (
-				AF1A3A131A3420F4003C38E8 /* VZListViewDataSource.h */,
-				AF1A3A141A3420F4003C38E8 /* VZListViewDataSource.m */,
-			);
-			path = datasource;
-			sourceTree = "<group>";
-		};
-		AF1A3A151A3420F4003C38E8 /* delegate */ = {
-			isa = PBXGroup;
-			children = (
-				AF1A3A161A3420F4003C38E8 /* VZListViewDelegate.h */,
-				AF1A3A171A3420F4003C38E8 /* VZListViewDelegate.m */,
-			);
-			path = delegate;
-			sourceTree = "<group>";
-		};
-		AF1A3A1C1A3420F4003C38E8 /* item */ = {
-			isa = PBXGroup;
-			children = (
-				AF1A3A1D1A3420F4003C38E8 /* list */,
-				AF1A3A221A3420F4003C38E8 /* VZItem.h */,
-				AF1A3A231A3420F4003C38E8 /* VZItem.m */,
-			);
-			path = item;
-			sourceTree = "<group>";
-		};
-		AF1A3A1D1A3420F4003C38E8 /* list */ = {
-			isa = PBXGroup;
-			children = (
-				AF1A3A1E1A3420F4003C38E8 /* VZListDefaultTextItem.h */,
-				AF1A3A1F1A3420F4003C38E8 /* VZListDefaultTextItem.m */,
-				AF1A3A201A3420F4003C38E8 /* VZListItem.h */,
-				AF1A3A211A3420F4003C38E8 /* VZListItem.m */,
-			);
-			path = list;
-			sourceTree = "<group>";
-		};
-		AF1A3A241A3420F4003C38E8 /* logic */ = {
-			isa = PBXGroup;
-			children = (
-				AF1A3A251A3420F4003C38E8 /* VZViewControllerLogic.h */,
-				AF1A3A261A3420F4003C38E8 /* VZViewControllerLogic.m */,
-			);
-			path = logic;
-			sourceTree = "<group>";
-		};
-		AF1A3A271A3420F4003C38E8 /* model */ = {
-			isa = PBXGroup;
-			children = (
-				AF1A3A281A3420F4003C38E8 /* VZHTTPListModel.h */,
-				AF1A3A291A3420F4003C38E8 /* VZHTTPListModel.m */,
-				AF1A3A2A1A3420F4003C38E8 /* VZHTTPModel.h */,
-				AF1A3A2B1A3420F4003C38E8 /* VZHTTPModel.m */,
-				AF1A3A2C1A3420F4003C38E8 /* VZHTTPRequest.h */,
-				AF1A3A2D1A3420F4003C38E8 /* VZHTTPRequest.m */,
-				AF1A3A2E1A3420F4003C38E8 /* VZModel.h */,
-				AF1A3A2F1A3420F4003C38E8 /* VZModel.m */,
-			);
-			path = model;
-			sourceTree = "<group>";
-		};
-		AF1A3A301A3420F4003C38E8 /* view */ = {
-			isa = PBXGroup;
-			children = (
-				AF1A3A311A3420F4003C38E8 /* list */,
-				AF1A3A3C1A3420F4003C38E8 /* VZTemplate.h */,
-				AF1A3A3D1A3420F4003C38E8 /* VZTemplate.m */,
-				AF1A3A3E1A3420F4003C38E8 /* VZView.h */,
-				AF1A3A3F1A3420F4003C38E8 /* VZView.m */,
-			);
-			path = view;
-			sourceTree = "<group>";
-		};
-		AF1A3A311A3420F4003C38E8 /* list */ = {
-			isa = PBXGroup;
-			children = (
-				AF1A3A321A3420F4003C38E8 /* VZFooterViewFactory.h */,
-				AF1A3A331A3420F4003C38E8 /* VZFooterViewFactory.m */,
-				AF1A3A341A3420F4003C38E8 /* VZListCell.h */,
-				AF1A3A351A3420F4003C38E8 /* VZListCell.m */,
-				AF1A3A361A3420F4003C38E8 /* VZListDefaultErrorCell.h */,
-				AF1A3A371A3420F4003C38E8 /* VZListDefaultErrorCell.m */,
-				AF1A3A381A3420F4003C38E8 /* VZListDefaultLoadingCell.h */,
-				AF1A3A391A3420F4003C38E8 /* VZListDefaultLoadingCell.m */,
-				AF1A3A3A1A3420F4003C38E8 /* VZListDefaultTextCell.h */,
-				AF1A3A3B1A3420F4003C38E8 /* VZListDefaultTextCell.m */,
-			);
-			path = list;
-			sourceTree = "<group>";
-		};
-		AF1A3A401A3420F4003C38E8 /* viewmodel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = viewmodel;
-			sourceTree = "<group>";
-		};
-		AF1A3A861A343CE6003C38E8 /* Line */ = {
-			isa = PBXGroup;
-			children = (
-				AF1A3A871A343CE6003C38E8 /* cell */,
-				AF1A3A8A1A343CE6003C38E8 /* config */,
-				AF1A3A8D1A343CE6003C38E8 /* controller */,
-				AF1A3A901A343CE6003C38E8 /* datasource */,
-				AF1A3A931A343CE6003C38E8 /* delegate */,
-				AF1A3A961A343CE6003C38E8 /* item */,
-				AF1A3A991A343CE6003C38E8 /* logic */,
-				AF1A3A9C1A343CE6003C38E8 /* model */,
-				AF1A3A9F1A343CE6003C38E8 /* resource */,
-				AF1A3AA31A343CE6003C38E8 /* view */,
-			);
-			path = Line;
-			sourceTree = "<group>";
-		};
-		AF1A3A871A343CE6003C38E8 /* cell */ = {
-			isa = PBXGroup;
-			children = (
-				AF1A3A881A343CE6003C38E8 /* VLLineListCell.h */,
-				AF1A3A891A343CE6003C38E8 /* VLLineListCell.m */,
-			);
-			path = cell;
-			sourceTree = "<group>";
-		};
-		AF1A3A8A1A343CE6003C38E8 /* config */ = {
-			isa = PBXGroup;
-			children = (
-				AF1A3A8B1A343CE6003C38E8 /* line_meta.json */,
-				AF1A3A8C1A343CE6003C38E8 /* VLLineConfig.h */,
-			);
-			path = config;
-			sourceTree = "<group>";
-		};
-		AF1A3A8D1A343CE6003C38E8 /* controller */ = {
-			isa = PBXGroup;
-			children = (
-				AF1A3A8E1A343CE6003C38E8 /* VLLineListViewController.h */,
-				AF1A3A8F1A343CE6003C38E8 /* VLLineListViewController.m */,
-			);
-			path = controller;
-			sourceTree = "<group>";
-		};
-		AF1A3A901A343CE6003C38E8 /* datasource */ = {
-			isa = PBXGroup;
-			children = (
-				AF1A3A911A343CE6003C38E8 /* VLLineListViewDataSource.h */,
-				AF1A3A921A343CE6003C38E8 /* VLLineListViewDataSource.m */,
-			);
-			path = datasource;
-			sourceTree = "<group>";
-		};
-		AF1A3A931A343CE6003C38E8 /* delegate */ = {
-			isa = PBXGroup;
-			children = (
-				AF1A3A941A343CE6003C38E8 /* VLLineListViewDelegate.h */,
-				AF1A3A951A343CE6003C38E8 /* VLLineListViewDelegate.m */,
-			);
-			path = delegate;
-			sourceTree = "<group>";
-		};
-		AF1A3A961A343CE6003C38E8 /* item */ = {
-			isa = PBXGroup;
-			children = (
-				AF1A3A971A343CE6003C38E8 /* VLLineListItem.h */,
-				AF1A3A981A343CE6003C38E8 /* VLLineListItem.m */,
-			);
-			path = item;
-			sourceTree = "<group>";
-		};
-		AF1A3A991A343CE6003C38E8 /* logic */ = {
-			isa = PBXGroup;
-			children = (
-				AF1A3A9A1A343CE6003C38E8 /* VLLineLogic.h */,
-				AF1A3A9B1A343CE6003C38E8 /* VLLineLogic.m */,
-			);
-			path = logic;
-			sourceTree = "<group>";
-		};
-		AF1A3A9C1A343CE6003C38E8 /* model */ = {
-			isa = PBXGroup;
-			children = (
-				AF1A3A9D1A343CE6003C38E8 /* VLLineListModel.h */,
-				AF1A3A9E1A343CE6003C38E8 /* VLLineListModel.m */,
-			);
-			path = model;
-			sourceTree = "<group>";
-		};
-		AF1A3A9F1A343CE6003C38E8 /* resource */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = resource;
-			sourceTree = "<group>";
-		};
-		AF1A3AA31A343CE6003C38E8 /* view */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = view;
-			sourceTree = "<group>";
-		};
-		AF1A3AAE1A343D20003C38E8 /* test */ = {
-			isa = PBXGroup;
-			children = (
-				AF1A3AAF1A343D20003C38E8 /* VLLineListModelTest.m */,
-				AF1A3AB01A343D20003C38E8 /* VLLineLogicTest.m */,
-			);
-			path = test;
-			sourceTree = "<group>";
-		};
-		AF1A3B051A345927003C38E8 /* AFNetworking */ = {
-			isa = PBXGroup;
-			children = (
-				AF1A3B061A345927003C38E8 /* AFNetworking */,
-				AF1A3B1A1A345927003C38E8 /* LICENSE */,
-				AF1A3B1B1A345927003C38E8 /* README.md */,
-				AF1A3B1C1A345927003C38E8 /* UIKit+AFNetworking */,
-			);
-			path = AFNetworking;
-			sourceTree = "<group>";
-		};
-		AF1A3B061A345927003C38E8 /* AFNetworking */ = {
-			isa = PBXGroup;
-			children = (
-				AF1A3B071A345927003C38E8 /* AFHTTPRequestOperation.h */,
-				AF1A3B081A345927003C38E8 /* AFHTTPRequestOperation.m */,
-				AF1A3B091A345927003C38E8 /* AFHTTPRequestOperationManager.h */,
-				AF1A3B0A1A345927003C38E8 /* AFHTTPRequestOperationManager.m */,
-				AF1A3B0B1A345927003C38E8 /* AFHTTPSessionManager.h */,
-				AF1A3B0C1A345927003C38E8 /* AFHTTPSessionManager.m */,
-				AF1A3B0D1A345927003C38E8 /* AFNetworking.h */,
-				AF1A3B0E1A345927003C38E8 /* AFNetworkReachabilityManager.h */,
-				AF1A3B0F1A345927003C38E8 /* AFNetworkReachabilityManager.m */,
-				AF1A3B101A345927003C38E8 /* AFSecurityPolicy.h */,
-				AF1A3B111A345927003C38E8 /* AFSecurityPolicy.m */,
-				AF1A3B121A345927003C38E8 /* AFURLConnectionOperation.h */,
-				AF1A3B131A345927003C38E8 /* AFURLConnectionOperation.m */,
-				AF1A3B141A345927003C38E8 /* AFURLRequestSerialization.h */,
-				AF1A3B151A345927003C38E8 /* AFURLRequestSerialization.m */,
-				AF1A3B161A345927003C38E8 /* AFURLResponseSerialization.h */,
-				AF1A3B171A345927003C38E8 /* AFURLResponseSerialization.m */,
-				AF1A3B181A345927003C38E8 /* AFURLSessionManager.h */,
-				AF1A3B191A345927003C38E8 /* AFURLSessionManager.m */,
-			);
-			path = AFNetworking;
-			sourceTree = "<group>";
-		};
-		AF1A3B1C1A345927003C38E8 /* UIKit+AFNetworking */ = {
-			isa = PBXGroup;
-			children = (
-				AF1A3B1D1A345927003C38E8 /* AFNetworkActivityIndicatorManager.h */,
-				AF1A3B1E1A345927003C38E8 /* AFNetworkActivityIndicatorManager.m */,
-				AF1A3B1F1A345927003C38E8 /* UIActivityIndicatorView+AFNetworking.h */,
-				AF1A3B201A345927003C38E8 /* UIActivityIndicatorView+AFNetworking.m */,
-				AF1A3B211A345927003C38E8 /* UIAlertView+AFNetworking.h */,
-				AF1A3B221A345927003C38E8 /* UIAlertView+AFNetworking.m */,
-				AF1A3B231A345927003C38E8 /* UIButton+AFNetworking.h */,
-				AF1A3B241A345927003C38E8 /* UIButton+AFNetworking.m */,
-				AF1A3B251A345927003C38E8 /* UIImageView+AFNetworking.h */,
-				AF1A3B261A345927003C38E8 /* UIImageView+AFNetworking.m */,
-				AF1A3B271A345927003C38E8 /* UIKit+AFNetworking.h */,
-				AF1A3B281A345927003C38E8 /* UIProgressView+AFNetworking.h */,
-				AF1A3B291A345927003C38E8 /* UIProgressView+AFNetworking.m */,
-				AF1A3B2A1A345927003C38E8 /* UIRefreshControl+AFNetworking.h */,
-				AF1A3B2B1A345927003C38E8 /* UIRefreshControl+AFNetworking.m */,
-				AF1A3B2C1A345927003C38E8 /* UIWebView+AFNetworking.h */,
-				AF1A3B2D1A345927003C38E8 /* UIWebView+AFNetworking.m */,
-			);
-			path = "UIKit+AFNetworking";
 			sourceTree = "<group>";
 		};
 		AFA10F631A261A7A0071F5A5 /* sandbox */ = {
@@ -933,11 +448,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF1A3AA51A343CE6003C38E8 /* line_meta.json in Resources */,
 				AF0FC51619D11C66009CCBE4 /* Main.storyboard in Resources */,
 				AF0FC51B19D11C66009CCBE4 /* LaunchScreen.xib in Resources */,
 				AF0FC51819D11C66009CCBE4 /* Images.xcassets in Resources */,
-				AF1A3B371A345927003C38E8 /* LICENSE in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -955,83 +468,36 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF1A3A511A3420F4003C38E8 /* VZFooterViewFactory.m in Sources */,
-				AF1A3A531A3420F4003C38E8 /* VZListDefaultErrorCell.m in Sources */,
-				AF1A3A4B1A3420F4003C38E8 /* VZItem.m in Sources */,
 				AFF5AFB919D1527600265FF1 /* VZNetworkInspector.m in Sources */,
 				AFA10F781A261C520071F5A5 /* VZInspectorConsoleView.m in Sources */,
 				AFF5AFB019D150B500265FF1 /* VZNetworkInspectorOverView.m in Sources */,
 				AFF5AFB319D150ED00265FF1 /* VZMemoryInspectorOverView.m in Sources */,
 				AFA10F721A261C280071F5A5 /* VZInspectorLogView.m in Sources */,
-				AF1A3B331A345927003C38E8 /* AFURLConnectionOperation.m in Sources */,
 				AFF5AF9019D14BDB00265FF1 /* UIWindow+VZInspector.m in Sources */,
-				AF1A3A4C1A3420F4003C38E8 /* VZViewControllerLogic.m in Sources */,
-				AF1A3A481A3420F4003C38E8 /* VZViewController.m in Sources */,
-				AF1A3A551A3420F4003C38E8 /* VZListDefaultTextCell.m in Sources */,
-				AF1A3A451A3420F4003C38E8 /* VZListViewDataSource.m in Sources */,
-				AF1A3B3D1A345927003C38E8 /* UIImageView+AFNetworking.m in Sources */,
-				AF1A3AA71A343CE6003C38E8 /* VLLineListViewDataSource.m in Sources */,
 				AFF5AF9F19D14EB000265FF1 /* VZInspectorWindow.m in Sources */,
-				AF1A3B3C1A345927003C38E8 /* UIButton+AFNetworking.m in Sources */,
 				AF1A3A061A33370F003C38E8 /* VZOverviewInspector.m in Sources */,
-				AF1A3A4A1A3420F4003C38E8 /* VZListItem.m in Sources */,
 				AF0FC51319D11C66009CCBE4 /* ViewController.m in Sources */,
-				AF1A3B391A345927003C38E8 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				AFA10F901A270FA60071F5A5 /* VZInspectorHeapView.m in Sources */,
-				AF1A3AAB1A343CE6003C38E8 /* VLLineListModel.m in Sources */,
 				AF6BE85E1A3FE132000CF41E /* VZSettingInspector.m in Sources */,
 				AFA942AB1A3AEF4A0075EC01 /* VZInspectorCrashRootView.m in Sources */,
 				AFF5AF9C19D14E9B00265FF1 /* VZInspectorOverlay.m in Sources */,
-				AF1A3B2E1A345927003C38E8 /* AFHTTPRequestOperation.m in Sources */,
 				AF6BE8611A3FFB46000CF41E /* VZLogInspector.m in Sources */,
-				AF1A3B311A345927003C38E8 /* AFNetworkReachabilityManager.m in Sources */,
-				AF1A3A561A3420F4003C38E8 /* VZTemplate.m in Sources */,
-				AF1A3A431A3420F4003C38E8 /* NSObject+VZChannel.m in Sources */,
-				AF1A3A471A3420F4003C38E8 /* VZListViewController.m in Sources */,
-				AF1A3A4F1A3420F4003C38E8 /* VZHTTPRequest.m in Sources */,
-				AF1A3AA91A343CE6003C38E8 /* VLLineListItem.m in Sources */,
 				AF0FC51019D11C66009CCBE4 /* AppDelegate.m in Sources */,
-				AF1A3B351A345927003C38E8 /* AFURLResponseSerialization.m in Sources */,
-				AF1A3AAA1A343CE6003C38E8 /* VLLineLogic.m in Sources */,
-				AF1A3AA81A343CE6003C38E8 /* VLLineListViewDelegate.m in Sources */,
-				AF1A3B321A345927003C38E8 /* AFSecurityPolicy.m in Sources */,
-				AF1A3A421A3420F4003C38E8 /* VZAFRequest.m in Sources */,
 				AFF5AFA219D14F8900265FF1 /* VZInspectController.m in Sources */,
 				AF0FC50D19D11C66009CCBE4 /* main.m in Sources */,
-				AF1A3B3E1A345927003C38E8 /* UIProgressView+AFNetworking.m in Sources */,
-				AF1A3A571A3420F4003C38E8 /* VZView.m in Sources */,
-				AF1A3A501A3420F4003C38E8 /* VZModel.m in Sources */,
-				AF1A3A461A3420F4003C38E8 /* VZListViewDelegate.m in Sources */,
 				AFA10F751A261C450071F5A5 /* VZInspectorCrashView.m in Sources */,
 				AFF5AFB619D1513E00265FF1 /* VZInspectorPlotView.m in Sources */,
-				AF1A3B381A345927003C38E8 /* README.md in Sources */,
-				AF1A3A4E1A3420F4003C38E8 /* VZHTTPModel.m in Sources */,
-				AF1A3B3B1A345927003C38E8 /* UIAlertView+AFNetworking.m in Sources */,
-				AF1A3B301A345927003C38E8 /* AFHTTPSessionManager.m in Sources */,
-				AF1A3B3A1A345927003C38E8 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				AFA10F7B1A261C670071F5A5 /* VZInspectorGridView.m in Sources */,
 				AFA10F7E1A261C780071F5A5 /* VZInspectorSettingView.m in Sources */,
 				AFF5AF8D19D14BA800265FF1 /* NSObject+VZInspector.m in Sources */,
-				AF1A3AA61A343CE6003C38E8 /* VLLineListViewController.m in Sources */,
 				AFA10F931A27361A0071F5A5 /* VZMemoryInspector.m in Sources */,
-				AF1A3B3F1A345927003C38E8 /* UIRefreshControl+AFNetworking.m in Sources */,
-				AF1A3A541A3420F4003C38E8 /* VZListDefaultLoadingCell.m in Sources */,
-				AF1A3B361A345927003C38E8 /* AFURLSessionManager.m in Sources */,
 				AFA10F841A261D590071F5A5 /* VZInspectorSandBoxSubView.m in Sources */,
-				AF1A3B401A345927003C38E8 /* UIWebView+AFNetworking.m in Sources */,
-				AF1A3AA41A343CE6003C38E8 /* VLLineListCell.m in Sources */,
 				AFA10F611A261A440071F5A5 /* VZHeapInspector.m in Sources */,
-				AF1A3A521A3420F4003C38E8 /* VZListCell.m in Sources */,
 				AFF5AF9619D14DA800265FF1 /* VZCrashInspector.m in Sources */,
-				AF1A3B341A345927003C38E8 /* AFURLRequestSerialization.m in Sources */,
-				AF1A3B2F1A345927003C38E8 /* AFHTTPRequestOperationManager.m in Sources */,
 				AFA10F831A261D590071F5A5 /* VZInspectorSandBoxRootView.m in Sources */,
 				AFA10F8A1A261FA80071F5A5 /* VZInspectorView.m in Sources */,
-				AF1A3A4D1A3420F4003C38E8 /* VZHTTPListModel.m in Sources */,
-				AF1A3A441A3420F4003C38E8 /* VZChannel.mm in Sources */,
 				AFA10F871A261E2B0071F5A5 /* VZInspectorOverview.m in Sources */,
 				AFF5AF9919D14E8D00265FF1 /* VZInspector.m in Sources */,
-				AF1A3A491A3420F4003C38E8 /* VZListDefaultTextItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1040,8 +506,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF0FC52719D11C66009CCBE4 /* VZInspectorTests.m in Sources */,
-				AF1A3AB11A343D20003C38E8 /* VLLineListModelTest.m in Sources */,
-				AF1A3AB21A343D20003C38E8 /* VLLineLogicTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

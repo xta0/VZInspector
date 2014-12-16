@@ -18,9 +18,22 @@
 
 @implementation ViewController
 
+- (UIView* )loadingFooterView
+{
+    UIView* v = [[UIView alloc]initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 44)];
+    UIActivityIndicatorView* indicator = [[UIActivityIndicatorView alloc]initWithFrame:CGRectMake((CGRectGetWidth(self.view.bounds)-20)/2, 11, 20, 20)];
+    indicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
+    [indicator startAnimating];
+    [v addSubview:indicator];
+   
+    return v;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(load)];
+    
     self.items = [NSMutableArray new];
     
     self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds))];
@@ -28,23 +41,7 @@
     self.tableView.dataSource = self;
     [self.view addSubview:self.tableView];
     
-    [[[NSURLSession sharedSession] dataTaskWithURL:[NSURL URLWithString:@"http://106.186.20.246:2000/statuses.json"] completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-       
-        NSArray* list = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-        
-        for (NSDictionary* dict in list) {
-            
-            [self.items addObject:dict];
-            
-        }
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            
-            [self.tableView reloadData];
-            
-        });
-        
-    }] resume];
+    [self load];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -70,13 +67,50 @@
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"vzline"];
     }
     
+    NSDictionary* info = self.items[indexPath.row];
+    
+    
     cell.textLabel.font = [UIFont systemFontOfSize:14.0f];
     cell.textLabel.numberOfLines = 0;
-    cell.textLabel.text = self.items[indexPath.row][@"content"];
+    cell.textLabel.text = info[@"text"];
     [cell.textLabel sizeToFit];
     
     return cell;
 
+}
+
+- (void)load
+{
+    [self.items removeAllObjects];
+    [self.tableView reloadData];
+    self.tableView.tableFooterView = [self loadingFooterView];
+    
+    NSString* url = @"https://api.app.net/stream/0/posts/stream/global";
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"VZRequestLog" object:nil userInfo:@{@"url":url}];
+    
+    [[[NSURLSession sharedSession] dataTaskWithURL:[NSURL URLWithString:url] completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        
+        NSDictionary* JSON = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+        
+        for (NSDictionary* dict in JSON[@"data"]) {
+            [self.items addObject:dict];
+            
+        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            self.tableView.tableFooterView = nil;
+            [self.tableView reloadData];
+            
+            if (!error) {
+                [[NSNotificationCenter defaultCenter]postNotificationName:@"VZResponseLog" object:nil userInfo:@{@"json":JSON}];
+            }
+            else{
+                [[NSNotificationCenter defaultCenter]postNotificationName:@"VZResponseLog" object:nil userInfo:@{@"error":error}];
+            }
+        });
+        
+    }] resume];
+    
 }
 
 

@@ -9,7 +9,7 @@
 #import "UIWindow+VZInspector.h"
 #include <UIKit/UIKit.h>
 #include <objc/runtime.h>
-//#import "ETDebuggerOverlay.h"
+#import "VZInspectorOverlay.h"
 
 
 static bool g_blockEvent = false;
@@ -141,9 +141,9 @@ static void (*g_sendEvent)(id,SEL,UIEvent* );
                         CGPoint pt = [touch locationInView:self];
                         
                         //show debugger:todo
-//                        if (CGRectContainsPoint([ETDebuggerOverlay sharedInstance].frame, pt)) {
-//                            [[ETDebuggerOverlay sharedInstance] sendEvent:event];
-//                        }
+                        if (CGRectContainsPoint([VZInspectorOverlay sharedInstance].frame, pt)) {
+                            [[VZInspectorOverlay sharedInstance] sendEvent:event];
+                        }
                     }
                 }//end of if
                 
