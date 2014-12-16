@@ -1,0 +1,578 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AF0FC50D19D11C66009CCBE4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AF0FC50C19D11C66009CCBE4 /* main.m */; };
+		AF0FC51019D11C66009CCBE4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AF0FC50F19D11C66009CCBE4 /* AppDelegate.m */; };
+		AF0FC51319D11C66009CCBE4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF0FC51219D11C66009CCBE4 /* ViewController.m */; };
+		AF0FC51619D11C66009CCBE4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF0FC51419D11C66009CCBE4 /* Main.storyboard */; };
+		AF0FC51819D11C66009CCBE4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF0FC51719D11C66009CCBE4 /* Images.xcassets */; };
+		AF0FC51B19D11C66009CCBE4 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF0FC51919D11C66009CCBE4 /* LaunchScreen.xib */; };
+		AF6BE9031A40822B000CF41E /* VZInspectController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6BE8C31A40822B000CF41E /* VZInspectController.m */; };
+		AF6BE9041A40822B000CF41E /* VZCrashInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6BE8C61A40822B000CF41E /* VZCrashInspector.m */; };
+		AF6BE9051A40822B000CF41E /* VZHeapInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6BE8C81A40822B000CF41E /* VZHeapInspector.m */; };
+		AF6BE9061A40822B000CF41E /* VZLogInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6BE8CA1A40822B000CF41E /* VZLogInspector.m */; };
+		AF6BE9071A40822B000CF41E /* VZMemoryInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6BE8CC1A40822B000CF41E /* VZMemoryInspector.m */; };
+		AF6BE9081A40822B000CF41E /* VZNetworkInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6BE8CE1A40822B000CF41E /* VZNetworkInspector.m */; };
+		AF6BE9091A40822B000CF41E /* VZOverviewInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6BE8D01A40822B000CF41E /* VZOverviewInspector.m */; };
+		AF6BE90A1A40822B000CF41E /* VZSettingInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6BE8D21A40822B000CF41E /* VZSettingInspector.m */; };
+		AF6BE90B1A40822B000CF41E /* NSObject+VZInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6BE8D51A40822B000CF41E /* NSObject+VZInspector.m */; };
+		AF6BE90C1A40822B000CF41E /* UIWindow+VZInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6BE8D71A40822B000CF41E /* UIWindow+VZInspector.m */; };
+		AF6BE90D1A40822B000CF41E /* VZInspectorPlotView.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6BE8D91A40822B000CF41E /* VZInspectorPlotView.m */; };
+		AF6BE90E1A40822B000CF41E /* VZInspectorConsoleView.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6BE8DD1A40822B000CF41E /* VZInspectorConsoleView.m */; };
+		AF6BE90F1A40822B000CF41E /* VZInspectorCrashRootView.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6BE8E01A40822B000CF41E /* VZInspectorCrashRootView.m */; };
+		AF6BE9101A40822B000CF41E /* VZInspectorCrashView.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6BE8E21A40822B000CF41E /* VZInspectorCrashView.m */; };
+		AF6BE9111A40822B000CF41E /* VZInspectorGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6BE8E51A40822B000CF41E /* VZInspectorGridView.m */; };
+		AF6BE9121A40822B000CF41E /* VZInspectorHeapView.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6BE8E81A40822B000CF41E /* VZInspectorHeapView.m */; };
+		AF6BE9131A40822B000CF41E /* VZInspectorLogView.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6BE8EB1A40822B000CF41E /* VZInspectorLogView.m */; };
+		AF6BE9141A40822B000CF41E /* VZInspectorOverview.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6BE8EE1A40822B000CF41E /* VZInspectorOverview.m */; };
+		AF6BE9151A40822B000CF41E /* VZMemoryInspectorOverView.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6BE8F01A40822B000CF41E /* VZMemoryInspectorOverView.m */; };
+		AF6BE9161A40822B000CF41E /* VZNetworkInspectorOverView.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6BE8F21A40822B000CF41E /* VZNetworkInspectorOverView.m */; };
+		AF6BE9171A40822B000CF41E /* VZInspectorSandBoxRootView.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6BE8F51A40822B000CF41E /* VZInspectorSandBoxRootView.m */; };
+		AF6BE9181A40822B000CF41E /* VZInspectorSandBoxSubView.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6BE8F71A40822B000CF41E /* VZInspectorSandBoxSubView.m */; };
+		AF6BE9191A40822B000CF41E /* VZInspectorSettingView.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6BE8FA1A40822B000CF41E /* VZInspectorSettingView.m */; };
+		AF6BE91A1A40822B000CF41E /* VZInspectorView.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6BE8FC1A40822B000CF41E /* VZInspectorView.m */; };
+		AF6BE91B1A40822B000CF41E /* VZInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6BE8FE1A40822B000CF41E /* VZInspector.m */; };
+		AF6BE91C1A40822B000CF41E /* VZInspectorOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6BE9001A40822B000CF41E /* VZInspectorOverlay.m */; };
+		AF6BE91D1A40822B000CF41E /* VZInspectorWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6BE9021A40822B000CF41E /* VZInspectorWindow.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		AF0FC50719D11C66009CCBE4 /* VZInspector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VZInspector.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF0FC50B19D11C66009CCBE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AF0FC50C19D11C66009CCBE4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		AF0FC50E19D11C66009CCBE4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		AF0FC50F19D11C66009CCBE4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		AF0FC51119D11C66009CCBE4 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		AF0FC51219D11C66009CCBE4 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		AF0FC51519D11C66009CCBE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AF0FC51719D11C66009CCBE4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		AF0FC51A19D11C66009CCBE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		AF1A3B041A344431003C38E8 /* VZInspector.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspector.pch; sourceTree = SOURCE_ROOT; };
+		AF6BE8C21A40822B000CF41E /* VZInspectController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectController.h; sourceTree = "<group>"; };
+		AF6BE8C31A40822B000CF41E /* VZInspectController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectController.m; sourceTree = "<group>"; };
+		AF6BE8C51A40822B000CF41E /* VZCrashInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZCrashInspector.h; sourceTree = "<group>"; };
+		AF6BE8C61A40822B000CF41E /* VZCrashInspector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZCrashInspector.m; sourceTree = "<group>"; };
+		AF6BE8C71A40822B000CF41E /* VZHeapInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZHeapInspector.h; sourceTree = "<group>"; };
+		AF6BE8C81A40822B000CF41E /* VZHeapInspector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZHeapInspector.m; sourceTree = "<group>"; };
+		AF6BE8C91A40822B000CF41E /* VZLogInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZLogInspector.h; sourceTree = "<group>"; };
+		AF6BE8CA1A40822B000CF41E /* VZLogInspector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZLogInspector.m; sourceTree = "<group>"; };
+		AF6BE8CB1A40822B000CF41E /* VZMemoryInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZMemoryInspector.h; sourceTree = "<group>"; };
+		AF6BE8CC1A40822B000CF41E /* VZMemoryInspector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZMemoryInspector.m; sourceTree = "<group>"; };
+		AF6BE8CD1A40822B000CF41E /* VZNetworkInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZNetworkInspector.h; sourceTree = "<group>"; };
+		AF6BE8CE1A40822B000CF41E /* VZNetworkInspector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZNetworkInspector.m; sourceTree = "<group>"; };
+		AF6BE8CF1A40822B000CF41E /* VZOverviewInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZOverviewInspector.h; sourceTree = "<group>"; };
+		AF6BE8D01A40822B000CF41E /* VZOverviewInspector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZOverviewInspector.m; sourceTree = "<group>"; };
+		AF6BE8D11A40822B000CF41E /* VZSettingInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZSettingInspector.h; sourceTree = "<group>"; };
+		AF6BE8D21A40822B000CF41E /* VZSettingInspector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZSettingInspector.m; sourceTree = "<group>"; };
+		AF6BE8D41A40822B000CF41E /* NSObject+VZInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+VZInspector.h"; sourceTree = "<group>"; };
+		AF6BE8D51A40822B000CF41E /* NSObject+VZInspector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+VZInspector.m"; sourceTree = "<group>"; };
+		AF6BE8D61A40822B000CF41E /* UIWindow+VZInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+VZInspector.h"; sourceTree = "<group>"; };
+		AF6BE8D71A40822B000CF41E /* UIWindow+VZInspector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+VZInspector.m"; sourceTree = "<group>"; };
+		AF6BE8D81A40822B000CF41E /* VZInspectorPlotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorPlotView.h; sourceTree = "<group>"; };
+		AF6BE8D91A40822B000CF41E /* VZInspectorPlotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorPlotView.m; sourceTree = "<group>"; };
+		AF6BE8DC1A40822B000CF41E /* VZInspectorConsoleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorConsoleView.h; sourceTree = "<group>"; };
+		AF6BE8DD1A40822B000CF41E /* VZInspectorConsoleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorConsoleView.m; sourceTree = "<group>"; };
+		AF6BE8DF1A40822B000CF41E /* VZInspectorCrashRootView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorCrashRootView.h; sourceTree = "<group>"; };
+		AF6BE8E01A40822B000CF41E /* VZInspectorCrashRootView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorCrashRootView.m; sourceTree = "<group>"; };
+		AF6BE8E11A40822B000CF41E /* VZInspectorCrashView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorCrashView.h; sourceTree = "<group>"; };
+		AF6BE8E21A40822B000CF41E /* VZInspectorCrashView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorCrashView.m; sourceTree = "<group>"; };
+		AF6BE8E41A40822B000CF41E /* VZInspectorGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorGridView.h; sourceTree = "<group>"; };
+		AF6BE8E51A40822B000CF41E /* VZInspectorGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorGridView.m; sourceTree = "<group>"; };
+		AF6BE8E71A40822B000CF41E /* VZInspectorHeapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorHeapView.h; sourceTree = "<group>"; };
+		AF6BE8E81A40822B000CF41E /* VZInspectorHeapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorHeapView.m; sourceTree = "<group>"; };
+		AF6BE8EA1A40822B000CF41E /* VZInspectorLogView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorLogView.h; sourceTree = "<group>"; };
+		AF6BE8EB1A40822B000CF41E /* VZInspectorLogView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorLogView.m; sourceTree = "<group>"; };
+		AF6BE8ED1A40822B000CF41E /* VZInspectorOverview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorOverview.h; sourceTree = "<group>"; };
+		AF6BE8EE1A40822B000CF41E /* VZInspectorOverview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorOverview.m; sourceTree = "<group>"; };
+		AF6BE8EF1A40822B000CF41E /* VZMemoryInspectorOverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZMemoryInspectorOverView.h; sourceTree = "<group>"; };
+		AF6BE8F01A40822B000CF41E /* VZMemoryInspectorOverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZMemoryInspectorOverView.m; sourceTree = "<group>"; };
+		AF6BE8F11A40822B000CF41E /* VZNetworkInspectorOverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZNetworkInspectorOverView.h; sourceTree = "<group>"; };
+		AF6BE8F21A40822B000CF41E /* VZNetworkInspectorOverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZNetworkInspectorOverView.m; sourceTree = "<group>"; };
+		AF6BE8F41A40822B000CF41E /* VZInspectorSandBoxRootView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorSandBoxRootView.h; sourceTree = "<group>"; };
+		AF6BE8F51A40822B000CF41E /* VZInspectorSandBoxRootView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorSandBoxRootView.m; sourceTree = "<group>"; };
+		AF6BE8F61A40822B000CF41E /* VZInspectorSandBoxSubView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorSandBoxSubView.h; sourceTree = "<group>"; };
+		AF6BE8F71A40822B000CF41E /* VZInspectorSandBoxSubView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorSandBoxSubView.m; sourceTree = "<group>"; };
+		AF6BE8F91A40822B000CF41E /* VZInspectorSettingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorSettingView.h; sourceTree = "<group>"; };
+		AF6BE8FA1A40822B000CF41E /* VZInspectorSettingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorSettingView.m; sourceTree = "<group>"; };
+		AF6BE8FB1A40822B000CF41E /* VZInspectorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorView.h; sourceTree = "<group>"; };
+		AF6BE8FC1A40822B000CF41E /* VZInspectorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorView.m; sourceTree = "<group>"; };
+		AF6BE8FD1A40822B000CF41E /* VZInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspector.h; sourceTree = "<group>"; };
+		AF6BE8FE1A40822B000CF41E /* VZInspector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspector.m; sourceTree = "<group>"; };
+		AF6BE8FF1A40822B000CF41E /* VZInspectorOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorOverlay.h; sourceTree = "<group>"; };
+		AF6BE9001A40822B000CF41E /* VZInspectorOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorOverlay.m; sourceTree = "<group>"; };
+		AF6BE9011A40822B000CF41E /* VZInspectorWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorWindow.h; sourceTree = "<group>"; };
+		AF6BE9021A40822B000CF41E /* VZInspectorWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorWindow.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AF0FC50419D11C66009CCBE4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AF0FC4FE19D11C66009CCBE4 = {
+			isa = PBXGroup;
+			children = (
+				AF0FC50919D11C66009CCBE4 /* VZInspector */,
+				AF0FC50819D11C66009CCBE4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AF0FC50819D11C66009CCBE4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AF0FC50719D11C66009CCBE4 /* VZInspector.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AF0FC50919D11C66009CCBE4 /* VZInspector */ = {
+			isa = PBXGroup;
+			children = (
+				AF6BE8C01A40822B000CF41E /* VZInspector */,
+				AF0FC50E19D11C66009CCBE4 /* AppDelegate.h */,
+				AF0FC50F19D11C66009CCBE4 /* AppDelegate.m */,
+				AF0FC51119D11C66009CCBE4 /* ViewController.h */,
+				AF0FC51219D11C66009CCBE4 /* ViewController.m */,
+				AF0FC51419D11C66009CCBE4 /* Main.storyboard */,
+				AF0FC51719D11C66009CCBE4 /* Images.xcassets */,
+				AF0FC51919D11C66009CCBE4 /* LaunchScreen.xib */,
+				AF0FC50A19D11C66009CCBE4 /* Supporting Files */,
+			);
+			path = VZInspector;
+			sourceTree = "<group>";
+		};
+		AF0FC50A19D11C66009CCBE4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AF1A3B041A344431003C38E8 /* VZInspector.pch */,
+				AF0FC50B19D11C66009CCBE4 /* Info.plist */,
+				AF0FC50C19D11C66009CCBE4 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AF6BE8C01A40822B000CF41E /* VZInspector */ = {
+			isa = PBXGroup;
+			children = (
+				AF6BE8C11A40822B000CF41E /* controller */,
+				AF6BE8C41A40822B000CF41E /* monitor */,
+				AF6BE8D31A40822B000CF41E /* tool */,
+				AF6BE8DA1A40822B000CF41E /* view */,
+				AF6BE8FD1A40822B000CF41E /* VZInspector.h */,
+				AF6BE8FE1A40822B000CF41E /* VZInspector.m */,
+				AF6BE8FF1A40822B000CF41E /* VZInspectorOverlay.h */,
+				AF6BE9001A40822B000CF41E /* VZInspectorOverlay.m */,
+				AF6BE9011A40822B000CF41E /* VZInspectorWindow.h */,
+				AF6BE9021A40822B000CF41E /* VZInspectorWindow.m */,
+			);
+			name = VZInspector;
+			path = ../../VZInspector;
+			sourceTree = "<group>";
+		};
+		AF6BE8C11A40822B000CF41E /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				AF6BE8C21A40822B000CF41E /* VZInspectController.h */,
+				AF6BE8C31A40822B000CF41E /* VZInspectController.m */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		AF6BE8C41A40822B000CF41E /* monitor */ = {
+			isa = PBXGroup;
+			children = (
+				AF6BE8C51A40822B000CF41E /* VZCrashInspector.h */,
+				AF6BE8C61A40822B000CF41E /* VZCrashInspector.m */,
+				AF6BE8C71A40822B000CF41E /* VZHeapInspector.h */,
+				AF6BE8C81A40822B000CF41E /* VZHeapInspector.m */,
+				AF6BE8C91A40822B000CF41E /* VZLogInspector.h */,
+				AF6BE8CA1A40822B000CF41E /* VZLogInspector.m */,
+				AF6BE8CB1A40822B000CF41E /* VZMemoryInspector.h */,
+				AF6BE8CC1A40822B000CF41E /* VZMemoryInspector.m */,
+				AF6BE8CD1A40822B000CF41E /* VZNetworkInspector.h */,
+				AF6BE8CE1A40822B000CF41E /* VZNetworkInspector.m */,
+				AF6BE8CF1A40822B000CF41E /* VZOverviewInspector.h */,
+				AF6BE8D01A40822B000CF41E /* VZOverviewInspector.m */,
+				AF6BE8D11A40822B000CF41E /* VZSettingInspector.h */,
+				AF6BE8D21A40822B000CF41E /* VZSettingInspector.m */,
+			);
+			path = monitor;
+			sourceTree = "<group>";
+		};
+		AF6BE8D31A40822B000CF41E /* tool */ = {
+			isa = PBXGroup;
+			children = (
+				AF6BE8D41A40822B000CF41E /* NSObject+VZInspector.h */,
+				AF6BE8D51A40822B000CF41E /* NSObject+VZInspector.m */,
+				AF6BE8D61A40822B000CF41E /* UIWindow+VZInspector.h */,
+				AF6BE8D71A40822B000CF41E /* UIWindow+VZInspector.m */,
+				AF6BE8D81A40822B000CF41E /* VZInspectorPlotView.h */,
+				AF6BE8D91A40822B000CF41E /* VZInspectorPlotView.m */,
+			);
+			path = tool;
+			sourceTree = "<group>";
+		};
+		AF6BE8DA1A40822B000CF41E /* view */ = {
+			isa = PBXGroup;
+			children = (
+				AF6BE8DB1A40822B000CF41E /* console */,
+				AF6BE8DE1A40822B000CF41E /* crash */,
+				AF6BE8E31A40822B000CF41E /* grid */,
+				AF6BE8E61A40822B000CF41E /* heap */,
+				AF6BE8E91A40822B000CF41E /* log */,
+				AF6BE8EC1A40822B000CF41E /* overview */,
+				AF6BE8F31A40822B000CF41E /* sandbox */,
+				AF6BE8F81A40822B000CF41E /* settings */,
+				AF6BE8FB1A40822B000CF41E /* VZInspectorView.h */,
+				AF6BE8FC1A40822B000CF41E /* VZInspectorView.m */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		AF6BE8DB1A40822B000CF41E /* console */ = {
+			isa = PBXGroup;
+			children = (
+				AF6BE8DC1A40822B000CF41E /* VZInspectorConsoleView.h */,
+				AF6BE8DD1A40822B000CF41E /* VZInspectorConsoleView.m */,
+			);
+			path = console;
+			sourceTree = "<group>";
+		};
+		AF6BE8DE1A40822B000CF41E /* crash */ = {
+			isa = PBXGroup;
+			children = (
+				AF6BE8DF1A40822B000CF41E /* VZInspectorCrashRootView.h */,
+				AF6BE8E01A40822B000CF41E /* VZInspectorCrashRootView.m */,
+				AF6BE8E11A40822B000CF41E /* VZInspectorCrashView.h */,
+				AF6BE8E21A40822B000CF41E /* VZInspectorCrashView.m */,
+			);
+			path = crash;
+			sourceTree = "<group>";
+		};
+		AF6BE8E31A40822B000CF41E /* grid */ = {
+			isa = PBXGroup;
+			children = (
+				AF6BE8E41A40822B000CF41E /* VZInspectorGridView.h */,
+				AF6BE8E51A40822B000CF41E /* VZInspectorGridView.m */,
+			);
+			path = grid;
+			sourceTree = "<group>";
+		};
+		AF6BE8E61A40822B000CF41E /* heap */ = {
+			isa = PBXGroup;
+			children = (
+				AF6BE8E71A40822B000CF41E /* VZInspectorHeapView.h */,
+				AF6BE8E81A40822B000CF41E /* VZInspectorHeapView.m */,
+			);
+			path = heap;
+			sourceTree = "<group>";
+		};
+		AF6BE8E91A40822B000CF41E /* log */ = {
+			isa = PBXGroup;
+			children = (
+				AF6BE8EA1A40822B000CF41E /* VZInspectorLogView.h */,
+				AF6BE8EB1A40822B000CF41E /* VZInspectorLogView.m */,
+			);
+			path = log;
+			sourceTree = "<group>";
+		};
+		AF6BE8EC1A40822B000CF41E /* overview */ = {
+			isa = PBXGroup;
+			children = (
+				AF6BE8ED1A40822B000CF41E /* VZInspectorOverview.h */,
+				AF6BE8EE1A40822B000CF41E /* VZInspectorOverview.m */,
+				AF6BE8EF1A40822B000CF41E /* VZMemoryInspectorOverView.h */,
+				AF6BE8F01A40822B000CF41E /* VZMemoryInspectorOverView.m */,
+				AF6BE8F11A40822B000CF41E /* VZNetworkInspectorOverView.h */,
+				AF6BE8F21A40822B000CF41E /* VZNetworkInspectorOverView.m */,
+			);
+			path = overview;
+			sourceTree = "<group>";
+		};
+		AF6BE8F31A40822B000CF41E /* sandbox */ = {
+			isa = PBXGroup;
+			children = (
+				AF6BE8F41A40822B000CF41E /* VZInspectorSandBoxRootView.h */,
+				AF6BE8F51A40822B000CF41E /* VZInspectorSandBoxRootView.m */,
+				AF6BE8F61A40822B000CF41E /* VZInspectorSandBoxSubView.h */,
+				AF6BE8F71A40822B000CF41E /* VZInspectorSandBoxSubView.m */,
+			);
+			path = sandbox;
+			sourceTree = "<group>";
+		};
+		AF6BE8F81A40822B000CF41E /* settings */ = {
+			isa = PBXGroup;
+			children = (
+				AF6BE8F91A40822B000CF41E /* VZInspectorSettingView.h */,
+				AF6BE8FA1A40822B000CF41E /* VZInspectorSettingView.m */,
+			);
+			path = settings;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AF0FC50619D11C66009CCBE4 /* VZInspector */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AF0FC52A19D11C66009CCBE4 /* Build configuration list for PBXNativeTarget "VZInspector" */;
+			buildPhases = (
+				AF0FC50319D11C66009CCBE4 /* Sources */,
+				AF0FC50419D11C66009CCBE4 /* Frameworks */,
+				AF0FC50519D11C66009CCBE4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VZInspector;
+			productName = VZInspector;
+			productReference = AF0FC50719D11C66009CCBE4 /* VZInspector.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AF0FC4FF19D11C66009CCBE4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = VizLabe;
+				TargetAttributes = {
+					AF0FC50619D11C66009CCBE4 = {
+						CreatedOnToolsVersion = 6.0.1;
+					};
+				};
+			};
+			buildConfigurationList = AF0FC50219D11C66009CCBE4 /* Build configuration list for PBXProject "VZInspector" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AF0FC4FE19D11C66009CCBE4;
+			productRefGroup = AF0FC50819D11C66009CCBE4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AF0FC50619D11C66009CCBE4 /* VZInspector */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AF0FC50519D11C66009CCBE4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF0FC51619D11C66009CCBE4 /* Main.storyboard in Resources */,
+				AF0FC51B19D11C66009CCBE4 /* LaunchScreen.xib in Resources */,
+				AF0FC51819D11C66009CCBE4 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AF0FC50319D11C66009CCBE4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF6BE9061A40822B000CF41E /* VZLogInspector.m in Sources */,
+				AF6BE91A1A40822B000CF41E /* VZInspectorView.m in Sources */,
+				AF0FC51319D11C66009CCBE4 /* ViewController.m in Sources */,
+				AF6BE9051A40822B000CF41E /* VZHeapInspector.m in Sources */,
+				AF6BE90E1A40822B000CF41E /* VZInspectorConsoleView.m in Sources */,
+				AF6BE9111A40822B000CF41E /* VZInspectorGridView.m in Sources */,
+				AF6BE9101A40822B000CF41E /* VZInspectorCrashView.m in Sources */,
+				AF6BE90C1A40822B000CF41E /* UIWindow+VZInspector.m in Sources */,
+				AF6BE9131A40822B000CF41E /* VZInspectorLogView.m in Sources */,
+				AF6BE90B1A40822B000CF41E /* NSObject+VZInspector.m in Sources */,
+				AF6BE9161A40822B000CF41E /* VZNetworkInspectorOverView.m in Sources */,
+				AF6BE91D1A40822B000CF41E /* VZInspectorWindow.m in Sources */,
+				AF0FC51019D11C66009CCBE4 /* AppDelegate.m in Sources */,
+				AF6BE9031A40822B000CF41E /* VZInspectController.m in Sources */,
+				AF6BE9081A40822B000CF41E /* VZNetworkInspector.m in Sources */,
+				AF6BE91C1A40822B000CF41E /* VZInspectorOverlay.m in Sources */,
+				AF6BE9091A40822B000CF41E /* VZOverviewInspector.m in Sources */,
+				AF6BE91B1A40822B000CF41E /* VZInspector.m in Sources */,
+				AF6BE90A1A40822B000CF41E /* VZSettingInspector.m in Sources */,
+				AF0FC50D19D11C66009CCBE4 /* main.m in Sources */,
+				AF6BE9121A40822B000CF41E /* VZInspectorHeapView.m in Sources */,
+				AF6BE9191A40822B000CF41E /* VZInspectorSettingView.m in Sources */,
+				AF6BE90F1A40822B000CF41E /* VZInspectorCrashRootView.m in Sources */,
+				AF6BE9181A40822B000CF41E /* VZInspectorSandBoxSubView.m in Sources */,
+				AF6BE9071A40822B000CF41E /* VZMemoryInspector.m in Sources */,
+				AF6BE9041A40822B000CF41E /* VZCrashInspector.m in Sources */,
+				AF6BE9171A40822B000CF41E /* VZInspectorSandBoxRootView.m in Sources */,
+				AF6BE90D1A40822B000CF41E /* VZInspectorPlotView.m in Sources */,
+				AF6BE9141A40822B000CF41E /* VZInspectorOverview.m in Sources */,
+				AF6BE9151A40822B000CF41E /* VZMemoryInspectorOverView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		AF0FC51419D11C66009CCBE4 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AF0FC51519D11C66009CCBE4 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		AF0FC51919D11C66009CCBE4 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AF0FC51A19D11C66009CCBE4 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AF0FC52819D11C66009CCBE4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = VZInspector.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		AF0FC52919D11C66009CCBE4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = VZInspector.pch;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AF0FC52B19D11C66009CCBE4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				INFOPLIST_FILE = VZInspector/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		AF0FC52C19D11C66009CCBE4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				INFOPLIST_FILE = VZInspector/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AF0FC50219D11C66009CCBE4 /* Build configuration list for PBXProject "VZInspector" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AF0FC52819D11C66009CCBE4 /* Debug */,
+				AF0FC52919D11C66009CCBE4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AF0FC52A19D11C66009CCBE4 /* Build configuration list for PBXNativeTarget "VZInspector" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AF0FC52B19D11C66009CCBE4 /* Debug */,
+				AF0FC52C19D11C66009CCBE4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AF0FC4FF19D11C66009CCBE4 /* Project object */;
+}
