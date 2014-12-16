@@ -129,7 +129,6 @@
         if (i==4) {
             
             [btn setTitle:@"Close" forState:UIControlStateNormal];
-            [btn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
         }
         [self.contentView addSubview:btn];
     }
