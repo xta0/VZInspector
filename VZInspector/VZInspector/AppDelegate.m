@@ -33,6 +33,7 @@
     }];
     [VZInspector setRequestLogNotificationIdentifier:@"VZRequestLog" urlKey:@"url"];
     [VZInspector setResponseLogNotificationIdentifier:@"VZResponseLog" responseKey:@"json" errorKey:@"error"];
+    [VZInspector setDefaultAPIEnvIndex:2];
     
     [VZInspector showOnStatusBar];
     

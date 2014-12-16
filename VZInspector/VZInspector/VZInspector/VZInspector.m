@@ -69,6 +69,11 @@
     [VZLogInspector setResponseLogErrorPath:error];
 }
 
++ (void)setDefaultAPIEnvIndex:(NSInteger)index
+{
+    [VZSettingInspector sharedInstance].defaultEnvIndex = index;
+}
+
 + (void)setDevAPIEnvCallback:(void(^)(void))callback
 {
     [VZSettingInspector sharedInstance].apiDevCallback = callback;

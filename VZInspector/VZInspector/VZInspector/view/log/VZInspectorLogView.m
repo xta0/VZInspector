@@ -156,7 +156,7 @@
     //requst log:
     if (request) {
         
-        NSString* info = @"request comes from => VZHTTPRequest";
+        NSString* info = @"Request URL:";
         info = [info stringByAppendingString:@"\n--------------------------------------\n"];
         info = [info stringByAppendingString:[[self.requestLogs arrayByAddingObject:@">"] componentsJoinedByString:@"\n"]];
         
@@ -166,7 +166,7 @@
     else
     {
         //response log:
-        NSString* info = @"response comes from => VZHTTPRequest";
+        NSString* info = @"Response JSON:";
         info = [info stringByAppendingString:@"\n--------------------------------------\n"];
         info = [info stringByAppendingString:[[self.responseLogs arrayByAddingObject:@">"] componentsJoinedByString:@"\n"]];
         
@@ -181,7 +181,7 @@
 {
     [self.requestLogs removeAllObjects];
     
-    NSString* info = @"request comes from => VZHTTPRequest";
+    NSString* info = @"Request URL:";
     info = [info stringByAppendingString:@"\n--------------------------------------\n"];
     info = [info stringByAppendingString:[[self.requestLogs arrayByAddingObject:@">"] componentsJoinedByString:@"\n"]];
     
@@ -193,7 +193,7 @@
     [self.responseLogs removeAllObjects];
     
     //response log:
-    NSString* info = @"response comes from => VZHTTPRequest";
+    NSString* info = @"Response JSON:";
     info = [info stringByAppendingString:@"\n--------------------------------------\n"];
     info = [info stringByAppendingString:[[self.responseLogs arrayByAddingObject:@">"] componentsJoinedByString:@"\n"]];
     _responseView.text = info;

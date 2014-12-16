@@ -54,6 +54,10 @@
 @interface VZInspector(env)
 
 /*
+ *默认配置index
+ */
++ (void)setDefaultAPIEnvIndex:(NSInteger)index;
+/*
  *配置开发API环境
  */
 + (void)setDevAPIEnvCallback:(void(^)(void))callback;
