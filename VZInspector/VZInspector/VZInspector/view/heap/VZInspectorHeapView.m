@@ -9,13 +9,15 @@
 #import "VZInspectorHeapView.h"
 #import "VZHeapInspector.h"
 
-@interface VZInspectorHeapView()<UITableViewDataSource,UITableViewDelegate>
+@interface VZInspectorHeapView()<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate>
 
+@property(nonatomic,strong)UITextField* searchBar;
 @property(nonatomic,strong)UILabel* textLabel;
 @property(nonatomic,strong)UIButton* backBtn;
 @property(nonatomic,strong)UIButton* heapShotBtn;
 @property(nonatomic,strong)UITableView* tableView;
 @property(nonatomic,strong)NSArray* items;
+@property(nonatomic,strong)NSArray* filterItems;
 
 @end
 
@@ -27,13 +29,19 @@
     
     if (self) {
         
-        self.textLabel = [[UILabel alloc]initWithFrame:CGRectMake(40, 0, frame.size.width-80, 44)];
-        self.textLabel.text = @"Heap Shot";
-        self.textLabel.textAlignment = NSTextAlignmentCenter;
-        self.textLabel.textColor = [UIColor whiteColor];
-        self.textLabel.backgroundColor = [UIColor clearColor];
-        self.textLabel.font = [UIFont systemFontOfSize:18.0f];
-        [self addSubview:self.textLabel];
+         self.backgroundColor = [UIColor clearColor];
+        
+
+        CGRect rect = CGRectMake(0, 0, frame.size.width, 44);
+        self.searchBar = [[UITextField alloc]initWithFrame:CGRectInset(rect, 80, 5)];
+        self.searchBar.backgroundColor = [UIColor colorWithWhite:0.5 alpha:0.5];
+        self.searchBar.clearButtonMode = UITextFieldViewModeAlways;
+        self.searchBar.borderStyle = UITextBorderStyleRoundedRect;
+        self.searchBar.clearButtonMode = UITextFieldViewModeAlways;
+        self.searchBar.textColor = [UIColor orangeColor];
+        self.searchBar.delegate = self;
+        [self.searchBar addTarget:self action:@selector(textFieldDidChangeCharacter:) forControlEvents:UIControlEventEditingChanged];
+        [self addSubview:self.searchBar];
         
         self.backBtn = [[UIButton alloc]initWithFrame:CGRectMake(10, 0, 44, 44)];
         self.backBtn.backgroundColor = [UIColor clearColor];
@@ -46,14 +54,15 @@
 #pragma clang diagnostic pop
         [self addSubview:self.backBtn];
         
-        self.heapShotBtn = [[UIButton alloc]initWithFrame:CGRectMake(frame.size.width-20-44, 0, 44, 44)];
+        self.heapShotBtn = [[UIButton alloc]initWithFrame:CGRectMake(frame.size.width-10-44, 0, 44, 44)];
         self.heapShotBtn.backgroundColor = [UIColor clearColor];
-        [self.heapShotBtn setTitle:@"Shot!" forState:UIControlStateNormal];
+        [self.heapShotBtn setTitle:@"Shot" forState:UIControlStateNormal];
         [self.heapShotBtn setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
         [self.heapShotBtn addTarget:self action:@selector(onHeapShot) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:self.heapShotBtn];
         
-        self.backgroundColor = [UIColor clearColor];
+  
+    
         
         self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0,44, frame.size.width, frame.size.height-44)];
         self.tableView.backgroundColor = [UIColor clearColor];
@@ -71,6 +80,9 @@
 
 - (void)heapShot
 {
+    [self.searchBar resignFirstResponder];
+    self.searchBar.text = @"";
+    
     self.items = [[VZHeapInspector livingObjectsWithClassPrefix:[VZHeapInspector classPrefixName]] allObjects];
     [self.tableView reloadData];
 }
@@ -82,12 +94,16 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.items.count;
+    if (self.searchBar.text.length > 0) {
+        return self.filterItems.count;
+    }
+    else
+        return self.items.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 44;
+    return 30;
 }
 
 - (UITableViewCell* )tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -99,11 +115,18 @@
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:sandCellId];
         cell.backgroundColor = [UIColor clearColor];
         cell.textLabel.textColor = [UIColor orangeColor];
+        cell.textLabel.font = [UIFont systemFontOfSize:14.0f];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     
-    cell.textLabel.text = self.items[indexPath.row];
+    if (self.searchBar.text.length > 0) {
+        cell.textLabel.text = self.filterItems[indexPath.row];
+    }
+    else
+        cell.textLabel.text = self.items[indexPath.row];
+   
     cell.tag = indexPath.row;
+    [cell.textLabel sizeToFit];
     
     return cell;
 }
@@ -122,4 +145,31 @@
 {
     [self heapShot];
 }
+
+- (void)textFieldDidChangeCharacter:(id)sender
+{
+    
+    NSString* text = self.searchBar.text;
+ 
+    if (text.length > 0) {
+     
+        NSArray* tmpList =  [self.items copy];
+        
+        self.filterItems = [[tmpList filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(NSString*  evaluatedObject, NSDictionary *bindings) {
+            
+            return [evaluatedObject hasPrefix:text];
+            
+        }]] copy];
+    }
+    else
+    {
+        [self.searchBar resignFirstResponder];
+    }
+
+    
+    [self.tableView reloadData];
+
+}
+
+
 @end

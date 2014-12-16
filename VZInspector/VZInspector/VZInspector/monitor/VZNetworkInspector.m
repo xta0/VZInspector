@@ -59,13 +59,13 @@
     [self.samplePoints addObject:@(self.networkCount)];
     
     
-    NSURL* message = notify.userInfo[@"url"];
+    id message = notify.userInfo[@"url"];
     if ([message isEqual:[NSNull null]]) {
         return;
     }
     else
     {
-        NSString* urlString = message.absoluteString;
+        NSString* urlString = [NSString stringWithFormat:@"%@",message];
         NSData* data = [urlString dataUsingEncoding:NSUTF8StringEncoding];
         self.totalResponseBytes += data.length;
     }

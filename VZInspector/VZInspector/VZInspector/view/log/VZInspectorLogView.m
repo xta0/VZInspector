@@ -96,14 +96,14 @@
 - (void)requestLog:(NSNotification* )notify
 {
     NSString* urlpath = [VZLogInspector requestLogURLPath];
-    NSURL* message = notify.userInfo[urlpath];
+    id  message = notify.userInfo[urlpath];
     
     if ([message isEqual:[NSNull null]]) {
         return;
     }
     else
     {
-        NSString* urlString = message.absoluteString;
+        NSString* urlString = [NSString stringWithFormat:@"%@",message];
         
         //utf8 decode
         NSString* decodeURL = [urlString stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
@@ -126,9 +126,9 @@
 - (void)responseLog:(NSNotification* )notify
 {
     NSString* response = [VZLogInspector responseLogStringPath];
-    NSString*  json = notify.userInfo[response];
+    NSString*  json = [NSString stringWithFormat:@"%@",notify.userInfo[response]];
     
-    if (json.length> 0 ) {
+    if (json.length > 0 ) {
         
         NSString* errorpath = [VZLogInspector responseLogErrorPath];
         id error = notify.userInfo[errorpath];

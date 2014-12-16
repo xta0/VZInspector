@@ -45,7 +45,7 @@
         
         // Initialization code
         _crashLogs = [[UITextView alloc] initWithFrame:CGRectMake(0, 44 , frame.size.width, frame.size.height-44)];
-        _crashLogs.font = [UIFont fontWithName:@"Courier-Bold" size:10];
+        _crashLogs.font = [UIFont fontWithName:@"Courier-Bold" size:14];
         _crashLogs.textColor = [UIColor orangeColor];
         _crashLogs.backgroundColor = [UIColor clearColor];
         _crashLogs.indicatorStyle = 0;

@@ -363,7 +363,7 @@
         [self.contentView addSubview:self.consoleView];
         
         self.currentView = self.consoleView;
-        self.currentIndex = 1;
+        self.currentIndex = 2;
         
     }];
 
