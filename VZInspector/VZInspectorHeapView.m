@@ -146,6 +146,18 @@
     [self heapShot];
 }
 
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    [self.searchBar resignFirstResponder];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    
+    [self.searchBar resignFirstResponder];
+    return true;
+}
+
+
 - (void)textFieldDidChangeCharacter:(id)sender
 {
     
