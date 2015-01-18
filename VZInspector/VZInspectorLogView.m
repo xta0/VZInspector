@@ -6,6 +6,7 @@
 //  Copyright (c) 2014年 VizLab. All rights reserved.
 //
 
+#include <QuartzCore/QuartzCore.h>
 #import "VZInspectorLogView.h"
 #import "VZLogInspector.h"
 

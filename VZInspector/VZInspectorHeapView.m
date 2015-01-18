@@ -5,7 +5,7 @@
 //  Created by moxin.xt on 14-11-27.
 //  Copyright (c) 2014年 VizLab. All rights reserved.
 //
-
+#include <QuartzCore/QuartzCore.h>
 #import "VZInspectorHeapView.h"
 #import "VZHeapInspector.h"
 

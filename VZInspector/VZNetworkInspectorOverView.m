@@ -6,6 +6,7 @@
 //  Copyright (c) 2014年 VizLab. All rights reserved.
 //
 
+#include <QuartzCore/QuartzCore.h>
 #import "VZNetworkInspectorOverView.h"
 #import "VZInspectorPlotView.h"
 #import "NSObject+VZInspector.h"

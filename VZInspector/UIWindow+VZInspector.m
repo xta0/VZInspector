@@ -8,6 +8,7 @@
 
 #import "UIWindow+VZInspector.h"
 #include <UIKit/UIKit.h>
+#include <QuartzCore/QuartzCore.h>
 #include <objc/runtime.h>
 #import "VZInspectorOverlay.h"
 

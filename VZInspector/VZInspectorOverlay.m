@@ -30,7 +30,8 @@
     VZInspectorOverlay* o = [self sharedInstance];
     //ETDebuggerOverlay* o = [[ETDebuggerOverlay alloc]initWithFrame:CGRectMake(120, 0, 40, 20)];
     o.tag = 100;
-    o.windowLevel = UIWindowLevelStatusBar+1;
+    //o.windowLevel = UIWindowLevelStatusBar+1;
+    o.windowLevel = UIWindowLevelNormal;
     o.hidden = NO;
 }
 +(void)hide
