@@ -28,10 +28,8 @@
 +(void)show
 {
     VZInspectorOverlay* o = [self sharedInstance];
-    //ETDebuggerOverlay* o = [[ETDebuggerOverlay alloc]initWithFrame:CGRectMake(120, 0, 40, 20)];
     o.tag = 100;
-    //o.windowLevel = UIWindowLevelStatusBar+1;
-    o.windowLevel = UIWindowLevelNormal;
+    o.windowLevel = UIWindowLevelStatusBar+1;
     o.hidden = NO;
 }
 +(void)hide
@@ -67,6 +65,13 @@
         [VZInspector hide];
     else
         [VZInspector show];
+}
+
+- (void)becomeKeyWindow
+{
+    //fix keywindow problem:
+    //UIActionSheet在close后回重置keywindow，防止自己被设成keywindow
+    [[[UIApplication sharedApplication].delegate window] makeKeyWindow];
 }
 
 

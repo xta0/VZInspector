@@ -209,7 +209,7 @@
     }
     else if (self.currentView == self.overview)
     {
-        if (pt.y > h-90) {
+        if (pt.y > h-40) {
             return NO;
         }
         else
@@ -220,7 +220,7 @@
         if (pt.y < 40) {
             return NO;
         }
-        else if (pt.y > h-90 ) {
+        else if (pt.y > h-40 ) {
             return NO;
         }
         else
@@ -228,7 +228,7 @@
     }
     else
     {
-        if (pt.y > h-90 ) {
+        if (pt.y > h-40 ) {
             return NO;
         }
         else
