@@ -203,6 +203,7 @@
              ||self.currentView.class == [VZInspectorSandBoxRootView class]
              ||self.currentView.class == [VZInspectorHeapView class]
              ||self.currentView.class == [VZInspectorCrashRootView class]
+             ||self.currentView.class == [VZInspectorConsoleView class]
              )
     {
         return NO;
