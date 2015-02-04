@@ -35,12 +35,15 @@ const int maxCrashLogNum  = 20;
 void HandleException(NSException *exception)
 {
     [[VZCrashInspector sharedInstance]saveException:exception];
-    abort();
+    [exception raise];
 }
 
-void SignalHandler(int signal)
+void SignalHandler(int sig)
 {
-
+    [[VZCrashInspector sharedInstance]saveSignal:sig];
+    
+    signal(sig, SIG_DFL);
+    raise(sig);
 }
 
 + (NSArray *)backtrace
@@ -52,8 +55,7 @@ void SignalHandler(int signal)
     int i;
     NSMutableArray *backtrace = [NSMutableArray arrayWithCapacity:frames];
     
-    //skip 4, max is 10
-    for (i = 4;i < 10;i++)
+    for (i = 0;i < 32;i++)
     {
         [backtrace addObject:[NSString stringWithUTF8String:strs[i]]];
     }
@@ -188,18 +190,11 @@ void SignalHandler(int signal)
 
 - (void)saveSignal:(int) signal
 {
-    //get back trace stack
-    NSArray* backTrace = [VZCrashInspector backtrace];
-    
-    NSMutableDictionary * detail = [NSMutableDictionary dictionary];
-    [detail setObject:backTrace forKey:@"callStack"];
-    
-    NSMutableDictionary * dict = [NSMutableDictionary dictionary];
-    [dict setObject:@"signal" forKey:@"type"];
-    [dict setObject:detail forKey:@"info"];
-    
-    [self saveToFile:dict];
-    
+//    NSMutableDictionary * detail = [NSMutableDictionary dictionary];
+//    
+//    [detail setObject:@(signal) forKey:@"signal type"];
+
+//    [self saveToFile:detail];
 }
 
 - (void)saveToFile:(NSMutableDictionary*)dict
@@ -215,27 +210,23 @@ void SignalHandler(int signal)
     NSString* savePath = [[_crashLogPath stringByAppendingPathComponent:dateString] stringByAppendingString:@".plist"];
     
     //save to disk
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        
-        BOOL succeed = [ dict writeToFile:savePath atomically:YES];
-        if ( NO == succeed )
-        {
-            NSLog(@"VZInspector:Save crash report failed!");
-        }
-        else
-            NSLog(@"VZInspector:save crash report succeed!");
-        
-        [_plist addObject:dateString];
+    BOOL succeed = [ dict writeToFile:savePath atomically:YES];
+    if ( NO == succeed )
+    {
+        NSLog(@"VZInspector:Save crash report failed!");
+    }
+    else
+        NSLog(@"VZInspector:save crash report succeed!");
+    
+    [_plist addObject:dateString];
+    [_plist writeToFile:[_crashLogPath stringByAppendingPathComponent:@"crashLog.plist"] atomically:YES];
+    
+    if (_plist.count > maxCrashLogNum)
+    {
+        [[NSFileManager defaultManager] removeItemAtPath:[_crashLogPath stringByAppendingPathComponent:_plist[0]] error:nil];
+        [_plist removeObject:0];
         [_plist writeToFile:[_crashLogPath stringByAppendingPathComponent:@"crashLog.plist"] atomically:YES];
-        
-        if (_plist.count > maxCrashLogNum)
-        {
-            [[NSFileManager defaultManager] removeItemAtPath:[_crashLogPath stringByAppendingPathComponent:_plist[0]] error:nil];
-            [_plist removeObject:0];
-            [_plist writeToFile:[_crashLogPath stringByAppendingPathComponent:@"crashLog.plist"] atomically:YES];
-        }
-        
-    });
+    }
 }
 
 @end

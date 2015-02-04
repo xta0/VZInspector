@@ -88,17 +88,7 @@
         
         //call stack
         NSArray* callStack  = info[@"callStack"];
-        //过滤出有用的信息：
-        NSMutableArray* sublist = [NSMutableArray new];
-        NSString* mark = @"]";
-        [callStack enumerateObjectsUsingBlock:^(NSString* obj, NSUInteger idx, BOOL *stop) {
-            
-            if ([obj rangeOfString:mark].location != NSNotFound) {
-                [sublist addObject:obj];
-            }
-        }];
-        
-        _crashLogs.text = [[[_crashLogs.text stringByAppendingString:@"> callStack: \n"] stringByAppendingString:[NSString stringWithFormat:@"%@",sublist]] stringByAppendingString:@"\n"];
+        _crashLogs.text = [[[_crashLogs.text stringByAppendingString:@"> callStack: \n"] stringByAppendingString:[NSString stringWithFormat:@"%@",callStack]] stringByAppendingString:@"\n"];
         
     }
 }
