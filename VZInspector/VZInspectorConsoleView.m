@@ -8,7 +8,7 @@
 
 #import "VZInspectorConsoleView.h"
 #import <objc/runtime.h>
-
+#import "VZInspectorButtonIcons.h"
 
 @interface VZInspectorConsoleView()<UITextFieldDelegate>
 
@@ -19,8 +19,9 @@
 @property(nonatomic,assign) NSInteger logMax;
 @property(nonatomic,assign) CGRect oldFrm;
 
-@end
+@property (nonatomic, strong) NSArray *buttonIconsArray;
 
+@end
 
 @implementation VZInspectorConsoleView
 
@@ -28,50 +29,127 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        self.buttonIconsArray = @[[[VZBorderIcon  alloc] init],
+                                  [[VZSandBoxIcon alloc] init],
+                                  [[VZGridIcon alloc] init],
+                                  [[VZExitIcon alloc] init]];
         
-        self.oldFrm = frame;
-        // Initialization code
-        self.logs = [NSMutableArray new];
-        self.logMax = 20;
+        float width = [UIScreen mainScreen].bounds.size.width / 4;
+        float space = (width - kIconDimension) / 2;
+        for (int i = 0; i < self.buttonIconsArray.count; i++) {
+            float x = space + space * (i % 4) * 2 + (i % 4) * kIconDimension;
+            float y = space + space * (int)(i / 4) * 2 + (int)(i / 4) * kIconDimension;
+            CGRect frame = CGRectMake(x, y, kIconDimension, kIconDimension);
+            
+            UIView *view = self.buttonIconsArray[i];
+            view.backgroundColor = [UIColor clearColor];
+            view.frame = frame;
+            [self addSubview:view];
+            
+            UIButton *button = [[UIButton alloc] initWithFrame:frame];
+            button.backgroundColor = [UIColor clearColor];
+            button.tag = i;
+            [button addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
+            [self addSubview:button];
+        }
+//        VZExitIcon *exitIcon = [[VZExitIcon alloc] initWithFrame:CGRectMake(0, 0, kIconDimension, kIconDimension)];
+//        exitIcon.backgroundColor = [UIColor clearColor];
+//        [self addSubview:exitIcon];
+//        
+//        VZBorderIcon *borderIcon = [[VZBorderIcon  alloc] initWithFrame:CGRectMake(100, 100, kIconDimension, kIconDimension)];
+//        borderIcon.backgroundColor = [UIColor clearColor];
+//        [self addSubview:borderIcon];
+//        
+//        VZSandBoxIcon *sandBoxIcon = [[VZSandBoxIcon alloc] initWithFrame:CGRectMake(200, 200, kIconDimension, kIconDimension)];
+//        sandBoxIcon.backgroundColor = [UIColor clearColor];
+//        sandBoxIcon.layer.borderColor = [UIColor greenColor].CGColor;
+//        sandBoxIcon.layer.borderWidth = 0.5f;
+//        [self addSubview:sandBoxIcon];
+//        
+//        VZGridIcon *gridIcon = [[VZGridIcon alloc] initWithFrame:CGRectMake(20, 200, kIconDimension, kIconDimension)];
+//        gridIcon.backgroundColor = [UIColor clearColor];
+//        [self addSubview:gridIcon];
+//        
         
-        _consoleView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height-28-10-5)];
-        _consoleView.font = [UIFont fontWithName:@"Courier-Bold" size:12];
-        _consoleView.textColor = [UIColor orangeColor];
-        _consoleView.backgroundColor = [UIColor clearColor];
-        _consoleView.indicatorStyle = 0;
-        _consoleView.editable = NO;
-        _consoleView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-        [self setConsoleText];
-        [self addSubview:_consoleView];
         
-        
-        _inputField = [[UITextField alloc] initWithFrame:CGRectMake(10,frame.size.height - 28 - 10 ,frame.size.width-20,28)];
-        _inputField.borderStyle = UITextBorderStyleRoundedRect;
-        _inputField.font = [UIFont fontWithName:@"Courier" size:12];
-        _inputField.autocapitalizationType = UITextAutocapitalizationTypeNone;
-        _inputField.autocorrectionType = UITextAutocorrectionTypeNo;
-        _inputField.returnKeyType = UIReturnKeyDone;
-        _inputField.enablesReturnKeyAutomatically = NO;
-        _inputField.clearButtonMode = UITextFieldViewModeWhileEditing;
-        _inputField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-        _inputField.placeholder = @"Enter help to see commands...";
-        _inputField.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleWidth;
-        _inputField.delegate = self;
-        [self addSubview:_inputField];
-        
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(keyboardWillShow:)
-                                                     name:UIKeyboardWillShowNotification
-                                                   object:nil];
-        
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(keyboardWillHide:)
-                                                     name:UIKeyboardWillHideNotification
-                                                   object:nil];
+//        self.oldFrm = frame;
+//        // Initialization code
+//        self.logs = [NSMutableArray new];
+//        self.logMax = 20;
+//        
+//        _consoleView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height-28-10-5)];
+//        _consoleView.font = [UIFont fontWithName:@"Courier-Bold" size:12];
+//        _consoleView.textColor = [UIColor orangeColor];
+//        _consoleView.backgroundColor = [UIColor clearColor];
+//        _consoleView.indicatorStyle = 0;
+//        _consoleView.editable = NO;
+//        _consoleView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+//        [self setConsoleText];
+//        [self addSubview:_consoleView];
+//        
+//        
+//        _inputField = [[UITextField alloc] initWithFrame:CGRectMake(10,frame.size.height - 28 - 10 ,frame.size.width-20,28)];
+//        _inputField.borderStyle = UITextBorderStyleRoundedRect;
+//        _inputField.font = [UIFont fontWithName:@"Courier" size:12];
+//        _inputField.autocapitalizationType = UITextAutocapitalizationTypeNone;
+//        _inputField.autocorrectionType = UITextAutocorrectionTypeNo;
+//        _inputField.returnKeyType = UIReturnKeyDone;
+//        _inputField.enablesReturnKeyAutomatically = NO;
+//        _inputField.clearButtonMode = UITextFieldViewModeWhileEditing;
+//        _inputField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+//        _inputField.placeholder = @"Enter help to see commands...";
+//        _inputField.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleWidth;
+//        _inputField.delegate = self;
+//        [self addSubview:_inputField];
+//        
+//        [[NSNotificationCenter defaultCenter] addObserver:self
+//                                                 selector:@selector(keyboardWillShow:)
+//                                                     name:UIKeyboardWillShowNotification
+//                                                   object:nil];
+//        
+//        [[NSNotificationCenter defaultCenter] addObserver:self
+//                                                 selector:@selector(keyboardWillHide:)
+//                                                     name:UIKeyboardWillHideNotification
+//                                                   object:nil];
         
         
     }
     return self;
+}
+
+//  @[[[VZBorderIcon  alloc] init],
+//[[VZSandBoxIcon alloc] init],
+//[[VZGridIcon alloc] init],
+//[[VZExitIcon alloc] init]];
+- (void)buttonPressed:(UIButton *)button {
+    switch (button.tag) {
+        case 0:
+            NSLog(@"border");
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wundeclared-selector"
+            [self.parentViewController performSelector:@selector(showBorder) withObject:nil];
+#pragma clang diagnostic pop
+            break;
+        case 1:
+            NSLog(@"sandbox");
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wundeclared-selector"
+            [self.parentViewController performSelector:@selector(showSandBox) withObject:nil];
+#pragma clang diagnostic pop
+            break;
+        case 2:
+            NSLog(@"grid");
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wundeclared-selector"
+            [self.parentViewController performSelector:@selector(showGrid) withObject:nil];
+#pragma clang diagnostic pop
+            break;
+        case 3:
+            NSLog(@"exit");
+            break;
+        default:
+            break;
+    }
 }
 
 - (void)hideKeyboard
