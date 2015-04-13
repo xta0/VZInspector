@@ -1,5 +1,6 @@
+wp
 # Xcode
-.DS_Store
+#
 build/
 *.pbxuser
 !default.pbxuser
@@ -9,13 +10,22 @@ build/
 !default.mode2v3
 *.perspectivev3
 !default.perspectivev3
-*.xcworkspace
-!default.xcworkspace
 xcuserdata
-profile
+*.xccheckout
 *.moved-aside
 DerivedData
-.idea/
-Tests/Pods
-Tests/Podfile.lock
+*.hmap
+*.ipa
+*.xcuserstate
+xcuserdata/
+*.xccheckout
+contents.xcworkspacedata
 
+# CocoaPods
+#
+# We recommend against adding the Pods directory to your .gitignore. However
+# you should judge for yourself, the pros and cons are mentioned at:
+# http://guides.cocoapods.org/using/using-cocoapods.html#should-i-ignore-the-pods-directory-in-source-control
+#
+Pods/*
+Pods
