@@ -1,6 +1,6 @@
 language: objective-c
 
-xcode_prject: ./Example/VZInspector.xcodeproj
+xcode_project: ./Example/VZInspector.xcodeproj
 xcode_scheme: VZInspector
 
 before_script: 
