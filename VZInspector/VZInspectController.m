@@ -408,11 +408,11 @@
     }];
 }
 
-
 - (void)showBorder:(NSNumber *)status
 {
     if (status.integerValue == 0) {
         self.borderWidth = 0.5f;
+        [self updateBorderOfViewHierarchy];
         self.timer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(updateBorderOfViewHierarchy) userInfo:nil repeats:YES];
     }
     else {

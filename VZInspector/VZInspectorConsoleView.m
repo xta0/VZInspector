@@ -137,7 +137,15 @@
 #pragma clang diagnostic pop
             break;
         case 3://exit
+        {
+            UIButton* btn = [UIButton new];
+            btn.tag = 10;
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wundeclared-selector"
+            [self.parentViewController performSelector:@selector(onBtnClikced:) withObject:btn];
+#pragma clang diagnostic pop
             break;
+        }
         default:
             break;
     }

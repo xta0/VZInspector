@@ -44,15 +44,6 @@
     [self.view addSubview:self.tableView];
     
     [self load];
-    //fake
-//    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(100, 80, 80, 30)];
-//    label.text = @"测试label";
-//    [self.view addSubview:label];
-//    
-//    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(200, 200, 60, 60)];
-//    [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-//    [button setTitle:@"按钮" forState:UIControlStateNormal];
-//    [self.view addSubview:button];
 }
 
 - (void)didReceiveMemoryWarning {
