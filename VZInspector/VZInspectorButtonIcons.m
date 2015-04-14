@@ -69,7 +69,7 @@
     CGContextSetStrokeColorWithColor(context, [UIColor orangeColor].CGColor);
     CGContextSetLineWidth(context, kIconLineWidth);
     
-    float distance = 20;
+    float distance = kIconDimension / 3;
     float padding = (kIconDimension - distance) / 2;
     
     //horizontal

@@ -41,6 +41,9 @@
 @property(nonatomic,assign) NSInteger currentIndex;
 @property(nonatomic,assign) NSNumber* performMemoryWarning;
 
+//border
+@property(nonatomic,strong) NSTimer *timer;
+@property(nonatomic,assign) float borderWidth;
 @end
 
 @implementation VZInspectController
@@ -94,9 +97,11 @@
     //4,settingsview
     self.settingView = [[VZInspectorSettingView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-40) parentViewController:self];
     
-
-    [self.contentView addSubview:self.overview];
-    self.currentView = self.overview;
+//fake
+//    [self.contentView addSubview:self.overview];
+//    self.currentView = self.overview;
+    [self.contentView addSubview:self.consoleView];
+    self.currentView = self.consoleView;
     
 
     //4:tab
@@ -404,22 +409,43 @@
 }
 
 
-- (void)showBorder
+- (void)showBorder:(NSNumber *)status
 {
-    if ([UIWindow isSwizzled])
-    {
-        [UIWindow swizzle:NO];
+    if (status.integerValue == 0) {
+        self.borderWidth = 0.5f;
+        self.timer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(updateBorderOfViewHierarchy) userInfo:nil repeats:YES];
     }
+    else {
+        [self.timer invalidate];
+        self.borderWidth = 0;
+        [self updateBorderOfViewHierarchy];
+    }
+}
+
+- (void)updateBorderOfViewHierarchy {
+    UIViewController *currentVC = nil;
+    UIWindow * window = [[UIApplication sharedApplication] keyWindow];
+    UIView *frontView = [[window subviews] objectAtIndex:0];
+    id nextResponder = [frontView nextResponder];
+    
+    if ([nextResponder isKindOfClass:[UIViewController class]])
+        currentVC = nextResponder;
     else
-    {
-        [UIWindow swizzle:YES];
-        [self onClose];
-    }
+        currentVC = window.rootViewController;
+
+    [self drawBorderOfViewHierarchy:currentVC.view withWidth:self.borderWidth];
+}
+
+- (void)drawBorderOfViewHierarchy:(UIView *)view withWidth:(CGFloat)width {
+    view.layer.borderWidth = width;
+    view.layer.borderColor = [UIColor orangeColor].CGColor;
+    [view.subviews enumerateObjectsUsingBlock:^(UIView *subview, NSUInteger idx, BOOL *stop) {
+        [self drawBorderOfViewHierarchy:subview withWidth:width];
+    }];
 }
 
 - (void)showHeap
 {
-    
     VZInspectorHeapView* heapView = [[VZInspectorHeapView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) parentViewController:self];
     
     [UIView transitionFromView:self.contentView toView:heapView
