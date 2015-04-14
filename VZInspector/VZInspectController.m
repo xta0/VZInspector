@@ -426,6 +426,10 @@ static const int kBusinessViewTag = 999;
 
 - (void)drawBorderOfViewHierarchy:(UIView *)view withWidth:(CGFloat)width {
     if (view.tag == kBusinessViewTag) {
+        if (width == 0) {
+            //remove class name imageview
+            [view removeFromSuperview];
+        }
         return;
     }
     
@@ -434,17 +438,41 @@ static const int kBusinessViewTag = 999;
     
     //draw business view's class name
     const char* clzname = object_getClassName(view);
-    if (vz_isTrackingObject(clzname))
-    {
-        view.layer.borderColor = [UIColor greenColor].CGColor;
-        BOOL flag = (view.subviews.count != 0) && (((UIView *)view.subviews[0]).tag == kBusinessViewTag);
-        if (!flag)
-            [self drawText:clzname OnViewLeftCorner:view];
+    [self drawClassName:clzname withWidth:width onView:view];
+  
+    //draw business view controller's class name
+    if ([view.nextResponder isKindOfClass:[UIViewController class]]) {
+        clzname = object_getClassName(view.nextResponder);
+        [self drawClassName:clzname withWidth:width onView:view];
     }
 
     [view.subviews enumerateObjectsUsingBlock:^(UIView *subview, NSUInteger idx, BOOL *stop) {
         [self drawBorderOfViewHierarchy:subview withWidth:width];
     }];
+}
+
+- (void)drawClassName:(const char*)clzname withWidth:(CGFloat)width onView:(UIView *)view {
+    if (vz_isTrackingObject(clzname))
+    {
+        view.layer.borderColor = [UIColor greenColor].CGColor;
+        view.layer.borderWidth = width * 2;
+        BOOL flag = (view.subviews.count != 0) && (((UIView *)view.subviews[0]).tag == kBusinessViewTag);
+        if (!flag) {
+            const int padding = 2;
+            
+            UIGraphicsBeginImageContextWithOptions(view.bounds.size, NO, 2.0);
+            NSDictionary* stringAttrs = @{NSFontAttributeName : [UIFont systemFontOfSize:10], NSForegroundColorAttributeName : [UIColor greenColor]};
+            NSAttributedString* attrStr = [[NSAttributedString alloc] initWithString:[[NSString alloc] initWithUTF8String:clzname] attributes:stringAttrs];
+            [attrStr drawAtPoint:CGPointMake(padding, padding)];
+            UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+            UIGraphicsEndImageContext();
+            
+            UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+            imageView.tag = kBusinessViewTag;
+            imageView.backgroundColor = [UIColor clearColor];
+            [view addSubview:imageView];
+        }
+    }
 }
 
 static inline bool vz_isTrackingObject(const char* className)
@@ -462,22 +490,6 @@ static inline bool vz_isTrackingObject(const char* className)
     }
     
     return ret;
-}
-
-- (void)drawText:(const char *)text OnViewLeftCorner:(UIView *)view {
-    const int padding = 2;
-    
-    UIGraphicsBeginImageContextWithOptions(view.bounds.size, NO, 2.0);
-    NSDictionary* stringAttrs = @{NSFontAttributeName : [UIFont systemFontOfSize:10], NSForegroundColorAttributeName : [UIColor greenColor]};
-    NSAttributedString* attrStr = [[NSAttributedString alloc] initWithString:[[NSString alloc] initWithUTF8String:text] attributes:stringAttrs];
-    [attrStr drawAtPoint:CGPointMake(padding, padding)];
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
-    imageView.tag = kBusinessViewTag;
-    imageView.backgroundColor = [UIColor clearColor];
-    [view addSubview:imageView];
 }
 
 - (void)showHeap
