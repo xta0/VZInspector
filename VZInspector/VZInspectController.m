@@ -26,6 +26,8 @@
 #import "NSObject+VZInspector.h"
 #import "VZCrashInspector.h"
 
+static NSString* vz_tracking_classPrefix;
+static const int kBusinessViewTag = 999;
 
 @interface VZInspectController()
 
@@ -51,25 +53,6 @@
 - (UIView* )topView
 {
     return self.currentView;
-}
-
-- (id)initWithCoder:(NSCoder *)aDecoder
-{
-    self = [super initWithCoder:aDecoder];
-    
-    if (self) {
-        
-    }
-    return self;
-}
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
 }
 
 - (void)viewDidLoad
@@ -241,6 +224,11 @@
             return YES;
     }
     
+}
+
++ (void)setClassPrefixName:(NSString* )name
+{
+    vz_tracking_classPrefix = name;
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -437,11 +425,59 @@
 }
 
 - (void)drawBorderOfViewHierarchy:(UIView *)view withWidth:(CGFloat)width {
+    if (view.tag == kBusinessViewTag) {
+        return;
+    }
+    
     view.layer.borderWidth = width;
     view.layer.borderColor = [UIColor orangeColor].CGColor;
+    
+    //draw business view's class name
+    const char* clzname = object_getClassName(view);
+    if (vz_isTrackingObject(clzname))
+    {
+        view.layer.borderColor = [UIColor greenColor].CGColor;
+        BOOL flag = (view.subviews.count != 0) && (((UIView *)view.subviews[0]).tag == kBusinessViewTag);
+        if (!flag)
+            [self drawText:clzname OnViewLeftCorner:view];
+    }
+
     [view.subviews enumerateObjectsUsingBlock:^(UIView *subview, NSUInteger idx, BOOL *stop) {
         [self drawBorderOfViewHierarchy:subview withWidth:width];
     }];
+}
+
+static inline bool vz_isTrackingObject(const char* className)
+{
+    bool ret = false;
+    NSString* clznameStr = [NSString stringWithUTF8String:className];
+    
+    if ([clznameStr hasPrefix:vz_tracking_classPrefix]) {
+        ret = true;
+    }
+    
+    if([clznameStr isEqualToString:@"NSAutoreleasePool"])
+    {
+        ret = false;
+    }
+    
+    return ret;
+}
+
+- (void)drawText:(const char *)text OnViewLeftCorner:(UIView *)view {
+    const int padding = 2;
+    
+    UIGraphicsBeginImageContextWithOptions(view.bounds.size, NO, 2.0);
+    NSDictionary* stringAttrs = @{NSFontAttributeName : [UIFont systemFontOfSize:10], NSForegroundColorAttributeName : [UIColor greenColor]};
+    NSAttributedString* attrStr = [[NSAttributedString alloc] initWithString:[[NSString alloc] initWithUTF8String:text] attributes:stringAttrs];
+    [attrStr drawAtPoint:CGPointMake(padding, padding)];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+    imageView.tag = kBusinessViewTag;
+    imageView.backgroundColor = [UIColor clearColor];
+    [view addSubview:imageView];
 }
 
 - (void)showHeap
@@ -475,8 +511,5 @@
                     }];
 
 }
-
-
-
 
 @end
