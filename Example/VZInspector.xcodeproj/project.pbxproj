@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1FF07E941ADBA47D00E0ACCA /* VZInspectorButtonIcons.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF07E931ADBA47D00E0ACCA /* VZInspectorButtonIcons.m */; };
 		AF0FC50D19D11C66009CCBE4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AF0FC50C19D11C66009CCBE4 /* main.m */; };
 		AF0FC51019D11C66009CCBE4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AF0FC50F19D11C66009CCBE4 /* AppDelegate.m */; };
 		AF0FC51319D11C66009CCBE4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF0FC51219D11C66009CCBE4 /* ViewController.m */; };
@@ -43,6 +44,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1FF07E921ADBA47D00E0ACCA /* VZInspectorButtonIcons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorButtonIcons.h; sourceTree = "<group>"; };
+		1FF07E931ADBA47D00E0ACCA /* VZInspectorButtonIcons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorButtonIcons.m; sourceTree = "<group>"; };
 		AF0FC50719D11C66009CCBE4 /* VZInspector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VZInspector.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF0FC50B19D11C66009CCBE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AF0FC50C19D11C66009CCBE4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -180,6 +183,8 @@
 				AFAD0DE31A5CFAC900BC74C6 /* VZInspector.m */,
 				AFAD0DE41A5CFAC900BC74C6 /* VZInspectorConsoleView.h */,
 				AFAD0DE51A5CFAC900BC74C6 /* VZInspectorConsoleView.m */,
+				1FF07E921ADBA47D00E0ACCA /* VZInspectorButtonIcons.h */,
+				1FF07E931ADBA47D00E0ACCA /* VZInspectorButtonIcons.m */,
 				AFAD0DE61A5CFAC900BC74C6 /* VZInspectorCrashRootView.h */,
 				AFAD0DE71A5CFAC900BC74C6 /* VZInspectorCrashRootView.m */,
 				AFAD0DE81A5CFAC900BC74C6 /* VZInspectorCrashView.h */,
@@ -325,6 +330,7 @@
 				AFAD0E1D1A5CFAC900BC74C6 /* VZInspectorSandBoxRootView.m in Sources */,
 				AFAD0E1B1A5CFAC900BC74C6 /* VZInspectorOverview.m in Sources */,
 				AFAD0E0E1A5CFAC900BC74C6 /* NSObject+VZInspector.m in Sources */,
+				1FF07E941ADBA47D00E0ACCA /* VZInspectorButtonIcons.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
