@@ -298,6 +298,11 @@
     {
         [self.parentViewController setValue:@(NO) forKeyPath:@"performMemoryWarning"];
     }
+    
+    else if ([text isEqualToString:@"network"])
+    {
+        [self.parentViewController performSelector:@selector(showNetwork) withObject:nil];
+    }
 
     else if ([text isEqualToString:@"help"])
     {

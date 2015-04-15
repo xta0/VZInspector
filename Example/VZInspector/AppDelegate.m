@@ -22,6 +22,7 @@
     
     [VZInspector setClassPrefixName:@"VZ"];
     [VZInspector setShouldHandleCrash:true];
+    [VZInspector setShouldHookNetworkRequest:true];
     [VZInspector setObserveCallback:^NSString *{
        
         NSString* v = [NSString stringWithFormat:@"System Ver:%@\n",[UIDevice currentDevice].systemVersion];

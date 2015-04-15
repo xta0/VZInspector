@@ -31,6 +31,11 @@
  *是否要记录crash日志
  */
 + (void)setShouldHandleCrash:(BOOL)b;
+/**
+ *是否要hook网络请求
+ */
++ (void)setShouldHookNetworkRequest:(BOOL)b;
+
 /*
  *注入要观察的全局信息
  */

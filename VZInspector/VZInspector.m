@@ -14,6 +14,7 @@
 #import "VZOverviewInspector.h"
 #import "VZSettingInspector.h"
 #import "VZLogInspector.h"
+#import "VZNetworkObserver.h"
 
 
 @implementation VZInspector
@@ -49,6 +50,11 @@
         [[VZCrashInspector sharedInstance] install];
     }
     
+}
++ (void)setShouldHookNetworkRequest:(BOOL)b
+{
+    [VZNetworkObserver setEnabled:b];
+    [VZNetworkObserver setShouldEnableOnLaunch:b];
 }
 + (void)setObserveCallback:(NSString* (^)(void)) callback;
 {
