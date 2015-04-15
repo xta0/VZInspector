@@ -457,13 +457,17 @@ static const int kClassNamePadding = 2;
     {
         view.layer.borderColor = [UIColor greenColor].CGColor;
         
-        BOOL flag = (view.subviews.count != 0) && (((UIView *)view.subviews[0]).tag == kBusinessViewTag);
+        BOOL flag = (view.subviews.count != 0) && (((UIView *)view.subviews[view.subviews.count - 1]).tag == kBusinessViewTag);
         if (!flag) {
-            UIGraphicsBeginImageContextWithOptions(view.bounds.size, NO, 2.0);
             NSDictionary* stringAttrs = @{NSFontAttributeName : [UIFont systemFontOfSize:10], NSForegroundColorAttributeName : [UIColor greenColor]};
             NSString *className = [[NSString alloc] initWithUTF8String:clzname];
             //remove class prefix
             className = [className substringFromIndex:vz_tracking_classPrefix.length];
+            //compute text size
+            CGSize temp = CGSizeMake(200, 30);
+            CGSize textSize = [className boundingRectWithSize:temp options:NSStringDrawingUsesFontLeading attributes:stringAttrs context:NULL].size;
+            
+            UIGraphicsBeginImageContextWithOptions(CGSizeMake(textSize.width + kClassNamePadding * 2, textSize.height + kClassNamePadding * 2), NO, 2.0);
             NSAttributedString* attrStr = [[NSAttributedString alloc] initWithString:className attributes:stringAttrs];
             [attrStr drawAtPoint:CGPointMake(kClassNamePadding, kClassNamePadding)];
             UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
@@ -471,7 +475,8 @@ static const int kClassNamePadding = 2;
             
             UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
             imageView.tag = kBusinessViewTag;
-            imageView.backgroundColor = [UIColor clearColor];
+            imageView.backgroundColor = [UIColor blackColor];
+            imageView.alpha = 0.5;
             [view addSubview:imageView];
         }
     }
