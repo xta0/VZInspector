@@ -28,6 +28,7 @@
 
 static NSString* vz_tracking_classPrefix;
 static const int kBusinessViewTag = 999;
+static const int kClassNamePadding = 2;
 
 @interface VZInspectController()
 
@@ -455,15 +456,16 @@ static const int kBusinessViewTag = 999;
     if (vz_isTrackingObject(clzname))
     {
         view.layer.borderColor = [UIColor greenColor].CGColor;
-        view.layer.borderWidth = width * 2;
+        
         BOOL flag = (view.subviews.count != 0) && (((UIView *)view.subviews[0]).tag == kBusinessViewTag);
         if (!flag) {
-            const int padding = 2;
-            
             UIGraphicsBeginImageContextWithOptions(view.bounds.size, NO, 2.0);
             NSDictionary* stringAttrs = @{NSFontAttributeName : [UIFont systemFontOfSize:10], NSForegroundColorAttributeName : [UIColor greenColor]};
-            NSAttributedString* attrStr = [[NSAttributedString alloc] initWithString:[[NSString alloc] initWithUTF8String:clzname] attributes:stringAttrs];
-            [attrStr drawAtPoint:CGPointMake(padding, padding)];
+            NSString *className = [[NSString alloc] initWithUTF8String:clzname];
+            //remove class prefix
+            className = [className substringFromIndex:vz_tracking_classPrefix.length];
+            NSAttributedString* attrStr = [[NSAttributedString alloc] initWithString:className attributes:stringAttrs];
+            [attrStr drawAtPoint:CGPointMake(kClassNamePadding, kClassNamePadding)];
             UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
             UIGraphicsEndImageContext();
             
