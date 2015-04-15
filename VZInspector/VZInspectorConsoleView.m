@@ -32,6 +32,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.buttonIconsArray = @[[[VZBorderIcon  alloc] init],
+                                  [[VZGridIcon alloc] init],
                                   [[VZSandBoxIcon alloc] init],
                                   [[VZGridIcon alloc] init],
                                   [[VZExitIcon alloc] init]];
@@ -104,10 +105,6 @@
     return self;
 }
 
-//  @[[[VZBorderIcon  alloc] init],
-//[[VZSandBoxIcon alloc] init],
-//[[VZGridIcon alloc] init],
-//[[VZExitIcon alloc] init]];
 - (void)buttonPressed:(UIButton *)button {
     switch (button.tag) {
         case 0://border
@@ -124,19 +121,33 @@
             }
             break;
         }
-        case 1://sandbox
+        case 1://business view's border and class name
+        {
+            NSNumber *status = objc_getAssociatedObject(button, kButtonStatusKey);
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wundeclared-selector"
+            [self.parentViewController performSelector:@selector(showBusinessViewBorder:) withObject:status];
+#pragma clang diagnostic pop
+            if (status.integerValue == 0) {
+                objc_setAssociatedObject(button, kButtonStatusKey, @1, OBJC_ASSOCIATION_COPY);
+            } else {
+                objc_setAssociatedObject(button, kButtonStatusKey, @0, OBJC_ASSOCIATION_COPY);
+            }
+            break;
+        }
+        case 2://sandbox
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wundeclared-selector"
             [self.parentViewController performSelector:@selector(showSandBox) withObject:nil];
 #pragma clang diagnostic pop
             break;
-        case 2://grid
+        case 3://grid
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wundeclared-selector"
             [self.parentViewController performSelector:@selector(showGrid) withObject:nil];
 #pragma clang diagnostic pop
             break;
-        case 3://exit
+        case 4://exit
         {
             UIButton* btn = [UIButton new];
             btn.tag = 10;
