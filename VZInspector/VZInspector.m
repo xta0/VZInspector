@@ -14,6 +14,7 @@
 #import "VZOverviewInspector.h"
 #import "VZSettingInspector.h"
 #import "VZLogInspector.h"
+#import "VZInspectController.h"
 #import "VZNetworkObserver.h"
 
 
@@ -42,6 +43,7 @@
 + (void)setClassPrefixName:(NSString *)name
 {
     [VZHeapInspector setClassPrefixName:name];
+    [VZInspectController setClassPrefixName:name];
 }
 
 + (void)setShouldHandleCrash:(BOOL)b
@@ -51,11 +53,15 @@
     }
     
 }
+
+
 + (void)setShouldHookNetworkRequest:(BOOL)b
 {
     [VZNetworkObserver setEnabled:b];
     [VZNetworkObserver setShouldEnableOnLaunch:b];
+
 }
+
 + (void)setObserveCallback:(NSString* (^)(void)) callback;
 {
     [VZOverviewInspector sharedInstance].observingCallback = callback;
