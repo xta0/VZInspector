@@ -13,6 +13,10 @@
 @interface VZNetworkRecorder ()
 
 @property (nonatomic, strong) NSCache *responseCache;
+<<<<<<< HEAD
+=======
+@property (nonatomic, strong) NSCache* requestCache;
+>>>>>>> upstream/master
 @property (nonatomic, strong) NSMutableArray *orderedTransactions;
 @property (nonatomic, strong) NSMutableDictionary *networkTransactionsForRequestIdentifiers;
 @property (nonatomic, strong) dispatch_queue_t queue;
@@ -29,6 +33,14 @@
        
         self.responseCache = [[NSCache alloc] init];
         [self.responseCache setTotalCostLimit:25 * 1024 * 1024];
+<<<<<<< HEAD
+=======
+        
+        self.requestCache = [[NSCache alloc]init];
+        [self.requestCache setTotalCostLimit:25 * 1024 * 1024];
+        
+        
+>>>>>>> upstream/master
         self.orderedTransactions = [NSMutableArray array];
         self.networkTransactionsForRequestIdentifiers = [NSMutableDictionary dictionary];
         
@@ -158,7 +170,19 @@
             [self.responseCache setObject:responseBody forKey:requestID cost:[responseBody length]];
         }
         
+<<<<<<< HEAD
 //        NSString *mimeType = transaction.response.MIMEType;
+=======
+        NSString *mimeType = transaction.response.MIMEType;
+        
+        //只兼容json格式
+        if (![mimeType hasPrefix:@"application/json"]) {
+            [self.orderedTransactions removeObject:transaction];
+            
+        }
+        
+        
+>>>>>>> upstream/master
 //        if ([mimeType hasPrefix:@"image/"] && [responseBody length] > 0) {
 //            // Thumbnail image previews on a separate background queue
 //            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{

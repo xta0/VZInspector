@@ -58,9 +58,9 @@
     
     [self load];
     
-    //fake
-    VZTestView *testView = [[VZTestView alloc] initWithFrame:CGRectMake(50, 50, 100, 100)];
-    [self.view addSubview:testView];
+//    //fake
+//    VZTestView *testView = [[VZTestView alloc] initWithFrame:CGRectMake(50, 50, 100, 100)];
+//    [self.view addSubview:testView];
 }
 
 - (void)didReceiveMemoryWarning {
