@@ -413,18 +413,25 @@ static const int kClassNamePadding = 2;
 }
 
 - (void)updateBorderCore:(NSNumber *)status {
+    [self removeAllBorder];
     if (status.integerValue == 0) {
         self.borderWidth = 0.5f;
         [self updateBorderOfViewHierarchy];
         self.timer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(updateBorderOfViewHierarchy) userInfo:nil repeats:YES];
     }
-    else {
-        [self.timer invalidate];
-        //remove border
-        //有个问题，会影响界面上原本有border的view，不过重新load后会恢复，暂时不管
-        self.borderWidth = 0;
-        [self updateBorderOfViewHierarchy];
-    }
+}
+
+- (void)removeAllBorder {
+    [self.timer invalidate];
+    //remove border
+    //有个问题，会影响界面上原本有border的view，不过重新load后会恢复，暂时不管
+    self.borderWidth = 0;
+    [self updateBorderOfViewHierarchy];
+    
+    self.ifShowBusinessBorder = !self.ifShowBusinessBorder;
+    self.borderWidth = 0;
+    [self updateBorderOfViewHierarchy];
+    self.ifShowBusinessBorder = !self.ifShowBusinessBorder;
 }
 
 - (void)updateBorderOfViewHierarchy {
@@ -457,6 +464,7 @@ static const int kClassNamePadding = 2;
         if (vz_isTrackingObject(clzname))
             [self drawClassName:clzname onView:view];
         
+        //对iCoupon无用对其他有用
         //draw business view controller's class name
         if ([view.nextResponder isKindOfClass:[UIViewController class]]) {
             clzname = object_getClassName(view.nextResponder);
