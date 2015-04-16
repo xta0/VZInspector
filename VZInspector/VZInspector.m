@@ -16,7 +16,7 @@
 #import "VZLogInspector.h"
 #import "VZInspectController.h"
 #import "VZNetworkObserver.h"
-
+#import "VZBorderInspector.h"
 
 @implementation VZInspector
 
@@ -43,7 +43,7 @@
 + (void)setClassPrefixName:(NSString *)name
 {
     [VZHeapInspector setClassPrefixName:name];
-    [VZInspectController setClassPrefixName:name];
+    [VZBorderInspector setClassPrefixName:name];
 }
 
 + (void)setShouldHandleCrash:(BOOL)b
