@@ -379,7 +379,6 @@ didBecomeDownloadTask:(NSURLSessionDownloadTask *)downloadTask delegate:(id <NSU
             {
                 if ([VZNetworkObserver isEnabled])
                 {
-                
                     NSString *requestID = [self nextRequestID];
                     
                     [[VZNetworkRecorder defaultRecorder] recordRequestWillBeSentWithRequestID:requestID request:request redirectResponse:nil];

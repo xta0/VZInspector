@@ -13,6 +13,7 @@
 @interface VZNetworkRecorder ()
 
 @property (nonatomic, strong) NSCache *responseCache;
+@property (nonatomic, strong) NSCache* requestCache;
 @property (nonatomic, strong) NSMutableArray *orderedTransactions;
 @property (nonatomic, strong) NSMutableDictionary *networkTransactionsForRequestIdentifiers;
 @property (nonatomic, strong) dispatch_queue_t queue;
@@ -29,6 +30,10 @@
        
         self.responseCache = [[NSCache alloc] init];
         [self.responseCache setTotalCostLimit:25 * 1024 * 1024];
+        
+        self.requestCache = [[NSCache alloc]init];
+        
+        
         self.orderedTransactions = [NSMutableArray array];
         self.networkTransactionsForRequestIdentifiers = [NSMutableDictionary dictionary];
         
