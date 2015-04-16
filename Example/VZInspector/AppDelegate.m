@@ -22,6 +22,8 @@
     
     [VZInspector setClassPrefixName:@"VZ"];
     [VZInspector setShouldHandleCrash:true];
+    [VZInspector setShouldHookNetworkRequest:true];
+    [VZInspector setLogNumbers:10];
     [VZInspector setObserveCallback:^NSString *{
        
         NSString* v = [NSString stringWithFormat:@"System Ver:%@\n",[UIDevice currentDevice].systemVersion];
@@ -31,8 +33,7 @@
        
         return ret;
     }];
-    [VZInspector setRequestLogNotificationIdentifier:@"VZRequestLog" urlKey:@"url"];
-    [VZInspector setResponseLogNotificationIdentifier:@"VZResponseLog" responseKey:@"json" errorKey:@"error"];
+  
     [VZInspector setDefaultAPIEnvIndex:2];
     
     [VZInspector showOnStatusBar];

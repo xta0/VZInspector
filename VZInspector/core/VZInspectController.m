@@ -21,7 +21,7 @@
 #import "VZInspectorSandBoxRootView.h"
 #import "VZInspectorHeapView.h"
 #import "VZInspectorOverview.h"
-
+#import "VZInspectorNetworkHistoryView.h"
 #import "UIWindow+VZInspector.h"
 #import "NSObject+VZInspector.h"
 #import "VZCrashInspector.h"
@@ -196,6 +196,7 @@ static const int kClassNamePadding = 2;
              ||self.currentView.class == [VZInspectorHeapView class]
              ||self.currentView.class == [VZInspectorCrashRootView class]
              ||self.currentView.class == [VZInspectorConsoleView class]
+             ||self.currentView.class == [VZInspectorNetworkHistoryView class]
              )
     {
         return NO;
@@ -370,6 +371,7 @@ static const int kClassNamePadding = 2;
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark - console callback
 
+
 - (void)showSandBox
 {
     VZInspectorSandBoxRootView* sandBoxView = [[VZInspectorSandBoxRootView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) parentViewController:self];
@@ -537,6 +539,22 @@ static inline bool vz_isTrackingObject(const char* className)
                         [self.contentView removeFromSuperview];
                         [self.view addSubview:heapView];
                         self.currentView = heapView;
+                        self.currentIndex = -1;
+                    }];
+    
+}
+
+- (void)showNetwork
+{
+    VZInspectorNetworkHistoryView* networkView = [[VZInspectorNetworkHistoryView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) parentViewController:self];
+    
+    [UIView transitionFromView:self.contentView toView:networkView
+                      duration:0.4 options:UIViewAnimationOptionTransitionFlipFromLeft
+                    completion:^(BOOL finished) {
+                        
+                        [self.contentView removeFromSuperview];
+                        [self.view addSubview:networkView];
+                        self.currentView = networkView;
                         self.currentIndex = -1;
                     }];
     

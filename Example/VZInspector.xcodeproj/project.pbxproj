@@ -8,46 +8,128 @@
 
 /* Begin PBXBuildFile section */
 		1F022CD61ADD581F00325F3C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F022CD51ADD581F00325F3C /* ViewController.m */; };
-		1FF07E941ADBA47D00E0ACCA /* VZInspectorButtonIcons.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF07E931ADBA47D00E0ACCA /* VZInspectorButtonIcons.m */; };
+		45DCAE5C1ADEC05F00A26E01 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45DCAE5A1ADEC04D00A26E01 /* QuartzCore.framework */; };
+		45DCAE5D1ADEC05F00A26E01 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45DCAE581ADEC04900A26E01 /* UIKit.framework */; };
+		45DCAE5E1ADEC05F00A26E01 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45DCAE561ADEC04300A26E01 /* CoreGraphics.framework */; };
+		45DCAE5F1ADEC05F00A26E01 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45DCAE541ADEC03E00A26E01 /* Foundation.framework */; };
+		45DCAE601ADEC05F00A26E01 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 45DCAE521ADEC03A00A26E01 /* libz.dylib */; };
+		45DCAEC91ADEC56500A26E01 /* VZInspectorConsoleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DCAE7A1ADEC56500A26E01 /* VZInspectorConsoleView.m */; };
+		45DCAECA1ADEC56500A26E01 /* NSObject+VZInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DCAE7D1ADEC56500A26E01 /* NSObject+VZInspector.m */; };
+		45DCAECB1ADEC56500A26E01 /* VZInspectController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DCAE7F1ADEC56500A26E01 /* VZInspectController.m */; };
+		45DCAECD1ADEC56500A26E01 /* VZInspectorButtonIcons.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DCAE831ADEC56500A26E01 /* VZInspectorButtonIcons.m */; };
+		45DCAECE1ADEC56500A26E01 /* VZInspectorOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DCAE851ADEC56500A26E01 /* VZInspectorOverlay.m */; };
+		45DCAECF1ADEC56500A26E01 /* VZInspectorOverview.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DCAE871ADEC56500A26E01 /* VZInspectorOverview.m */; };
+		45DCAED01ADEC56500A26E01 /* VZInspectorPlotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DCAE891ADEC56500A26E01 /* VZInspectorPlotView.m */; };
+		45DCAED11ADEC56500A26E01 /* VZInspectorUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DCAE8B1ADEC56500A26E01 /* VZInspectorUtility.m */; };
+		45DCAED21ADEC56500A26E01 /* VZInspectorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DCAE8D1ADEC56500A26E01 /* VZInspectorView.m */; };
+		45DCAED31ADEC56500A26E01 /* VZInspectorWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DCAE8F1ADEC56500A26E01 /* VZInspectorWindow.m */; };
+		45DCAED41ADEC56500A26E01 /* VZCrashInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DCAE921ADEC56500A26E01 /* VZCrashInspector.m */; };
+		45DCAED51ADEC56500A26E01 /* VZInspectorCrashRootView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DCAE941ADEC56500A26E01 /* VZInspectorCrashRootView.m */; };
+		45DCAED61ADEC56500A26E01 /* VZInspectorCrashView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DCAE961ADEC56500A26E01 /* VZInspectorCrashView.m */; };
+		45DCAED71ADEC56500A26E01 /* VZInspectorSettingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DCAE991ADEC56500A26E01 /* VZInspectorSettingView.m */; };
+		45DCAED81ADEC56500A26E01 /* VZSettingInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DCAE9B1ADEC56500A26E01 /* VZSettingInspector.m */; };
+		45DCAED91ADEC56500A26E01 /* VZHeapInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DCAE9E1ADEC56500A26E01 /* VZHeapInspector.m */; };
+		45DCAEDA1ADEC56500A26E01 /* VZInspectorHeapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DCAEA01ADEC56500A26E01 /* VZInspectorHeapView.m */; };
+		45DCAEDB1ADEC56500A26E01 /* VZInspectorLogView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DCAEA31ADEC56500A26E01 /* VZInspectorLogView.m */; };
+		45DCAEDC1ADEC56500A26E01 /* VZLogInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DCAEA51ADEC56500A26E01 /* VZLogInspector.m */; };
+		45DCAEDD1ADEC56500A26E01 /* VZMemoryInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DCAEA81ADEC56500A26E01 /* VZMemoryInspector.m */; };
+		45DCAEDE1ADEC56500A26E01 /* VZMemoryInspectorOverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DCAEAA1ADEC56500A26E01 /* VZMemoryInspectorOverView.m */; };
+		45DCAEDF1ADEC56500A26E01 /* VZInspectorNetworkDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DCAEAD1ADEC56500A26E01 /* VZInspectorNetworkDetailView.m */; };
+		45DCAEE01ADEC56500A26E01 /* VZInspectorNetworkHistoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DCAEAF1ADEC56500A26E01 /* VZInspectorNetworkHistoryView.m */; };
+		45DCAEE21ADEC56500A26E01 /* VZNetworkInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DCAEB31ADEC56500A26E01 /* VZNetworkInspector.m */; };
+		45DCAEE31ADEC56500A26E01 /* VZNetworkInspectorOverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DCAEB51ADEC56500A26E01 /* VZNetworkInspectorOverView.m */; };
+		45DCAEE41ADEC56500A26E01 /* VZNetworkObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DCAEB71ADEC56500A26E01 /* VZNetworkObserver.m */; };
+		45DCAEE51ADEC56500A26E01 /* VZNetworkRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DCAEB91ADEC56500A26E01 /* VZNetworkRecorder.m */; };
+		45DCAEE61ADEC56500A26E01 /* VZNetworkTransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DCAEBB1ADEC56500A26E01 /* VZNetworkTransaction.m */; };
+		45DCAEE71ADEC56500A26E01 /* VZOverviewInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DCAEBE1ADEC56500A26E01 /* VZOverviewInspector.m */; };
+		45DCAEE81ADEC56500A26E01 /* VZInspectorSandBoxRootView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DCAEC11ADEC56500A26E01 /* VZInspectorSandBoxRootView.m */; };
+		45DCAEE91ADEC56500A26E01 /* VZInspectorSandBoxSubView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DCAEC31ADEC56500A26E01 /* VZInspectorSandBoxSubView.m */; };
+		45DCAEEA1ADEC56500A26E01 /* UIWindow+VZInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DCAEC61ADEC56500A26E01 /* UIWindow+VZInspector.m */; };
+		45DCAEEB1ADEC56500A26E01 /* VZInspectorGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DCAEC81ADEC56500A26E01 /* VZInspectorGridView.m */; };
+		45DCAEEE1ADEC59E00A26E01 /* VZInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DCAEED1ADEC59E00A26E01 /* VZInspector.m */; };
 		AF0FC50D19D11C66009CCBE4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AF0FC50C19D11C66009CCBE4 /* main.m */; };
 		AF0FC51019D11C66009CCBE4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AF0FC50F19D11C66009CCBE4 /* AppDelegate.m */; };
 		AF0FC51619D11C66009CCBE4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF0FC51419D11C66009CCBE4 /* Main.storyboard */; };
 		AF0FC51819D11C66009CCBE4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF0FC51719D11C66009CCBE4 /* Images.xcassets */; };
 		AF0FC51B19D11C66009CCBE4 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF0FC51919D11C66009CCBE4 /* LaunchScreen.xib */; };
-		AFAD0E0E1A5CFAC900BC74C6 /* NSObject+VZInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = AFAD0DD91A5CFAC900BC74C6 /* NSObject+VZInspector.m */; };
-		AFAD0E0F1A5CFAC900BC74C6 /* UIWindow+VZInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = AFAD0DDB1A5CFAC900BC74C6 /* UIWindow+VZInspector.m */; };
-		AFAD0E101A5CFAC900BC74C6 /* VZCrashInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = AFAD0DDD1A5CFAC900BC74C6 /* VZCrashInspector.m */; };
-		AFAD0E111A5CFAC900BC74C6 /* VZHeapInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = AFAD0DDF1A5CFAC900BC74C6 /* VZHeapInspector.m */; };
-		AFAD0E121A5CFAC900BC74C6 /* VZInspectController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFAD0DE11A5CFAC900BC74C6 /* VZInspectController.m */; };
-		AFAD0E131A5CFAC900BC74C6 /* VZInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = AFAD0DE31A5CFAC900BC74C6 /* VZInspector.m */; };
-		AFAD0E141A5CFAC900BC74C6 /* VZInspectorConsoleView.m in Sources */ = {isa = PBXBuildFile; fileRef = AFAD0DE51A5CFAC900BC74C6 /* VZInspectorConsoleView.m */; };
-		AFAD0E151A5CFAC900BC74C6 /* VZInspectorCrashRootView.m in Sources */ = {isa = PBXBuildFile; fileRef = AFAD0DE71A5CFAC900BC74C6 /* VZInspectorCrashRootView.m */; };
-		AFAD0E161A5CFAC900BC74C6 /* VZInspectorCrashView.m in Sources */ = {isa = PBXBuildFile; fileRef = AFAD0DE91A5CFAC900BC74C6 /* VZInspectorCrashView.m */; };
-		AFAD0E171A5CFAC900BC74C6 /* VZInspectorGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = AFAD0DEB1A5CFAC900BC74C6 /* VZInspectorGridView.m */; };
-		AFAD0E181A5CFAC900BC74C6 /* VZInspectorHeapView.m in Sources */ = {isa = PBXBuildFile; fileRef = AFAD0DED1A5CFAC900BC74C6 /* VZInspectorHeapView.m */; };
-		AFAD0E191A5CFAC900BC74C6 /* VZInspectorLogView.m in Sources */ = {isa = PBXBuildFile; fileRef = AFAD0DEF1A5CFAC900BC74C6 /* VZInspectorLogView.m */; };
-		AFAD0E1A1A5CFAC900BC74C6 /* VZInspectorOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = AFAD0DF11A5CFAC900BC74C6 /* VZInspectorOverlay.m */; };
-		AFAD0E1B1A5CFAC900BC74C6 /* VZInspectorOverview.m in Sources */ = {isa = PBXBuildFile; fileRef = AFAD0DF31A5CFAC900BC74C6 /* VZInspectorOverview.m */; };
-		AFAD0E1C1A5CFAC900BC74C6 /* VZInspectorPlotView.m in Sources */ = {isa = PBXBuildFile; fileRef = AFAD0DF51A5CFAC900BC74C6 /* VZInspectorPlotView.m */; };
-		AFAD0E1D1A5CFAC900BC74C6 /* VZInspectorSandBoxRootView.m in Sources */ = {isa = PBXBuildFile; fileRef = AFAD0DF71A5CFAC900BC74C6 /* VZInspectorSandBoxRootView.m */; };
-		AFAD0E1E1A5CFAC900BC74C6 /* VZInspectorSandBoxSubView.m in Sources */ = {isa = PBXBuildFile; fileRef = AFAD0DF91A5CFAC900BC74C6 /* VZInspectorSandBoxSubView.m */; };
-		AFAD0E1F1A5CFAC900BC74C6 /* VZInspectorSettingView.m in Sources */ = {isa = PBXBuildFile; fileRef = AFAD0DFB1A5CFAC900BC74C6 /* VZInspectorSettingView.m */; };
-		AFAD0E201A5CFAC900BC74C6 /* VZInspectorView.m in Sources */ = {isa = PBXBuildFile; fileRef = AFAD0DFD1A5CFAC900BC74C6 /* VZInspectorView.m */; };
-		AFAD0E211A5CFAC900BC74C6 /* VZInspectorWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = AFAD0DFF1A5CFAC900BC74C6 /* VZInspectorWindow.m */; };
-		AFAD0E221A5CFAC900BC74C6 /* VZLogInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = AFAD0E011A5CFAC900BC74C6 /* VZLogInspector.m */; };
-		AFAD0E231A5CFAC900BC74C6 /* VZMemoryInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = AFAD0E031A5CFAC900BC74C6 /* VZMemoryInspector.m */; };
-		AFAD0E241A5CFAC900BC74C6 /* VZMemoryInspectorOverView.m in Sources */ = {isa = PBXBuildFile; fileRef = AFAD0E051A5CFAC900BC74C6 /* VZMemoryInspectorOverView.m */; };
-		AFAD0E251A5CFAC900BC74C6 /* VZNetworkInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = AFAD0E071A5CFAC900BC74C6 /* VZNetworkInspector.m */; };
-		AFAD0E261A5CFAC900BC74C6 /* VZNetworkInspectorOverView.m in Sources */ = {isa = PBXBuildFile; fileRef = AFAD0E091A5CFAC900BC74C6 /* VZNetworkInspectorOverView.m */; };
-		AFAD0E271A5CFAC900BC74C6 /* VZOverviewInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = AFAD0E0B1A5CFAC900BC74C6 /* VZOverviewInspector.m */; };
-		AFAD0E281A5CFAC900BC74C6 /* VZSettingInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = AFAD0E0D1A5CFAC900BC74C6 /* VZSettingInspector.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1F022CD41ADD581F00325F3C /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		1F022CD51ADD581F00325F3C /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		1FF07E921ADBA47D00E0ACCA /* VZInspectorButtonIcons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorButtonIcons.h; sourceTree = "<group>"; };
-		1FF07E931ADBA47D00E0ACCA /* VZInspectorButtonIcons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorButtonIcons.m; sourceTree = "<group>"; };
+		45DCAE521ADEC03A00A26E01 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		45DCAE541ADEC03E00A26E01 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		45DCAE561ADEC04300A26E01 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		45DCAE581ADEC04900A26E01 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		45DCAE5A1ADEC04D00A26E01 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		45DCAE791ADEC56500A26E01 /* VZInspectorConsoleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorConsoleView.h; sourceTree = "<group>"; };
+		45DCAE7A1ADEC56500A26E01 /* VZInspectorConsoleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorConsoleView.m; sourceTree = "<group>"; };
+		45DCAE7C1ADEC56500A26E01 /* NSObject+VZInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+VZInspector.h"; sourceTree = "<group>"; };
+		45DCAE7D1ADEC56500A26E01 /* NSObject+VZInspector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+VZInspector.m"; sourceTree = "<group>"; };
+		45DCAE7E1ADEC56500A26E01 /* VZInspectController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectController.h; sourceTree = "<group>"; };
+		45DCAE7F1ADEC56500A26E01 /* VZInspectController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectController.m; sourceTree = "<group>"; };
+		45DCAE821ADEC56500A26E01 /* VZInspectorButtonIcons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorButtonIcons.h; sourceTree = "<group>"; };
+		45DCAE831ADEC56500A26E01 /* VZInspectorButtonIcons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorButtonIcons.m; sourceTree = "<group>"; };
+		45DCAE841ADEC56500A26E01 /* VZInspectorOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorOverlay.h; sourceTree = "<group>"; };
+		45DCAE851ADEC56500A26E01 /* VZInspectorOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorOverlay.m; sourceTree = "<group>"; };
+		45DCAE861ADEC56500A26E01 /* VZInspectorOverview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorOverview.h; sourceTree = "<group>"; };
+		45DCAE871ADEC56500A26E01 /* VZInspectorOverview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorOverview.m; sourceTree = "<group>"; };
+		45DCAE881ADEC56500A26E01 /* VZInspectorPlotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorPlotView.h; sourceTree = "<group>"; };
+		45DCAE891ADEC56500A26E01 /* VZInspectorPlotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorPlotView.m; sourceTree = "<group>"; };
+		45DCAE8A1ADEC56500A26E01 /* VZInspectorUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorUtility.h; sourceTree = "<group>"; };
+		45DCAE8B1ADEC56500A26E01 /* VZInspectorUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorUtility.m; sourceTree = "<group>"; };
+		45DCAE8C1ADEC56500A26E01 /* VZInspectorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorView.h; sourceTree = "<group>"; };
+		45DCAE8D1ADEC56500A26E01 /* VZInspectorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorView.m; sourceTree = "<group>"; };
+		45DCAE8E1ADEC56500A26E01 /* VZInspectorWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorWindow.h; sourceTree = "<group>"; };
+		45DCAE8F1ADEC56500A26E01 /* VZInspectorWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorWindow.m; sourceTree = "<group>"; };
+		45DCAE911ADEC56500A26E01 /* VZCrashInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZCrashInspector.h; sourceTree = "<group>"; };
+		45DCAE921ADEC56500A26E01 /* VZCrashInspector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZCrashInspector.m; sourceTree = "<group>"; };
+		45DCAE931ADEC56500A26E01 /* VZInspectorCrashRootView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorCrashRootView.h; sourceTree = "<group>"; };
+		45DCAE941ADEC56500A26E01 /* VZInspectorCrashRootView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorCrashRootView.m; sourceTree = "<group>"; };
+		45DCAE951ADEC56500A26E01 /* VZInspectorCrashView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorCrashView.h; sourceTree = "<group>"; };
+		45DCAE961ADEC56500A26E01 /* VZInspectorCrashView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorCrashView.m; sourceTree = "<group>"; };
+		45DCAE981ADEC56500A26E01 /* VZInspectorSettingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorSettingView.h; sourceTree = "<group>"; };
+		45DCAE991ADEC56500A26E01 /* VZInspectorSettingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorSettingView.m; sourceTree = "<group>"; };
+		45DCAE9A1ADEC56500A26E01 /* VZSettingInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZSettingInspector.h; sourceTree = "<group>"; };
+		45DCAE9B1ADEC56500A26E01 /* VZSettingInspector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZSettingInspector.m; sourceTree = "<group>"; };
+		45DCAE9D1ADEC56500A26E01 /* VZHeapInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZHeapInspector.h; sourceTree = "<group>"; };
+		45DCAE9E1ADEC56500A26E01 /* VZHeapInspector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZHeapInspector.m; sourceTree = "<group>"; };
+		45DCAE9F1ADEC56500A26E01 /* VZInspectorHeapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorHeapView.h; sourceTree = "<group>"; };
+		45DCAEA01ADEC56500A26E01 /* VZInspectorHeapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorHeapView.m; sourceTree = "<group>"; };
+		45DCAEA21ADEC56500A26E01 /* VZInspectorLogView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorLogView.h; sourceTree = "<group>"; };
+		45DCAEA31ADEC56500A26E01 /* VZInspectorLogView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorLogView.m; sourceTree = "<group>"; };
+		45DCAEA41ADEC56500A26E01 /* VZLogInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZLogInspector.h; sourceTree = "<group>"; };
+		45DCAEA51ADEC56500A26E01 /* VZLogInspector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZLogInspector.m; sourceTree = "<group>"; };
+		45DCAEA71ADEC56500A26E01 /* VZMemoryInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZMemoryInspector.h; sourceTree = "<group>"; };
+		45DCAEA81ADEC56500A26E01 /* VZMemoryInspector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZMemoryInspector.m; sourceTree = "<group>"; };
+		45DCAEA91ADEC56500A26E01 /* VZMemoryInspectorOverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZMemoryInspectorOverView.h; sourceTree = "<group>"; };
+		45DCAEAA1ADEC56500A26E01 /* VZMemoryInspectorOverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZMemoryInspectorOverView.m; sourceTree = "<group>"; };
+		45DCAEAC1ADEC56500A26E01 /* VZInspectorNetworkDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorNetworkDetailView.h; sourceTree = "<group>"; };
+		45DCAEAD1ADEC56500A26E01 /* VZInspectorNetworkDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorNetworkDetailView.m; sourceTree = "<group>"; };
+		45DCAEAE1ADEC56500A26E01 /* VZInspectorNetworkHistoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorNetworkHistoryView.h; sourceTree = "<group>"; };
+		45DCAEAF1ADEC56500A26E01 /* VZInspectorNetworkHistoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorNetworkHistoryView.m; sourceTree = "<group>"; };
+		45DCAEB21ADEC56500A26E01 /* VZNetworkInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZNetworkInspector.h; sourceTree = "<group>"; };
+		45DCAEB31ADEC56500A26E01 /* VZNetworkInspector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZNetworkInspector.m; sourceTree = "<group>"; };
+		45DCAEB41ADEC56500A26E01 /* VZNetworkInspectorOverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZNetworkInspectorOverView.h; sourceTree = "<group>"; };
+		45DCAEB51ADEC56500A26E01 /* VZNetworkInspectorOverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZNetworkInspectorOverView.m; sourceTree = "<group>"; };
+		45DCAEB61ADEC56500A26E01 /* VZNetworkObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZNetworkObserver.h; sourceTree = "<group>"; };
+		45DCAEB71ADEC56500A26E01 /* VZNetworkObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZNetworkObserver.m; sourceTree = "<group>"; };
+		45DCAEB81ADEC56500A26E01 /* VZNetworkRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZNetworkRecorder.h; sourceTree = "<group>"; };
+		45DCAEB91ADEC56500A26E01 /* VZNetworkRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZNetworkRecorder.m; sourceTree = "<group>"; };
+		45DCAEBA1ADEC56500A26E01 /* VZNetworkTransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZNetworkTransaction.h; sourceTree = "<group>"; };
+		45DCAEBB1ADEC56500A26E01 /* VZNetworkTransaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZNetworkTransaction.m; sourceTree = "<group>"; };
+		45DCAEBD1ADEC56500A26E01 /* VZOverviewInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZOverviewInspector.h; sourceTree = "<group>"; };
+		45DCAEBE1ADEC56500A26E01 /* VZOverviewInspector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZOverviewInspector.m; sourceTree = "<group>"; };
+		45DCAEC01ADEC56500A26E01 /* VZInspectorSandBoxRootView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorSandBoxRootView.h; sourceTree = "<group>"; };
+		45DCAEC11ADEC56500A26E01 /* VZInspectorSandBoxRootView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorSandBoxRootView.m; sourceTree = "<group>"; };
+		45DCAEC21ADEC56500A26E01 /* VZInspectorSandBoxSubView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorSandBoxSubView.h; sourceTree = "<group>"; };
+		45DCAEC31ADEC56500A26E01 /* VZInspectorSandBoxSubView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorSandBoxSubView.m; sourceTree = "<group>"; };
+		45DCAEC51ADEC56500A26E01 /* UIWindow+VZInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+VZInspector.h"; sourceTree = "<group>"; };
+		45DCAEC61ADEC56500A26E01 /* UIWindow+VZInspector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+VZInspector.m"; sourceTree = "<group>"; };
+		45DCAEC71ADEC56500A26E01 /* VZInspectorGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorGridView.h; sourceTree = "<group>"; };
+		45DCAEC81ADEC56500A26E01 /* VZInspectorGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorGridView.m; sourceTree = "<group>"; };
+		45DCAEEC1ADEC59E00A26E01 /* VZInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspector.h; sourceTree = "<group>"; };
+		45DCAEED1ADEC59E00A26E01 /* VZInspector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspector.m; sourceTree = "<group>"; };
 		AF0FC50719D11C66009CCBE4 /* VZInspector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VZInspector.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF0FC50B19D11C66009CCBE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AF0FC50C19D11C66009CCBE4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -57,60 +139,6 @@
 		AF0FC51719D11C66009CCBE4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		AF0FC51A19D11C66009CCBE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		AF1A3B041A344431003C38E8 /* VZInspector.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspector.pch; sourceTree = SOURCE_ROOT; };
-		AFAD0DD81A5CFAC900BC74C6 /* NSObject+VZInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+VZInspector.h"; sourceTree = "<group>"; };
-		AFAD0DD91A5CFAC900BC74C6 /* NSObject+VZInspector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+VZInspector.m"; sourceTree = "<group>"; };
-		AFAD0DDA1A5CFAC900BC74C6 /* UIWindow+VZInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+VZInspector.h"; sourceTree = "<group>"; };
-		AFAD0DDB1A5CFAC900BC74C6 /* UIWindow+VZInspector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+VZInspector.m"; sourceTree = "<group>"; };
-		AFAD0DDC1A5CFAC900BC74C6 /* VZCrashInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZCrashInspector.h; sourceTree = "<group>"; };
-		AFAD0DDD1A5CFAC900BC74C6 /* VZCrashInspector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZCrashInspector.m; sourceTree = "<group>"; };
-		AFAD0DDE1A5CFAC900BC74C6 /* VZHeapInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZHeapInspector.h; sourceTree = "<group>"; };
-		AFAD0DDF1A5CFAC900BC74C6 /* VZHeapInspector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZHeapInspector.m; sourceTree = "<group>"; };
-		AFAD0DE01A5CFAC900BC74C6 /* VZInspectController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectController.h; sourceTree = "<group>"; };
-		AFAD0DE11A5CFAC900BC74C6 /* VZInspectController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectController.m; sourceTree = "<group>"; };
-		AFAD0DE21A5CFAC900BC74C6 /* VZInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspector.h; sourceTree = "<group>"; };
-		AFAD0DE31A5CFAC900BC74C6 /* VZInspector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspector.m; sourceTree = "<group>"; };
-		AFAD0DE41A5CFAC900BC74C6 /* VZInspectorConsoleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorConsoleView.h; sourceTree = "<group>"; };
-		AFAD0DE51A5CFAC900BC74C6 /* VZInspectorConsoleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorConsoleView.m; sourceTree = "<group>"; };
-		AFAD0DE61A5CFAC900BC74C6 /* VZInspectorCrashRootView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorCrashRootView.h; sourceTree = "<group>"; };
-		AFAD0DE71A5CFAC900BC74C6 /* VZInspectorCrashRootView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorCrashRootView.m; sourceTree = "<group>"; };
-		AFAD0DE81A5CFAC900BC74C6 /* VZInspectorCrashView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorCrashView.h; sourceTree = "<group>"; };
-		AFAD0DE91A5CFAC900BC74C6 /* VZInspectorCrashView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorCrashView.m; sourceTree = "<group>"; };
-		AFAD0DEA1A5CFAC900BC74C6 /* VZInspectorGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorGridView.h; sourceTree = "<group>"; };
-		AFAD0DEB1A5CFAC900BC74C6 /* VZInspectorGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorGridView.m; sourceTree = "<group>"; };
-		AFAD0DEC1A5CFAC900BC74C6 /* VZInspectorHeapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorHeapView.h; sourceTree = "<group>"; };
-		AFAD0DED1A5CFAC900BC74C6 /* VZInspectorHeapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorHeapView.m; sourceTree = "<group>"; };
-		AFAD0DEE1A5CFAC900BC74C6 /* VZInspectorLogView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorLogView.h; sourceTree = "<group>"; };
-		AFAD0DEF1A5CFAC900BC74C6 /* VZInspectorLogView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorLogView.m; sourceTree = "<group>"; };
-		AFAD0DF01A5CFAC900BC74C6 /* VZInspectorOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorOverlay.h; sourceTree = "<group>"; };
-		AFAD0DF11A5CFAC900BC74C6 /* VZInspectorOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorOverlay.m; sourceTree = "<group>"; };
-		AFAD0DF21A5CFAC900BC74C6 /* VZInspectorOverview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorOverview.h; sourceTree = "<group>"; };
-		AFAD0DF31A5CFAC900BC74C6 /* VZInspectorOverview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorOverview.m; sourceTree = "<group>"; };
-		AFAD0DF41A5CFAC900BC74C6 /* VZInspectorPlotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorPlotView.h; sourceTree = "<group>"; };
-		AFAD0DF51A5CFAC900BC74C6 /* VZInspectorPlotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorPlotView.m; sourceTree = "<group>"; };
-		AFAD0DF61A5CFAC900BC74C6 /* VZInspectorSandBoxRootView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorSandBoxRootView.h; sourceTree = "<group>"; };
-		AFAD0DF71A5CFAC900BC74C6 /* VZInspectorSandBoxRootView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorSandBoxRootView.m; sourceTree = "<group>"; };
-		AFAD0DF81A5CFAC900BC74C6 /* VZInspectorSandBoxSubView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorSandBoxSubView.h; sourceTree = "<group>"; };
-		AFAD0DF91A5CFAC900BC74C6 /* VZInspectorSandBoxSubView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorSandBoxSubView.m; sourceTree = "<group>"; };
-		AFAD0DFA1A5CFAC900BC74C6 /* VZInspectorSettingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorSettingView.h; sourceTree = "<group>"; };
-		AFAD0DFB1A5CFAC900BC74C6 /* VZInspectorSettingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorSettingView.m; sourceTree = "<group>"; };
-		AFAD0DFC1A5CFAC900BC74C6 /* VZInspectorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorView.h; sourceTree = "<group>"; };
-		AFAD0DFD1A5CFAC900BC74C6 /* VZInspectorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorView.m; sourceTree = "<group>"; };
-		AFAD0DFE1A5CFAC900BC74C6 /* VZInspectorWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorWindow.h; sourceTree = "<group>"; };
-		AFAD0DFF1A5CFAC900BC74C6 /* VZInspectorWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorWindow.m; sourceTree = "<group>"; };
-		AFAD0E001A5CFAC900BC74C6 /* VZLogInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZLogInspector.h; sourceTree = "<group>"; };
-		AFAD0E011A5CFAC900BC74C6 /* VZLogInspector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZLogInspector.m; sourceTree = "<group>"; };
-		AFAD0E021A5CFAC900BC74C6 /* VZMemoryInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZMemoryInspector.h; sourceTree = "<group>"; };
-		AFAD0E031A5CFAC900BC74C6 /* VZMemoryInspector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZMemoryInspector.m; sourceTree = "<group>"; };
-		AFAD0E041A5CFAC900BC74C6 /* VZMemoryInspectorOverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZMemoryInspectorOverView.h; sourceTree = "<group>"; };
-		AFAD0E051A5CFAC900BC74C6 /* VZMemoryInspectorOverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZMemoryInspectorOverView.m; sourceTree = "<group>"; };
-		AFAD0E061A5CFAC900BC74C6 /* VZNetworkInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZNetworkInspector.h; sourceTree = "<group>"; };
-		AFAD0E071A5CFAC900BC74C6 /* VZNetworkInspector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZNetworkInspector.m; sourceTree = "<group>"; };
-		AFAD0E081A5CFAC900BC74C6 /* VZNetworkInspectorOverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZNetworkInspectorOverView.h; sourceTree = "<group>"; };
-		AFAD0E091A5CFAC900BC74C6 /* VZNetworkInspectorOverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZNetworkInspectorOverView.m; sourceTree = "<group>"; };
-		AFAD0E0A1A5CFAC900BC74C6 /* VZOverviewInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZOverviewInspector.h; sourceTree = "<group>"; };
-		AFAD0E0B1A5CFAC900BC74C6 /* VZOverviewInspector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZOverviewInspector.m; sourceTree = "<group>"; };
-		AFAD0E0C1A5CFAC900BC74C6 /* VZSettingInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZSettingInspector.h; sourceTree = "<group>"; };
-		AFAD0E0D1A5CFAC900BC74C6 /* VZSettingInspector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZSettingInspector.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,12 +146,193 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45DCAE5C1ADEC05F00A26E01 /* QuartzCore.framework in Frameworks */,
+				45DCAE5D1ADEC05F00A26E01 /* UIKit.framework in Frameworks */,
+				45DCAE5E1ADEC05F00A26E01 /* CoreGraphics.framework in Frameworks */,
+				45DCAE5F1ADEC05F00A26E01 /* Foundation.framework in Frameworks */,
+				45DCAE601ADEC05F00A26E01 /* libz.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		45DCAE511ADEC02500A26E01 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				45DCAE5A1ADEC04D00A26E01 /* QuartzCore.framework */,
+				45DCAE581ADEC04900A26E01 /* UIKit.framework */,
+				45DCAE561ADEC04300A26E01 /* CoreGraphics.framework */,
+				45DCAE541ADEC03E00A26E01 /* Foundation.framework */,
+				45DCAE521ADEC03A00A26E01 /* libz.dylib */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		45DCAE771ADEC56500A26E01 /* VZInspector */ = {
+			isa = PBXGroup;
+			children = (
+				45DCAEEC1ADEC59E00A26E01 /* VZInspector.h */,
+				45DCAEED1ADEC59E00A26E01 /* VZInspector.m */,
+				45DCAE781ADEC56500A26E01 /* console */,
+				45DCAE7B1ADEC56500A26E01 /* core */,
+				45DCAE901ADEC56500A26E01 /* crash */,
+				45DCAE971ADEC56500A26E01 /* env */,
+				45DCAE9C1ADEC56500A26E01 /* heap */,
+				45DCAEA11ADEC56500A26E01 /* log */,
+				45DCAEA61ADEC56500A26E01 /* memory */,
+				45DCAEAB1ADEC56500A26E01 /* network */,
+				45DCAEBC1ADEC56500A26E01 /* overview */,
+				45DCAEBF1ADEC56500A26E01 /* sandbox */,
+				45DCAEC41ADEC56500A26E01 /* UI */,
+			);
+			name = VZInspector;
+			path = ../../VZInspector;
+			sourceTree = "<group>";
+		};
+		45DCAE781ADEC56500A26E01 /* console */ = {
+			isa = PBXGroup;
+			children = (
+				45DCAE791ADEC56500A26E01 /* VZInspectorConsoleView.h */,
+				45DCAE7A1ADEC56500A26E01 /* VZInspectorConsoleView.m */,
+			);
+			path = console;
+			sourceTree = "<group>";
+		};
+		45DCAE7B1ADEC56500A26E01 /* core */ = {
+			isa = PBXGroup;
+			children = (
+				45DCAE7C1ADEC56500A26E01 /* NSObject+VZInspector.h */,
+				45DCAE7D1ADEC56500A26E01 /* NSObject+VZInspector.m */,
+				45DCAE7E1ADEC56500A26E01 /* VZInspectController.h */,
+				45DCAE7F1ADEC56500A26E01 /* VZInspectController.m */,
+				45DCAE821ADEC56500A26E01 /* VZInspectorButtonIcons.h */,
+				45DCAE831ADEC56500A26E01 /* VZInspectorButtonIcons.m */,
+				45DCAE841ADEC56500A26E01 /* VZInspectorOverlay.h */,
+				45DCAE851ADEC56500A26E01 /* VZInspectorOverlay.m */,
+				45DCAE861ADEC56500A26E01 /* VZInspectorOverview.h */,
+				45DCAE871ADEC56500A26E01 /* VZInspectorOverview.m */,
+				45DCAE881ADEC56500A26E01 /* VZInspectorPlotView.h */,
+				45DCAE891ADEC56500A26E01 /* VZInspectorPlotView.m */,
+				45DCAE8A1ADEC56500A26E01 /* VZInspectorUtility.h */,
+				45DCAE8B1ADEC56500A26E01 /* VZInspectorUtility.m */,
+				45DCAE8C1ADEC56500A26E01 /* VZInspectorView.h */,
+				45DCAE8D1ADEC56500A26E01 /* VZInspectorView.m */,
+				45DCAE8E1ADEC56500A26E01 /* VZInspectorWindow.h */,
+				45DCAE8F1ADEC56500A26E01 /* VZInspectorWindow.m */,
+			);
+			path = core;
+			sourceTree = "<group>";
+		};
+		45DCAE901ADEC56500A26E01 /* crash */ = {
+			isa = PBXGroup;
+			children = (
+				45DCAE911ADEC56500A26E01 /* VZCrashInspector.h */,
+				45DCAE921ADEC56500A26E01 /* VZCrashInspector.m */,
+				45DCAE931ADEC56500A26E01 /* VZInspectorCrashRootView.h */,
+				45DCAE941ADEC56500A26E01 /* VZInspectorCrashRootView.m */,
+				45DCAE951ADEC56500A26E01 /* VZInspectorCrashView.h */,
+				45DCAE961ADEC56500A26E01 /* VZInspectorCrashView.m */,
+			);
+			path = crash;
+			sourceTree = "<group>";
+		};
+		45DCAE971ADEC56500A26E01 /* env */ = {
+			isa = PBXGroup;
+			children = (
+				45DCAE981ADEC56500A26E01 /* VZInspectorSettingView.h */,
+				45DCAE991ADEC56500A26E01 /* VZInspectorSettingView.m */,
+				45DCAE9A1ADEC56500A26E01 /* VZSettingInspector.h */,
+				45DCAE9B1ADEC56500A26E01 /* VZSettingInspector.m */,
+			);
+			path = env;
+			sourceTree = "<group>";
+		};
+		45DCAE9C1ADEC56500A26E01 /* heap */ = {
+			isa = PBXGroup;
+			children = (
+				45DCAE9D1ADEC56500A26E01 /* VZHeapInspector.h */,
+				45DCAE9E1ADEC56500A26E01 /* VZHeapInspector.m */,
+				45DCAE9F1ADEC56500A26E01 /* VZInspectorHeapView.h */,
+				45DCAEA01ADEC56500A26E01 /* VZInspectorHeapView.m */,
+			);
+			path = heap;
+			sourceTree = "<group>";
+		};
+		45DCAEA11ADEC56500A26E01 /* log */ = {
+			isa = PBXGroup;
+			children = (
+				45DCAEA21ADEC56500A26E01 /* VZInspectorLogView.h */,
+				45DCAEA31ADEC56500A26E01 /* VZInspectorLogView.m */,
+				45DCAEA41ADEC56500A26E01 /* VZLogInspector.h */,
+				45DCAEA51ADEC56500A26E01 /* VZLogInspector.m */,
+			);
+			path = log;
+			sourceTree = "<group>";
+		};
+		45DCAEA61ADEC56500A26E01 /* memory */ = {
+			isa = PBXGroup;
+			children = (
+				45DCAEA71ADEC56500A26E01 /* VZMemoryInspector.h */,
+				45DCAEA81ADEC56500A26E01 /* VZMemoryInspector.m */,
+				45DCAEA91ADEC56500A26E01 /* VZMemoryInspectorOverView.h */,
+				45DCAEAA1ADEC56500A26E01 /* VZMemoryInspectorOverView.m */,
+			);
+			path = memory;
+			sourceTree = "<group>";
+		};
+		45DCAEAB1ADEC56500A26E01 /* network */ = {
+			isa = PBXGroup;
+			children = (
+				45DCAEAC1ADEC56500A26E01 /* VZInspectorNetworkDetailView.h */,
+				45DCAEAD1ADEC56500A26E01 /* VZInspectorNetworkDetailView.m */,
+				45DCAEAE1ADEC56500A26E01 /* VZInspectorNetworkHistoryView.h */,
+				45DCAEAF1ADEC56500A26E01 /* VZInspectorNetworkHistoryView.m */,
+				45DCAEB21ADEC56500A26E01 /* VZNetworkInspector.h */,
+				45DCAEB31ADEC56500A26E01 /* VZNetworkInspector.m */,
+				45DCAEB41ADEC56500A26E01 /* VZNetworkInspectorOverView.h */,
+				45DCAEB51ADEC56500A26E01 /* VZNetworkInspectorOverView.m */,
+				45DCAEB61ADEC56500A26E01 /* VZNetworkObserver.h */,
+				45DCAEB71ADEC56500A26E01 /* VZNetworkObserver.m */,
+				45DCAEB81ADEC56500A26E01 /* VZNetworkRecorder.h */,
+				45DCAEB91ADEC56500A26E01 /* VZNetworkRecorder.m */,
+				45DCAEBA1ADEC56500A26E01 /* VZNetworkTransaction.h */,
+				45DCAEBB1ADEC56500A26E01 /* VZNetworkTransaction.m */,
+			);
+			path = network;
+			sourceTree = "<group>";
+		};
+		45DCAEBC1ADEC56500A26E01 /* overview */ = {
+			isa = PBXGroup;
+			children = (
+				45DCAEBD1ADEC56500A26E01 /* VZOverviewInspector.h */,
+				45DCAEBE1ADEC56500A26E01 /* VZOverviewInspector.m */,
+			);
+			path = overview;
+			sourceTree = "<group>";
+		};
+		45DCAEBF1ADEC56500A26E01 /* sandbox */ = {
+			isa = PBXGroup;
+			children = (
+				45DCAEC01ADEC56500A26E01 /* VZInspectorSandBoxRootView.h */,
+				45DCAEC11ADEC56500A26E01 /* VZInspectorSandBoxRootView.m */,
+				45DCAEC21ADEC56500A26E01 /* VZInspectorSandBoxSubView.h */,
+				45DCAEC31ADEC56500A26E01 /* VZInspectorSandBoxSubView.m */,
+			);
+			path = sandbox;
+			sourceTree = "<group>";
+		};
+		45DCAEC41ADEC56500A26E01 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				45DCAEC51ADEC56500A26E01 /* UIWindow+VZInspector.h */,
+				45DCAEC61ADEC56500A26E01 /* UIWindow+VZInspector.m */,
+				45DCAEC71ADEC56500A26E01 /* VZInspectorGridView.h */,
+				45DCAEC81ADEC56500A26E01 /* VZInspectorGridView.m */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 		AF0FC4FE19D11C66009CCBE4 = {
 			isa = PBXGroup;
 			children = (
@@ -143,7 +352,7 @@
 		AF0FC50919D11C66009CCBE4 /* VZInspector */ = {
 			isa = PBXGroup;
 			children = (
-				AFAD0DD71A5CFAC900BC74C6 /* VZInspector */,
+				45DCAE771ADEC56500A26E01 /* VZInspector */,
 				AF0FC50E19D11C66009CCBE4 /* AppDelegate.h */,
 				AF0FC50F19D11C66009CCBE4 /* AppDelegate.m */,
 				1F022CD41ADD581F00325F3C /* ViewController.h */,
@@ -151,6 +360,7 @@
 				AF0FC51419D11C66009CCBE4 /* Main.storyboard */,
 				AF0FC51719D11C66009CCBE4 /* Images.xcassets */,
 				AF0FC51919D11C66009CCBE4 /* LaunchScreen.xib */,
+				45DCAE511ADEC02500A26E01 /* Frameworks */,
 				AF0FC50A19D11C66009CCBE4 /* Supporting Files */,
 			);
 			path = VZInspector;
@@ -164,70 +374,6 @@
 				AF0FC50C19D11C66009CCBE4 /* main.m */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		AFAD0DD71A5CFAC900BC74C6 /* VZInspector */ = {
-			isa = PBXGroup;
-			children = (
-				AFAD0DD81A5CFAC900BC74C6 /* NSObject+VZInspector.h */,
-				AFAD0DD91A5CFAC900BC74C6 /* NSObject+VZInspector.m */,
-				AFAD0DDA1A5CFAC900BC74C6 /* UIWindow+VZInspector.h */,
-				AFAD0DDB1A5CFAC900BC74C6 /* UIWindow+VZInspector.m */,
-				AFAD0DDC1A5CFAC900BC74C6 /* VZCrashInspector.h */,
-				AFAD0DDD1A5CFAC900BC74C6 /* VZCrashInspector.m */,
-				AFAD0DDE1A5CFAC900BC74C6 /* VZHeapInspector.h */,
-				AFAD0DDF1A5CFAC900BC74C6 /* VZHeapInspector.m */,
-				AFAD0DE01A5CFAC900BC74C6 /* VZInspectController.h */,
-				AFAD0DE11A5CFAC900BC74C6 /* VZInspectController.m */,
-				AFAD0DE21A5CFAC900BC74C6 /* VZInspector.h */,
-				AFAD0DE31A5CFAC900BC74C6 /* VZInspector.m */,
-				AFAD0DE41A5CFAC900BC74C6 /* VZInspectorConsoleView.h */,
-				AFAD0DE51A5CFAC900BC74C6 /* VZInspectorConsoleView.m */,
-				1FF07E921ADBA47D00E0ACCA /* VZInspectorButtonIcons.h */,
-				1FF07E931ADBA47D00E0ACCA /* VZInspectorButtonIcons.m */,
-				AFAD0DE61A5CFAC900BC74C6 /* VZInspectorCrashRootView.h */,
-				AFAD0DE71A5CFAC900BC74C6 /* VZInspectorCrashRootView.m */,
-				AFAD0DE81A5CFAC900BC74C6 /* VZInspectorCrashView.h */,
-				AFAD0DE91A5CFAC900BC74C6 /* VZInspectorCrashView.m */,
-				AFAD0DEA1A5CFAC900BC74C6 /* VZInspectorGridView.h */,
-				AFAD0DEB1A5CFAC900BC74C6 /* VZInspectorGridView.m */,
-				AFAD0DEC1A5CFAC900BC74C6 /* VZInspectorHeapView.h */,
-				AFAD0DED1A5CFAC900BC74C6 /* VZInspectorHeapView.m */,
-				AFAD0DEE1A5CFAC900BC74C6 /* VZInspectorLogView.h */,
-				AFAD0DEF1A5CFAC900BC74C6 /* VZInspectorLogView.m */,
-				AFAD0DF01A5CFAC900BC74C6 /* VZInspectorOverlay.h */,
-				AFAD0DF11A5CFAC900BC74C6 /* VZInspectorOverlay.m */,
-				AFAD0DF21A5CFAC900BC74C6 /* VZInspectorOverview.h */,
-				AFAD0DF31A5CFAC900BC74C6 /* VZInspectorOverview.m */,
-				AFAD0DF41A5CFAC900BC74C6 /* VZInspectorPlotView.h */,
-				AFAD0DF51A5CFAC900BC74C6 /* VZInspectorPlotView.m */,
-				AFAD0DF61A5CFAC900BC74C6 /* VZInspectorSandBoxRootView.h */,
-				AFAD0DF71A5CFAC900BC74C6 /* VZInspectorSandBoxRootView.m */,
-				AFAD0DF81A5CFAC900BC74C6 /* VZInspectorSandBoxSubView.h */,
-				AFAD0DF91A5CFAC900BC74C6 /* VZInspectorSandBoxSubView.m */,
-				AFAD0DFA1A5CFAC900BC74C6 /* VZInspectorSettingView.h */,
-				AFAD0DFB1A5CFAC900BC74C6 /* VZInspectorSettingView.m */,
-				AFAD0DFC1A5CFAC900BC74C6 /* VZInspectorView.h */,
-				AFAD0DFD1A5CFAC900BC74C6 /* VZInspectorView.m */,
-				AFAD0DFE1A5CFAC900BC74C6 /* VZInspectorWindow.h */,
-				AFAD0DFF1A5CFAC900BC74C6 /* VZInspectorWindow.m */,
-				AFAD0E001A5CFAC900BC74C6 /* VZLogInspector.h */,
-				AFAD0E011A5CFAC900BC74C6 /* VZLogInspector.m */,
-				AFAD0E021A5CFAC900BC74C6 /* VZMemoryInspector.h */,
-				AFAD0E031A5CFAC900BC74C6 /* VZMemoryInspector.m */,
-				AFAD0E041A5CFAC900BC74C6 /* VZMemoryInspectorOverView.h */,
-				AFAD0E051A5CFAC900BC74C6 /* VZMemoryInspectorOverView.m */,
-				AFAD0E061A5CFAC900BC74C6 /* VZNetworkInspector.h */,
-				AFAD0E071A5CFAC900BC74C6 /* VZNetworkInspector.m */,
-				AFAD0E081A5CFAC900BC74C6 /* VZNetworkInspectorOverView.h */,
-				AFAD0E091A5CFAC900BC74C6 /* VZNetworkInspectorOverView.m */,
-				AFAD0E0A1A5CFAC900BC74C6 /* VZOverviewInspector.h */,
-				AFAD0E0B1A5CFAC900BC74C6 /* VZOverviewInspector.m */,
-				AFAD0E0C1A5CFAC900BC74C6 /* VZSettingInspector.h */,
-				AFAD0E0D1A5CFAC900BC74C6 /* VZSettingInspector.m */,
-			);
-			name = VZInspector;
-			path = ../../VZInspector;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -300,37 +446,43 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AFAD0E201A5CFAC900BC74C6 /* VZInspectorView.m in Sources */,
-				AFAD0E231A5CFAC900BC74C6 /* VZMemoryInspector.m in Sources */,
-				AFAD0E161A5CFAC900BC74C6 /* VZInspectorCrashView.m in Sources */,
-				AFAD0E261A5CFAC900BC74C6 /* VZNetworkInspectorOverView.m in Sources */,
-				AFAD0E1C1A5CFAC900BC74C6 /* VZInspectorPlotView.m in Sources */,
-				AFAD0E151A5CFAC900BC74C6 /* VZInspectorCrashRootView.m in Sources */,
-				AFAD0E251A5CFAC900BC74C6 /* VZNetworkInspector.m in Sources */,
-				AFAD0E0F1A5CFAC900BC74C6 /* UIWindow+VZInspector.m in Sources */,
-				AFAD0E181A5CFAC900BC74C6 /* VZInspectorHeapView.m in Sources */,
+				45DCAECB1ADEC56500A26E01 /* VZInspectController.m in Sources */,
+				45DCAEE91ADEC56500A26E01 /* VZInspectorSandBoxSubView.m in Sources */,
+				45DCAECF1ADEC56500A26E01 /* VZInspectorOverview.m in Sources */,
+				45DCAEE31ADEC56500A26E01 /* VZNetworkInspectorOverView.m in Sources */,
+				45DCAECE1ADEC56500A26E01 /* VZInspectorOverlay.m in Sources */,
+				45DCAEEB1ADEC56500A26E01 /* VZInspectorGridView.m in Sources */,
+				45DCAED61ADEC56500A26E01 /* VZInspectorCrashView.m in Sources */,
+				45DCAED81ADEC56500A26E01 /* VZSettingInspector.m in Sources */,
+				45DCAECD1ADEC56500A26E01 /* VZInspectorButtonIcons.m in Sources */,
+				45DCAEC91ADEC56500A26E01 /* VZInspectorConsoleView.m in Sources */,
+				45DCAED11ADEC56500A26E01 /* VZInspectorUtility.m in Sources */,
 				1F022CD61ADD581F00325F3C /* ViewController.m in Sources */,
-				AFAD0E131A5CFAC900BC74C6 /* VZInspector.m in Sources */,
-				AFAD0E121A5CFAC900BC74C6 /* VZInspectController.m in Sources */,
-				AFAD0E1F1A5CFAC900BC74C6 /* VZInspectorSettingView.m in Sources */,
-				AFAD0E191A5CFAC900BC74C6 /* VZInspectorLogView.m in Sources */,
-				AFAD0E281A5CFAC900BC74C6 /* VZSettingInspector.m in Sources */,
-				AFAD0E271A5CFAC900BC74C6 /* VZOverviewInspector.m in Sources */,
-				AFAD0E1A1A5CFAC900BC74C6 /* VZInspectorOverlay.m in Sources */,
-				AFAD0E171A5CFAC900BC74C6 /* VZInspectorGridView.m in Sources */,
+				45DCAED01ADEC56500A26E01 /* VZInspectorPlotView.m in Sources */,
+				45DCAEEA1ADEC56500A26E01 /* UIWindow+VZInspector.m in Sources */,
+				45DCAED41ADEC56500A26E01 /* VZCrashInspector.m in Sources */,
+				45DCAEEE1ADEC59E00A26E01 /* VZInspector.m in Sources */,
+				45DCAEE81ADEC56500A26E01 /* VZInspectorSandBoxRootView.m in Sources */,
+				45DCAEE61ADEC56500A26E01 /* VZNetworkTransaction.m in Sources */,
+				45DCAED71ADEC56500A26E01 /* VZInspectorSettingView.m in Sources */,
+				45DCAEDE1ADEC56500A26E01 /* VZMemoryInspectorOverView.m in Sources */,
+				45DCAEDF1ADEC56500A26E01 /* VZInspectorNetworkDetailView.m in Sources */,
+				45DCAED21ADEC56500A26E01 /* VZInspectorView.m in Sources */,
 				AF0FC51019D11C66009CCBE4 /* AppDelegate.m in Sources */,
-				AFAD0E111A5CFAC900BC74C6 /* VZHeapInspector.m in Sources */,
-				AFAD0E1E1A5CFAC900BC74C6 /* VZInspectorSandBoxSubView.m in Sources */,
-				AFAD0E241A5CFAC900BC74C6 /* VZMemoryInspectorOverView.m in Sources */,
-				AFAD0E101A5CFAC900BC74C6 /* VZCrashInspector.m in Sources */,
+				45DCAED51ADEC56500A26E01 /* VZInspectorCrashRootView.m in Sources */,
+				45DCAED31ADEC56500A26E01 /* VZInspectorWindow.m in Sources */,
+				45DCAEDC1ADEC56500A26E01 /* VZLogInspector.m in Sources */,
+				45DCAEDB1ADEC56500A26E01 /* VZInspectorLogView.m in Sources */,
+				45DCAEE71ADEC56500A26E01 /* VZOverviewInspector.m in Sources */,
+				45DCAED91ADEC56500A26E01 /* VZHeapInspector.m in Sources */,
+				45DCAEDA1ADEC56500A26E01 /* VZInspectorHeapView.m in Sources */,
+				45DCAECA1ADEC56500A26E01 /* NSObject+VZInspector.m in Sources */,
+				45DCAEDD1ADEC56500A26E01 /* VZMemoryInspector.m in Sources */,
 				AF0FC50D19D11C66009CCBE4 /* main.m in Sources */,
-				AFAD0E141A5CFAC900BC74C6 /* VZInspectorConsoleView.m in Sources */,
-				AFAD0E211A5CFAC900BC74C6 /* VZInspectorWindow.m in Sources */,
-				AFAD0E221A5CFAC900BC74C6 /* VZLogInspector.m in Sources */,
-				AFAD0E1D1A5CFAC900BC74C6 /* VZInspectorSandBoxRootView.m in Sources */,
-				AFAD0E1B1A5CFAC900BC74C6 /* VZInspectorOverview.m in Sources */,
-				AFAD0E0E1A5CFAC900BC74C6 /* NSObject+VZInspector.m in Sources */,
-				1FF07E941ADBA47D00E0ACCA /* VZInspectorButtonIcons.m in Sources */,
+				45DCAEE21ADEC56500A26E01 /* VZNetworkInspector.m in Sources */,
+				45DCAEE01ADEC56500A26E01 /* VZInspectorNetworkHistoryView.m in Sources */,
+				45DCAEE51ADEC56500A26E01 /* VZNetworkRecorder.m in Sources */,
+				45DCAEE41ADEC56500A26E01 /* VZNetworkObserver.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

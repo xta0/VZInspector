@@ -129,13 +129,12 @@
             {
               //  NSData* plistData = [path dataUsingEncoding:NSUTF8StringEncoding];
                 NSDictionary* plist = [[NSDictionary alloc]initWithContentsOfFile:path];
-               
-     
-                    UITextView* textView = [[UITextView alloc]initWithFrame:CGRectMake(20, 20, self.bounds.size.width - 40, self.bounds.size.height -40)];
-                    textView.tag = 998;
-                    [textView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTextViewClosed:)]];
-                    textView.text = [NSString stringWithFormat:@"%@",plist];
-                    [self addSubview:textView];
+    
+                UITextView* textView = [[UITextView alloc]initWithFrame:CGRectMake(20, 20, self.bounds.size.width - 40, self.bounds.size.height -40)];
+                textView.tag = 998;
+                [textView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTextViewClosed:)]];
+                textView.text = [NSString stringWithFormat:@"%@",plist];
+                [self addSubview:textView];
                 
                 
             }

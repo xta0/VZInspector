@@ -35,8 +35,8 @@
     
     if (self) {
         
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onRequestReceived:) name:[VZLogInspector requestLogIdentifier] object:nil];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onRequestFinished:) name:[VZLogInspector responseLogIdentifier]object:nil];
+//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onRequestReceived:) name:[VZLogInspector requestLogIdentifier] object:nil];
+//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onRequestFinished:) name:[VZLogInspector responseLogIdentifier]object:nil];
         
         
     }

@@ -33,13 +33,17 @@
         
 
         CGRect rect = CGRectMake(0, 0, frame.size.width, 44);
-        self.searchBar = [[UITextField alloc]initWithFrame:CGRectInset(rect, 80, 5)];
+        self.searchBar = [[UITextField alloc]initWithFrame:CGRectInset(rect, 80, 7)];
         self.searchBar.backgroundColor = [UIColor colorWithWhite:0.5 alpha:0.5];
         self.searchBar.clearButtonMode = UITextFieldViewModeAlways;
         self.searchBar.borderStyle = UITextBorderStyleRoundedRect;
         self.searchBar.clearButtonMode = UITextFieldViewModeAlways;
         self.searchBar.textColor = [UIColor orangeColor];
         self.searchBar.delegate = self;
+        self.searchBar.layer.borderColor = [UIColor orangeColor].CGColor;
+        self.searchBar.layer.borderWidth = 1.0f;
+        self.searchBar.layer.masksToBounds = true;
+        self.searchBar.layer.cornerRadius = 4.0f;
         [self.searchBar addTarget:self action:@selector(textFieldDidChangeCharacter:) forControlEvents:UIControlEventEditingChanged];
         [self addSubview:self.searchBar];
         

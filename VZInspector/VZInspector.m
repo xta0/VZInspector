@@ -15,6 +15,8 @@
 #import "VZSettingInspector.h"
 #import "VZLogInspector.h"
 #import "VZInspectController.h"
+#import "VZNetworkObserver.h"
+
 
 @implementation VZInspector
 
@@ -51,23 +53,21 @@
     }
     
 }
+
++ (void)setShouldHookNetworkRequest:(BOOL)b
+{
+    [VZNetworkObserver setEnabled:b];
+    [VZNetworkObserver setShouldEnableOnLaunch:b];
+}
+
++ (void)setLogNumbers:(NSUInteger)num
+{
+    [VZLogInspector setNumberOfLogs:num];
+}
+
 + (void)setObserveCallback:(NSString* (^)(void)) callback;
 {
     [VZOverviewInspector sharedInstance].observingCallback = callback;
-}
-
-+ (void)setRequestLogNotificationIdentifier:(NSString* )identifier urlKey:(NSString* )url;
-{
-    [VZLogInspector setRequestLogIdentifier:identifier];
-    [VZLogInspector setRequestLogURLPath:url];
-    
-}
-
-+ (void)setResponseLogNotificationIdentifier:(NSString *)identifier responseKey:(NSString *)response errorKey:(NSString *)error
-{
-    [VZLogInspector setResponseLogIdentifier:identifier];
-    [VZLogInspector setResponseLogStringPath:response];
-    [VZLogInspector setResponseLogErrorPath:error];
 }
 
 + (void)setDefaultAPIEnvIndex:(NSInteger)index
