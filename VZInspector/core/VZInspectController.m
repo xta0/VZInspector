@@ -180,7 +180,7 @@ static const int kClassNamePadding = 2;
 
 - (BOOL)canTouchPassThrough:(CGPoint)pt
 {
-    //int w = self.view.bounds.size.width;
+    int w = self.view.bounds.size.width;
     int h = self.view.bounds.size.height;
     
     if (self.currentView.class == [VZInspectorGridView class]) {
@@ -204,6 +204,8 @@ static const int kClassNamePadding = 2;
     else if (self.currentView == self.overview)
     {
         if (pt.y > h-40) {
+            return NO;
+        } else if (pt.y > h-(40+10+54) && pt.x > w-(10+54)) {
             return NO;
         }
         else
