@@ -36,7 +36,6 @@
 		45DCAEDE1ADEC56500A26E01 /* VZMemoryInspectorOverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DCAEAA1ADEC56500A26E01 /* VZMemoryInspectorOverView.m */; };
 		45DCAEDF1ADEC56500A26E01 /* VZInspectorNetworkDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DCAEAD1ADEC56500A26E01 /* VZInspectorNetworkDetailView.m */; };
 		45DCAEE01ADEC56500A26E01 /* VZInspectorNetworkHistoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DCAEAF1ADEC56500A26E01 /* VZInspectorNetworkHistoryView.m */; };
-		45DCAEE11ADEC56500A26E01 /* VZInspectorNetworkResponseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DCAEB11ADEC56500A26E01 /* VZInspectorNetworkResponseView.m */; };
 		45DCAEE21ADEC56500A26E01 /* VZNetworkInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DCAEB31ADEC56500A26E01 /* VZNetworkInspector.m */; };
 		45DCAEE31ADEC56500A26E01 /* VZNetworkInspectorOverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DCAEB51ADEC56500A26E01 /* VZNetworkInspectorOverView.m */; };
 		45DCAEE41ADEC56500A26E01 /* VZNetworkObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DCAEB71ADEC56500A26E01 /* VZNetworkObserver.m */; };
@@ -109,8 +108,6 @@
 		45DCAEAD1ADEC56500A26E01 /* VZInspectorNetworkDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorNetworkDetailView.m; sourceTree = "<group>"; };
 		45DCAEAE1ADEC56500A26E01 /* VZInspectorNetworkHistoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorNetworkHistoryView.h; sourceTree = "<group>"; };
 		45DCAEAF1ADEC56500A26E01 /* VZInspectorNetworkHistoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorNetworkHistoryView.m; sourceTree = "<group>"; };
-		45DCAEB01ADEC56500A26E01 /* VZInspectorNetworkResponseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorNetworkResponseView.h; sourceTree = "<group>"; };
-		45DCAEB11ADEC56500A26E01 /* VZInspectorNetworkResponseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorNetworkResponseView.m; sourceTree = "<group>"; };
 		45DCAEB21ADEC56500A26E01 /* VZNetworkInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZNetworkInspector.h; sourceTree = "<group>"; };
 		45DCAEB31ADEC56500A26E01 /* VZNetworkInspector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZNetworkInspector.m; sourceTree = "<group>"; };
 		45DCAEB41ADEC56500A26E01 /* VZNetworkInspectorOverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZNetworkInspectorOverView.h; sourceTree = "<group>"; };
@@ -291,8 +288,6 @@
 				45DCAEAD1ADEC56500A26E01 /* VZInspectorNetworkDetailView.m */,
 				45DCAEAE1ADEC56500A26E01 /* VZInspectorNetworkHistoryView.h */,
 				45DCAEAF1ADEC56500A26E01 /* VZInspectorNetworkHistoryView.m */,
-				45DCAEB01ADEC56500A26E01 /* VZInspectorNetworkResponseView.h */,
-				45DCAEB11ADEC56500A26E01 /* VZInspectorNetworkResponseView.m */,
 				45DCAEB21ADEC56500A26E01 /* VZNetworkInspector.h */,
 				45DCAEB31ADEC56500A26E01 /* VZNetworkInspector.m */,
 				45DCAEB41ADEC56500A26E01 /* VZNetworkInspectorOverView.h */,
@@ -477,7 +472,6 @@
 				45DCAED51ADEC56500A26E01 /* VZInspectorCrashRootView.m in Sources */,
 				45DCAED31ADEC56500A26E01 /* VZInspectorWindow.m in Sources */,
 				45DCAEDC1ADEC56500A26E01 /* VZLogInspector.m in Sources */,
-				45DCAEE11ADEC56500A26E01 /* VZInspectorNetworkResponseView.m in Sources */,
 				45DCAEDB1ADEC56500A26E01 /* VZInspectorLogView.m in Sources */,
 				45DCAEE71ADEC56500A26E01 /* VZOverviewInspector.m in Sources */,
 				45DCAED91ADEC56500A26E01 /* VZHeapInspector.m in Sources */,

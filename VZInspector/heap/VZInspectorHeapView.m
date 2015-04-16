@@ -33,7 +33,7 @@
         
 
         CGRect rect = CGRectMake(0, 0, frame.size.width, 44);
-        self.searchBar = [[UITextField alloc]initWithFrame:CGRectInset(rect, 80, 5)];
+        self.searchBar = [[UITextField alloc]initWithFrame:CGRectInset(rect, 80, 7)];
         self.searchBar.backgroundColor = [UIColor colorWithWhite:0.5 alpha:0.5];
         self.searchBar.clearButtonMode = UITextFieldViewModeAlways;
         self.searchBar.borderStyle = UITextBorderStyleRoundedRect;

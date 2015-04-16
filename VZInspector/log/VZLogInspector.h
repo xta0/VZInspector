@@ -8,24 +8,24 @@
 
 #import <Foundation/Foundation.h>
 
+@interface VZLogInspectorEntity:NSObject
+
+@property (nonatomic, strong)   NSDate *date;
+@property (nonatomic, copy)     NSString *sender;
+@property (nonatomic, copy)     NSString *messageText;
+@property (nonatomic, assign)   long long messageID;
+
+@end
+
 @interface VZLogInspector : NSObject
 
-+ (VZLogInspector* )sharedInstance;
++ (instancetype) sharedInstance;
 
-+ (void)setRequestLogIdentifier:(NSString* )identifier;
-+ (NSString* )requestLogIdentifier;
++ (void)setNumberOfLogs:(NSUInteger)num;
 
-+ (void)setResponseLogIdentifier:(NSString* )identifier;
-+ (NSString* )responseLogIdentifier;
++ (NSArray* )logs;
 
-+ (void)setRequestLogURLPath:(NSString* )path;
-+ (NSString* )requestLogURLPath;
-
-+ (void)setResponseLogStringPath:(NSString* )path;
-+ (NSString* )responseLogStringPath;
-
-+ (void)setResponseLogErrorPath:(NSString* )path;
-+ (NSString* )responseLogErrorPath;
++ (NSString* )logsString;
 
 
 @end

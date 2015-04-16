@@ -12,12 +12,6 @@
 #import <Foundation/Foundation.h>
 
 
-// Notifications posted when the record is updated
-extern NSString *const kVZNetworkRecorderNewTransactionNotification;
-extern NSString *const kVZNetworkRecorderTransactionUpdatedNotification;
-extern NSString *const kVZNetworkRecorderUserInfoTransactionKey;
-extern NSString *const kVZNetworkRecorderTransactionsClearedNotification;
-
 @class VZNetworkTransaction;
 
 

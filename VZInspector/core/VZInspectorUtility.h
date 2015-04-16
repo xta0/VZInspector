@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface VZInspectorUtility : NSObject
 
@@ -21,5 +22,9 @@
 + (NSString *)statusCodeStringFromURLResponse:(NSURLResponse *)response;
 
 + (NSData *)inflatedDataFromCompressedData:(NSData *)compressedData;
+
++ (NSString *)stringFormatFromDate:(NSDate *)date;
+
++ (float) heightForText:(NSString* )text withConstrainedWidth:(NSInteger)width Font:(UIFont* )font;
 
 @end

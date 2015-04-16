@@ -138,4 +138,29 @@
     return inflatedData;
 }
 
++ (float) heightForText:(NSString* )text withConstrainedWidth:(NSInteger)width Font:(UIFont* )font
+{
+//    CGSize constrainedSZ = CGSizeMake(width, CGFLOAT_MAX);
+//    
+//    CGSize textSZ = [text sizeWithFont:font constrainedToSize:constrainedSZ];
+    
+    CGSize textSZ = [text sizeWithFont:font forWidth:width lineBreakMode:NSLineBreakByTruncatingTail];
+    
+    return textSZ.height;
+
+}
+
++ (NSString *)stringFormatFromDate:(NSDate *)date
+{
+    static NSDateFormatter *formatter = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        formatter = [[NSDateFormatter alloc] init];
+        formatter.dateFormat = @"yyyy-MM-dd HH:mm:ss.SSS";
+    });
+    
+    return [formatter stringFromDate:date];
+}
+
+
 @end

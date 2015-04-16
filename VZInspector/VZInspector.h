@@ -35,6 +35,10 @@
  *是否要hook网络请求
  */
 + (void)setShouldHookNetworkRequest:(BOOL)b;
+/**
+ * 设置log数量限制
+ */
++ (void)setLogNumbers:(NSUInteger)num;
 
 /*
  *注入要观察的全局信息
@@ -43,18 +47,6 @@
 
 @end
 
-@interface VZInspector(log)
-
-/*
- *request log的结构:{@"identifier":@"",@"request":""}
- */
-+ (void)setRequestLogNotificationIdentifier:(NSString* )identifier urlKey:(NSString* )url;
-/*
- *response log的结构:{@"identifier":@"",@"response":"",@"error"}
- */
-+ (void)setResponseLogNotificationIdentifier:(NSString* )identifier responseKey:(NSString* )response errorKey:(NSString* )error;
-
-@end
 
 @interface VZInspector(env)
 

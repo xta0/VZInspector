@@ -10,12 +10,6 @@
 #import "VZNetworkTransaction.h"
 
 
-NSString *const kVZNetworkRecorderNewTransactionNotification = @"kVZNetworkRecorderNewTransactionNotification";
-NSString *const kVZNetworkRecorderTransactionUpdatedNotification = @"kVZNetworkRecorderTransactionUpdatedNotification";
-NSString *const kVZNetworkRecorderUserInfoTransactionKey = @"transaction";
-NSString *const kVZNetworkRecorderTransactionsClearedNotification = @"kVZNetworkRecorderTransactionsClearedNotification";
-NSString *const kVZNetworkRecorderResponseCacheLimitDefaultsKey = @"com.VZ.responseCacheLimit";
-
 @interface VZNetworkRecorder ()
 
 @property (nonatomic, strong) NSCache *responseCache;
@@ -32,14 +26,9 @@ NSString *const kVZNetworkRecorderResponseCacheLimitDefaultsKey = @"com.VZ.respo
 {
     self = [super init];
     if (self) {
+       
         self.responseCache = [[NSCache alloc] init];
-        NSUInteger responseCacheLimit = [[[NSUserDefaults standardUserDefaults] objectForKey:kVZNetworkRecorderResponseCacheLimitDefaultsKey] unsignedIntegerValue];
-        if (responseCacheLimit) {
-            [self.responseCache setTotalCostLimit:responseCacheLimit];
-        } else {
-            // Default to 25 MB max. The cache will purge earlier if there is memory pressure.
-            [self.responseCache setTotalCostLimit:25 * 1024 * 1024];
-        }
+        [self.responseCache setTotalCostLimit:25 * 1024 * 1024];
         self.orderedTransactions = [NSMutableArray array];
         self.networkTransactionsForRequestIdentifiers = [NSMutableDictionary dictionary];
         
@@ -69,7 +58,6 @@ NSString *const kVZNetworkRecorderResponseCacheLimitDefaultsKey = @"com.VZ.respo
 - (void)setResponseCacheByteLimit:(NSUInteger)responseCacheByteLimit
 {
     [self.responseCache setTotalCostLimit:responseCacheByteLimit];
-    [[NSUserDefaults standardUserDefaults] setObject:@(responseCacheByteLimit) forKey:kVZNetworkRecorderResponseCacheLimitDefaultsKey];
 }
 
 - (NSArray *)networkTransactions
@@ -92,9 +80,6 @@ NSString *const kVZNetworkRecorderResponseCacheLimitDefaultsKey = @"com.VZ.respo
         [self.responseCache removeAllObjects];
         [self.orderedTransactions removeAllObjects];
         [self.networkTransactionsForRequestIdentifiers removeAllObjects];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [[NSNotificationCenter defaultCenter] postNotificationName:kVZNetworkRecorderTransactionsClearedNotification object:self];
-        });
     });
 }
 
@@ -118,8 +103,7 @@ NSString *const kVZNetworkRecorderResponseCacheLimitDefaultsKey = @"com.VZ.respo
         [self.orderedTransactions insertObject:transaction atIndex:0];
         [self.networkTransactionsForRequestIdentifiers setObject:transaction forKey:requestID];
         transaction.transactionState = VZNetworkTransactionStateAwaitingResponse;
-        
-        [self postNewTransactionNotificationWithTransaction:transaction];
+
     });
 }
 
@@ -135,8 +119,6 @@ NSString *const kVZNetworkRecorderResponseCacheLimitDefaultsKey = @"com.VZ.respo
         transaction.response = response;
         transaction.transactionState = VZNetworkTransactionStateReceivingData;
         transaction.latency = -[transaction.startTime timeIntervalSinceDate:responseDate];
-        
-        [self postUpdateNotificationForTransaction:transaction];
     });
 }
 
@@ -149,7 +131,6 @@ NSString *const kVZNetworkRecorderResponseCacheLimitDefaultsKey = @"com.VZ.respo
         }
         transaction.receivedDataLength += dataLength;
         
-        [self postUpdateNotificationForTransaction:transaction];
     });
 }
 
@@ -206,8 +187,6 @@ NSString *const kVZNetworkRecorderResponseCacheLimitDefaultsKey = @"com.VZ.respo
 //        } else if ([mimeType hasPrefix:@"text"]) {
 //            transaction.responseThumbnail = [VZResources textIcon];
 //        }
-        
-        [self postUpdateNotificationForTransaction:transaction];
     });
 }
 
@@ -221,8 +200,6 @@ NSString *const kVZNetworkRecorderResponseCacheLimitDefaultsKey = @"com.VZ.respo
         transaction.transactionState = VZNetworkTransactionStateFailed;
         transaction.duration = -[transaction.startTime timeIntervalSinceNow];
         transaction.error = error;
-        
-        [self postUpdateNotificationForTransaction:transaction];
     });
 }
 
@@ -234,26 +211,8 @@ NSString *const kVZNetworkRecorderResponseCacheLimitDefaultsKey = @"com.VZ.respo
             return;
         }
         transaction.requestMechanism = mechanism;
-        
-        [self postUpdateNotificationForTransaction:transaction];
     });
 }
 
-#pragma mark Notification Posting
 
-- (void)postNewTransactionNotificationWithTransaction:(VZNetworkTransaction *)transaction
-{
-    dispatch_async(dispatch_get_main_queue(), ^{
-        NSDictionary *userInfo = @{ kVZNetworkRecorderUserInfoTransactionKey : transaction };
-        [[NSNotificationCenter defaultCenter] postNotificationName:kVZNetworkRecorderNewTransactionNotification object:self userInfo:userInfo];
-    });
-}
-
-- (void)postUpdateNotificationForTransaction:(VZNetworkTransaction *)transaction
-{
-    dispatch_async(dispatch_get_main_queue(), ^{
-        NSDictionary *userInfo = @{ kVZNetworkRecorderUserInfoTransactionKey : transaction };
-        [[NSNotificationCenter defaultCenter] postNotificationName:kVZNetworkRecorderTransactionUpdatedNotification object:self userInfo:userInfo];
-    });
-}
 @end

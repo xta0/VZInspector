@@ -13,12 +13,8 @@
 
 @interface VZInspectorLogView()
 
-@property(nonatomic,strong) UITextView* requestView;
-@property(nonatomic,strong) UITextView* responseView;
-@property(nonatomic,strong) NSMutableArray* requestLogs;
-@property(nonatomic,strong) NSMutableArray* responseLogs;
-@property(nonatomic,assign) NSInteger maxLogs;
-
+@property(nonatomic,strong)UITextView* textView;
+@property(nonatomic,strong)UIButton* refreshBtn;
 
 @end
 
@@ -29,176 +25,45 @@
     self = [super initWithFrame:frame];
     if (self) {
         
-        self.requestLogs = [NSMutableArray new];
-        self.responseLogs = [NSMutableArray new];
-        self.maxLogs = 2;
+        self.backgroundColor = [UIColor clearColor];
         
-        _requestView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height / 2)];
-        _requestView.font = [UIFont fontWithName:@"Courier-Bold" size:10];
-        _requestView.textColor = [UIColor orangeColor];
-        _requestView.backgroundColor = [UIColor clearColor];
-        _requestView.indicatorStyle = 0;
-        _requestView.editable = NO;
-        _requestView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-        _requestView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.6f];
-        _requestView.layer.borderColor = [UIColor colorWithWhite:0.5f alpha:1.0f].CGColor;
-        _requestView.layer.borderWidth = 2.0f;
-        [self addSubview:_requestView];
-        
-        UIButton* requestClearBtn = [[UIButton alloc]initWithFrame:CGRectMake(frame.size.width-20 - 10, frame.size.height/2 - 20-10 , 20, 20)];
-        requestClearBtn.alpha = 0.6;
-        requestClearBtn.backgroundColor = [UIColor darkGrayColor];
-        requestClearBtn.layer.borderColor = [UIColor lightGrayColor].CGColor;
-        requestClearBtn.layer.borderWidth = 2.0f;
-        requestClearBtn.layer.cornerRadius = 10.0f;
-        requestClearBtn.titleLabel.font = [UIFont boldSystemFontOfSize:12.0f];
-        [requestClearBtn setTitle:@"C" forState:UIControlStateNormal];
-        [requestClearBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [requestClearBtn addTarget:self action:@selector(clearRequestLog:) forControlEvents:UIControlEventTouchUpInside];
-        [self addSubview:requestClearBtn];
+        _textView = [[UITextView alloc]initWithFrame:CGRectMake(10, 10, CGRectGetWidth(frame)-20, CGRectGetHeight(frame)-20)];
+        _textView.font = [UIFont fontWithName:@"Courier-Bold" size:12];
+        _textView.textColor = [UIColor orangeColor];
+        _textView.backgroundColor = [UIColor clearColor];
+        _textView.indicatorStyle = 0;
+        _textView.editable = NO;
+        _textView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+        _textView.layer.borderColor = [UIColor colorWithWhite:0.5f alpha:1.0f].CGColor;
+        _textView.layer.borderWidth = 2.0f;
+        [self addSubview:_textView];
         
         
-        _responseView = [[UITextView alloc] initWithFrame:CGRectMake(0, frame.size.height/2, frame.size.width, frame.size.height / 2)];
-        _responseView.font = [UIFont fontWithName:@"Courier-Bold" size:10];
-        _responseView.textColor = [UIColor orangeColor];
-        _responseView.backgroundColor = [UIColor clearColor];
-        _responseView.indicatorStyle = 0;
-        _responseView.editable = NO;
-        _responseView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-        _responseView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.6f];
-        _responseView.layer.borderColor = [UIColor colorWithWhite:0.5f alpha:1.0f].CGColor;
-        _responseView.layer.borderWidth = 2.0f;
-        [self addSubview:_responseView];
-        
-        UIButton* responseClearBtn = [[UIButton alloc]initWithFrame:CGRectMake(frame.size.width-20 - 10, frame.size.height- 20 -10 , 20, 20)];
-        responseClearBtn.alpha = 0.6;
-        responseClearBtn.backgroundColor = [UIColor darkGrayColor];
-        responseClearBtn.layer.borderColor = [UIColor lightGrayColor].CGColor;
-        responseClearBtn.layer.borderWidth = 2.0f;
-        responseClearBtn.layer.cornerRadius = 10.0f;
-        responseClearBtn.titleLabel.font = [UIFont boldSystemFontOfSize:12.0f];
-        [responseClearBtn setTitle:@"C" forState:UIControlStateNormal];
-        [responseClearBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [responseClearBtn addTarget:self action:@selector(clearResponseLog:) forControlEvents:UIControlEventTouchUpInside];
-        [self addSubview:responseClearBtn];
+        _refreshBtn = [[UIButton alloc]initWithFrame:CGRectMake(CGRectGetWidth(_textView.bounds) - 54, CGRectGetHeight(_textView.bounds)-54, 44, 44)];
+        _refreshBtn.layer.cornerRadius = 22;
+        _refreshBtn.layer.masksToBounds = true;
+        _refreshBtn.layer.borderColor = [UIColor orangeColor].CGColor;
+        _refreshBtn.layer.borderWidth = 2.0f;
+        [_refreshBtn setTitle:@"R" forState:UIControlStateNormal];
+        [_refreshBtn setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
+        [_refreshBtn addTarget:self action:@selector(onRefresh) forControlEvents:UIControlEventTouchUpInside];
+        [_textView addSubview:_refreshBtn];
         
         
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(requestLog:) name:[VZLogInspector requestLogIdentifier] object:nil];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(responseLog:) name:[VZLogInspector responseLogIdentifier] object:nil];
-        
-        
-        [self setText:1];
-        [self setText:0];
-        
+        [self onRefresh];
+
     }
     return self;
 }
 
-- (void)requestLog:(NSNotification* )notify
-{
-    NSString* urlpath = [VZLogInspector requestLogURLPath];
-    id  message = notify.userInfo[urlpath];
-    
-    if ([message isEqual:[NSNull null]]) {
-        return;
-    }
-    else
-    {
-        NSString* urlString = [NSString stringWithFormat:@"%@",message];
-        
-        //utf8 decode
-        NSString* decodeURL = [urlString stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        
-        if (decodeURL.length > 0) {
-            
-            [self.requestLogs addObject:[@"> " stringByAppendingString:decodeURL]];
-            if ([self.requestLogs count] > self.maxLogs)
-            {
-                [self.requestLogs removeObjectAtIndex:0];
-            }
-            [self setText:1];
-        }
-    }
-    
-    
-    
-}
 
-- (void)responseLog:(NSNotification* )notify
+- (void)onRefresh
 {
-    NSString* response = [VZLogInspector responseLogStringPath];
-    NSString*  json = [NSString stringWithFormat:@"%@",notify.userInfo[response]];
-    
-    if (json.length > 0 ) {
-        
-        NSString* errorpath = [VZLogInspector responseLogErrorPath];
-        id error = notify.userInfo[errorpath];
-        
-        if (error) {
-            json = [@"请求失败:" stringByAppendingString:json];
-        }
-        
-//        NSData* data =  [json dataUsingEncoding:NSUTF8StringEncoding];
-//        id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-        
-        [self.responseLogs addObject:[@"> " stringByAppendingString:[NSString stringWithFormat:@"%@",json]]];
-        if ([self.responseLogs count] > self.maxLogs)
-        {
-            [self.responseLogs removeObjectAtIndex:0];
-        }
-        [self setText:0];
-    }
+    self.textView.text = @"";
+    self.textView.text = [VZLogInspector logsString];
 }
 
 
-
-- (void)setText:(BOOL)request
-{
-    //requst log:
-    if (request) {
-        
-        NSString* info = @"Request URL:";
-        info = [info stringByAppendingString:@"\n--------------------------------------\n"];
-        info = [info stringByAppendingString:[[self.requestLogs arrayByAddingObject:@">"] componentsJoinedByString:@"\n"]];
-        
-        _requestView.text = info;
-        //[_requestView scrollRangeToVisible:NSMakeRange(_requestView.text.length, 0)];
-    }
-    else
-    {
-        //response log:
-        NSString* info = @"Response JSON:";
-        info = [info stringByAppendingString:@"\n--------------------------------------\n"];
-        info = [info stringByAppendingString:[[self.responseLogs arrayByAddingObject:@">"] componentsJoinedByString:@"\n"]];
-        
-        _responseView.text = info;
-        //[_responseView scrollRangeToVisible:NSMakeRange(_responseView.text.length, 0)];
-        
-    }
-    
-}
-
-- (void)clearRequestLog:(id)sender
-{
-    [self.requestLogs removeAllObjects];
-    
-    NSString* info = @"Request URL:";
-    info = [info stringByAppendingString:@"\n--------------------------------------\n"];
-    info = [info stringByAppendingString:[[self.requestLogs arrayByAddingObject:@">"] componentsJoinedByString:@"\n"]];
-    
-    _requestView.text = info;
-}
-
-- (void)clearResponseLog:(id)sender
-{
-    [self.responseLogs removeAllObjects];
-    
-    //response log:
-    NSString* info = @"Response JSON:";
-    info = [info stringByAppendingString:@"\n--------------------------------------\n"];
-    info = [info stringByAppendingString:[[self.responseLogs arrayByAddingObject:@">"] componentsJoinedByString:@"\n"]];
-    _responseView.text = info;
-}
 
 
 @end
