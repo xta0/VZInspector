@@ -8,6 +8,7 @@
 
 #import "VZInspectorOverlay.h"
 #import "VZInspector.h"
+#import "VZInspectorResource.h"
 
 
 @implementation VZInspectorOverlay
@@ -48,16 +49,17 @@
     if ( self )
     {
         self.backgroundColor = [UIColor clearColor];
-        UIButton* btn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
-        [btn setTitle:@"BUG" forState:UIControlStateNormal];
-        [btn setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
-        [btn.titleLabel setFont:[UIFont boldSystemFontOfSize:16.0f]];
-        [btn addTarget:self action:@selector(onSelfClicked:) forControlEvents:UIControlEventTouchUpInside];
-        [self addSubview:btn];
+
+        UIImageView* imgv = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
+        imgv.contentMode = UIViewContentModeScaleAspectFit;
+        imgv.image = [VZInspectorResource eye];
+        imgv.userInteractionEnabled = true;
+        [imgv addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onSelfClicked:)]];
+        [self addSubview:imgv];
         
     }
     //fake
-    [VZInspector show];
+    //[VZInspector show];
     return self;
 }
 

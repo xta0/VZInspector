@@ -160,9 +160,6 @@
 {
     [_readHeartBeat invalidate],_readHeartBeat = nil;
     [_writeHeartBeat invalidate],_writeHeartBeat = nil;
-    
-    [self.toolboxView hideKeyboard];
-    
 }
 
 
@@ -254,9 +251,7 @@
         }
     }
     [sender setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
-    
-    [self.toolboxView hideKeyboard];
-    
+
     switch (sender.tag) {
         case 10:
         {

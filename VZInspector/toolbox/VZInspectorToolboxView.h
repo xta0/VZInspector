@@ -9,5 +9,5 @@
 #import "VZInspectorView.h"
 
 @interface VZInspectorToolboxView : VZInspectorView
-- (void)hideKeyboard;
+
 @end
