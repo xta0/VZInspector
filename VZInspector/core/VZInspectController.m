@@ -103,7 +103,7 @@
             [btn setTitle:@"Log" forState:UIControlStateNormal];
         }
         if (i==2) {
-            [btn setTitle:@"Console" forState:UIControlStateNormal];
+            [btn setTitle:@"Toolbox" forState:UIControlStateNormal];
         }
         if (i==3) {
             [btn setTitle:@"ENV" forState:UIControlStateNormal];
