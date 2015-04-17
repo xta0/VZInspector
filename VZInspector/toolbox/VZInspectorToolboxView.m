@@ -8,9 +8,11 @@
 
 #import "VZInspectorToolboxView.h"
 #import <objc/runtime.h>
-#import "VZInspectorButtonIcons.h"
+
+static const int kIconDimension = 48;
 
 #define kButtonStatusKey @"VZButtonStatusKey"
+#define VZImage(image) [[UIImage imageNamed:image] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
 
 @interface VZInspectorToolboxView()<UITextFieldDelegate>
 
@@ -31,11 +33,13 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.buttonIconsArray = @[[[VZBorderIcon  alloc] init],
-                                  [[VZGridIcon alloc] init],
-                                  [[VZSandBoxIcon alloc] init],
-                                  [[VZGridIcon alloc] init],
-                                  [[VZExitIcon alloc] init]];
+        self.buttonIconsArray = @[VZImage(@"border"),
+                                  VZImage(@"businessborder"),
+                                  VZImage(@"sandbox"),
+                                  VZImage(@"grid"),
+                                  VZImage(@"crash"),
+                                  VZImage(@"heap"),
+                                  VZImage(@"warning")];
         
         float width = [UIScreen mainScreen].bounds.size.width / 4;
         float space = (width - kIconDimension) / 2;
@@ -44,13 +48,9 @@
             float y = space + space * (int)(i / 4) * 2 + (int)(i / 4) * kIconDimension;
             CGRect frame = CGRectMake(x, y, kIconDimension, kIconDimension);
             
-            UIView *view = self.buttonIconsArray[i];
-            view.backgroundColor = [UIColor clearColor];
-            view.frame = frame;
-            [self addSubview:view];
-            
             UIButton *button = [[UIButton alloc] initWithFrame:frame];
-            button.backgroundColor = [UIColor clearColor];
+            button.tintColor = [UIColor orangeColor];
+            [button setImage:self.buttonIconsArray[i] forState:UIControlStateNormal];
             button.tag = i;
             [button addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
             [self addSubview:button];
@@ -61,6 +61,13 @@
     return self;
 }
 
+//  @[VZImage(@"border"),
+//VZImage(@"businessborder"),
+//VZImage(@"sandbox"),
+//VZImage(@"grid"),
+//VZImage(@"crash"),
+//VZImage(@"heap"),
+//VZImage(@"warning")];
 - (void)buttonPressed:(UIButton *)button {
     switch (button.tag) {
         case 0://border
@@ -103,15 +110,26 @@
             [self.parentViewController performSelector:@selector(showGrid) withObject:nil];
 #pragma clang diagnostic pop
             break;
-        case 4://exit
+        case 4://crash
         {
-            UIButton* btn = [UIButton new];
-            btn.tag = 10;
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wundeclared-selector"
-            [self.parentViewController performSelector:@selector(onBtnClikced:) withObject:btn];
+            [self.parentViewController performSelector:@selector(showCrashLogs) withObject:nil];
 #pragma clang diagnostic pop
-            break;
+        }
+        case 5://heap
+        {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wundeclared-selector"
+            [self.parentViewController performSelector:@selector(showHeap) withObject:nil];
+#pragma clang diagnostic pop
+        }
+        case 6://warnning
+        {
+            [self.parentViewController setValue:@(YES) forKey:@"performMemoryWarning"];
+        }
+        case 7://network
+        {
         }
         default:
             break;

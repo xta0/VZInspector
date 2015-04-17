@@ -15,6 +15,6 @@ Pod::Spec.new do |s|
 
   s.source       = { :git => "https://github.com/akaDealloc/VZInspector.git", :tag => "0.0.5" }
   s.requires_arc = true
-  s.source_files  = "VZInspector/*"
+  s.source_files  = "VZInspector/**/*.{h,m}"
 
 end
