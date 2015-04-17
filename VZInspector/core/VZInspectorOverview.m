@@ -19,6 +19,7 @@
 @property(nonatomic,strong) VZNetworkInspectorOverView* httpView;
 @property(nonatomic,strong) VZMemoryInspectorOverView* memoryView;
 @property(nonatomic,strong) UITextView* infoView;
+@property(nonatomic,strong)UIButton* refreshBtn;
 
 @end
 
@@ -67,8 +68,17 @@
         _infoView.editable = NO;
         _infoView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
         _infoView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.6f];
-       // _infoView.backgroundColor = [UIColor clearColor];
         [self addSubview:_infoView];
+        
+        _refreshBtn = [[UIButton alloc]initWithFrame:CGRectMake(CGRectGetWidth(_infoView.bounds) - 54, CGRectGetHeight(_infoView.bounds)-54, 44, 44)];
+        _refreshBtn.layer.cornerRadius = 22;
+        _refreshBtn.layer.masksToBounds = true;
+        _refreshBtn.layer.borderColor = [UIColor orangeColor].CGColor;
+        _refreshBtn.layer.borderWidth = 2.0f;
+        [_refreshBtn setTitle:@"R" forState:UIControlStateNormal];
+        [_refreshBtn setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
+        [_refreshBtn addTarget:self action:@selector(updateGlobalInfo) forControlEvents:UIControlEventTouchUpInside];
+        [_infoView addSubview:_refreshBtn];
         
         if ([VZOverviewInspector sharedInstance].observingCallback) {
             

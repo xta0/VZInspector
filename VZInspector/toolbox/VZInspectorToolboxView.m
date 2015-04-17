@@ -1,16 +1,18 @@
 //
-//  VZInspectorConsoleView.m
+//  VZToolboxView.m
 //  VZInspector
 //
-//  Created by moxin.xt on 14-11-26.
-//  Copyright (c) 2014年 VizLab. All rights reserved.
+//  Created by lingwan on 15/4/16.
+//  Copyright (c) 2015年 VizLabe. All rights reserved.
 //
 
-#import "VZInspectorConsoleView.h"
+#import "VZInspectorToolboxView.h"
 #import <objc/runtime.h>
+#import "VZInspectorButtonIcons.h"
 
+#define kButtonStatusKey @"VZButtonStatusKey"
 
-@interface VZInspectorConsoleView()<UITextFieldDelegate>
+@interface VZInspectorToolboxView()<UITextFieldDelegate>
 
 @property (nonatomic, strong) UITextView *consoleView;
 @property (nonatomic, strong) UITextField *inputField;
@@ -19,59 +21,101 @@
 @property(nonatomic,assign) NSInteger logMax;
 @property(nonatomic,assign) CGRect oldFrm;
 
+@property (nonatomic, strong) NSArray *buttonIconsArray;
+
 @end
 
-
-@implementation VZInspectorConsoleView
+@implementation VZInspectorToolboxView
 
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
+        self.buttonIconsArray = @[[[VZBorderIcon  alloc] init],
+                                  [[VZGridIcon alloc] init],
+                                  [[VZSandBoxIcon alloc] init],
+                                  [[VZGridIcon alloc] init],
+                                  [[VZExitIcon alloc] init]];
         
-        self.oldFrm = frame;
-        // Initialization code
-        self.logs = [NSMutableArray new];
-        self.logMax = 20;
-        
-        _consoleView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height-28-10-5)];
-        _consoleView.font = [UIFont fontWithName:@"Courier-Bold" size:12];
-        _consoleView.textColor = [UIColor orangeColor];
-        _consoleView.backgroundColor = [UIColor clearColor];
-        _consoleView.indicatorStyle = 0;
-        _consoleView.editable = NO;
-        _consoleView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-        [self setConsoleText];
-        [self addSubview:_consoleView];
-        
-        
-        _inputField = [[UITextField alloc] initWithFrame:CGRectMake(10,frame.size.height - 28 - 10 ,frame.size.width-20,28)];
-        _inputField.borderStyle = UITextBorderStyleRoundedRect;
-        _inputField.font = [UIFont fontWithName:@"Courier" size:12];
-        _inputField.autocapitalizationType = UITextAutocapitalizationTypeNone;
-        _inputField.autocorrectionType = UITextAutocorrectionTypeNo;
-        _inputField.returnKeyType = UIReturnKeyDone;
-        _inputField.enablesReturnKeyAutomatically = NO;
-        _inputField.clearButtonMode = UITextFieldViewModeWhileEditing;
-        _inputField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-        _inputField.placeholder = @"Enter help to see commands...";
-        _inputField.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleWidth;
-        _inputField.delegate = self;
-        [self addSubview:_inputField];
-        
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(keyboardWillShow:)
-                                                     name:UIKeyboardWillShowNotification
-                                                   object:nil];
-        
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(keyboardWillHide:)
-                                                     name:UIKeyboardWillHideNotification
-                                                   object:nil];
-        
-        
+        float width = [UIScreen mainScreen].bounds.size.width / 4;
+        float space = (width - kIconDimension) / 2;
+        for (int i = 0; i < self.buttonIconsArray.count; i++) {
+            float x = space + space * (i % 4) * 2 + (i % 4) * kIconDimension;
+            float y = space + space * (int)(i / 4) * 2 + (int)(i / 4) * kIconDimension;
+            CGRect frame = CGRectMake(x, y, kIconDimension, kIconDimension);
+            
+            UIView *view = self.buttonIconsArray[i];
+            view.backgroundColor = [UIColor clearColor];
+            view.frame = frame;
+            [self addSubview:view];
+            
+            UIButton *button = [[UIButton alloc] initWithFrame:frame];
+            button.backgroundColor = [UIColor clearColor];
+            button.tag = i;
+            [button addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
+            [self addSubview:button];
+            
+            objc_setAssociatedObject(button, kButtonStatusKey, @0, OBJC_ASSOCIATION_COPY);
+        }
     }
     return self;
+}
+
+- (void)buttonPressed:(UIButton *)button {
+    switch (button.tag) {
+        case 0://border
+        {
+            NSNumber *status = objc_getAssociatedObject(button, kButtonStatusKey);
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wundeclared-selector"
+            [self.parentViewController performSelector:@selector(showBorder:) withObject:status];
+#pragma clang diagnostic pop
+            if (status.integerValue == 0) {
+                objc_setAssociatedObject(button, kButtonStatusKey, @1, OBJC_ASSOCIATION_COPY);
+            } else {
+                objc_setAssociatedObject(button, kButtonStatusKey, @0, OBJC_ASSOCIATION_COPY);
+            }
+            break;
+        }
+        case 1://business view's border and class name
+        {
+            NSNumber *status = objc_getAssociatedObject(button, kButtonStatusKey);
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wundeclared-selector"
+            [self.parentViewController performSelector:@selector(showBusinessViewBorder:) withObject:status];
+#pragma clang diagnostic pop
+            if (status.integerValue == 0) {
+                objc_setAssociatedObject(button, kButtonStatusKey, @1, OBJC_ASSOCIATION_COPY);
+            } else {
+                objc_setAssociatedObject(button, kButtonStatusKey, @0, OBJC_ASSOCIATION_COPY);
+            }
+            break;
+        }
+        case 2://sandbox
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wundeclared-selector"
+            [self.parentViewController performSelector:@selector(showSandBox) withObject:nil];
+#pragma clang diagnostic pop
+            break;
+        case 3://grid
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wundeclared-selector"
+            [self.parentViewController performSelector:@selector(showGrid) withObject:nil];
+#pragma clang diagnostic pop
+            break;
+        case 4://exit
+        {
+            UIButton* btn = [UIButton new];
+            btn.tag = 10;
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wundeclared-selector"
+            [self.parentViewController performSelector:@selector(onBtnClikced:) withObject:btn];
+#pragma clang diagnostic pop
+            break;
+        }
+        default:
+            break;
+    }
 }
 
 - (void)hideKeyboard
@@ -219,6 +263,11 @@
     else if ([text isEqualToString:@"mw off"])
     {
         [self.parentViewController setValue:@(NO) forKeyPath:@"performMemoryWarning"];
+    }
+    
+    else if ([text isEqualToString:@"network"])
+    {
+        [self.parentViewController performSelector:@selector(showNetwork) withObject:nil];
     }
     
     else if ([text isEqualToString:@"help"])
