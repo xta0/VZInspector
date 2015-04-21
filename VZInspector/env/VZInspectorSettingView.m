@@ -32,15 +32,15 @@
             
 
             if (i==0) {
-                [btn setTitle:@"线上" forState:UIControlStateNormal];
+                [btn setTitle:@"Production" forState:UIControlStateNormal];
                 
             }
             if (i==1) {
-                [btn setTitle:@"预发" forState:UIControlStateNormal];
+                [btn setTitle:@"PreRelease" forState:UIControlStateNormal];
             
             }
             if (i==2) {
-                [btn setTitle:@"日常" forState:UIControlStateNormal];
+                [btn setTitle:@"Development" forState:UIControlStateNormal];
        
             }
             
