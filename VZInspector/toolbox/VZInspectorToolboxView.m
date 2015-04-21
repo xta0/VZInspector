@@ -27,6 +27,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         
+        _type = -1;
         _marginTop = 120;
        
         
@@ -36,7 +37,9 @@
                    @{@"SandBox":[VZInspectorResource sandbox]},
                    @{@"Gird":[VZInspectorResource grid]},
                    @{@"Border":[VZInspectorResource border]},
-                   @{@"ViewClass":[VZInspectorResource viewClass]}];
+                   @{@"ViewClass":[VZInspectorResource viewClass]},
+                   @{@"MemWarning":[VZInspectorResource memoryWarningOn]}
+                   ];
 
         
         UIImage* logo = [VZInspectorResource logo];
@@ -119,43 +122,52 @@
  */
 - (void)onBtnClicked:(UIView* )sender
 {
-    NSInteger type =  -1;
+
     switch (sender.tag) {
         
         case 0:
         {
-            type = kNetworkLogs;
+            _type = kNetworkLogs;
             break;
         }
         case 1:
         {
-            type = kHeaps;
+            _type = kHeaps;
             break;
         }
             
         case 2:
         {
-            type = kCrashLogs;
+            _type = kCrashLogs;
             break;
         }
         case 3:
         {
-            type = kSandBox;
+            _type = kSandBox;
             break;
         }
         case 4:
         {
-            type = kGrids;
+            _type = kGrids;
             break;
         }
         case 5:
         {
-            type = kBorder;
+            _type = kBorder;
             break;
         }
         case 6:
         {
-            type = kViewClass;
+            _type = kViewClass;
+            break;
+        }
+        case 7:
+        {
+            if (_type != kMemoryWarningOn) {
+                _type = kMemoryWarningOn;
+            }
+            else
+                _type = kMemoryWarningOff;
             break;
         }
             
@@ -164,7 +176,7 @@
     }
     
     if ([self.callback respondsToSelector:@selector(onToolBoxViewClicked:)]) {
-        [self.callback onToolBoxViewClicked:type];
+        [self.callback onToolBoxViewClicked:_type];
     }
 
     

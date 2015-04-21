@@ -29,6 +29,7 @@ typedef NS_ENUM(NSInteger, VZToolBoxType)
 
 @interface VZInspectorToolboxView : VZInspectorView
 
+@property(nonatomic,assign) NSInteger type;
 @property(nonatomic,weak) id<VZInspectorToolboxViewCallback> callback;
 
 @end
