@@ -34,7 +34,9 @@
                    @{@"Heap":[VZInspectorResource heap]},
                    @{@"Crash":[VZInspectorResource crash]},
                    @{@"SandBox":[VZInspectorResource sandbox]},
-                   @{@"Gird":[VZInspectorResource grid]}];
+                   @{@"Gird":[VZInspectorResource grid]},
+                   @{@"Border":[VZInspectorResource border]},
+                   @{@"ViewClass":[VZInspectorResource viewClass]}];
 
         
         UIImage* logo = [VZInspectorResource logo];
@@ -72,8 +74,8 @@
 
         for (int i=0; i<_icons.count; i++) {
             
-            int x =   w*i;
-            int y = _marginTop + (i/5)*h*i;
+            int x =   w*(i%5);
+            int y = _marginTop + (i/5)*h;
             
             UIButton* btn  = [[UIButton alloc] initWithFrame:CGRectMake(x, y, w, w)];
             btn.tag = i;
@@ -93,11 +95,10 @@
             btn.titleEdgeInsets = UIEdgeInsetsMake(0.0, - imageSize.width, - (imageSize.height + spacing), 0.0);
    
             CGSize titleSize = btn.titleLabel.frame.size;
-            btn.imageEdgeInsets = UIEdgeInsetsMake(- (titleSize.height + spacing), 0.0, 0.0, - titleSize.width);
+            btn.imageEdgeInsets = UIEdgeInsetsMake(- (titleSize.height + spacing), (w-32)/2, 0.0, 0.0);//icon width = 32
 
             [btn addTarget:self action:@selector(onBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
             [self addSubview:btn];
-        
         }
     }
     return self;
@@ -107,11 +108,13 @@
 
 /**
  
- @"Logs":[VZInspectorResource network_logs]},
+ @[@{@"Logs":[VZInspectorResource network_logs]},
  @{@"Heap":[VZInspectorResource heap]},
  @{@"Crash":[VZInspectorResource crash]},
  @{@"SandBox":[VZInspectorResource sandbox]},
- @{@"Gird":[VZInspectorResource grid]}];
+ @{@"Gird":[VZInspectorResource grid]},
+ @{@"Border":[VZInspectorResource border]},
+ @{@"ViewClass":[VZInspectorResource viewClass]}]
  
  */
 - (void)onBtnClicked:(UIView* )sender
@@ -143,6 +146,16 @@
         case 4:
         {
             type = kGrids;
+            break;
+        }
+        case 5:
+        {
+            type = kBorder;
+            break;
+        }
+        case 6:
+        {
+            type = kViewClass;
             break;
         }
             

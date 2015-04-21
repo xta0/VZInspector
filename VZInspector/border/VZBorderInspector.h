@@ -8,10 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
+typedef NS_ENUM(NSUInteger, kVZBorderType) {
+    kVZBorderTypeAllView,
+    kVZBorderTypeBusinessView
+};
+
 @interface VZBorderInspector : NSObject
 
 + (instancetype)sharedInstance;
 + (void)setClassPrefixName:(NSString* )name;
-- (void)updateBorderCore:(NSNumber *)status ifShowBusinessBorder:(BOOL)flag;
+- (void)updateBorderWithType:(kVZBorderType)type;
 
 @end

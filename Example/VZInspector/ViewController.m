@@ -9,19 +9,6 @@
 #import "ViewController.h"
 #import "VZHeapInspector.h"
 
-@interface VZTestView : UIView
-@end
-
-@implementation VZTestView
-- (instancetype)initWithFrame:(CGRect)frame {
-    self = [super initWithFrame:frame];
-    if (self) {
-        self.backgroundColor = [UIColor lightGrayColor];
-    }
-    return self;
-}
-@end
-
 @interface ViewController ()<UITableViewDataSource,UITableViewDelegate>
 
 @property(nonatomic,strong) UITableView* tableView;
@@ -57,7 +44,6 @@
     [self.view addSubview:self.tableView];
     
     [self load];
-
 }
 
 - (void)didReceiveMemoryWarning {
