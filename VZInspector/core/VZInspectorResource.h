@@ -29,4 +29,8 @@
 
 + (UIImage* )memoryWarningOff;
 
++ (UIImage* )border;
+
++ (UIImage* )viewClass;
+
 @end

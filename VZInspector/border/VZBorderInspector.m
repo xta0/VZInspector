@@ -10,17 +10,20 @@
 #import <UIKit/UIKit.h>
 
 static NSString* vz_tracking_classPrefix;
-static const int kClassNameImageViewTag = 999;
+static const int kClassNameImageViewTag = 1757;
 static const int kClassNamePadding = 2;
 
 @interface VZBorderInspector ()
 
-//border
 @property(nonatomic,strong) NSTimer *timer;
 @property(nonatomic,assign) float borderWidth;
 
 //business view's border
-@property(nonatomic,assign) BOOL ifShowBusinessBorder;
+@property(nonatomic,assign) BOOL showingBusinessBorder;
+
+//show or hide status
+@property(nonatomic,assign) BOOL showOrHideAllBorder;
+@property(nonatomic,assign) BOOL showOrHideBusBorder;
 @end
 
 @implementation VZBorderInspector
@@ -41,11 +44,17 @@ static const int kClassNamePadding = 2;
     vz_tracking_classPrefix = name;
 }
 
-- (void)updateBorderCore:(NSNumber *)status ifShowBusinessBorder:(BOOL)flag {
-    self.ifShowBusinessBorder = flag;
+- (void)updateBorderWithType:(kVZBorderType)type {
+    if (type == kVZBorderTypeAllView) {
+        self.showOrHideAllBorder = !self.showOrHideAllBorder;
+        self.showingBusinessBorder = NO;
+    } else {
+        self.showOrHideBusBorder = !self.showOrHideBusBorder;
+        self.showingBusinessBorder = YES;
+    }
     
     [self removeAllBorder];
-    if (status.integerValue == 0) {
+    if ((!self.showingBusinessBorder && self.showOrHideAllBorder) || (self.showingBusinessBorder && self.showOrHideBusBorder)) {
         self.borderWidth = 0.5f;
         [self updateBorderOfViewHierarchy];
         self.timer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(updateBorderOfViewHierarchy) userInfo:nil repeats:YES];
@@ -60,10 +69,10 @@ static const int kClassNamePadding = 2;
     self.borderWidth = 0;
     [self updateBorderOfViewHierarchy];
     
-    self.ifShowBusinessBorder = !self.ifShowBusinessBorder;
+    self.showingBusinessBorder = !self.showingBusinessBorder;
     self.borderWidth = 0;
     [self updateBorderOfViewHierarchy];
-    self.ifShowBusinessBorder = !self.ifShowBusinessBorder;
+    self.showingBusinessBorder = !self.showingBusinessBorder;
 }
 
 - (void)updateBorderOfViewHierarchy {
@@ -90,7 +99,7 @@ static const int kClassNamePadding = 2;
         return;
     }
     
-    if (self.ifShowBusinessBorder) {
+    if (self.showingBusinessBorder) {
         //draw business view's class name
         const char* clzname = object_getClassName(view);
         if (vz_isTrackingObject(clzname))

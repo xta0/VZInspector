@@ -328,12 +328,12 @@
             
         case kBorder:
         {
-            [self showBorder:@(0)];
+            [self showBorder];
             break;
         }
         case kViewClass:
         {
-            [self showBusinessViewBorder:@(0)];
+            [self showBusinessViewBorder];
             break;
         }
         case kHeaps:
@@ -393,14 +393,14 @@
     }];
 }
 
-- (void)showBorder:(NSNumber *)status
+- (void)showBorder
 {
-    [[VZBorderInspector sharedInstance] updateBorderCore:status ifShowBusinessBorder:NO];
+    [[VZBorderInspector sharedInstance] updateBorderWithType:kVZBorderTypeAllView];
 }
 
-- (void)showBusinessViewBorder:(NSNumber *)status
+- (void)showBusinessViewBorder
 {
-    [[VZBorderInspector sharedInstance] updateBorderCore:status ifShowBusinessBorder:YES];
+    [[VZBorderInspector sharedInstance] updateBorderWithType:kVZBorderTypeBusinessView];
 }
 
 - (void)showHeap
