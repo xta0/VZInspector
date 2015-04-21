@@ -11,6 +11,8 @@
 #import "VZLogInspector.h"
 
 
+NSString* const kVZNetworkInspectorRequestNotification = @"VZNetworkInspectorRequestNotification";
+
 @interface VZNetworkInspector()
 
 @property(nonatomic,assign) NSInteger networkCount;
@@ -35,12 +37,16 @@
     
     if (self) {
         
-//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onRequestReceived:) name:[VZLogInspector requestLogIdentifier] object:nil];
-//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onRequestFinished:) name:[VZLogInspector responseLogIdentifier]object:nil];
-        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onRequestReceived:) name:kVZNetworkInspectorRequestNotification object:nil];
+ 
         
     }
     return self;
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)onRequestReceived:(NSNotification* )notify
@@ -59,17 +65,8 @@
     [self.samplePoints addObject:@(self.networkCount)];
     
     
-    id message = notify.userInfo[@"url"];
-    if ([message isEqual:[NSNull null]]) {
-        return;
-    }
-    else
-    {
-        NSString* urlString = [NSString stringWithFormat:@"%@",message];
-        NSData* data = [urlString dataUsingEncoding:NSUTF8StringEncoding];
-        self.totalResponseBytes += data.length;
-    }
-    
+    NSNumber*  len = notify.userInfo[@"data-len"];
+    self.totalResponseBytes += len.longValue;
 }
 
 - (void)onRequestFinished:(NSNotification* )notify

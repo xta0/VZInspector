@@ -8,7 +8,7 @@
 
 #import "VZNetworkRecorder.h"
 #import "VZNetworkTransaction.h"
-
+#import "VZNetworkInspector.h"
 
 @interface VZNetworkRecorder ()
 
@@ -136,7 +136,7 @@
             return;
         }
         transaction.receivedDataLength += dataLength;
-        
+        [[NSNotificationCenter defaultCenter] postNotificationName:kVZNetworkInspectorRequestNotification object:nil userInfo:@{@"data-len":@(dataLength)}];
     });
 }
 

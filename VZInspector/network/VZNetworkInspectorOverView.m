@@ -96,8 +96,8 @@
 {
  
     NSMutableString * text = [NSMutableString string];
-    [text appendFormat:@"请求数: %ld",(long)[VZNetworkInspector sharedInstance].totalNetworkCount];
-    [text appendFormat:@"  流量:%@  ",[self number2String:[VZNetworkInspector sharedInstance].totalResponseBytes]];
+    [text appendFormat:@"Count: %ld",(long)[VZNetworkInspector sharedInstance].totalNetworkCount];
+    [text appendFormat:@"  Bytes:%@  ",[self number2String:[VZNetworkInspector sharedInstance].totalResponseBytes]];
     
     _statusView.text = text;
     

@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface VZNetworkInspector : NSObject
+extern  NSString* const kVZNetworkInspectorRequestNotification;
 
+@interface VZNetworkInspector : NSObject
 + (instancetype)sharedInstance;
 
 @property(nonatomic,assign) size_t totalResponseBytes;
