@@ -42,12 +42,12 @@
         _refreshBtn = [[UIButton alloc]initWithFrame:CGRectMake(CGRectGetWidth(_textView.bounds) - 54, CGRectGetHeight(_textView.bounds)-54, 44, 44)];
         _refreshBtn.layer.cornerRadius = 22;
         _refreshBtn.layer.masksToBounds = true;
-        _refreshBtn.layer.borderColor = [UIColor orangeColor].CGColor;
+        _refreshBtn.layer.borderColor = [UIColor grayColor].CGColor;
         _refreshBtn.layer.borderWidth = 2.0f;
         [_refreshBtn setTitle:@"R" forState:UIControlStateNormal];
-        [_refreshBtn setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
+        [_refreshBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
         [_refreshBtn addTarget:self action:@selector(onRefresh) forControlEvents:UIControlEventTouchUpInside];
-        [_textView addSubview:_refreshBtn];
+        [self addSubview:_refreshBtn];
         
         
         [self onRefresh];
