@@ -58,8 +58,6 @@
         [self addSubview:imgv];
         
     }
-    //fake
-    //[VZInspector show];
     return self;
 }
 

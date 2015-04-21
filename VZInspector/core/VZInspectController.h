@@ -8,7 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+
 @interface VZInspectController : UIViewController
+
+@property(nonatomic,strong,readonly) UIView* currentView;
+@property(nonatomic,assign,readonly) NSInteger currentIndex;
 
 - (void)start;
 - (void)stop;

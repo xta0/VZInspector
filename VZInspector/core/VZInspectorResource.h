@@ -11,6 +11,8 @@
 
 @interface VZInspectorResource : NSObject
 
++ (UIImage* )logo;
+
 + (UIImage* )eye;
 
 + (UIImage* )grid;
@@ -22,5 +24,9 @@
 + (UIImage* )crash;
 
 + (UIImage* )heap;
+
++ (UIImage* )memoryWarningOn;
+
++ (UIImage* )memoryWarningOff;
 
 @end

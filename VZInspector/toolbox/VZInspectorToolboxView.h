@@ -8,6 +8,27 @@
 
 #import "VZInspectorView.h"
 
+typedef NS_ENUM(NSInteger, VZToolBoxType)
+{
+    kNetworkLogs = 0,
+    kHeaps ,
+    kBorder,
+    kViewClass,
+    kCrashLogs,
+    kSandBox,
+    kGrids,
+    kMemoryWarningOn,
+    kMemoryWarningOff
+};
+
+@protocol VZInspectorToolboxViewCallback <NSObject>
+
+- (void)onToolBoxViewClicked:(VZToolBoxType)type;
+
+@end
+
 @interface VZInspectorToolboxView : VZInspectorView
+
+@property(nonatomic,weak) id<VZInspectorToolboxViewCallback> callback;
 
 @end

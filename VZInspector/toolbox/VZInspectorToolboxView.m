@@ -36,6 +36,13 @@
                    @{@"SandBox":[VZInspectorResource sandbox]},
                    @{@"Gird":[VZInspectorResource grid]}];
 
+        
+        UIImage* logo = [VZInspectorResource logo];
+        
+        UIImageView* logov= [[UIImageView alloc]initWithFrame:CGRectMake((frame.size.width - 60)/2, 30, 60, 60)];
+        logov.image = logo;
+        [self addSubview:logov];
+        
         float w = frame.size.width / 5;
         float h = w;
         
@@ -69,8 +76,7 @@
             int y = _marginTop + (i/5)*h*i;
             
             UIButton* btn  = [[UIButton alloc] initWithFrame:CGRectMake(x, y, w, w)];
-            btn.backgroundColor = [UIColor clearColor];
-            btn.imageView.backgroundColor = [UIColor clearColor];
+            btn.tag = i;
             
             NSDictionary* tuple = _icons[i];
             NSString* title = [tuple allKeys][0];
@@ -82,12 +88,14 @@
             [btn.titleLabel setFont:[UIFont systemFontOfSize:12.0]];
             [btn setContentVerticalAlignment:UIControlContentVerticalAlignmentCenter];
             
-            [btn setImageEdgeInsets:UIEdgeInsetsMake(0, (w-icon.size.width)/2  , 0, 0)];
-            [btn setTitleEdgeInsets:UIEdgeInsetsMake(icon.size.height+20, -(w-icon.size.width)/2, 0, 0)];
-            
-//            [btn setContentVerticalAlignment:UIControlContentVerticalAlignmentCenter];
-//            [btn setContentHorizontalAlignment:UIControlContentHorizontalAlignmentCenter];
-//        
+            CGFloat spacing = 6.0;
+            CGSize imageSize = btn.imageView.frame.size;
+            btn.titleEdgeInsets = UIEdgeInsetsMake(0.0, - imageSize.width, - (imageSize.height + spacing), 0.0);
+   
+            CGSize titleSize = btn.titleLabel.frame.size;
+            btn.imageEdgeInsets = UIEdgeInsetsMake(- (titleSize.height + spacing), 0.0, 0.0, - titleSize.width);
+
+            [btn addTarget:self action:@selector(onBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
             [self addSubview:btn];
         
         }
@@ -95,5 +103,58 @@
     return self;
 }
 
+
+
+/**
+ 
+ @"Logs":[VZInspectorResource network_logs]},
+ @{@"Heap":[VZInspectorResource heap]},
+ @{@"Crash":[VZInspectorResource crash]},
+ @{@"SandBox":[VZInspectorResource sandbox]},
+ @{@"Gird":[VZInspectorResource grid]}];
+ 
+ */
+- (void)onBtnClicked:(UIView* )sender
+{
+    NSInteger type =  -1;
+    switch (sender.tag) {
+        
+        case 0:
+        {
+            type = kNetworkLogs;
+            break;
+        }
+        case 1:
+        {
+            type = kHeaps;
+            break;
+        }
+            
+        case 2:
+        {
+            type = kCrashLogs;
+            break;
+        }
+        case 3:
+        {
+            type = kSandBox;
+            break;
+        }
+        case 4:
+        {
+            type = kGrids;
+            break;
+        }
+            
+        default:
+            break;
+    }
+    
+    if ([self.callback respondsToSelector:@selector(onToolBoxViewClicked:)]) {
+        [self.callback onToolBoxViewClicked:type];
+    }
+
+    
+}
 
 @end

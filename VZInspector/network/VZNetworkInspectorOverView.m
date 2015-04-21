@@ -85,7 +85,7 @@
 
 - (void)handleRead
 {
-    [[VZNetworkInspector sharedInstance] heartBeat];
+    [[VZNetworkInspector sharedInstance] vz_heartBeat];
 }
 - (void)handleWrite
 {

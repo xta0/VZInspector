@@ -20,7 +20,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"iconfont-heap" ofType:@"png"];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"iconfont-warning-off" ofType:@"png"];
     NSData *data = [NSData dataWithContentsOfFile:path];
     
     NSUInteger len = [data length];
@@ -50,6 +50,7 @@
     [VZInspector setDefaultAPIEnvIndex:2];
     
     [VZInspector showOnStatusBar];
+
     
     return YES;
 }

@@ -147,7 +147,7 @@ static vm_statistics_data_t sVMStats;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark - for debugger use
 
-- (void)heartBeat
+- (void)vz_heartBeat
 {
     if (self.samplePoints == nil)
         self.samplePoints = [NSMutableArray new];

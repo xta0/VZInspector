@@ -92,7 +92,7 @@ const int kThreshHold = 60.0f;
 
 - (void)handleRead
 {
-    [[VZMemoryInspector sharedInstance] heartBeat];
+    [[VZMemoryInspector sharedInstance] vz_heartBeat];
 }
 - (void)handleWrite
 {

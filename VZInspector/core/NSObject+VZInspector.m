@@ -22,7 +22,7 @@
     return objc_getAssociatedObject(self, "samplePoints");
 }
 
-- (void)heartBeat
+- (void)vz_heartBeat
 {
     
 }

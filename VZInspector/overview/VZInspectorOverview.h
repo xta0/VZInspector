@@ -10,9 +10,10 @@
 
 @interface VZInspectorOverview : VZInspectorView
 
-- (void)updateGlobalInfo;
-- (void)handleRead;
-- (void)handleWrite;
-- (void)performMemoryWarning:(BOOL)b;
+@property(nonatomic,assign) BOOL memoryWarning;
+
+- (void)startTimer;
+
+- (void)stopTimer;
 
 @end

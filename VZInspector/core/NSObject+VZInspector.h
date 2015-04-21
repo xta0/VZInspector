@@ -17,6 +17,6 @@
 /**
  for debugger use
  */
-- (void)heartBeat;
+- (void)vz_heartBeat;
 
 @end

@@ -10,6 +10,7 @@
 #import "VZMemoryInspectorOverView.h"
 #import "VZNetworkInspectorOverView.h"
 #import "VZMemoryInspector.h"
+#import "VZInspectorTimer.h"
 #import "VZOverviewInspector.h"
 #import "NSObject+VZInspector.h"
 #import <objc/runtime.h>
@@ -19,7 +20,7 @@
 @property(nonatomic,strong) VZNetworkInspectorOverView* httpView;
 @property(nonatomic,strong) VZMemoryInspectorOverView* memoryView;
 @property(nonatomic,strong) UITextView* infoView;
-@property(nonatomic,strong)UIButton* refreshBtn;
+@property(nonatomic,strong) UIButton* refreshBtn;
 
 @end
 
@@ -87,8 +88,26 @@
     
         }
         
+        //start timer
+        __weak typeof(self) weakSelf = self;
+        [VZInspectorTimer sharedInstance].readCallback = ^{
+
+            [weakSelf handleRead];
+        };
+        
+        [VZInspectorTimer sharedInstance].writeCallback = ^{
+        
+            
+            [weakSelf handleWrite];
+        };
+
     }
     return self;
+}
+
+- (void)dealloc
+{
+    [[VZInspectorTimer sharedInstance] stopTimer];
 }
 
 - (void)updateGlobalInfo
@@ -101,10 +120,37 @@
     }
 }
 
+- (void)startTimer
+{
+    [[VZInspectorTimer sharedInstance] startTimer];
+}
+
+- (void)stopTimer
+{
+    [[VZInspectorTimer sharedInstance] stopTimer];
+}
+
+
 - (void)handleRead
 {
     [self.memoryView handleRead];
     [self.httpView handleRead];
+    
+    if (self.memoryWarning) {
+        
+        if (self.memoryView.backgroundColor == [[UIColor redColor] colorWithAlphaComponent:0.6f]) {
+            self.memoryView.backgroundColor = [UIColor clearColor];
+        }
+        else
+            self.memoryView.backgroundColor = [[UIColor redColor] colorWithAlphaComponent:0.6f];
+        
+        [VZMemoryInspector performLowMemoryWarning];
+
+    }
+    else
+    {
+        self.memoryView.backgroundColor = [UIColor clearColor];
+    }
     
 }
 - (void)handleWrite
@@ -113,28 +159,6 @@
     [self.httpView handleWrite];
 }
 
-
-- (void)performMemoryWarning:(BOOL)b
-{
-    
-    if (b) {
-        
-        if (self.memoryView.backgroundColor == [[UIColor redColor] colorWithAlphaComponent:0.6f]) {
-            self.memoryView.backgroundColor = [UIColor clearColor];
-        }
-        else
-            self.memoryView.backgroundColor = [[UIColor redColor] colorWithAlphaComponent:0.6f];
-        
-        
-        [VZMemoryInspector performLowMemoryWarning];
-    }
-    else
-    {
-        
-        self.memoryView.backgroundColor = [UIColor clearColor];
-    }
-    
-}
 
 - (void)close:(id)sender
 {
