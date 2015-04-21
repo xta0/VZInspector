@@ -328,12 +328,12 @@
             
         case kBorder:
         {
-            [self showBorder];
+            [[VZBorderInspector sharedInstance] updateBorderWithType:kVZBorderTypeAllView];
             break;
         }
         case kViewClass:
         {
-            [self showBusinessViewBorder];
+            [[VZBorderInspector sharedInstance] updateBorderWithType:kVZBorderTypeBusinessView];
             break;
         }
         case kHeaps:
@@ -391,16 +391,6 @@
         _currentIndex = -1;
         
     }];
-}
-
-- (void)showBorder
-{
-    [[VZBorderInspector sharedInstance] updateBorderWithType:kVZBorderTypeAllView];
-}
-
-- (void)showBusinessViewBorder
-{
-    [[VZBorderInspector sharedInstance] updateBorderWithType:kVZBorderTypeBusinessView];
 }
 
 - (void)showHeap
