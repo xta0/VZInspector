@@ -68,34 +68,35 @@
      writeTimer = nil;
 
     __weak typeof(self) weakSelf = self;
-    readTimer = [NSTimer scheduledTimerWithTimeInterval:0.5 block:^{
+    [VZInspectorTimer sharedInstance].readTimer = [NSTimer scheduledTimerWithTimeInterval:0.5 block:^{
         
         //timer
         [weakSelf  handleRead];
         
     } userInfo:nil repeats:YES];
     
-    [[NSRunLoop currentRunLoop] addTimer:readTimer  forMode:NSRunLoopCommonModes];
+    [[NSRunLoop currentRunLoop] addTimer:[VZInspectorTimer sharedInstance].readTimer  forMode:NSRunLoopCommonModes];
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         
-        writeTimer = [NSTimer scheduledTimerWithTimeInterval:0.5 block:^{
+        [VZInspectorTimer sharedInstance].writeTimer = [NSTimer scheduledTimerWithTimeInterval:0.5 block:^{
             
             //timer
             [weakSelf  handeWrite];
             
         } userInfo:nil repeats:YES];
         
-        [[NSRunLoop currentRunLoop] addTimer:writeTimer forMode:NSRunLoopCommonModes];
+        [[NSRunLoop currentRunLoop] addTimer:[VZInspectorTimer sharedInstance].writeTimer forMode:NSRunLoopCommonModes];
         
     });
 }
 
 - (void)stopTimer
 {
+    [[VZInspectorTimer sharedInstance].readTimer invalidate];
+    [[VZInspectorTimer sharedInstance].writeTimer invalidate];
     [VZInspectorTimer sharedInstance].readTimer  = nil;
     [VZInspectorTimer sharedInstance].writeTimer = nil;
-
 }
 
 - (void)handleRead

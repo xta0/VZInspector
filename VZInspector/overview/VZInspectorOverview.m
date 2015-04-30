@@ -50,7 +50,7 @@
         
         //cpu usage
         CGRect cpuFrame;
-        cpuFrame.origin      = CGPointMake(0, memoryFrame.size.height);;
+        cpuFrame.origin      = CGPointMake(0, memoryFrame.size.height - 1);;
         cpuFrame.size.width  = width;
         cpuFrame.size.height = 65;
         
@@ -59,7 +59,7 @@
         
         //network
         CGRect networkFrame;
-        networkFrame.origin = CGPointMake(0, memoryFrame.size.height + cpuFrame.size.height);
+        networkFrame.origin = CGPointMake(0, memoryFrame.size.height + cpuFrame.size.height - 2);
         networkFrame.size.width = width;
         networkFrame.size.height = 65;
         
