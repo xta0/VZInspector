@@ -10,6 +10,7 @@
 #import "VZMemoryInspectorOverView.h"
 #import "VZNetworkInspectorOverView.h"
 #import "VZMemoryInspector.h"
+#import "VZCPUInspectorOverView.h"
 #import "VZInspectorTimer.h"
 #import "VZOverviewInspector.h"
 #import "NSObject+VZInspector.h"
@@ -19,6 +20,7 @@
 
 @property(nonatomic,strong) VZNetworkInspectorOverView* httpView;
 @property(nonatomic,strong) VZMemoryInspectorOverView* memoryView;
+@property(nonatomic,strong) VZCPUInspectorOverView* cpuView;
 @property(nonatomic,strong) UITextView* infoView;
 @property(nonatomic,strong) UIButton* refreshBtn;
 
@@ -33,7 +35,7 @@
     if (self) {
         
         
-        CGFloat height = 100;
+//        CGFloat height = 100;
         CGFloat width = self.frame.size.width;
         
         
@@ -41,17 +43,25 @@
         CGRect memoryFrame;
         memoryFrame.origin      = CGPointZero;
         memoryFrame.size.width  = width;
-        memoryFrame.size.height = height;
+        memoryFrame.size.height = 65;
         
         _memoryView = [[VZMemoryInspectorOverView alloc] initWithFrame:memoryFrame];
         [self addSubview:_memoryView];
         
+        //cpu usage
+        CGRect cpuFrame;
+        cpuFrame.origin      = CGPointMake(0, memoryFrame.size.height);;
+        cpuFrame.size.width  = width;
+        cpuFrame.size.height = 65;
+        
+        _cpuView = [[VZCPUInspectorOverView alloc] initWithFrame:cpuFrame];
+        [self addSubview:_cpuView];
         
         //network
         CGRect networkFrame;
-        networkFrame.origin = CGPointMake(0, memoryFrame.size.height);
+        networkFrame.origin = CGPointMake(0, memoryFrame.size.height + cpuFrame.size.height);
         networkFrame.size.width = width;
-        networkFrame.size.height = 90;
+        networkFrame.size.height = 65;
         
         _httpView = [[VZNetworkInspectorOverView alloc]initWithFrame:networkFrame];
         [self addSubview:_httpView];
@@ -134,6 +144,7 @@
 - (void)handleRead
 {
     [self.memoryView handleRead];
+    [self.cpuView handleRead];
     [self.httpView handleRead];
     
     if (self.memoryWarning) {
@@ -156,6 +167,7 @@
 - (void)handleWrite
 {
     [self.memoryView handleWrite];
+    [self.cpuView handleWrite];
     [self.httpView handleWrite];
 }
 

@@ -10,4 +10,7 @@
 
 @interface VZCPUInspectorOverView : UIView
 
+- (void)handleRead;
+- (void)handleWrite;
+
 @end

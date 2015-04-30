@@ -203,7 +203,10 @@
             [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         }
     }
-    [sender setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
+    
+    if (sender.tag != 14) {
+        [sender setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
+    }
 
     switch (sender.tag) {
         case 10:

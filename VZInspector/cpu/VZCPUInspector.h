@@ -1,5 +1,5 @@
 //
-//  VZCpuInspector.h
+//  VZCPUInspector.h
 //  VZInspector
 //
 //  Created by lingwan on 15/4/30.
@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface VZCpuInspector : NSObject
+@interface VZCPUInspector : NSObject
+
++ (instancetype)sharedInstance;
++ (float)cpuUsage;
 
 @end
