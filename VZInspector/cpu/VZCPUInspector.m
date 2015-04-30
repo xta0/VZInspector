@@ -41,6 +41,7 @@
     }
 }
 
+//http://stackoverflow.com/questions/8223348/ios-get-cpu-usage-from-application
 + (float)cpuUsage {
     kern_return_t kr;
     task_info_data_t tinfo;

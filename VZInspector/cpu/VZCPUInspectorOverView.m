@@ -108,7 +108,7 @@
     [_plotView1 setNeedsDisplay];
 
     NSMutableString * text = [NSMutableString string];
-    [text appendFormat:@"used:%.1f%%", cpuUsage * 100];
+    [text appendFormat:@"used:%.1f%%", cpuUsage];
     _statusView.text = text;
 }
 
