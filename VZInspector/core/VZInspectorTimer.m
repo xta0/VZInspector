@@ -58,15 +58,6 @@
 
 - (void)startTimer
 {
-    NSTimer* readTimer  = [VZInspectorTimer sharedInstance].readTimer;
-    __block NSTimer* writeTimer = [VZInspectorTimer sharedInstance].writeTimer;
-    
-    [readTimer invalidate];
-    [writeTimer invalidate];
-    
-    readTimer = nil;
-     writeTimer = nil;
-
     __weak typeof(self) weakSelf = self;
     [VZInspectorTimer sharedInstance].readTimer = [NSTimer scheduledTimerWithTimeInterval:0.5 block:^{
         

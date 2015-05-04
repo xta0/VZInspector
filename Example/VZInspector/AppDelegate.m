@@ -20,17 +20,17 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"iconfont-warning-off" ofType:@"png"];
-    NSData *data = [NSData dataWithContentsOfFile:path];
-    
-    NSUInteger len = [data length];
-    Byte *byteData = (Byte*)malloc(len);
-    memcpy(byteData, [data bytes], len);
-    
-    for (int i=0; i<len; i++) {
-        
-        printf("0x%x,",byteData[i]);
-    }
+//    NSString *path = [[NSBundle mainBundle] pathForResource:@"iconfont-warning-off" ofType:@"png"];
+//    NSData *data = [NSData dataWithContentsOfFile:path];
+//    
+//    NSUInteger len = [data length];
+//    Byte *byteData = (Byte*)malloc(len);
+//    memcpy(byteData, [data bytes], len);
+//    
+//    for (int i=0; i<len; i++) {
+//        
+//        printf("0x%x,",byteData[i]);
+//    }
     
 
     [VZInspector setClassPrefixName:@"VZ"];

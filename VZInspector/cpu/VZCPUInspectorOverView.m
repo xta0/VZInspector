@@ -62,6 +62,7 @@
         
         _plotView1 = [[VZInspectorPlotView alloc] initWithFrame:plotFrame];
         _plotView1.alpha = 0.6f;
+        _plotView1.fill = NO;
         _plotView1.lowerBound = 0.0f;
         _plotView1.upperBound = 0.0f;
         _plotView1.lineColor = [UIColor orangeColor];
