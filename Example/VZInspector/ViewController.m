@@ -103,12 +103,6 @@
             self.tableView.tableFooterView = nil;
             [self.tableView reloadData];
             
-            if (!error) {
-                [[NSNotificationCenter defaultCenter]postNotificationName:@"VZResponseLog" object:nil userInfo:@{@"json":JSON}];
-            }
-            else{
-                [[NSNotificationCenter defaultCenter]postNotificationName:@"VZResponseLog" object:nil userInfo:@{@"error":error}];
-            }
         });
         
     }] resume];
