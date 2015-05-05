@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1F022CD61ADD581F00325F3C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F022CD51ADD581F00325F3C /* ViewController.m */; };
+		1F407B061AF1C65000F9FD54 /* VZCPUInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F407B051AF1C65000F9FD54 /* VZCPUInspector.m */; };
+		1F407B091AF1C8AF00F9FD54 /* VZCPUInspectorOverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F407B081AF1C8AF00F9FD54 /* VZCPUInspectorOverView.m */; };
 		1FB06D311ADFF73100CEC4F2 /* VZInspectorToolboxView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FB06D301ADFF73100CEC4F2 /* VZInspectorToolboxView.m */; };
 		457077171AE4B27000E2DFB0 /* VZInspectorTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 457077161AE4B27000E2DFB0 /* VZInspectorTimer.m */; };
 		4570771A1AE4E19500E2DFB0 /* VZInspectorOverview.m in Sources */ = {isa = PBXBuildFile; fileRef = 457077191AE4E19500E2DFB0 /* VZInspectorOverview.m */; };
@@ -60,6 +62,10 @@
 /* Begin PBXFileReference section */
 		1F022CD41ADD581F00325F3C /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		1F022CD51ADD581F00325F3C /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		1F407B041AF1C65000F9FD54 /* VZCPUInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZCPUInspector.h; sourceTree = "<group>"; };
+		1F407B051AF1C65000F9FD54 /* VZCPUInspector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZCPUInspector.m; sourceTree = "<group>"; };
+		1F407B071AF1C8AF00F9FD54 /* VZCPUInspectorOverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZCPUInspectorOverView.h; sourceTree = "<group>"; };
+		1F407B081AF1C8AF00F9FD54 /* VZCPUInspectorOverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZCPUInspectorOverView.m; sourceTree = "<group>"; };
 		1FB06D2F1ADFF73100CEC4F2 /* VZInspectorToolboxView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorToolboxView.h; sourceTree = "<group>"; };
 		1FB06D301ADFF73100CEC4F2 /* VZInspectorToolboxView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorToolboxView.m; sourceTree = "<group>"; };
 		457077151AE4B27000E2DFB0 /* VZInspectorTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorTimer.h; sourceTree = "<group>"; };
@@ -166,6 +172,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F13F1321AF0EC2300E2EB23 /* cpu */ = {
+			isa = PBXGroup;
+			children = (
+				1F407B041AF1C65000F9FD54 /* VZCPUInspector.h */,
+				1F407B051AF1C65000F9FD54 /* VZCPUInspector.m */,
+				1F407B071AF1C8AF00F9FD54 /* VZCPUInspectorOverView.h */,
+				1F407B081AF1C8AF00F9FD54 /* VZCPUInspectorOverView.m */,
+			);
+			path = cpu;
+			sourceTree = "<group>";
+		};
 		1FB06D2A1ADFF3FF00CEC4F2 /* toolbox */ = {
 			isa = PBXGroup;
 			children = (
@@ -201,6 +218,7 @@
 				45DCAE9C1ADEC56500A26E01 /* heap */,
 				45DCAEA11ADEC56500A26E01 /* log */,
 				45DCAEA61ADEC56500A26E01 /* memory */,
+				1F13F1321AF0EC2300E2EB23 /* cpu */,
 				45DCAEAB1ADEC56500A26E01 /* network */,
 				45DCAEBC1ADEC56500A26E01 /* overview */,
 				45DCAEBF1ADEC56500A26E01 /* sandbox */,
@@ -496,6 +514,7 @@
 				45DCAED71ADEC56500A26E01 /* VZInspectorSettingView.m in Sources */,
 				45DCAEDE1ADEC56500A26E01 /* VZMemoryInspectorOverView.m in Sources */,
 				1FB06D311ADFF73100CEC4F2 /* VZInspectorToolboxView.m in Sources */,
+				1F407B091AF1C8AF00F9FD54 /* VZCPUInspectorOverView.m in Sources */,
 				45DCAEDF1ADEC56500A26E01 /* VZInspectorNetworkDetailView.m in Sources */,
 				457077171AE4B27000E2DFB0 /* VZInspectorTimer.m in Sources */,
 				45DCAED21ADEC56500A26E01 /* VZInspectorView.m in Sources */,
@@ -517,6 +536,7 @@
 				45DCAEE01ADEC56500A26E01 /* VZInspectorNetworkHistoryView.m in Sources */,
 				45DCAEE51ADEC56500A26E01 /* VZNetworkRecorder.m in Sources */,
 				45DCAEE41ADEC56500A26E01 /* VZNetworkObserver.m in Sources */,
+				1F407B061AF1C65000F9FD54 /* VZCPUInspector.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
