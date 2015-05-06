@@ -88,8 +88,6 @@
     self.tableView.tableFooterView = [self loadingFooterView];
     
     NSString* url = @"https://api.app.net/stream/0/posts/stream/global";
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"VZRequestLog" object:nil userInfo:@{@"url":url}];
-    
     [[[NSURLSession sharedSession] dataTaskWithURL:[NSURL URLWithString:url] completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         
         NSDictionary* JSON = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];

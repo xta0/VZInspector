@@ -30,7 +30,7 @@
         _textView = [[UITextView alloc]initWithFrame:CGRectMake(10, 10, CGRectGetWidth(frame)-20, CGRectGetHeight(frame)-20)];
         _textView.font = [UIFont fontWithName:@"Courier-Bold" size:12];
         _textView.textColor = [UIColor orangeColor];
-        _textView.backgroundColor = [UIColor clearColor];
+        _textView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.6f];
         _textView.indicatorStyle = 0;
         _textView.editable = NO;
         _textView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;

@@ -1,9 +1,12 @@
 //
 //  VZNetworkObserver.m
-//  VZInspector
+//  Derived from:
 //
-//  Created by moxin on 15/4/13.
-//  Copyright (c) 2015年 VizLabe. All rights reserved.
+//  FLEXNetworkObserver
+//  Flipboard
+//
+//  Created by Ryan Olson
+//  Copyright (c) 2015 Flipboard. All rights reserved.
 //
 
 #import "VZNetworkObserver.h"

@@ -1,9 +1,12 @@
 //
-//  VZNetworkRecorder.m
-//  VZInspector
+//  VZNetworkObserver.m
+//  Derived from:
 //
-//  Created by moxin on 15/4/15.
-//  Copyright (c) 2015年 VizLabe. All rights reserved.
+//  VZNetworkRecorder
+//  Flipboard
+//
+//  Created by Ryan Olson on 2/4/15.
+//  Copyright (c) 2015 Flipboard. All rights reserved.
 //
 
 #import "VZNetworkRecorder.h"

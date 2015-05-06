@@ -74,7 +74,7 @@
     
     if (self) {
         
-        self.backgroundColor = [UIColor clearColor];
+        self.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.6f];
       
         self.backBtn = [[UIButton alloc]initWithFrame:CGRectMake(10, 0, 44, 44)];
         self.backBtn.backgroundColor = [UIColor clearColor];
