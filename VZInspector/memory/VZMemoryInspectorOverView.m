@@ -54,7 +54,7 @@ const int kThreshHold = 60.0f;
         CGRect statusFrame;
         statusFrame.size.width = 200;
         statusFrame.size.height = 20.0f;
-        statusFrame.origin.x = 110.0f;
+        statusFrame.origin.x = frame.size.width - 200-10;
         statusFrame.origin.y = 0.0f;
         
         _statusView = [[UILabel alloc] initWithFrame:statusFrame];
@@ -79,6 +79,7 @@ const int kThreshHold = 60.0f;
         _plotView1.lineColor = [UIColor orangeColor];
         _plotView1.lineWidth = 2.0f;
         _plotView1.capacity = 50;
+        _plotView1.fill = NO;
         [self addSubview:_plotView1];
     }
     

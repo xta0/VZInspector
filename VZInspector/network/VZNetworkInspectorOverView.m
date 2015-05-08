@@ -65,9 +65,9 @@
         [self addSubview:_titleView];
         
         CGRect statusFrame;
-        statusFrame.size.width = frame.size.width - 100;
+        statusFrame.size.width = 200;
         statusFrame.size.height = 20.0f;
-        statusFrame.origin.x = 100.0f;
+        statusFrame.origin.x = frame.size.width - 200 -10;
         statusFrame.origin.y = 0.0f;
         
         _statusView = [[UILabel alloc] initWithFrame:statusFrame];

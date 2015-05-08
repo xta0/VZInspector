@@ -42,7 +42,7 @@
         CGRect statusFrame;
         statusFrame.size.width = 200;
         statusFrame.size.height = 20.0f;
-        statusFrame.origin.x = 110.0f;
+        statusFrame.origin.x = frame.size.width - 200 -10;
         statusFrame.origin.y = 0.0f;
         
         _statusView = [[UILabel alloc] initWithFrame:statusFrame];
