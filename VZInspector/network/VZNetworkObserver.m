@@ -69,11 +69,14 @@ didBecomeDownloadTask:(NSURLSessionDownloadTask *)downloadTask delegate:(id <NSU
 
 @property (nonatomic, assign, getter=isEnabled) BOOL enabled;
 @property (nonatomic, strong) NSMutableDictionary *requestStatesForRequestIDs;
-@property (nonatomic, strong) dispatch_queue_t queue;
+//@property (nonatomic, strong) dispatch_queue_t queue;
 
 @end
 
 @implementation VZNetworkObserver
+{
+    dispatch_queue_t _queue;
+}
 
 #pragma mark - Public Methods
 
@@ -964,7 +967,7 @@ static char const * const kVZRequestIDKey = "kVZRequestIDKey";
     self = [super init];
     if (self) {
         self.requestStatesForRequestIDs = [[NSMutableDictionary alloc] init];
-        self.queue = dispatch_queue_create("com.VZ.VZNetworkObserver", DISPATCH_QUEUE_SERIAL);
+        _queue = dispatch_queue_create("com.VZ.VZNetworkObserver", DISPATCH_QUEUE_SERIAL);
     }
     return self;
 }

@@ -19,12 +19,15 @@
 @property (nonatomic, strong) NSCache* requestCache;
 @property (nonatomic, strong) NSMutableArray *orderedTransactions;
 @property (nonatomic, strong) NSMutableDictionary *networkTransactionsForRequestIdentifiers;
-@property (nonatomic, strong) dispatch_queue_t queue;
 
 @end
 
 
 @implementation VZNetworkRecorder
+{
+    dispatch_queue_t _queue;
+}
+
 
 - (instancetype)init
 {
@@ -42,7 +45,7 @@
         self.networkTransactionsForRequestIdentifiers = [NSMutableDictionary dictionary];
         
         // Serial queue used because we use mutable objects that are not thread safe
-        self.queue = dispatch_queue_create("com.VZ.VZNetworkRecorder", DISPATCH_QUEUE_SERIAL);
+        _queue = dispatch_queue_create("com.VZ.VZNetworkRecorder", DISPATCH_QUEUE_SERIAL);
     }
     return self;
 }
@@ -72,7 +75,7 @@
 - (NSArray *)networkTransactions
 {
     __block NSArray *transactions = nil;
-    dispatch_sync(self.queue, ^{
+    dispatch_sync(_queue, ^{
         transactions = [self.orderedTransactions copy];
     });
     return transactions;
@@ -85,7 +88,7 @@
 
 - (void)clearRecordedActivity
 {
-    dispatch_async(self.queue, ^{
+    dispatch_async(_queue, ^{
         [self.responseCache removeAllObjects];
         [self.orderedTransactions removeAllObjects];
         [self.networkTransactionsForRequestIdentifiers removeAllObjects];
@@ -103,7 +106,7 @@
         [self recordLoadingFinishedWithRequestID:requestID responseBody:nil];
     }
     
-    dispatch_async(self.queue, ^{
+    dispatch_async(_queue, ^{
         VZNetworkTransaction *transaction = [[VZNetworkTransaction alloc] init];
         transaction.requestID = requestID;
         transaction.request = request;
@@ -120,7 +123,7 @@
 {
     NSDate *responseDate = [NSDate date];
     
-    dispatch_async(self.queue, ^{
+    dispatch_async(_queue, ^{
         VZNetworkTransaction *transaction = [self.networkTransactionsForRequestIdentifiers objectForKey:requestID];
         if (!transaction) {
             return;
@@ -133,7 +136,7 @@
 
 - (void)recordDataReceivedWithRequestID:(NSString *)requestID dataLength:(int64_t)dataLength
 {
-    dispatch_async(self.queue, ^{
+    dispatch_async(_queue, ^{
         VZNetworkTransaction *transaction = [self.networkTransactionsForRequestIdentifiers objectForKey:requestID];
         if (!transaction) {
             return;
@@ -147,7 +150,7 @@
 {
     NSDate *finishedDate = [NSDate date];
     
-    dispatch_async(self.queue, ^{
+    dispatch_async(_queue, ^{
         VZNetworkTransaction *transaction = [self.networkTransactionsForRequestIdentifiers objectForKey:requestID];
         if (!transaction) {
             return;
@@ -209,7 +212,7 @@
 
 - (void)recordLoadingFailedWithRequestID:(NSString *)requestID error:(NSError *)error
 {
-    dispatch_async(self.queue, ^{
+    dispatch_async(_queue, ^{
         VZNetworkTransaction *transaction = [self.networkTransactionsForRequestIdentifiers objectForKey:requestID];
         if (!transaction) {
             return;
@@ -222,7 +225,7 @@
 
 - (void)recordMechanism:(NSString *)mechanism forRequestID:(NSString *)requestID
 {
-    dispatch_async(self.queue, ^{
+    dispatch_async(_queue, ^{
         VZNetworkTransaction *transaction = [self.networkTransactionsForRequestIdentifiers objectForKey:requestID];
         if (!transaction) {
             return;
