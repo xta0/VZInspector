@@ -14,5 +14,5 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.framework    = 'Foundation', 'UIKit', 'CoreGraphics', 'QuartzCore'
   s.source_files  = "VZInspector/**/*.{h,m}"
-
+  s.libraries = "z"
 end
