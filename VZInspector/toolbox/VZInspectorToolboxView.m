@@ -39,7 +39,7 @@
                    @{@"Border":[VZInspectorResource border]},
                    @{@"ViewClass":[VZInspectorResource viewClass]},
                    @{@"MemWarning":[VZInspectorResource memoryWarningOn]},
-                   @{@"Device":[VZInspectorResource memoryWarningOn]}
+                   @{@"Device":[VZInspectorResource device]}
                    
                    ];
 

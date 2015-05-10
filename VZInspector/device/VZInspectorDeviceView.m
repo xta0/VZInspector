@@ -26,7 +26,7 @@
         self.backgroundColor = [UIColor clearColor];
         
         _textView = [[UITextView alloc]initWithFrame:CGRectMake(10, 44, CGRectGetWidth(frame)-20, CGRectGetHeight(frame)-20)];
-        _textView.font = [UIFont fontWithName:@"Courier-Bold" size:12];
+        _textView.font = [UIFont fontWithName:@"Courier-Bold" size:15];
         _textView.textColor = [UIColor orangeColor];
         _textView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.6f];
         _textView.indicatorStyle = 0;
