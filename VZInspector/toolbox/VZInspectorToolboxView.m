@@ -38,7 +38,9 @@
                    @{@"Gird":[VZInspectorResource grid]},
                    @{@"Border":[VZInspectorResource border]},
                    @{@"ViewClass":[VZInspectorResource viewClass]},
-                   @{@"MemWarning":[VZInspectorResource memoryWarningOn]}
+                   @{@"MemWarning":[VZInspectorResource memoryWarningOn]},
+                   @{@"Device":[VZInspectorResource memoryWarningOn]}
+                   
                    ];
 
         
@@ -168,6 +170,11 @@
             }
             else
                 _type = kMemoryWarningOff;
+            break;
+        }
+        case 8:
+        {
+            _type = kDevice;
             break;
         }
             

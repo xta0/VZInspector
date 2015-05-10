@@ -24,6 +24,7 @@
 #import "NSObject+VZInspector.h"
 #import "VZBorderInspector.h"
 #import "VZInspectorTimer.h"
+#import "VZInspectorDeviceView.h"
 
 @interface VZInspectController()<VZInspectorToolboxViewCallback>
 
@@ -152,6 +153,7 @@
              ||_currentView.class == [VZInspectorCrashRootView class]
              ||_currentView.class == [VZInspectorToolboxView class]
              ||_currentView.class == [VZInspectorNetworkHistoryView class]
+             ||_currentView.class == [VZInspectorDeviceView class]
              )
     {
         return NO;
@@ -359,7 +361,11 @@
             [self stopMemoryWarning];
             break;
         }
-            
+        case kDevice:
+        {
+            [self showDeviceInfo];
+            break;
+        }
         default:
             break;
     }
@@ -442,6 +448,21 @@
                         _currentIndex = -1;
                     }];
     
+}
+
+- (void)showDeviceInfo
+{
+    VZInspectorDeviceView * deviceView = [[VZInspectorDeviceView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) parentViewController:self];
+    
+    
+    [UIView transitionFromView:self.contentView toView:deviceView duration:0.4 options:UIViewAnimationOptionTransitionFlipFromLeft completion:^(BOOL finished) {
+        
+        [self.contentView removeFromSuperview];
+        [self.view addSubview:deviceView];
+        _currentView = deviceView;
+        _currentIndex = -1;
+        
+    }];
 }
 
 - (void)startMemoryWarning

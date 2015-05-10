@@ -52,6 +52,8 @@
 		45DCAEEE1ADEC59E00A26E01 /* VZInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DCAEED1ADEC59E00A26E01 /* VZInspector.m */; };
 		45DCAEF41AE1075600A26E01 /* VZInspectorResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DCAEF31AE1075600A26E01 /* VZInspectorResource.m */; };
 		45DCAF081AE11A8B00A26E01 /* VZBorderInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DCAF071AE11A8B00A26E01 /* VZBorderInspector.m */; };
+		52E1DF8D1AFF58B900717958 /* VZDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E1DF8C1AFF58B900717958 /* VZDevice.m */; };
+		52E1DF901AFF58D800717958 /* VZInspectorDeviceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E1DF8F1AFF58D800717958 /* VZInspectorDeviceView.m */; };
 		AF0FC50D19D11C66009CCBE4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AF0FC50C19D11C66009CCBE4 /* main.m */; };
 		AF0FC51019D11C66009CCBE4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AF0FC50F19D11C66009CCBE4 /* AppDelegate.m */; };
 		AF0FC51619D11C66009CCBE4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF0FC51419D11C66009CCBE4 /* Main.storyboard */; };
@@ -145,6 +147,10 @@
 		45DCAEF31AE1075600A26E01 /* VZInspectorResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorResource.m; sourceTree = "<group>"; };
 		45DCAF061AE11A8B00A26E01 /* VZBorderInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZBorderInspector.h; sourceTree = "<group>"; };
 		45DCAF071AE11A8B00A26E01 /* VZBorderInspector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZBorderInspector.m; sourceTree = "<group>"; };
+		52E1DF8B1AFF58B900717958 /* VZDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZDevice.h; sourceTree = "<group>"; };
+		52E1DF8C1AFF58B900717958 /* VZDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZDevice.m; sourceTree = "<group>"; };
+		52E1DF8E1AFF58D800717958 /* VZInspectorDeviceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorDeviceView.h; sourceTree = "<group>"; };
+		52E1DF8F1AFF58D800717958 /* VZInspectorDeviceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorDeviceView.m; sourceTree = "<group>"; };
 		AF0FC50719D11C66009CCBE4 /* VZInspector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VZInspector.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF0FC50B19D11C66009CCBE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AF0FC50C19D11C66009CCBE4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -207,22 +213,23 @@
 		45DCAE771ADEC56500A26E01 /* VZInspector */ = {
 			isa = PBXGroup;
 			children = (
-				45DCAEEC1ADEC59E00A26E01 /* VZInspector.h */,
-				45DCAEED1ADEC59E00A26E01 /* VZInspector.m */,
 				45DCAF051AE11A8B00A26E01 /* border */,
 				45DCAE781ADEC56500A26E01 /* console */,
 				45DCAE7B1ADEC56500A26E01 /* core */,
-				1FB06D2A1ADFF3FF00CEC4F2 /* toolbox */,
+				1F13F1321AF0EC2300E2EB23 /* cpu */,
 				45DCAE901ADEC56500A26E01 /* crash */,
+				52E1DF8A1AFF58B900717958 /* device */,
 				45DCAE971ADEC56500A26E01 /* env */,
 				45DCAE9C1ADEC56500A26E01 /* heap */,
 				45DCAEA11ADEC56500A26E01 /* log */,
 				45DCAEA61ADEC56500A26E01 /* memory */,
-				1F13F1321AF0EC2300E2EB23 /* cpu */,
 				45DCAEAB1ADEC56500A26E01 /* network */,
 				45DCAEBC1ADEC56500A26E01 /* overview */,
 				45DCAEBF1ADEC56500A26E01 /* sandbox */,
+				1FB06D2A1ADFF3FF00CEC4F2 /* toolbox */,
 				45DCAEC41ADEC56500A26E01 /* UI */,
+				45DCAEEC1ADEC59E00A26E01 /* VZInspector.h */,
+				45DCAEED1ADEC59E00A26E01 /* VZInspector.m */,
 			);
 			name = VZInspector;
 			path = ../../VZInspector;
@@ -382,6 +389,17 @@
 			path = border;
 			sourceTree = "<group>";
 		};
+		52E1DF8A1AFF58B900717958 /* device */ = {
+			isa = PBXGroup;
+			children = (
+				52E1DF8B1AFF58B900717958 /* VZDevice.h */,
+				52E1DF8C1AFF58B900717958 /* VZDevice.m */,
+				52E1DF8E1AFF58D800717958 /* VZInspectorDeviceView.h */,
+				52E1DF8F1AFF58D800717958 /* VZInspectorDeviceView.m */,
+			);
+			path = device;
+			sourceTree = "<group>";
+		};
 		AF0FC4FE19D11C66009CCBE4 = {
 			isa = PBXGroup;
 			children = (
@@ -519,6 +537,7 @@
 				457077171AE4B27000E2DFB0 /* VZInspectorTimer.m in Sources */,
 				45DCAED21ADEC56500A26E01 /* VZInspectorView.m in Sources */,
 				4570771A1AE4E19500E2DFB0 /* VZInspectorOverview.m in Sources */,
+				52E1DF8D1AFF58B900717958 /* VZDevice.m in Sources */,
 				AF0FC51019D11C66009CCBE4 /* AppDelegate.m in Sources */,
 				45DCAED51ADEC56500A26E01 /* VZInspectorCrashRootView.m in Sources */,
 				45DCAED31ADEC56500A26E01 /* VZInspectorWindow.m in Sources */,
@@ -530,6 +549,7 @@
 				45DCAEDA1ADEC56500A26E01 /* VZInspectorHeapView.m in Sources */,
 				45DCAECA1ADEC56500A26E01 /* NSObject+VZInspector.m in Sources */,
 				45DCAEF41AE1075600A26E01 /* VZInspectorResource.m in Sources */,
+				52E1DF901AFF58D800717958 /* VZInspectorDeviceView.m in Sources */,
 				45DCAEDD1ADEC56500A26E01 /* VZMemoryInspector.m in Sources */,
 				AF0FC50D19D11C66009CCBE4 /* main.m in Sources */,
 				45DCAEE21ADEC56500A26E01 /* VZNetworkInspector.m in Sources */,

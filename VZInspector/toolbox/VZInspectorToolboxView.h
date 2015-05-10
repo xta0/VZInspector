@@ -18,7 +18,8 @@ typedef NS_ENUM(NSInteger, VZToolBoxType)
     kSandBox,
     kGrids,
     kMemoryWarningOn,
-    kMemoryWarningOff
+    kMemoryWarningOff,
+    kDevice
 };
 
 @protocol VZInspectorToolboxViewCallback <NSObject>
