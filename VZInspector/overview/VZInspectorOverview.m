@@ -14,6 +14,7 @@
 #import "VZInspectorTimer.h"
 #import "VZOverviewInspector.h"
 #import "NSObject+VZInspector.h"
+#import "VZBorderInspector.h"
 #import <objc/runtime.h>
 
 @interface VZInspectorOverview()

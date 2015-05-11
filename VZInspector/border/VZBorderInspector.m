@@ -44,6 +44,14 @@ static const int kClassNamePadding = 2;
     vz_tracking_classPrefix = name;
 }
 
+- (void)timerTriggered
+{
+
+}
+- (void)timerStopped
+{
+
+}
 - (void)updateBorderWithType:(kVZBorderType)type {
     if (type == kVZBorderTypeAllView) {
         self.showOrHideAllBorder = !self.showOrHideAllBorder;

@@ -62,7 +62,8 @@
 
 @property(nonatomic,strong)UIButton* backBtn;
 @property(nonatomic,strong)UITableView* tableView;
-@property (nonatomic, copy) NSArray *sections;
+@property(nonatomic,strong)UILabel* textLabel;
+@property(nonatomic,copy) NSArray *sections;
 
 @end
 
@@ -93,6 +94,14 @@
         self.tableView.dataSource = self;
         self.tableView.tableHeaderView = nil;
         
+        self.textLabel = [[UILabel alloc]initWithFrame:CGRectMake(40, 0, frame.size.width-80, 44)];
+        self.textLabel.text = @"Details";
+        self.textLabel.textAlignment = NSTextAlignmentCenter;
+        self.textLabel.textColor = [UIColor whiteColor];
+        self.textLabel.backgroundColor = [UIColor clearColor];
+        self.textLabel.font = [UIFont systemFontOfSize:18.0f];
+        [self addSubview:self.textLabel];
+        
         [self addSubview:self.tableView];
         
     }
@@ -104,6 +113,7 @@
     if (_transaction != transaction) {
         _transaction = transaction;
 
+        self.textLabel.text = transaction.response.MIMEType;
         [self rebuildTableSections];
     }
 }
@@ -135,10 +145,6 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 44;
-//    VZInspectorNetworkDetailRow *row = [self rowModelAtIndexPath:indexPath];
-//    NSAttributedString *attributedText = [[self class] attributedTextForRow:row];
-//    BOOL showsAccessory = row.selectionFuture != nil;
-//    return [FLEXMultilineTableViewCell preferredHeightWithAttributedText:attributedText inTableViewWidth:self.tableView.bounds.size.width style:UITableViewStyleGrouped showsAccessory:showsAccessory];
 }
 
 

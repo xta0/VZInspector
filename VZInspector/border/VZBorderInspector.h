@@ -19,4 +19,7 @@ typedef NS_ENUM(NSUInteger, kVZBorderType) {
 + (void)setClassPrefixName:(NSString* )name;
 - (void)updateBorderWithType:(kVZBorderType)type;
 
+- (void)timerTriggered;
+- (void)timerStopped;
+
 @end

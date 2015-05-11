@@ -94,6 +94,8 @@
     return self;
 }
 
+
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
@@ -212,9 +214,9 @@
         
         NSArray* tmpList =  [self.items copy];
         
-        self.filterItems = [[tmpList filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(NSString*  evaluatedObject, NSDictionary *bindings) {
+        self.filterItems = [[tmpList filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(VZNetworkTransaction*  evaluatedObject, NSDictionary *bindings) {
             
-            return [evaluatedObject hasPrefix:text];
+            return [[self urlString:evaluatedObject] hasPrefix:text];
             
         }]] copy];
     }

@@ -38,7 +38,7 @@
                    @{@"Gird":[VZInspectorResource grid]},
                    @{@"Border":[VZInspectorResource border]},
                    @{@"ViewClass":[VZInspectorResource viewClass]},
-                   @{@"MemWarning":[VZInspectorResource memoryWarningOn]}
+                   @{@"Warning":[VZInspectorResource memoryWarningOn]}
                    ];
 
         
