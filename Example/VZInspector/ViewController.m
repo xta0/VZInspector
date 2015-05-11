@@ -11,6 +11,7 @@
 
 @interface ViewController ()<UITableViewDataSource,UITableViewDelegate>
 
+@property(nonatomic,strong) id list;
 @property(nonatomic,strong) UITableView* tableView;
 @property(nonatomic,strong) NSMutableArray* items;
 
@@ -35,6 +36,7 @@
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(load)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(memoryPeek)];
     
     self.items = [NSMutableArray new];
     
@@ -107,5 +109,16 @@
     
 }
 
+- (void)memoryPeek
+{
+    _list = [NSMutableArray new];
+    
+        for (int i=0; i<100000; i++) {
+            
+            NSObject* obj = [NSObject new];
+            [_list addObject:obj];
+        }
+    
+}
 
 @end

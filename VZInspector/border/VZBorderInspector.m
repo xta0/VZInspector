@@ -14,8 +14,11 @@ static const int kClassNameImageViewTag = 1757;
 static const int kClassNamePadding = 2;
 
 @interface VZBorderInspector ()
+{
+    NSMutableSet* _set;
+}
 
-@property(nonatomic,strong) NSTimer *timer;
+//@property(nonatomic,strong) NSTimer *timer;
 @property(nonatomic,assign) float borderWidth;
 
 //business view's border
@@ -24,6 +27,9 @@ static const int kClassNamePadding = 2;
 //show or hide status
 @property(nonatomic,assign) BOOL showOrHideAllBorder;
 @property(nonatomic,assign) BOOL showOrHideBusBorder;
+
+@property(nonatomic,assign) BOOL isON;
+
 @end
 
 @implementation VZBorderInspector
@@ -44,14 +50,17 @@ static const int kClassNamePadding = 2;
     vz_tracking_classPrefix = name;
 }
 
-- (void)timerTriggered
+- (id)init
 {
-
+    self = [super init];
+    
+    if (self) {
+        
+        
+    }
+    return self;
 }
-- (void)timerStopped
-{
 
-}
 - (void)updateBorderWithType:(kVZBorderType)type {
     if (type == kVZBorderTypeAllView) {
         self.showOrHideAllBorder = !self.showOrHideAllBorder;
@@ -65,13 +74,22 @@ static const int kClassNamePadding = 2;
     if ((!self.showingBusinessBorder && self.showOrHideAllBorder) || (self.showingBusinessBorder && self.showOrHideBusBorder)) {
         self.borderWidth = 0.5f;
         [self updateBorderOfViewHierarchy];
-        self.timer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(updateBorderOfViewHierarchy) userInfo:nil repeats:YES];
+        //self.timer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(updateBorderOfViewHierarchy) userInfo:nil repeats:YES];
     }
+}
+
+- (void)timerTriggered
+{
+    [self updateBorderOfViewHierarchy];
+}
+- (void)timerStopped
+{
+    
 }
 
 #pragma mark - private methods
 - (void)removeAllBorder {
-    [self.timer invalidate];
+    //[self.timer invalidate];
     //remove border
     //有个问题，会影响界面上原本有border的view，不过重新load后会恢复，暂时不管
     self.borderWidth = 0;
