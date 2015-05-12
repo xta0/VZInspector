@@ -36,8 +36,8 @@
                    @{@"Crash":[VZInspectorResource crash]},
                    @{@"SandBox":[VZInspectorResource sandbox]},
                    @{@"Gird":[VZInspectorResource grid]},
-                   @{@"Border":[VZInspectorResource border]},
-                   @{@"ViewClass":[VZInspectorResource viewClass]},
+                   @{@"Border":[VZInspectorResource viewClass]},
+//                   @{@"ViewClass":[VZInspectorResource viewClass]},
                    @{@"Warning":[VZInspectorResource memoryWarningOn]}
                    ];
 
@@ -156,12 +156,12 @@
             _type = kBorder;
             break;
         }
+//        case 6:
+//        {
+//            _type = kViewClass;
+//            break;
+//        }
         case 6:
-        {
-            _type = kViewClass;
-            break;
-        }
-        case 7:
         {
             if (_type != kMemoryWarningOn) {
                 _type = kMemoryWarningOn;

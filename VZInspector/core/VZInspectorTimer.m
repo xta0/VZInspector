@@ -11,6 +11,12 @@
 #import "VZNetworkInspector.h"
 #import "NSObject+VZInspector.h"
 
+
+NSString const*  kVZTimerReadCallbackString  = @"kVZTimerReadCallbackString";
+NSString const*  kVZTimerWriteCallbackString = @"kVZTimerWriteCallbackString";
+NSString const*  kVZTimerStartCallbackString = @"kVZTimerStartCallbackString";
+NSString const*  kVZTimerStopCallbackString  = @"kVZTimerStopCallbackString";
+
 @interface NSTimer(VZInspector)
 +(NSTimer* )scheduledTimerWithTimeInterval:(NSTimeInterval)ti block:(void(^)())block userInfo:(id)userInfo repeats:(BOOL)repeat;
 @end
@@ -58,6 +64,8 @@
 
 - (void)startTimer
 {
+    [[NSNotificationCenter defaultCenter] postNotificationName:(NSString* const)kVZTimerStartCallbackString object:nil];
+    
     __weak typeof(self) weakSelf = self;
     [VZInspectorTimer sharedInstance].readTimer = [NSTimer scheduledTimerWithTimeInterval:0.5 block:^{
         
@@ -73,7 +81,7 @@
         [VZInspectorTimer sharedInstance].writeTimer = [NSTimer scheduledTimerWithTimeInterval:0.5 block:^{
             
             //timer
-            [weakSelf  handeWrite];
+            [weakSelf  handleWrite];
             
         } userInfo:nil repeats:YES];
         
@@ -84,6 +92,8 @@
 
 - (void)stopTimer
 {
+    [[NSNotificationCenter defaultCenter] postNotificationName:(NSString* const)kVZTimerStopCallbackString object:nil];
+    
     [[VZInspectorTimer sharedInstance].readTimer invalidate];
     [[VZInspectorTimer sharedInstance].writeTimer invalidate];
     [VZInspectorTimer sharedInstance].readTimer  = nil;
@@ -92,13 +102,17 @@
 
 - (void)handleRead
 {
+    [[NSNotificationCenter defaultCenter] postNotificationName:(NSString* const)kVZTimerReadCallbackString object:nil];
+    
     if (self.readCallback) {
         self.readCallback();
     }
 }
 
-- (void)handeWrite
+- (void)handleWrite
 {
+    [[NSNotificationCenter defaultCenter] postNotificationName:(NSString* const)kVZTimerWriteCallbackString object:nil];
+    
     if (self.writeCallback) {
         self.writeCallback();
     }

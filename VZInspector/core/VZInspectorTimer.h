@@ -8,6 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+
+extern const  NSString* kVZTimerReadCallbackString;
+extern const  NSString* kVZTimerWriteCallbackString;
+extern const  NSString* kVZTimerStartCallbackString;
+extern const  NSString* kVZTimerStopCallbackString;
+
 typedef void(^vz_inspectorTimerReadCallback)(void);
 typedef void(^vz_inspectorTimerWriteCallback)(void) ;
 

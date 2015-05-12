@@ -113,11 +113,11 @@
 {
     _list = [NSMutableArray new];
     
-        for (int i=0; i<100000; i++) {
-            
-            NSObject* obj = [NSObject new];
-            [_list addObject:obj];
-        }
+    for (int i=0; i<100000; i++) {
+        
+        NSObject* obj = [NSObject new];
+        [_list addObject:obj];
+    }
     
 }
 

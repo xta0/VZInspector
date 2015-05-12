@@ -127,6 +127,7 @@
 - (void)start
 {
     [self.overview startTimer];
+
 }
 - (void)stop
 {
@@ -447,12 +448,12 @@
 
 - (void)showBorder
 {
-    [[VZBorderInspector sharedInstance] updateBorderWithType:kVZBorderTypeAllView];
+    [[VZBorderInspector sharedInstance] showBorder];
+    [self onClose];
 }
 
 - (void)showViewClass
 {
-    [[VZBorderInspector sharedInstance] updateBorderWithType:kVZBorderTypeBusinessView];
 }
 
 - (void)startMemoryWarning

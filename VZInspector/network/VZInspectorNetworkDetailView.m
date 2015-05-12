@@ -47,10 +47,11 @@
 
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSString *detailText;
-@property (nonatomic, assign) NSUInteger type; //1 => POST BODY, 2 => HTTP RESPONSE, 3 => REQUEST URL
+@property (nonatomic, assign) NSUInteger type; //1 => POST BODY, 2 => HTTP RESPONSE, 3 => REQUEST URL, 4 => REQUEST PARAMS
 @property (nonatomic,assign) NSString* requestURLString;
 @property (nonatomic,strong) NSString* responseString;
 @property (nonatomic,strong) NSString* postBodyString;
+@property (nonatomic,strong) NSString* requestParamsString;
 
 @end
 
@@ -231,6 +232,10 @@
     else if(type == 3)
     {
         stringForDisplay = row.requestURLString;
+    }
+    else if (type == 4)
+    {
+        stringForDisplay = row.requestParamsString;
     }
     else
         return;
@@ -421,6 +426,12 @@
     VZInspectorNetworkDetailSection *querySection = [[VZInspectorNetworkDetailSection alloc] init];
     querySection.title = @"Query Parameters";
     querySection.rows = [self networkDetailRowsFromDictionary:queryDictionary];
+    
+    for(VZInspectorNetworkDetailRow* detailRow in querySection.rows)
+    {
+        detailRow.type = 4;
+        detailRow.requestParamsString = detailRow.detailText;
+    }
     
     return querySection;
 }

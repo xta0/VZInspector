@@ -102,13 +102,15 @@
         //start timer
         __weak typeof(self) weakSelf = self;
         [VZInspectorTimer sharedInstance].readCallback = ^{
-
+            
+   
             [weakSelf handleRead];
         };
         
         [VZInspectorTimer sharedInstance].writeCallback = ^{
-        
             
+            
+            [[NSNotificationCenter defaultCenter] postNotificationName:(NSString* const)kVZTimerWriteCallbackString object:nil];
             [weakSelf handleWrite];
         };
 

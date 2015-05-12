@@ -8,18 +8,19 @@
 
 #import <Foundation/Foundation.h>
 
-typedef NS_ENUM(NSUInteger, kVZBorderType) {
-    kVZBorderTypeAllView,
-    kVZBorderTypeBusinessView
-};
+//typedef NS_ENUM(NSUInteger, kVZBorderType) {
+//    kVZBorderTypeAllView,
+//    kVZBorderTypeBusinessView
+//};
 
 @interface VZBorderInspector : NSObject
 
-+ (instancetype)sharedInstance;
-+ (void)setClassPrefixName:(NSString* )name;
-- (void)updateBorderWithType:(kVZBorderType)type;
+@property(nonatomic,assign,readonly) BOOL isON;
 
-- (void)timerTriggered;
-- (void)timerStopped;
++ (instancetype)sharedInstance;
++ (void)setViewClassPrefixName:(NSString* )name;
+
+- (void)showBorder;
+- (void)showViewClassName;
 
 @end
