@@ -7,7 +7,6 @@
 //
 
 #import "ViewController.h"
-#import "VZHeapInspector.h"
 
 @interface ViewController ()<UITableViewDataSource,UITableViewDelegate>
 
