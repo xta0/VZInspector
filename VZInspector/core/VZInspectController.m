@@ -17,7 +17,7 @@
 #import "VZInspectorToolboxView.h"
 #import "VZInspectorGridView.h"
 #import "VZInspectorSandBoxRootView.h"
-#import "VZInspectorHeapView.h"
+#import "VZInspectorHeapRootView.h"
 #import "VZInspectorOverview.h"
 #import "VZInspectorNetworkHistoryView.h"
 #import "UIWindow+VZInspector.h"
@@ -149,7 +149,7 @@
     }
     else if (_currentView.class == [VZInspectorLogView class]
              ||_currentView.class == [VZInspectorSandBoxRootView class]
-             ||_currentView.class == [VZInspectorHeapView class]
+             ||_currentView.class == [VZInspectorHeapRootView class]
              ||_currentView.class == [VZInspectorCrashRootView class]
              ||_currentView.class == [VZInspectorToolboxView class]
              ||_currentView.class == [VZInspectorNetworkHistoryView class]
@@ -399,7 +399,7 @@
 
 - (void)showHeap
 {
-    VZInspectorHeapView* heapView = [[VZInspectorHeapView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) parentViewController:self];
+    VZInspectorHeapRootView* heapView = [[VZInspectorHeapRootView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) parentViewController:self];
     
     [UIView transitionFromView:self.contentView toView:heapView
                       duration:0.4 options:UIViewAnimationOptionTransitionFlipFromLeft

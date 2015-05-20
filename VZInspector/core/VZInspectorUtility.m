@@ -3,13 +3,19 @@
 //  VZInspector
 //
 //  Created by moxin on 15/4/15.
-//  Copyright (c) 2015年 VizLabe. All rights reserved.
+//  Copyright (c) 2015年 VizLab. All rights reserved.
 //
 
 #import "VZInspectorUtility.h"
 #import <zlib.h>
 
 @implementation VZInspectorUtility
+
++ (UIColor* )themeColor
+{
+    return [UIColor orangeColor];
+}
+
 
 + (NSDictionary *)dictionaryFromQuery:(NSString *)query
 {
@@ -136,18 +142,6 @@
         }
     }
     return inflatedData;
-}
-
-+ (float) heightForText:(NSString* )text withConstrainedWidth:(NSInteger)width Font:(UIFont* )font
-{
-//    CGSize constrainedSZ = CGSizeMake(width, CGFLOAT_MAX);
-//    
-//    CGSize textSZ = [text sizeWithFont:font constrainedToSize:constrainedSZ];
-    
-    CGSize textSZ = [text sizeWithFont:font forWidth:width lineBreakMode:NSLineBreakByTruncatingTail];
-    
-    return textSZ.height;
-
 }
 
 + (NSString *)stringFormatFromDate:(NSDate *)date

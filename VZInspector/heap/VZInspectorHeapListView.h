@@ -6,10 +6,9 @@
 //  Copyright (c) 2014年 VizLab. All rights reserved.
 //
 
-#import "VZInspectorView.h"
+#import <UIKit/UIKit.h>
+#import "VZInspectorHeapSubView.h"
 
-@interface VZInspectorHeapView : VZInspectorView
-
-- (void)heapShot;
+@interface VZInspectorHeapListView : VZInspectorHeapSubView
 
 @end
