@@ -60,33 +60,44 @@
         
         [self findObjectRelationship];
         
-        VZInspectorHeapGraphicObject* mainObject = [VZInspectorHeapGraphicObject new];
-        mainObject.address   = [NSString stringWithFormat:@"%p",_obj];
-        mainObject.className = NSStringFromClass([_obj class]);
-        self.graphView.mainObject = mainObject;
-        
-        NSMutableArray* list = [ NSMutableArray arrayWithCapacity:self.items.count];
-        for (NSValue* val in self.items) {
+        if (self.items.count > 8) {
             
-            HeapObj obj;
-            [val getValue:&obj];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                self.tableView.tableHeaderView = nil;
+                [self.tableView reloadData];
             
-            VZInspectorHeapGraphicObject* referedObject = [VZInspectorHeapGraphicObject new];
-            referedObject.address   = [NSString stringWithFormat:@"%p",obj.addressPtr];
-            referedObject.ivarName  = [NSString stringWithCString:obj.ivarName encoding:NSUTF8StringEncoding];
-            referedObject.className = [NSString stringWithCString:obj.className encoding:NSUTF8StringEncoding];
-            [list addObject:referedObject];
+            });
         }
-        
-        self.graphView.referencedObjects = [list copy];
-        [self.graphView draw];
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
+        else
+        {
+            VZInspectorHeapGraphicObject* mainObject = [VZInspectorHeapGraphicObject new];
+            mainObject.address   = [NSString stringWithFormat:@"%p",_obj];
+            mainObject.className = NSStringFromClass([_obj class]);
+            self.graphView.mainObject = mainObject;
             
-            [_indicator stopAnimating];
-            [self.tableView reloadData];
-        });
-        
+            NSMutableArray* list = [ NSMutableArray arrayWithCapacity:self.items.count];
+            for (NSValue* val in self.items) {
+                
+                HeapObj obj;
+                [val getValue:&obj];
+                
+                VZInspectorHeapGraphicObject* referedObject = [VZInspectorHeapGraphicObject new];
+                referedObject.address   = [NSString stringWithFormat:@"%p",obj.addressPtr];
+                referedObject.ivarName  = [NSString stringWithCString:obj.ivarName encoding:NSUTF8StringEncoding];
+                referedObject.className = [NSString stringWithCString:obj.className encoding:NSUTF8StringEncoding];
+                [list addObject:referedObject];
+            }
+            
+            self.graphView.referencedObjects = [list copy];
+            [self.graphView draw];
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                [_indicator stopAnimating];
+                [self.tableView reloadData];
+            });
+        }
     });
 }
 

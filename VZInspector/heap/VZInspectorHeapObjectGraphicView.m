@@ -8,11 +8,31 @@
 
 #import "VZInspectorHeapObjectGraphicView.h"
 #import "VZInspectorUtility.h"
+
+
 @interface VZInspectorHeapObjectGraphicView()
+
+@property(nonatomic,strong)UIImageView* imageView;
 
 @end
 
 @implementation VZInspectorHeapObjectGraphicView
+
+
+- (id)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    
+    if (self) {
+        
+        self.imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
+        self.imageView.backgroundColor = [UIColor clearColor];
+        [self addSubview:self.imageView];
+        
+    }
+    return self;
+
+}
 
 
 - (void)draw
@@ -24,8 +44,7 @@
     
     //draw main image:
     UIImage *mainImage = [self mainObjectImage:(CGSize){w,h}];
-    
-    
+
     NSMutableArray* referencedImages = [NSMutableArray arrayWithCapacity:self.referencedObjects.count];
     
     for (int i=0; i<self.referencedObjects.count; i++) {
@@ -34,45 +53,55 @@
         UIImage* referencedImage = [self otherObject:obj Image:(CGSize){w,h}];
         [referencedImages addObject:referencedImage];
     }
-    
+   
 
+    UIGraphicsBeginImageContextWithOptions(self.bounds.size, YES, 0);
+    
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    //draw mainImage
+    vz_drawImageInRect(context, mainImage, CGRectMake(w, h, w, h));
+    
+    CGRect imgFrm = CGRectZero;
+    for (int i=0; i<referencedImages.count; i++)
+    {
+        UIImage* img = referencedImages[i];
+        
+        if (i < 3) {
+            
+            imgFrm = CGRectMake(i*w, 0, w, h);
+            vz_drawImageInRect(context, img, imgFrm);
+            vz_drawDashLine(context, (CGPoint){w/2 + i*w,h}, (CGPoint){1.5*w,1.5*h});
+            
+        }
+        else if (i==3)
+        {
+            imgFrm = CGRectMake(0, h, w, h);
+            vz_drawImageInRect(context, img, imgFrm);
+            vz_drawDashLine(context, (CGPoint){w,1.5*h},(CGPoint){1.5*w,1.5*h});
+        }
+        else if (i ==4)
+        {
+            imgFrm = CGRectMake(2*w, h, w, h);
+            vz_drawImageInRect(context, img, imgFrm);
+            vz_drawDashLine(context, (CGPoint){2*w,1.5*h},(CGPoint){1.5*w,1.5*h});
+        }
+        else
+        {
+            imgFrm = CGRectMake((i+1)%3 * w , 2*h, w, h);
+            vz_drawImageInRect(context, img, imgFrm);
+            vz_drawDashLine(context, (CGPoint){w/2 + i*w, 2*h},(CGPoint){1.5*w,1.5*h});
+        }
+        
+    }
+    //get image
+    UIImage* image = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
     
     dispatch_async(dispatch_get_main_queue(), ^{
         
-        CGRect mainRect = (CGRect){w,h,w,h};
-        UIImageView* mainImageV = [[UIImageView alloc]initWithFrame:mainRect];
-        mainImageV.transform = CGAffineTransformMakeScale(0.7, 0.7);
-        mainImageV.image = mainImage;
-        [self addSubview:mainImageV];
-        
-         for (int i=0; i<referencedImages.count; i++)
-         {
-             UIImage* img = referencedImages[i];
-             UIImageView* v = [UIImageView new];
-             v.image = img;
-             if (i < 3) {
-                 
-                 v.frame = CGRectMake(i*w, 0, w, h);
-             }
-             else if (i==3)
-             {
-                 
-                 v.frame = CGRectMake(0, h, w, h);
-             }
-             else if (i ==4)
-             {
-                 v.frame = CGRectMake(2*w, h, w, h);
-             }
-             else
-             {
-                 v.frame = CGRectMake((i+1)%3 * w , 2*h, w, h);
-             }
-              v.transform = CGAffineTransformMakeScale(0.7, 0.7);
-             [self addSubview:v];
-         }
-        
-        //connect all images
-        
+        self.imageView.image = image;
     });
 }
 
@@ -185,6 +214,27 @@ void NS_INLINE vz_drawStringInRect(NSString* str, CGRect rect, UIFont* font)
     CGSize sz = [str sizeWithFont:font constrainedToSize:rect.size];
     
     [str drawInRect:rect withFont:font lineBreakMode:NSLineBreakByTruncatingTail alignment:NSTextAlignmentCenter];
+}
+
+void NS_INLINE vz_drawImageInRect(CGContextRef context,UIImage* img,CGRect rect)
+{
+
+    //CGContextScaleCTM (context, 0.7, 0.7);
+    [img drawInRect:CGRectInset(rect, 10, 10)];
+    //CGContextScaleCTM(context, 1.0, 1.0);
+}
+
+void NS_INLINE vz_drawDashLine(CGContextRef context,CGPoint startPt, CGPoint endPt)
+{
+    CGContextSaveGState(context);
+    CGContextMoveToPoint(context, startPt.x+0.5, startPt.y+0.5);
+    CGContextSetLineWidth(context, 1.0);
+    CGContextSetStrokeColorWithColor(context, [VZInspectorUtility themeColor].CGColor);
+    CGFloat f[] = {2,3};
+    CGContextSetLineDash(context, 0, f, 2) ;
+    CGContextAddLineToPoint(context, endPt.x+0.5, endPt.y+0.5);
+    CGContextStrokePath(context);
+    CGContextRestoreGState(context);
 }
 
 @end
