@@ -72,8 +72,7 @@
 - (void)heapShot
 {
     [self.searchBar resignFirstResponder];
-    self.searchBar.text = @"";
-    
+    self.searchBar.text = @"";    
     self.items = [[VZHeapInspector livingObjectsWithClassPrefix:[VZHeapInspector classPrefixName]] allObjects];
     [self.tableView reloadData];
 }
@@ -112,11 +111,17 @@
         [cell addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onCellTapped:)]];
     }
     
+    
+    id obj = nil;
     if (self.searchBar.text.length > 0) {
-        cell.textLabel.text = self.filterItems[indexPath.row];
+        obj = self.filterItems[indexPath.row];
     }
     else
-        cell.textLabel.text = self.items[indexPath.row];
+    {
+        obj = self.items[indexPath.row];
+    }
+    NSString *string = [NSString stringWithFormat:@"%@: %p",[obj class],obj];
+    cell.textLabel.text = string;
    
     cell.tag = indexPath.row;
     [cell.textLabel sizeToFit];

@@ -18,4 +18,8 @@
 
 - (id)initWithFrame:(CGRect)frame data:(id)obj;
 
+- (void)subViewWillAppear;
+
+- (void)subViewWillDisappear;
+
 @end

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1F022CD61ADD581F00325F3C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F022CD51ADD581F00325F3C /* ViewController.m */; };
+		1F022CD61ADD581F00325F3C /* VZRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F022CD51ADD581F00325F3C /* VZRootViewController.m */; };
 		1F407B061AF1C65000F9FD54 /* VZCPUInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F407B051AF1C65000F9FD54 /* VZCPUInspector.m */; };
 		1F407B091AF1C8AF00F9FD54 /* VZCPUInspectorOverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F407B081AF1C8AF00F9FD54 /* VZCPUInspectorOverView.m */; };
 		1FB06D311ADFF73100CEC4F2 /* VZInspectorToolboxView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FB06D301ADFF73100CEC4F2 /* VZInspectorToolboxView.m */; };
@@ -63,8 +63,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1F022CD41ADD581F00325F3C /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		1F022CD51ADD581F00325F3C /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		1F022CD41ADD581F00325F3C /* VZRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZRootViewController.h; sourceTree = "<group>"; };
+		1F022CD51ADD581F00325F3C /* VZRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZRootViewController.m; sourceTree = "<group>"; };
 		1F407B041AF1C65000F9FD54 /* VZCPUInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZCPUInspector.h; sourceTree = "<group>"; };
 		1F407B051AF1C65000F9FD54 /* VZCPUInspector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZCPUInspector.m; sourceTree = "<group>"; };
 		1F407B071AF1C8AF00F9FD54 /* VZCPUInspectorOverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZCPUInspectorOverView.h; sourceTree = "<group>"; };
@@ -419,8 +419,8 @@
 				45DCAE771ADEC56500A26E01 /* VZInspector */,
 				AF0FC50E19D11C66009CCBE4 /* AppDelegate.h */,
 				AF0FC50F19D11C66009CCBE4 /* AppDelegate.m */,
-				1F022CD41ADD581F00325F3C /* ViewController.h */,
-				1F022CD51ADD581F00325F3C /* ViewController.m */,
+				1F022CD41ADD581F00325F3C /* VZRootViewController.h */,
+				1F022CD51ADD581F00325F3C /* VZRootViewController.m */,
 				AF0FC51419D11C66009CCBE4 /* Main.storyboard */,
 				AF0FC51719D11C66009CCBE4 /* Images.xcassets */,
 				AF0FC51919D11C66009CCBE4 /* LaunchScreen.xib */,
@@ -521,7 +521,7 @@
 				45DCAED81ADEC56500A26E01 /* VZSettingInspector.m in Sources */,
 				45DCAEC91ADEC56500A26E01 /* VZInspectorConsoleView.m in Sources */,
 				45DCAED11ADEC56500A26E01 /* VZInspectorUtility.m in Sources */,
-				1F022CD61ADD581F00325F3C /* ViewController.m in Sources */,
+				1F022CD61ADD581F00325F3C /* VZRootViewController.m in Sources */,
 				45DCAED01ADEC56500A26E01 /* VZInspectorPlotView.m in Sources */,
 				45DCAEEA1ADEC56500A26E01 /* UIWindow+VZInspector.m in Sources */,
 				45DCAED41ADEC56500A26E01 /* VZCrashInspector.m in Sources */,

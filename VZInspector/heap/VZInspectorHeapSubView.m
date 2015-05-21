@@ -24,4 +24,14 @@
     
 }
 
+- (void)subViewWillAppear
+{
+
+}
+
+- (void)subViewWillDisappear
+{
+
+}
+
 @end

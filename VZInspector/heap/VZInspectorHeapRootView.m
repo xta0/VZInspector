@@ -104,6 +104,7 @@
     [self addSubview:targetView];
     VZInspectorHeapSubView* currentView = self.currentView;
     
+    [self.currentView subViewWillDisappear];
     [UIView animateWithDuration:0.4 animations:^{
         
         currentView.alpha = 0.0f;
@@ -111,12 +112,15 @@
         
         targetView.frame = CGRectMake(0, 44, CGRectGetWidth(targetView.bounds), CGRectGetHeight(targetView.bounds));
         targetView.alpha = 1.0f;
+       
         
     } completion:^(BOOL finished) {
+        
         
         [self.stack addObject:targetView];
         currentView.frame = CGRectMake(0, 0, CGRectGetWidth(currentView.bounds), CGRectGetHeight(currentView.bounds));
         self.currentView = targetView;
+         [targetView subViewWillAppear];
         self.headerView.textLabel.text = self.currentView.title;
     }];
     
@@ -141,6 +145,8 @@
         belowView.alpha = 0.0f;
         
         belowView.frame = CGRectMake(-CGRectGetWidth(belowView.bounds), 44, CGRectGetWidth(belowView.bounds), CGRectGetHeight(belowView.bounds));
+        
+        [currentView subViewWillDisappear];
         [UIView animateWithDuration:0.4 animations:^{
             
             currentView.frame = CGRectMake(self.frame.size.width, 44, CGRectGetWidth(currentView.bounds), CGRectGetHeight(currentView.bounds));
@@ -155,6 +161,7 @@
             [self.stack removeObject:currentView];
             [currentView removeFromSuperview];
             self.currentView = belowView;
+            [belowView subViewWillAppear];
             self.headerView.textLabel.text = self.currentView.title;
             
             

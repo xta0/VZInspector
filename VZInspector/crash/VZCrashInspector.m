@@ -218,7 +218,7 @@ void SignalHandler(int sig)
     else
         NSLog(@"VZInspector:save crash report succeed!");
     
-    [_plist addObject:dateString];
+    [_plist insertObject:dateString atIndex:0];
     [_plist writeToFile:[_crashLogPath stringByAppendingPathComponent:@"crashLog.plist"] atomically:YES];
     
     if (_plist.count > maxCrashLogNum)

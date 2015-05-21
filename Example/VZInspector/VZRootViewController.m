@@ -6,9 +6,9 @@
 //  Copyright (c) 2014年 VizLab. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "VZRootViewController.h"
 
-@interface ViewController ()<UITableViewDataSource,UITableViewDelegate>
+@interface VZRootViewController ()<UITableViewDataSource,UITableViewDelegate>
 
 @property(nonatomic,strong) id list;
 @property(nonatomic,strong) UITableView* tableView;
@@ -16,7 +16,7 @@
 
 @end
 
-@implementation ViewController
+@implementation VZRootViewController
 
 - (UIView* )loadingFooterView
 {
