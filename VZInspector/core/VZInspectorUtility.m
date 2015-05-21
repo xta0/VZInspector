@@ -16,6 +16,10 @@
     return [UIColor orangeColor];
 }
 
++ (UIColor* )blueColor
+{
+    return [UIColor cyanColor];
+}
 
 + (NSDictionary *)dictionaryFromQuery:(NSString *)query
 {

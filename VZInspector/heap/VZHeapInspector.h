@@ -8,25 +8,22 @@
 
 #import <Foundation/Foundation.h>
 
-//@interface VZHeapObject:NSObject
-//
-//@property(nonatomic,strong)id object;
-//@property(nonatomic,strong)NSString* address;
-//
-//@end
-
 typedef struct
 {
     Class isa;
     
 }VZ_Object;
 
+typedef void (^VZHeapInspectorEnumeratorBlock)(__unsafe_unretained id obj, __unsafe_unretained Class clz);
+
 @interface VZHeapInspector : NSObject
 
 + (NSString* )classPrefixName;
 + (void)setClassPrefixName:(NSString* )name;
 + (NSSet* )livingObjectsWithClassPrefix:(NSString* )prefix;
-+ (NSSet* )livingObjects;
++ (NSMutableArray* )livingObjects;
++ (void)startTrackingHeapObjects:(VZHeapInspectorEnumeratorBlock)block;
+
 
 
 @end

@@ -165,9 +165,10 @@
      
         NSArray* tmpList =  [self.items copy];
         
-        self.filterItems = [[tmpList filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(NSString*  evaluatedObject, NSDictionary *bindings) {
+        self.filterItems = [[tmpList filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(id  obj, NSDictionary *bindings) {
             
-            return [evaluatedObject hasPrefix:text];
+            NSString *string = [NSString stringWithFormat:@"%@",[obj class]];
+            return [string hasPrefix:text];
             
         }]] copy];
     }

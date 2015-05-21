@@ -12,9 +12,6 @@
 #import <objc/runtime.h>
 
 
-typedef void (^VZHeapInspectorEnumeratorBlock)(__unsafe_unretained id obj, __unsafe_unretained Class clz);
-
-
 
 static CFMutableSetRef vz_registeredClasses;
 static NSString* vz_tracking_classPrefix;
@@ -126,7 +123,6 @@ static inline bool vz_canretain(VZ_Object* address)
             }
         }
     }
-    
 }
 
 + (NSString* )classPrefixName
@@ -151,16 +147,17 @@ static inline bool vz_canretain(VZ_Object* address)
     return ret;
 }
 
-+ (NSSet* )livingObjects
++ (NSMutableArray* )livingObjects
 {
-    NSMutableSet* set = [NSMutableSet new];
+   
+    NSMutableArray* list = [NSMutableArray new];
     [self startTrackingHeapObjects:^( __unsafe_unretained id obj, __unsafe_unretained Class clz) {
         
-        NSValue* value = [NSValue value: (__bridge const void *)(obj) withObjCType:@encode(void* )];
-        [set addObject:value];
+        NSValue* objVal = [NSValue valueWithPointer:(const void *)obj];
+        [list addObject:objVal];
     }];
     
-    return set;
+    return list;
 }
 
 @end
