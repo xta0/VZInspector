@@ -174,7 +174,7 @@ typedef struct
         cell.textLabel.font = [UIFont systemFontOfSize:14.0f];
         cell.selectionStyle = 0;
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-       // [cell addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onCellTapped:)]];
+        [cell addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onCellTapped:)]];
     }
     
     
@@ -190,6 +190,20 @@ typedef struct
     [cell.textLabel sizeToFit];
     
     return cell;
+}
+
+
+- (void)onCellTapped:(UIGestureRecognizer* )reg
+{
+    UIView* cell = reg.view;
+    
+    id value = self.items[cell.tag];
+    
+    HeapObj obj;
+    [value getValue:&obj];
+    __unsafe_unretained id object = (__bridge id)(obj.addressPtr);
+    [self.delegate performSelector:@selector(push:object:) withObject:@"VZInspectorHeapObjectView" withObject:object];
+    
 }
 
 @end
