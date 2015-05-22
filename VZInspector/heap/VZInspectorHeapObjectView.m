@@ -119,7 +119,7 @@ typedef struct
     [VZHeapInspector startTrackingHeapObjects:^(__unsafe_unretained id obj, __unsafe_unretained Class clz) {
        
         Class objClz = clz;
-        while (objClz) {
+        while (objClz && objClz != [self class]) {
             unsigned int ivarCount = 0;
             Ivar *ivars = class_copyIvarList(objClz, &ivarCount);
             for (unsigned int ivarIndex = 0; ivarIndex < ivarCount; ivarIndex++) {

@@ -25,6 +25,7 @@
     
     if (self) {
         
+        self.backgroundColor = [UIColor clearColor];
         self.imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
         self.imageView.backgroundColor = [UIColor clearColor];
         [self addSubview:self.imageView];
