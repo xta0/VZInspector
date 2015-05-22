@@ -91,7 +91,7 @@
         {
             imgFrm = CGRectMake((i+1)%3 * w , 2*h, w, h);
             vz_drawImageInRect(context, img, imgFrm);
-            vz_drawDashLine(context, (CGPoint){w/2 + i*w, 2*h},(CGPoint){1.5*w,1.5*h});
+            vz_drawDashLine(context, (CGPoint){w/2 + (i-5)*w, 2*h},(CGPoint){1.5*w,1.5*h});
         }
         
     }
@@ -108,7 +108,7 @@
 
 - (void)clear
 {
-    [self.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    self.imageView.image = nil;
 }
 
 - (UIImage* )mainObjectImage:(CGSize)sz
