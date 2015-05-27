@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#define kVZDefaultNumberOfLogs 20
+
 @interface VZLogInspectorEntity:NSObject
 
 @property (nonatomic, strong)   NSDate *date;
@@ -25,7 +27,7 @@
 
 + (NSArray* )logs;
 
-+ (NSString* )logsString;
++ (NSAttributedString* )logsString;
 
 
 @end

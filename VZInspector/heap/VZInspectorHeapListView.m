@@ -11,6 +11,7 @@
 
 @interface VZInspectorHeapListView()<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate>
 
+@property(nonatomic,strong)UIActivityIndicatorView* indicator;
 @property(nonatomic,strong)UITextField* searchBar;
 @property(nonatomic,strong)UILabel* textLabel;
 @property(nonatomic,strong)UIButton* backBtn;
@@ -28,6 +29,8 @@
     self = [super initWithFrame:frame];
     
     if (self) {
+        
+        
         
          self.backgroundColor = [UIColor clearColor];
         
@@ -62,6 +65,12 @@
         self.tableView.layer.borderWidth = 2.0f;
         [self addSubview:self.tableView];
         
+        _indicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+        _indicator.color = [UIColor grayColor];
+        _indicator.frame = CGRectMake((self.tableView.frame.size.width-20)/2, (self.tableView.frame.size.height - 20)/2, 20, 20);
+        _indicator.hidesWhenStopped=true;
+        [self addSubview:_indicator];
+        
         self.title = @"Alived Objects on Heap";
         
         [self heapShot];
@@ -72,9 +81,21 @@
 - (void)heapShot
 {
     [self.searchBar resignFirstResponder];
-    self.searchBar.text = @"";    
-    self.items = [[VZHeapInspector livingObjectsWithClassPrefix:[VZHeapInspector classPrefixName]] allObjects];
-    [self.tableView reloadData];
+    self.searchBar.text = @"";
+    
+    [self.indicator startAnimating];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
+        self.items = [[VZHeapInspector livingObjectsWithClassPrefix:[VZHeapInspector classPrefixName]] allObjects];
+       
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            [self.indicator stopAnimating];
+            [self.tableView reloadData];
+        });
+        
+    });
+
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

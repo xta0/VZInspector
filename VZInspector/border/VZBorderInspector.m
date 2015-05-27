@@ -33,11 +33,13 @@
 
 @end
 
+#define kVZBorderLayerTag 729
+
 @interface VZBorderItem:NSObject
 
 @property(nonatomic,weak) UIView* view;
 @property(nonatomic,assign) CGFloat borderWidth;
-@property(nonatomic,assign) CGColorRef borderColor;
+@property(nonatomic,strong) UIColor* borderColor;
 
 
 @end
@@ -166,7 +168,7 @@
     
     //all border
     VZBorderItem* item = [VZBorderItem new];
-    item.borderColor = view.layer.borderColor;
+    item.borderColor = [UIColor colorWithCGColor:view.layer.borderColor];
     item.borderWidth = view.layer.borderWidth;
     item.view = view;
     [_set addObject:item];
@@ -179,9 +181,9 @@
         
         if ([className hasPrefix:self.prefixName]) {
          
-            if ([view viewWithTag:100]) {
+            if ([view viewWithTag:kVZBorderLayerTag]) {
                 
-                UILabel* label = (UILabel* )[view viewWithTag:100];
+                UILabel* label = (UILabel* )[view viewWithTag:kVZBorderLayerTag];
                 label.text = className;
             }
             else
@@ -192,7 +194,7 @@
                 label.text = className;
                 label.textColor = [UIColor cyanColor];
                 label.font = [UIFont systemFontOfSize:9.0];
-                label.tag = 100;
+                label.tag = kVZBorderLayerTag;
                 [view addSubview:label];
             }
             
@@ -200,7 +202,7 @@
     }
     for (UIView* subview in view.subviews)
     {
-        if (subview.tag == 100) {
+        if (subview.tag == kVZBorderLayerTag) {
             continue;
         }
         [self drawBorderOfViewHierarchy:subview];
@@ -213,9 +215,9 @@
         
         if (obj.view)
         {
-            [[obj.view viewWithTag:100] removeFromSuperview];
+            [[obj.view viewWithTag:kVZBorderLayerTag] removeFromSuperview];
             obj.view.layer.borderWidth = obj.borderWidth;
-            obj.view.layer.borderColor = obj.borderColor;
+            obj.view.layer.borderColor = obj.borderColor.CGColor;
         }
     }];
 }
