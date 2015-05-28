@@ -16,6 +16,8 @@
 		456929891B0C6DC3000A376B /* VZInspectorHeapSubView.m in Sources */ = {isa = PBXBuildFile; fileRef = 456929881B0C6DC3000A376B /* VZInspectorHeapSubView.m */; };
 		457077171AE4B27000E2DFB0 /* VZInspectorTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 457077161AE4B27000E2DFB0 /* VZInspectorTimer.m */; };
 		4570771A1AE4E19500E2DFB0 /* VZInspectorOverview.m in Sources */ = {isa = PBXBuildFile; fileRef = 457077191AE4E19500E2DFB0 /* VZInspectorOverview.m */; };
+		459B24101B15F228009BB189 /* VZRevealInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = 459B240F1B15F228009BB189 /* VZRevealInspector.m */; };
+		459B24131B15F25E009BB189 /* VZInspectorRevealView.m in Sources */ = {isa = PBXBuildFile; fileRef = 459B24121B15F25E009BB189 /* VZInspectorRevealView.m */; };
 		45D4F5C01B0DA134008AEBEF /* VZInspectorHeapObjectGraphicView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D4F5BF1B0DA134008AEBEF /* VZInspectorHeapObjectGraphicView.m */; };
 		45DCAE5C1ADEC05F00A26E01 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45DCAE5A1ADEC04D00A26E01 /* QuartzCore.framework */; };
 		45DCAE5D1ADEC05F00A26E01 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45DCAE581ADEC04900A26E01 /* UIKit.framework */; };
@@ -82,6 +84,10 @@
 		457077161AE4B27000E2DFB0 /* VZInspectorTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorTimer.m; sourceTree = "<group>"; };
 		457077181AE4E19500E2DFB0 /* VZInspectorOverview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorOverview.h; sourceTree = "<group>"; };
 		457077191AE4E19500E2DFB0 /* VZInspectorOverview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorOverview.m; sourceTree = "<group>"; };
+		459B240E1B15F228009BB189 /* VZRevealInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZRevealInspector.h; sourceTree = "<group>"; };
+		459B240F1B15F228009BB189 /* VZRevealInspector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZRevealInspector.m; sourceTree = "<group>"; };
+		459B24111B15F25E009BB189 /* VZInspectorRevealView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorRevealView.h; sourceTree = "<group>"; };
+		459B24121B15F25E009BB189 /* VZInspectorRevealView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorRevealView.m; sourceTree = "<group>"; };
 		45D4F5BE1B0DA134008AEBEF /* VZInspectorHeapObjectGraphicView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorHeapObjectGraphicView.h; sourceTree = "<group>"; };
 		45D4F5BF1B0DA134008AEBEF /* VZInspectorHeapObjectGraphicView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorHeapObjectGraphicView.m; sourceTree = "<group>"; };
 		45DCAE521ADEC03A00A26E01 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -204,6 +210,17 @@
 			path = toolbox;
 			sourceTree = "<group>";
 		};
+		459B240D1B15F21B009BB189 /* reveal */ = {
+			isa = PBXGroup;
+			children = (
+				459B240E1B15F228009BB189 /* VZRevealInspector.h */,
+				459B240F1B15F228009BB189 /* VZRevealInspector.m */,
+				459B24111B15F25E009BB189 /* VZInspectorRevealView.h */,
+				459B24121B15F25E009BB189 /* VZInspectorRevealView.m */,
+			);
+			path = reveal;
+			sourceTree = "<group>";
+		};
 		45DCAE511ADEC02500A26E01 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -219,6 +236,7 @@
 		45DCAE771ADEC56500A26E01 /* VZInspector */ = {
 			isa = PBXGroup;
 			children = (
+				459B240D1B15F21B009BB189 /* reveal */,
 				45DCAEEC1ADEC59E00A26E01 /* VZInspector.h */,
 				45DCAEED1ADEC59E00A26E01 /* VZInspector.m */,
 				45DCAF051AE11A8B00A26E01 /* border */,
@@ -518,6 +536,7 @@
 				45DCAECB1ADEC56500A26E01 /* VZInspectController.m in Sources */,
 				45DCAEE91ADEC56500A26E01 /* VZInspectorSandBoxSubView.m in Sources */,
 				45DCAEE31ADEC56500A26E01 /* VZNetworkInspectorOverView.m in Sources */,
+				459B24131B15F25E009BB189 /* VZInspectorRevealView.m in Sources */,
 				45DCAECE1ADEC56500A26E01 /* VZInspectorOverlay.m in Sources */,
 				45DCAEEB1ADEC56500A26E01 /* VZInspectorGridView.m in Sources */,
 				45DCAED61ADEC56500A26E01 /* VZInspectorCrashView.m in Sources */,
@@ -527,6 +546,7 @@
 				45DCAEC91ADEC56500A26E01 /* VZInspectorConsoleView.m in Sources */,
 				45DCAED11ADEC56500A26E01 /* VZInspectorUtility.m in Sources */,
 				1F022CD61ADD581F00325F3C /* VZRootViewController.m in Sources */,
+				459B24101B15F228009BB189 /* VZRevealInspector.m in Sources */,
 				45DCAED01ADEC56500A26E01 /* VZInspectorPlotView.m in Sources */,
 				45DCAEEA1ADEC56500A26E01 /* UIWindow+VZInspector.m in Sources */,
 				45DCAED41ADEC56500A26E01 /* VZCrashInspector.m in Sources */,

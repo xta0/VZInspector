@@ -9,6 +9,42 @@
 #import "VZBorderInspector.h"
 #import "VZInspectorTimer.h"
 #import <UIKit/UIKit.h>
+#import <objc/runtime.h>
+
+@interface UIView(VZBorderLayerTag)
+
+@property(nonatomic,strong) NSNumber* layerTag;
+
+@end
+
+@implementation UIView(VZBorderLayerTag)
+
+- (void)setLayerTag:(NSNumber *)layerTag
+{
+    objc_setAssociatedObject(self, "VZBorderLayerTag", layerTag, OBJC_ASSOCIATION_RETAIN);
+}
+
+- (NSNumber* )layerTag
+{
+    return objc_getAssociatedObject(self, "VZBorderLayerTag");
+}
+
+- (UIView* )viewWithLayerTag:(NSNumber* )layerTag
+{
+    UIView* v = nil;
+    
+    for (UIView* subview in self.subviews)
+    {
+        if ([v.layerTag integerValue] == [layerTag integerValue]) {
+            v = subview;
+            break;
+        }
+    }
+    
+    return v;
+}
+
+@end
 
 
 @interface NSTimer(VZBorderInspector)
@@ -181,7 +217,7 @@
         
         if ([className hasPrefix:self.prefixName]) {
          
-            if ([view viewWithTag:kVZBorderLayerTag]) {
+            if ( [view.layerTag integerValue] == kVZBorderLayerTag) {
                 
                 UILabel* label = (UILabel* )[view viewWithTag:kVZBorderLayerTag];
                 label.text = className;
@@ -194,7 +230,7 @@
                 label.text = className;
                 label.textColor = [UIColor cyanColor];
                 label.font = [UIFont systemFontOfSize:9.0];
-                label.tag = kVZBorderLayerTag;
+                label.layerTag = @(kVZBorderLayerTag);
                 [view addSubview:label];
             }
             
@@ -202,7 +238,7 @@
     }
     for (UIView* subview in view.subviews)
     {
-        if (subview.tag == kVZBorderLayerTag) {
+        if ([subview.layerTag integerValue] == kVZBorderLayerTag) {
             continue;
         }
         [self drawBorderOfViewHierarchy:subview];
@@ -215,7 +251,7 @@
         
         if (obj.view)
         {
-            [[obj.view viewWithTag:kVZBorderLayerTag] removeFromSuperview];
+            [[obj.view viewWithLayerTag:@(kVZBorderLayerTag)] removeFromSuperview];
             obj.view.layer.borderWidth = obj.borderWidth;
             obj.view.layer.borderColor = obj.borderColor.CGColor;
         }
