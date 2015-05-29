@@ -7,6 +7,7 @@
 //
 
 #import "VZRootViewController.h"
+#import "VZInspectorHeader.h"
 
 @interface VZRootViewController ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -32,6 +33,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    
+ 
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(load)];

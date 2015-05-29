@@ -1,5 +1,5 @@
 //
-//  AppDelegate.h
+//  UIWindow+VZInspector.h
 //  VZInspector
 //
 //  Created by moxin.xt on 14-9-23.
@@ -8,11 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@interface UIWindow (VZInspector)
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
-
-@property (strong, nonatomic) UIWindow *window;
-
++ (BOOL)isSwizzled;
++ (void)blockEvent:(BOOL) b;
++ (void)swizzle:(BOOL)b;
 
 @end
-

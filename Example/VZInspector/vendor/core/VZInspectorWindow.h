@@ -1,5 +1,5 @@
 //
-//  AppDelegate.h
+//  VZInspectorWindow.h
 //  VZInspector
 //
 //  Created by moxin.xt on 14-9-23.
@@ -8,11 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@interface VZInspectorWindow : UIWindow
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
 
-@property (strong, nonatomic) UIWindow *window;
++(instancetype)sharedInstance;
 
 
 @end
-
