@@ -213,11 +213,13 @@
     view.layer.borderColor = [UIColor orangeColor].CGColor;
     
     NSString* className = NSStringFromClass([view class]);
-    if (self.prefixName.length > 0 ) {
+   
+    if (self.prefixName.length > 0 )
+    {
         
         if ([className hasPrefix:self.prefixName]) {
          
-            if ( [view.layerTag integerValue] == kVZBorderLayerTag) {
+            if ([view viewWithTag:kVZBorderLayerTag]) {
                 
                 UILabel* label = (UILabel* )[view viewWithTag:kVZBorderLayerTag];
                 label.text = className;
@@ -230,7 +232,8 @@
                 label.text = className;
                 label.textColor = [UIColor cyanColor];
                 label.font = [UIFont systemFontOfSize:9.0];
-                label.layerTag = @(kVZBorderLayerTag);
+                label.tag = kVZBorderLayerTag;
+                //label.layerTag = @(kVZBorderLayerTag);
                 [view addSubview:label];
             }
             
@@ -238,7 +241,7 @@
     }
     for (UIView* subview in view.subviews)
     {
-        if ([subview.layerTag integerValue] == kVZBorderLayerTag) {
+        if (subview.tag == kVZBorderLayerTag) {
             continue;
         }
         [self drawBorderOfViewHierarchy:subview];
@@ -251,7 +254,7 @@
         
         if (obj.view)
         {
-            [[obj.view viewWithLayerTag:@(kVZBorderLayerTag)] removeFromSuperview];
+            [[obj.view viewWithTag:kVZBorderLayerTag] removeFromSuperview];
             obj.view.layer.borderWidth = obj.borderWidth;
             obj.view.layer.borderColor = obj.borderColor.CGColor;
         }

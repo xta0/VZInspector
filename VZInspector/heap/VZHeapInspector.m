@@ -136,6 +136,10 @@ static inline bool vz_canretain(VZ_Object* address)
 
 + (NSSet* )livingObjectsWithClassPrefix:(NSString *)prefix
 {
+    if (prefix.length == 0) {
+        return nil;
+    }
+    
     NSMutableSet* ret = [NSMutableSet set];
     [self startTrackingHeapObjects:^(__unsafe_unretained id obj, __unsafe_unretained Class clz) {
   
