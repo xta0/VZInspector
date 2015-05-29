@@ -7,6 +7,7 @@
 //
 
 #import "VZRevealInspector.h"
+#import "VZInspectorThread.h"
 #import <UIKit/UIKit.h>
 
 @implementation VZRevealInspector
