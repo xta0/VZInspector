@@ -7,7 +7,6 @@
 //
 
 #import "VZRootViewController.h"
-#import "VZInspectorHeader.h"
 
 @interface VZRootViewController ()<UITableViewDataSource,UITableViewDelegate>
 

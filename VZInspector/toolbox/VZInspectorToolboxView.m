@@ -27,7 +27,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         
-        _type = -1;
+        _type = kDefault;
         _marginTop = 120;
        
         

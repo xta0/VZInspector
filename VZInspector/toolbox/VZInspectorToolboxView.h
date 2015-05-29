@@ -10,6 +10,7 @@
 
 typedef NS_ENUM(NSInteger, VZToolBoxType)
 {
+    kDefault = -1,
     kNetworkLogs = 0,
     kHeaps ,
     kBorder,
@@ -19,6 +20,7 @@ typedef NS_ENUM(NSInteger, VZToolBoxType)
     kGrids,
     kMemoryWarningOn,
     kMemoryWarningOff
+
 };
 
 @protocol VZInspectorToolboxViewCallback <NSObject>

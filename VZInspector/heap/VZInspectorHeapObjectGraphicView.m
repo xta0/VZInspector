@@ -44,14 +44,14 @@
     int h = CGRectGetHeight(self.bounds)/3;
     
     //draw main image:
-    UIImage *mainImage = [self mainObjectImage:(CGSize){w,h}];
+    UIImage *mainImage = [self mainObjectImage:CGSizeMake(w, h)];
 
     NSMutableArray* referencedImages = [NSMutableArray arrayWithCapacity:self.referencedObjects.count];
     
     for (int i=0; i<self.referencedObjects.count; i++) {
         
         VZInspectorHeapGraphicObject* obj = self.referencedObjects[i];
-        UIImage* referencedImage = [self otherObject:obj Image:(CGSize){w,h}];
+        UIImage* referencedImage = [self otherObject:obj Image:CGSizeMake(w,h)];
         [referencedImages addObject:referencedImage];
     }
    
@@ -72,26 +72,26 @@
             
             imgFrm = CGRectMake(i*w, 0, w, h);
             vz_drawImageInRect(context, img, imgFrm);
-            vz_drawDashLine(context, (CGPoint){w/2 + i*w,h}, (CGPoint){1.5*w,1.5*h});
+            vz_drawDashLine(context, CGPointMake(w/2 + i*w,h), CGPointMake(1.5*w,1.5*h));
             
         }
         else if (i==3)
         {
             imgFrm = CGRectMake(0, h, w, h);
             vz_drawImageInRect(context, img, imgFrm);
-            vz_drawDashLine(context, (CGPoint){w,1.5*h},(CGPoint){1.5*w,1.5*h});
+            vz_drawDashLine(context, CGPointMake(w,1.5*h),CGPointMake(1.5*w,1.5*h));
         }
         else if (i ==4)
         {
             imgFrm = CGRectMake(2*w, h, w, h);
             vz_drawImageInRect(context, img, imgFrm);
-            vz_drawDashLine(context, (CGPoint){2*w,1.5*h},(CGPoint){1.5*w,1.5*h});
+            vz_drawDashLine(context, CGPointMake(2*w,1.5*h),CGPointMake(1.5*w,1.5*h));
         }
         else
         {
             imgFrm = CGRectMake((i+1)%3 * w , 2*h, w, h);
             vz_drawImageInRect(context, img, imgFrm);
-            vz_drawDashLine(context, (CGPoint){w/2 + (i-5)*w, 2*h},(CGPoint){1.5*w,1.5*h});
+            vz_drawDashLine(context, CGPointMake(w/2 + (i-5)*w, 2*h),CGPointMake(1.5*w,1.5*h));
         }
         
     }
@@ -131,11 +131,11 @@
     vz_drawStringInRect(address, CGRectMake(0, (h/3-14)/2, w, h/3), [UIFont systemFontOfSize:14.0f]);
 
     //draw line
-    vz_drawSingleLine(context, (CGPoint){0,h/3}, (CGPoint){w,h/3},color, 1.0);
+    vz_drawSingleLine(context, CGPointMake(0,h/3), CGPointMake(w,h/3),color, 1.0);
     
     //draw class name
-    NSString*  class = self.mainObject.className;
-    vz_drawStringInRect(class, CGRectMake(0, h/3+10, w, 2*h/3), [UIFont systemFontOfSize:16.0f]);
+    NSString*  classStr = self.mainObject.className;
+    vz_drawStringInRect(classStr, CGRectMake(0, h/3+10, w, 2*h/3), [UIFont systemFontOfSize:16.0f]);
     
     //get image
     UIImage* image = UIGraphicsGetImageFromCurrentImageContext();
@@ -165,15 +165,15 @@
     vz_drawStringInRect(address, CGRectMake(0, (h/3-14)/2, w, h/3), [UIFont systemFontOfSize:14.0f]);
     
     //draw line
-    vz_drawSingleLine(context, (CGPoint){0,h/3}, (CGPoint){w,h/3}, color, 1.0);
+    vz_drawSingleLine(context, CGPointMake(0,h/3), CGPointMake(w,h/3), color, 1.0);
     
     
     //draw class name
-    NSString*  class = obj.className;
-    vz_drawStringInRect(class, CGRectMake(0, h/3, w, h/3), [UIFont systemFontOfSize:14.0f]);
+    NSString*  classStr = obj.className;
+    vz_drawStringInRect(classStr, CGRectMake(0, h/3, w, h/3), [UIFont systemFontOfSize:14.0f]);
     
     //draw line
-    vz_drawSingleLine(context, (CGPoint){0,2*h/3}, (CGPoint){w,2*h/3}, color, 1.0);
+    vz_drawSingleLine(context, CGPointMake(0,2*h/3), CGPointMake(w,2*h/3), color, 1.0);
     
     
     //draw ivar
