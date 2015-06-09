@@ -33,4 +33,6 @@
 
 + (UIImage* )viewClass;
 
++ (UIImage* )reveal;
+
 @end

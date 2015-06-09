@@ -24,6 +24,7 @@
 #import "NSObject+VZInspector.h"
 #import "VZBorderInspector.h"
 #import "VZInspectorTimer.h"
+#import "VZInspectorRevealView.h"
 
 @interface VZInspectController()<VZInspectorToolboxViewCallback>
 
@@ -360,6 +361,11 @@
             [self stopMemoryWarning];
             break;
         }
+        case kReveal:
+        {
+            [self showReveal];
+            break;
+        }
             
         default:
             break;
@@ -464,6 +470,11 @@
 - (void)stopMemoryWarning
 {
     self.overview.memoryWarning = false;
+}
+
+- (void)showReveal
+{
+    //todo...
 }
 
 @end

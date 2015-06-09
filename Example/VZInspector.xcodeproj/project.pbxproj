@@ -54,6 +54,7 @@
 		459B26771B182F49009BB189 /* UIWindow+VZInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = 459B26461B182F49009BB189 /* UIWindow+VZInspector.m */; };
 		459B26781B182F49009BB189 /* VZInspectorGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 459B26481B182F49009BB189 /* VZInspectorGridView.m */; };
 		459B26791B182F49009BB189 /* VZInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = 459B264A1B182F49009BB189 /* VZInspector.m */; };
+		459BAEC21B21CA7A00739C7E /* 3d2.png in Resources */ = {isa = PBXBuildFile; fileRef = 459BAEC11B21CA7A00739C7E /* 3d2.png */; };
 		45DCAE5C1ADEC05F00A26E01 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45DCAE5A1ADEC04D00A26E01 /* QuartzCore.framework */; };
 		45DCAE5D1ADEC05F00A26E01 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45DCAE581ADEC04900A26E01 /* UIKit.framework */; };
 		45DCAE5E1ADEC05F00A26E01 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45DCAE561ADEC04300A26E01 /* CoreGraphics.framework */; };
@@ -164,6 +165,7 @@
 		459B26491B182F49009BB189 /* VZInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspector.h; sourceTree = "<group>"; };
 		459B264A1B182F49009BB189 /* VZInspector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspector.m; sourceTree = "<group>"; };
 		459B267E1B183F26009BB189 /* VZInspectorThread.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = VZInspectorThread.h; path = ../VZInspectorThread.h; sourceTree = "<group>"; };
+		459BAEC11B21CA7A00739C7E /* 3d2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3d2.png; sourceTree = "<group>"; };
 		45DCAE521ADEC03A00A26E01 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		45DCAE541ADEC03E00A26E01 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		45DCAE561ADEC04300A26E01 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -459,6 +461,7 @@
 		AF0FC50919D11C66009CCBE4 /* VZInspector */ = {
 			isa = PBXGroup;
 			children = (
+				459BAEC11B21CA7A00739C7E /* 3d2.png */,
 				459B25DC1B182F48009BB189 /* VZInspector */,
 				AF0FC50E19D11C66009CCBE4 /* AppDelegate.h */,
 				AF0FC50F19D11C66009CCBE4 /* AppDelegate.m */,
@@ -550,6 +553,7 @@
 				AF0FC51619D11C66009CCBE4 /* Main.storyboard in Resources */,
 				AF0FC51B19D11C66009CCBE4 /* LaunchScreen.xib in Resources */,
 				AF0FC51819D11C66009CCBE4 /* Images.xcassets in Resources */,
+				459BAEC21B21CA7A00739C7E /* 3d2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

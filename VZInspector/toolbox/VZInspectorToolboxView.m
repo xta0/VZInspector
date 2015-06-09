@@ -37,7 +37,7 @@
                    @{@"SandBox":[VZInspectorResource sandbox]},
                    @{@"Gird":[VZInspectorResource grid]},
                    @{@"Border":[VZInspectorResource viewClass]},
-//                   @{@"ViewClass":[VZInspectorResource viewClass]},
+                   @{@"Reveal":[VZInspectorResource reveal]},
                    @{@"Warning":[VZInspectorResource memoryWarningOn]}
                    ];
 
@@ -108,18 +108,6 @@
 }
 
 
-
-/**
- 
- @[@{@"Logs":[VZInspectorResource network_logs]},
- @{@"Heap":[VZInspectorResource heap]},
- @{@"Crash":[VZInspectorResource crash]},
- @{@"SandBox":[VZInspectorResource sandbox]},
- @{@"Gird":[VZInspectorResource grid]},
- @{@"Border":[VZInspectorResource border]},
- @{@"ViewClass":[VZInspectorResource viewClass]}]
- 
- */
 - (void)onBtnClicked:(UIView* )sender
 {
 
@@ -156,12 +144,12 @@
             _type = kBorder;
             break;
         }
-//        case 6:
-//        {
-//            _type = kViewClass;
-//            break;
-//        }
         case 6:
+        {
+            _type = kReveal;
+            break;
+        }
+        case 7:
         {
             if (_type != kMemoryWarningOn) {
                 _type = kMemoryWarningOn;
