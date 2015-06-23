@@ -13,6 +13,6 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/akaDealloc/VZInspector.git", :tag => "#{s.version}" }
   s.requires_arc = true
   s.framework    = 'Foundation', 'UIKit', 'CoreGraphics', 'QuartzCore'
-  s.source_files  = "VZInspector/**/*.{h,m,mm}"
+  s.source_files  = 'VZInspector/**/*'
   s.libraries = "z"
 end
