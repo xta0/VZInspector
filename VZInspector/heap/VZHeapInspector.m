@@ -12,13 +12,6 @@
 #import <objc/runtime.h>
 
 
-typedef void (^VZHeapInspectorEnumeratorBlock)(id obj, Class clz);
-
-typedef struct
-{
-    Class isa;
-    
-}VZ_Object;
 
 static CFMutableSetRef vz_registeredClasses;
 static NSString* vz_tracking_classPrefix;
@@ -40,13 +33,16 @@ static void
 vz_ranges_callback (task_t task, void *context, unsigned type, vm_range_t *ptrs, unsigned count)
 {
     VZHeapInspectorEnumeratorBlock block = (__bridge VZHeapInspectorEnumeratorBlock)context;
+    if (!block) {
+        return;
+    }
     
     for (uint64_t index = 0; index < count; index++)
     {
         vm_range_t range =  ptrs[index];
         //应该和objc_class有相同的memory layout
         VZ_Object *obj = (VZ_Object* )range.address;
-        
+   
         Class clz = NULL;
         
 #ifdef __arm64__
@@ -59,32 +55,26 @@ vz_ranges_callback (task_t task, void *context, unsigned type, vm_range_t *ptrs,
         
         if (CFSetContainsValue(vz_registeredClasses, (__bridge const void *)(clz)))
         {
-            const char* clzname = object_getClassName((__bridge id)(obj));
-            
-            if (vz_isTrackingObject(clzname))
+            if (vz_canretain(obj))
             {
                 if (block) {
-                    block((__bridge id)(obj),clz);
+                    block((__bridge __unsafe_unretained id)(obj),clz);
                 }
             }
+  
         }
     }
 }
 
-static inline bool vz_isTrackingObject(const char* className)
+static inline bool vz_canretain(VZ_Object* address)
 {
-    bool ret = false;
-    NSString* clznameStr = [NSString stringWithUTF8String:className];
-    
-    if ([clznameStr hasPrefix:vz_tracking_classPrefix]) {
-        ret = true;
-    }
-    
-    if([clznameStr isEqualToString:@"NSAutoreleasePool"])
-    {
+    bool ret = true;
+
+    const char* clzname = object_getClassName((__bridge id)(address));
+    if (!strcmp(clzname, "NSAutoreleasePool")) {
         ret = false;
     }
-    
+
     return ret;
 }
 
@@ -133,7 +123,6 @@ static inline bool vz_isTrackingObject(const char* className)
             }
         }
     }
-    
 }
 
 + (NSString* )classPrefixName
@@ -150,18 +139,29 @@ static inline bool vz_isTrackingObject(const char* className)
     if (prefix.length == 0) {
         return nil;
     }
-    else
-        vz_tracking_classPrefix = prefix;
     
     NSMutableSet* ret = [NSMutableSet set];
-    [self startTrackingHeapObjects:^(id obj, __unsafe_unretained Class clz) {
+    [self startTrackingHeapObjects:^(__unsafe_unretained id obj, __unsafe_unretained Class clz) {
   
-        NSString *string = [NSString stringWithFormat:@"%@: %p",clz,obj];
-        [ret addObject:string];
-        
+        if ([NSStringFromClass(clz) hasPrefix:prefix]) {
+            [ret addObject:obj];
+        }
     }];
     
     return ret;
+}
+
++ (NSMutableArray* )livingObjects
+{
+   
+    NSMutableArray* list = [NSMutableArray new];
+    [self startTrackingHeapObjects:^( __unsafe_unretained id obj, __unsafe_unretained Class clz) {
+        
+        NSValue* objVal = [NSValue valueWithPointer:(const void *)obj];
+        [list addObject:objVal];
+    }];
+    
+    return list;
 }
 
 @end

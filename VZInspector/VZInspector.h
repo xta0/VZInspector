@@ -39,7 +39,6 @@
  * 设置log数量限制
  */
 + (void)setLogNumbers:(NSUInteger)num;
-
 /*
  *注入要观察的全局信息
  */

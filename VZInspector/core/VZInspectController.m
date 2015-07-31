@@ -17,13 +17,14 @@
 #import "VZInspectorToolboxView.h"
 #import "VZInspectorGridView.h"
 #import "VZInspectorSandBoxRootView.h"
-#import "VZInspectorHeapView.h"
+#import "VZInspectorHeapRootView.h"
 #import "VZInspectorOverview.h"
 #import "VZInspectorNetworkHistoryView.h"
 #import "UIWindow+VZInspector.h"
 #import "NSObject+VZInspector.h"
 #import "VZBorderInspector.h"
 #import "VZInspectorTimer.h"
+#import "VZInspectorRevealView.h"
 #import "VZInspectorDeviceView.h"
 
 @interface VZInspectController()<VZInspectorToolboxViewCallback>
@@ -128,6 +129,7 @@
 - (void)start
 {
     [self.overview startTimer];
+
 }
 - (void)stop
 {
@@ -149,7 +151,7 @@
     }
     else if (_currentView.class == [VZInspectorLogView class]
              ||_currentView.class == [VZInspectorSandBoxRootView class]
-             ||_currentView.class == [VZInspectorHeapView class]
+             ||_currentView.class == [VZInspectorHeapRootView class]
              ||_currentView.class == [VZInspectorCrashRootView class]
              ||_currentView.class == [VZInspectorToolboxView class]
              ||_currentView.class == [VZInspectorNetworkHistoryView class]
@@ -333,12 +335,7 @@
             
         case kBorder:
         {
-            [[VZBorderInspector sharedInstance] updateBorderWithType:kVZBorderTypeAllView];
-            break;
-        }
-        case kViewClass:
-        {
-            [[VZBorderInspector sharedInstance] updateBorderWithType:kVZBorderTypeBusinessView];
+            [self showBorder];
             break;
         }
         case kHeaps:
@@ -359,6 +356,11 @@
         case kMemoryWarningOff:
         {
             [self stopMemoryWarning];
+            break;
+        }
+        case kReveal:
+        {
+            [self showReveal];
             break;
         }
         case kDevice:
@@ -404,7 +406,7 @@
 
 - (void)showHeap
 {
-    VZInspectorHeapView* heapView = [[VZInspectorHeapView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) parentViewController:self];
+    VZInspectorHeapRootView* heapView = [[VZInspectorHeapRootView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) parentViewController:self];
     
     [UIView transitionFromView:self.contentView toView:heapView
                       duration:0.4 options:UIViewAnimationOptionTransitionFlipFromLeft
@@ -450,6 +452,12 @@
     
 }
 
+- (void)showBorder
+{
+    [[VZBorderInspector sharedInstance] showBorder];
+    [self onClose];
+}
+
 - (void)showDeviceInfo
 {
     VZInspectorDeviceView * deviceView = [[VZInspectorDeviceView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) parentViewController:self];
@@ -473,6 +481,11 @@
 - (void)stopMemoryWarning
 {
     self.overview.memoryWarning = false;
+}
+
+- (void)showReveal
+{
+    //todo...
 }
 
 @end

@@ -173,9 +173,18 @@
         NSString *mimeType = transaction.response.MIMEType;
         
         //只兼容json格式
-        if (![mimeType hasPrefix:@"application/json"]) {
-            [self.orderedTransactions removeObject:transaction];
+        if ([mimeType hasPrefix:@"application/json"])
+        {
+           
             
+        }
+        else if ([mimeType hasPrefix:@"text/html"])
+        {
+        
+        }
+        else
+        {
+            [self.orderedTransactions removeObject:transaction];
         }
         
         

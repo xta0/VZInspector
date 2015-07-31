@@ -32,13 +32,13 @@ const int maxCrashLogNum  = 20;
 
 //handle exception
 
-void HandleException(NSException *exception)
+void vz_HandleException(NSException *exception)
 {
     [[VZCrashInspector sharedInstance]saveException:exception];
     [exception raise];
 }
 
-void SignalHandler(int sig)
+void vz_SignalHandler(int sig)
 {
     [[VZCrashInspector sharedInstance]saveSignal:sig];
     
@@ -141,13 +141,13 @@ void SignalHandler(int sig)
         return;
     }
     //注册回调函数
-    NSSetUncaughtExceptionHandler(&HandleException);
-    signal(SIGABRT, SignalHandler);
-    signal(SIGILL, SignalHandler);
-    signal(SIGSEGV, SignalHandler);
-    signal(SIGFPE, SignalHandler);
-    signal(SIGBUS, SignalHandler);
-    signal(SIGPIPE, SignalHandler);
+    NSSetUncaughtExceptionHandler(&vz_HandleException);
+    signal(SIGABRT, vz_SignalHandler);
+    signal(SIGILL, vz_SignalHandler);
+    signal(SIGSEGV, vz_SignalHandler);
+    signal(SIGFPE, vz_SignalHandler);
+    signal(SIGBUS, vz_SignalHandler);
+    signal(SIGPIPE, vz_SignalHandler);
 }
 
 - (void)dealloc
@@ -218,7 +218,7 @@ void SignalHandler(int sig)
     else
         NSLog(@"VZInspector:save crash report succeed!");
     
-    [_plist addObject:dateString];
+    [_plist insertObject:dateString atIndex:0];
     [_plist writeToFile:[_crashLogPath stringByAppendingPathComponent:@"crashLog.plist"] atomically:YES];
     
     if (_plist.count > maxCrashLogNum)

@@ -15,7 +15,7 @@
 
 @property(nonatomic,strong)UITextView* textView;
 @property(nonatomic,strong)UIButton* refreshBtn;
-
+@property(nonatomic,strong)UIActivityIndicatorView* indicator;
 @end
 
 @implementation VZInspectorLogView
@@ -50,7 +50,14 @@
         [self addSubview:_refreshBtn];
         
         
+        _indicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+        _indicator.color = [UIColor grayColor];
+        _indicator.frame = CGRectMake((_textView.frame.size.width-20)/2, (_textView.frame.size.height - 20)/2, 20, 20);
+        _indicator.hidesWhenStopped=true;
+        [self addSubview:_indicator];
+        
         [self onRefresh];
+        
 
     }
     return self;
@@ -59,8 +66,19 @@
 
 - (void)onRefresh
 {
-    self.textView.text = @"";
-    self.textView.text = [VZLogInspector logsString];
+    [self.indicator startAnimating];
+   // self.textView.text = @"";
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
+        NSAttributedString* str = [VZLogInspector logsString];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            self.textView.attributedText = str;
+            [self.indicator stopAnimating];
+        });
+    });
+    
 }
 
 

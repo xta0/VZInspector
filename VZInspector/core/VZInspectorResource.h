@@ -3,7 +3,7 @@
 //  VZInspector
 //
 //  Created by moxin on 15/4/17.
-//  Copyright (c) 2015年 VizLabe. All rights reserved.
+//  Copyright (c) 2015年 VizLab. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -34,5 +34,7 @@
 + (UIImage *)viewClass;
 
 + (UIImage *)device;
+
++ (UIImage* )reveal;
 
 @end

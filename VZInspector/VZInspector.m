@@ -42,8 +42,8 @@
 
 + (void)setClassPrefixName:(NSString *)name
 {
-    [VZHeapInspector setClassPrefixName:name];
-    [VZBorderInspector setClassPrefixName:name];
+    [VZHeapInspector   setClassPrefixName:name];
+    [VZBorderInspector setViewClassPrefixName:name];
 }
 
 + (void)setShouldHandleCrash:(BOOL)b

@@ -3,27 +3,97 @@
 //  VZInspector
 //
 //  Created by lingwan on 15/4/16.
-//  Copyright (c) 2015年 VizLabe. All rights reserved.
+//  Copyright (c) 2015年 VizLab. All rights reserved.
 //
 
 #import "VZBorderInspector.h"
+#import "VZInspectorTimer.h"
 #import <UIKit/UIKit.h>
+#import <objc/runtime.h>
 
-static NSString* vz_tracking_classPrefix;
-static const int kClassNameImageViewTag = 1757;
-static const int kClassNamePadding = 2;
+@interface UIView(VZBorderLayerTag)
+
+@property(nonatomic,strong) NSNumber* layerTag;
+
+@end
+
+@implementation UIView(VZBorderLayerTag)
+
+- (void)setLayerTag:(NSNumber *)layerTag
+{
+    objc_setAssociatedObject(self, "VZBorderLayerTag", layerTag, OBJC_ASSOCIATION_RETAIN);
+}
+
+- (NSNumber* )layerTag
+{
+    return objc_getAssociatedObject(self, "VZBorderLayerTag");
+}
+
+- (UIView* )viewWithLayerTag:(NSNumber* )layerTag
+{
+    UIView* v = nil;
+    
+    for (UIView* subview in self.subviews)
+    {
+        if ([v.layerTag integerValue] == [layerTag integerValue]) {
+            v = subview;
+            break;
+        }
+    }
+    
+    return v;
+}
+
+@end
+
+
+@interface NSTimer(VZBorderInspector)
++(NSTimer* )scheduledTimerWithTimeInterval:(NSTimeInterval)ti block:(void(^)())block userInfo:(id)userInfo repeats:(BOOL)repeat;
+@end
+
+@implementation NSTimer(VZBorderInspector)
+
++ (NSTimer* )scheduledTimerWithTimeInterval:(NSTimeInterval)ti block:(void (^)())block userInfo:(id)userInfo repeats:(BOOL)repeat
+{
+    return [NSTimer scheduledTimerWithTimeInterval:ti target:self selector:@selector(onTimerFired:) userInfo:[block copy] repeats:repeat];
+}
+
++ (void)onTimerFired:(NSTimer* )timer
+{
+    void(^block)() = timer.userInfo;
+    
+    if (block) {
+        block();
+    }
+}
+
+@end
+
+#define kVZBorderLayerTag 729
+
+@interface VZBorderItem:NSObject
+
+@property(nonatomic,weak) UIView* view;
+@property(nonatomic,assign) CGFloat borderWidth;
+@property(nonatomic,strong) UIColor* borderColor;
+
+
+@end
+
+@implementation VZBorderItem
+@end
 
 @interface VZBorderInspector ()
+{
+    BOOL _on;
+    NSMutableSet* _set;
+}
 
-@property(nonatomic,strong) NSTimer *timer;
+@property(nonatomic,strong) NSTimer* timer;
+@property(nonatomic,strong) NSString* prefixName;
 @property(nonatomic,assign) float borderWidth;
 
-//business view's border
-@property(nonatomic,assign) BOOL showingBusinessBorder;
 
-//show or hide status
-@property(nonatomic,assign) BOOL showOrHideAllBorder;
-@property(nonatomic,assign) BOOL showOrHideBusBorder;
 @end
 
 @implementation VZBorderInspector
@@ -40,42 +110,83 @@ static const int kClassNamePadding = 2;
     return instance;
 }
 
-+ (void)setClassPrefixName:(NSString* )name {
-    vz_tracking_classPrefix = name;
++ (void)setViewClassPrefixName:(NSString* )name
+{
+    [[self sharedInstance] setPrefixName:name];
 }
 
-- (void)updateBorderWithType:(kVZBorderType)type {
-    if (type == kVZBorderTypeAllView) {
-        self.showOrHideAllBorder = !self.showOrHideAllBorder;
-        self.showingBusinessBorder = NO;
-    } else {
-        self.showOrHideBusBorder = !self.showOrHideBusBorder;
-        self.showingBusinessBorder = YES;
-    }
+- (BOOL)isON
+{
+    return _on;
+}
+
+- (id)init
+{
+    self = [super init];
     
-    [self removeAllBorder];
-    if ((!self.showingBusinessBorder && self.showOrHideAllBorder) || (self.showingBusinessBorder && self.showOrHideBusBorder)) {
-        self.borderWidth = 0.5f;
+    if (self) {
+        
+        _borderWidth = 0.5;
+        _set = [NSMutableSet new];
+
+    }
+    return self;
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)showBorder
+{
+    _on = !_on;
+    
+    if (_on) {
+        
+        __weak typeof(self) weakSelf = self;
+        self.timer = [NSTimer scheduledTimerWithTimeInterval:0.5 block:^{
+            
+            [weakSelf timerTriggered];
+            
+        } userInfo:nil repeats:YES];
+    }
+    else
+    {
+        [self.timer invalidate];
+        self.timer = nil;
+        [self timerStopped];
+    }
+}
+
+- (void)showViewClassName
+{
+    //todo...
+}
+
+- (void)timerTriggered
+{
+    if (_on)
+    {
+        [self recoverViewBorder];
+        [_set removeAllObjects];
         [self updateBorderOfViewHierarchy];
-        self.timer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(updateBorderOfViewHierarchy) userInfo:nil repeats:YES];
     }
 }
 
-#pragma mark - private methods
-- (void)removeAllBorder {
-    [self.timer invalidate];
-    //remove border
-    //有个问题，会影响界面上原本有border的view，不过重新load后会恢复，暂时不管
-    self.borderWidth = 0;
-    [self updateBorderOfViewHierarchy];
-    
-    self.showingBusinessBorder = !self.showingBusinessBorder;
-    self.borderWidth = 0;
-    [self updateBorderOfViewHierarchy];
-    self.showingBusinessBorder = !self.showingBusinessBorder;
+- (void)timerStopped
+{
+    if (!_on)
+    {
+        [self recoverViewBorder];
+        [_set removeAllObjects];
+    }
 }
+
+
 
 - (void)updateBorderOfViewHierarchy {
+    
     UIViewController *currentVC = nil;
     UIWindow * window = [[UIApplication sharedApplication] keyWindow];
     UIView *frontView = [[window subviews] objectAtIndex:0];
@@ -90,81 +201,68 @@ static const int kClassNamePadding = 2;
 }
 
 - (void)drawBorderOfViewHierarchy:(UIView *)view {
-    //do not draw class name imageview's border
-    if (view.tag == kClassNameImageViewTag) {
-        if (self.borderWidth == 0) {
-            //remove class name imageview
-            [view removeFromSuperview];
-        }
-        return;
-    }
     
-    if (self.showingBusinessBorder) {
-        //draw business view's class name
-        const char* clzname = object_getClassName(view);
-        if (vz_isTrackingObject(clzname))
-            [self drawClassName:clzname onView:view];
+    //all border
+    VZBorderItem* item = [VZBorderItem new];
+    item.borderColor = [UIColor colorWithCGColor:view.layer.borderColor];
+    item.borderWidth = view.layer.borderWidth;
+    item.view = view;
+    [_set addObject:item];
+    
+    view.layer.borderWidth = self.borderWidth;
+    view.layer.borderColor = [UIColor orangeColor].CGColor;
+    
+    NSString* className = NSStringFromClass([view class]);
+   
+    if (self.prefixName.length > 0 )
+    {
         
-        //对iCoupon无用对其他有用
-        //draw business view controller's class name
-        if ([view.nextResponder isKindOfClass:[UIViewController class]]) {
-            clzname = object_getClassName(view.nextResponder);
-            if (vz_isTrackingObject(clzname))
-                [self drawClassName:clzname onView:view];
+        if ([className hasPrefix:self.prefixName]) {
+         
+            if ([view viewWithTag:kVZBorderLayerTag]) {
+                
+                UILabel* label = (UILabel* )[view viewWithTag:kVZBorderLayerTag];
+                label.text = className;
+            }
+            else
+            {
+                UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, view.bounds.size.width, 12)];
+                label.backgroundColor = [UIColor colorWithWhite:0.5 alpha:0.5];
+                label.textAlignment = NSTextAlignmentLeft;
+                label.text = className;
+                label.textColor = [UIColor cyanColor];
+                label.font = [UIFont systemFontOfSize:9.0];
+                label.tag = kVZBorderLayerTag;
+                //label.layerTag = @(kVZBorderLayerTag);
+                [view addSubview:label];
+            }
+            
         }
-    } else {//all border
-        view.layer.borderWidth = self.borderWidth;
-        view.layer.borderColor = [UIColor orangeColor].CGColor;
     }
-    
-    [view.subviews enumerateObjectsUsingBlock:^(UIView *subview, NSUInteger idx, BOOL *stop) {
+    for (UIView* subview in view.subviews)
+    {
+        if (subview.tag == kVZBorderLayerTag) {
+            continue;
+        }
         [self drawBorderOfViewHierarchy:subview];
+    }
+}
+
+- (void)recoverViewBorder
+{
+    [_set enumerateObjectsUsingBlock:^(VZBorderItem* obj, BOOL *stop) {
+        
+        if (obj.view)
+        {
+            [[obj.view viewWithTag:kVZBorderLayerTag] removeFromSuperview];
+            obj.view.layer.borderWidth = obj.borderWidth;
+            obj.view.layer.borderColor = obj.borderColor.CGColor;
+        }
     }];
 }
 
-- (void)drawClassName:(const char*)clzname onView:(UIView *)view {
-    view.layer.borderWidth = self.borderWidth;
-    view.layer.borderColor = [UIColor greenColor].CGColor;
-    
-    BOOL flag = (view.subviews.count != 0) && (((UIView *)view.subviews[view.subviews.count - 1]).tag == kClassNameImageViewTag);
-    if (!flag) {
-        NSDictionary* stringAttrs = @{NSFontAttributeName : [UIFont systemFontOfSize:10], NSForegroundColorAttributeName : [UIColor greenColor]};
-        NSString *className = [[NSString alloc] initWithUTF8String:clzname];
-        //remove class prefix
-        className = [className substringFromIndex:vz_tracking_classPrefix.length];
-        //compute text size
-        CGSize temp = CGSizeMake(200, 30);
-        CGSize textSize = [className boundingRectWithSize:temp options:NSStringDrawingUsesFontLeading attributes:stringAttrs context:NULL].size;
-        
-        UIGraphicsBeginImageContextWithOptions(CGSizeMake(textSize.width + kClassNamePadding * 2, textSize.height + kClassNamePadding * 2), NO, 2.0);
-        NSAttributedString* attrStr = [[NSAttributedString alloc] initWithString:className attributes:stringAttrs];
-        [attrStr drawAtPoint:CGPointMake(kClassNamePadding, kClassNamePadding)];
-        UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
-        
-        UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
-        imageView.tag = kClassNameImageViewTag;
-        imageView.backgroundColor = [UIColor blackColor];
-        imageView.alpha = 0.5;
-        [view addSubview:imageView];
-    }
-}
 
-static inline bool vz_isTrackingObject(const char* className)
-{
-    bool ret = false;
-    NSString* clznameStr = [NSString stringWithUTF8String:className];
-    
-    if ([clznameStr hasPrefix:vz_tracking_classPrefix]) {
-        ret = true;
-    }
-    
-    if([clznameStr isEqualToString:@"NSAutoreleasePool"])
-    {
-        ret = false;
-    }
-    
-    return ret;
-}
+
+
 
 @end

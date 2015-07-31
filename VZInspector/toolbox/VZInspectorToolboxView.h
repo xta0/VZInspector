@@ -3,23 +3,25 @@
 //  VZInspector
 //
 //  Created by lingwan on 15/4/16.
-//  Copyright (c) 2015年 VizLabe. All rights reserved.
+//  Copyright (c) 2015年 VizLab. All rights reserved.
 //
 
 #import "VZInspectorView.h"
 
 typedef NS_ENUM(NSInteger, VZToolBoxType)
 {
+    kDefault = -1,
     kNetworkLogs = 0,
     kHeaps ,
     kBorder,
-    kViewClass,
     kCrashLogs,
     kSandBox,
     kGrids,
     kMemoryWarningOn,
     kMemoryWarningOff,
+    kReveal,
     kDevice
+
 };
 
 @protocol VZInspectorToolboxViewCallback <NSObject>

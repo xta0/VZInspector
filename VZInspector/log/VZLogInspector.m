@@ -8,6 +8,7 @@
 
 #import "VZLogInspector.h"
 #import <asl.h>
+# include <stdio.h>
 #import "VZInspectorUtility.h"
 
 
@@ -46,54 +47,38 @@ extern void asl_release(asl_object_t obj) __attribute__((weak_import));
 }
 
 
+
 + (NSArray* )logs
 {
-   // return [VZLogInspector sharedInstance].cache ob
-    
+
     asl_object_t query = asl_new(ASL_TYPE_QUERY);
+    char pidStr[100];
+    sprintf(pidStr,"%d",[[NSProcessInfo processInfo] processIdentifier]);
+    asl_set_query(query, ASL_KEY_PID, pidStr, ASL_QUERY_OP_EQUAL);
     
-    // Filter for messages from the current process. Note that this appears to happen by default on device, but is required in the simulator.
-    NSString *pidString = [NSString stringWithFormat:@"%d", [[NSProcessInfo processInfo] processIdentifier]];
-    asl_set_query(query, ASL_KEY_PID, [pidString UTF8String], ASL_QUERY_OP_EQUAL);
-    
+    //this is too slow!
     aslresponse response = asl_search(NULL, query);
-    aslmsg aslMessage = NULL;
-    
-    NSMutableArray *logMessages = [NSMutableArray array];
-    
-    if (&asl_next != NULL && &asl_release != NULL)
-    {
-        while ((aslMessage = asl_next(response)))
-        {
-            VZLogInspectorEntity* entity = [VZLogInspectorEntity messageFromASLMessage:aslMessage];
-            [logMessages insertObject:entity atIndex:0];
-            //[[VZLogInspector sharedInstance].cache setObject:entity forKey:@(entity.messageID)];
-        }
-        asl_release(response);
-    }
-    else
-    {
-        // Mute incorrect deprecated warnings. We'll need the "deprecated" functions on iOS 7, where their replacements don't yet exist.
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-        while ((aslMessage = aslresponse_next(response)))
-        {
-            VZLogInspectorEntity* entity = [VZLogInspectorEntity messageFromASLMessage:aslMessage];
-            [logMessages insertObject:entity atIndex:0];
-            //[[VZLogInspector sharedInstance].cache setObject:entity forKey:@(entity.messageID)];
-        }
-        aslresponse_free(response);
-#pragma clang diagnostic pop
-    }
-    
     NSUInteger numberOfLogs = [VZLogInspector sharedInstance].numberOfLogs;
-    if ( numberOfLogs > 0 && logMessages.count > numberOfLogs) {
+    NSMutableArray *logMessages = [NSMutableArray arrayWithCapacity:numberOfLogs];
+ 
+    for (int i=0; i<numberOfLogs; i++) {
         
-        NSUInteger count = logMessages.count - numberOfLogs;
-        //干掉后面的
-        [logMessages removeObjectsInRange:NSMakeRange(numberOfLogs, count)];
+        size_t count = asl_count(response);
+        
+        size_t index = count - numberOfLogs - 1 + i;
+        
+        aslmsg msg = asl_get_index(response, index);
+   
+        if (msg != NULL) {
+            
+            VZLogInspectorEntity* entity = [VZLogInspectorEntity messageFromASLMessage:msg];
+            [logMessages insertObject:entity atIndex:0];
+        }
+        else
+            break;
     }
-    
+
+    asl_release(response);
     [VZLogInspector sharedInstance].logMessages = logMessages;
     
     return logMessages;
@@ -106,21 +91,25 @@ extern void asl_release(asl_object_t obj) __attribute__((weak_import));
     [VZLogInspector sharedInstance].numberOfLogs = num;
 }
 
-+ (NSString* )logsString
++ (NSAttributedString* )logsString
 {
     NSArray* logs = [self logs];
     
-    NSString* str = @"";
+    NSMutableAttributedString* attr = [NSMutableAttributedString new];
+    UIFont* font = [UIFont fontWithName:@"Courier-Bold" size:12];
+    
     for (VZLogInspectorEntity* entity in logs) {
         
-        NSString* date = [VZInspectorUtility stringFormatFromDate:entity.date];
-        
-        NSString* log = [NSString stringWithFormat:@"> %@ : %@",date,entity.messageText];
-       // NSString* log = [[@"> " stringByAppendingString:date] stringByAppendingString:entity.messageText];
-    
-        str = [[str stringByAppendingString:log] stringByAppendingString:@"\n\n"];
+        NSString* logStr = [NSString stringWithFormat:@"%@ > %@ \n\n",[VZInspectorUtility stringFormatFromDate:entity.date],entity.messageText];
+        NSMutableAttributedString* logAttr = [[NSMutableAttributedString alloc]initWithString:logStr];
+        [logAttr addAttribute:NSForegroundColorAttributeName value:[UIColor cyanColor] range:NSMakeRange(0, [VZInspectorUtility stringFormatFromDate:entity.date].length+2)];
+        [logAttr addAttribute:NSForegroundColorAttributeName value:[UIColor orangeColor] range:NSMakeRange([VZInspectorUtility stringFormatFromDate:entity.date].length+3, logStr.length-[VZInspectorUtility stringFormatFromDate:entity.date].length-3)];
+        [logAttr addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, logStr.length-1)];
+
+        [attr appendAttributedString:logAttr];
     }
-    return str;
+
+    return attr;
 }
 
 - (id)init
@@ -131,6 +120,7 @@ extern void asl_release(asl_object_t obj) __attribute__((weak_import));
         
         _cache = [NSCache new];
         _cache.totalCostLimit = 25 * 1024 * 1024;
+        _numberOfLogs = kVZDefaultNumberOfLogs;
     }
     return self;
 }

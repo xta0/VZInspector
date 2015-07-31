@@ -3,20 +3,24 @@
 //  VZInspector
 //
 //  Created by lingwan on 15/4/16.
-//  Copyright (c) 2015年 VizLabe. All rights reserved.
+//  Copyright (c) 2015年 VizLab. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-typedef NS_ENUM(NSUInteger, kVZBorderType) {
-    kVZBorderTypeAllView,
-    kVZBorderTypeBusinessView
-};
+//typedef NS_ENUM(NSUInteger, kVZBorderType) {
+//    kVZBorderTypeAllView,
+//    kVZBorderTypeBusinessView
+//};
 
 @interface VZBorderInspector : NSObject
 
+@property(nonatomic,assign,readonly) BOOL isON;
+
 + (instancetype)sharedInstance;
-+ (void)setClassPrefixName:(NSString* )name;
-- (void)updateBorderWithType:(kVZBorderType)type;
++ (void)setViewClassPrefixName:(NSString* )name;
+
+- (void)showBorder;
+- (void)showViewClassName;
 
 @end

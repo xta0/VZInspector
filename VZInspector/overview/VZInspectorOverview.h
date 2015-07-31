@@ -8,6 +8,7 @@
 
 #import "VZInspectorView.h"
 
+
 @interface VZInspectorOverview : VZInspectorView
 
 @property(nonatomic,assign) BOOL memoryWarning;

@@ -6,17 +6,17 @@
 //  Copyright (c) 2014年 VizLab. All rights reserved.
 //
 
-#import "ViewController.h"
-#import "VZHeapInspector.h"
+#import "VZRootViewController.h"
 
-@interface ViewController ()<UITableViewDataSource,UITableViewDelegate>
+@interface VZRootViewController ()<UITableViewDataSource,UITableViewDelegate>
 
+@property(nonatomic,strong) id list;
 @property(nonatomic,strong) UITableView* tableView;
 @property(nonatomic,strong) NSMutableArray* items;
 
 @end
 
-@implementation ViewController
+@implementation VZRootViewController
 
 - (UIView* )loadingFooterView
 {
@@ -32,9 +32,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    
+ 
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(load)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(memoryPeek)];
     
     self.items = [NSMutableArray new];
     
@@ -107,5 +110,16 @@
     
 }
 
+- (void)memoryPeek
+{
+    _list = [NSMutableArray new];
+    
+    for (int i=0; i<100000; i++) {
+        
+        NSObject* obj = [NSObject new];
+        [_list addObject:obj];
+    }
+    
+}
 
 @end

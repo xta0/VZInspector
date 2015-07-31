@@ -3,7 +3,7 @@
 //  VZInspector
 //
 //  Created by moxin on 15/4/15.
-//  Copyright (c) 2015年 VizLabe. All rights reserved.
+//  Copyright (c) 2015年 VizLab. All rights reserved.
 //
 
 #import "VZInspectorNetworkHistoryView.h"
@@ -93,6 +93,8 @@
     }
     return self;
 }
+
+
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -212,9 +214,9 @@
         
         NSArray* tmpList =  [self.items copy];
         
-        self.filterItems = [[tmpList filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(NSString*  evaluatedObject, NSDictionary *bindings) {
+        self.filterItems = [[tmpList filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(VZNetworkTransaction*  evaluatedObject, NSDictionary *bindings) {
             
-            return [evaluatedObject hasPrefix:text];
+            return [[self urlString:evaluatedObject] hasPrefix:text];
             
         }]] copy];
     }

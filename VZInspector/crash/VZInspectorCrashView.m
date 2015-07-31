@@ -48,11 +48,10 @@
         _crashLogs = [[UITextView alloc] initWithFrame:CGRectMake(0, 44 , frame.size.width, frame.size.height-44)];
         _crashLogs.font = [UIFont fontWithName:@"Courier-Bold" size:14];
         _crashLogs.textColor = [UIColor orangeColor];
-        _crashLogs.backgroundColor = [UIColor clearColor];
+        _crashLogs.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.6f];;
         _crashLogs.indicatorStyle = 0;
         _crashLogs.editable = NO;
         _crashLogs.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-        _crashLogs.backgroundColor = [UIColor clearColor];
         _crashLogs.layer.borderColor = [UIColor colorWithWhite:0.5f alpha:1.0f].CGColor;
         _crashLogs.layer.borderWidth = 2.0f;
         [self addSubview:_crashLogs];

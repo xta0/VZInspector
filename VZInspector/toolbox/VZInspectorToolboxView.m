@@ -3,7 +3,7 @@
 //  VZInspector
 //
 //  Created by lingwan on 15/4/16.
-//  Copyright (c) 2015年 VizLabe. All rights reserved.
+//  Copyright (c) 2015年 VizLab. All rights reserved.
 //
 
 #import "VZInspectorToolboxView.h"
@@ -27,7 +27,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         
-        _type = -1;
+        _type = kDefault;
         _marginTop = 120;
        
         
@@ -36,11 +36,10 @@
                    @{@"Crash":[VZInspectorResource crash]},
                    @{@"SandBox":[VZInspectorResource sandbox]},
                    @{@"Gird":[VZInspectorResource grid]},
-                   @{@"Border":[VZInspectorResource border]},
-                   @{@"ViewClass":[VZInspectorResource viewClass]},
-                   @{@"MemWarning":[VZInspectorResource memoryWarningOn]},
+                   @{@"Border":[VZInspectorResource viewClass]},
+                   @{@"Reveal":[VZInspectorResource reveal]},
+                   @{@"Warning":[VZInspectorResource memoryWarningOn]},
                    @{@"Device":[VZInspectorResource device]}
-                   
                    ];
 
         
@@ -110,18 +109,6 @@
 }
 
 
-
-/**
- 
- @[@{@"Logs":[VZInspectorResource network_logs]},
- @{@"Heap":[VZInspectorResource heap]},
- @{@"Crash":[VZInspectorResource crash]},
- @{@"SandBox":[VZInspectorResource sandbox]},
- @{@"Gird":[VZInspectorResource grid]},
- @{@"Border":[VZInspectorResource border]},
- @{@"ViewClass":[VZInspectorResource viewClass]}]
- 
- */
 - (void)onBtnClicked:(UIView* )sender
 {
 
@@ -160,7 +147,7 @@
         }
         case 6:
         {
-            _type = kViewClass;
+            _type = kReveal;
             break;
         }
         case 7:

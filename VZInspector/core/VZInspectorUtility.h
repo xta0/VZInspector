@@ -3,7 +3,7 @@
 //  VZInspector
 //
 //  Created by moxin on 15/4/15.
-//  Copyright (c) 2015年 VizLabe. All rights reserved.
+//  Copyright (c) 2015年 VizLab. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -25,6 +25,8 @@
 
 + (NSString *)stringFormatFromDate:(NSDate *)date;
 
-+ (float) heightForText:(NSString* )text withConstrainedWidth:(NSInteger)width Font:(UIFont* )font;
++ (UIColor* )themeColor;
+
++ (UIColor* )blueColor;
 
 @end
