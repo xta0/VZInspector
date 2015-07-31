@@ -39,7 +39,8 @@
                    @{@"Border":[VZInspectorResource viewClass]},
                    @{@"Reveal":[VZInspectorResource reveal]},
                    @{@"Warning":[VZInspectorResource memoryWarningOn]},
-                   @{@"Device":[VZInspectorResource device]}
+                   @{@"Device":[VZInspectorResource device]},
+                   @{@"Image":[VZInspectorResource image]}
                    ];
 
         
@@ -164,6 +165,12 @@
             _type = kDevice;
             break;
         }
+        case 9:
+        {
+            _type = kImage;
+            break;
+        }
+        
             
         default:
             break;

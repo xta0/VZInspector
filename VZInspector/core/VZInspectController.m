@@ -26,6 +26,7 @@
 #import "VZInspectorTimer.h"
 #import "VZInspectorRevealView.h"
 #import "VZInspectorDeviceView.h"
+#import "VZImageInspector.h"
 
 @interface VZInspectController()<VZInspectorToolboxViewCallback>
 
@@ -368,6 +369,11 @@
             [self showDeviceInfo];
             break;
         }
+        case kImage:
+        {
+            [self inspectImage];
+            break;
+        }
         default:
             break;
     }
@@ -455,6 +461,11 @@
 - (void)showBorder
 {
     [[VZBorderInspector sharedInstance] showBorder];
+    [self onClose];
+}
+
+- (void)inspectImage {
+    [[VZImageInspector sharedInstance] inspect];
     [self onClose];
 }
 

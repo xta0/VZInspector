@@ -35,6 +35,8 @@
 
 + (UIImage *)device;
 
-+ (UIImage* )reveal;
++ (UIImage *)reveal;
+
++ (UIImage *)image;
 
 @end
