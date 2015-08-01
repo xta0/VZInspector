@@ -60,6 +60,9 @@
 		45DCAE5E1ADEC05F00A26E01 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45DCAE561ADEC04300A26E01 /* CoreGraphics.framework */; };
 		45DCAE5F1ADEC05F00A26E01 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45DCAE541ADEC03E00A26E01 /* Foundation.framework */; };
 		45DCAE601ADEC05F00A26E01 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 45DCAE521ADEC03A00A26E01 /* libz.dylib */; };
+		52507B6A1B6BB2E500674807 /* VZDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 52507B671B6BB2E500674807 /* VZDevice.m */; };
+		52507B6B1B6BB2E500674807 /* VZInspectorDeviceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52507B691B6BB2E500674807 /* VZInspectorDeviceView.m */; };
+		52507B731B6BBF3000674807 /* VZImageInspector.mm in Sources */ = {isa = PBXBuildFile; fileRef = 52507B721B6BBF3000674807 /* VZImageInspector.mm */; };
 		AF0FC50D19D11C66009CCBE4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AF0FC50C19D11C66009CCBE4 /* main.m */; };
 		AF0FC51019D11C66009CCBE4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AF0FC50F19D11C66009CCBE4 /* AppDelegate.m */; };
 		AF0FC51619D11C66009CCBE4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF0FC51419D11C66009CCBE4 /* Main.storyboard */; };
@@ -171,6 +174,12 @@
 		45DCAE561ADEC04300A26E01 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		45DCAE581ADEC04900A26E01 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		45DCAE5A1ADEC04D00A26E01 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		52507B661B6BB2E500674807 /* VZDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZDevice.h; sourceTree = "<group>"; };
+		52507B671B6BB2E500674807 /* VZDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZDevice.m; sourceTree = "<group>"; };
+		52507B681B6BB2E500674807 /* VZInspectorDeviceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorDeviceView.h; sourceTree = "<group>"; };
+		52507B691B6BB2E500674807 /* VZInspectorDeviceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorDeviceView.m; sourceTree = "<group>"; };
+		52507B711B6BBF3000674807 /* VZImageInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZImageInspector.h; sourceTree = "<group>"; };
+		52507B721B6BBF3000674807 /* VZImageInspector.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = VZImageInspector.mm; sourceTree = "<group>"; };
 		AF0FC50719D11C66009CCBE4 /* VZInspector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VZInspector.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF0FC50B19D11C66009CCBE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AF0FC50C19D11C66009CCBE4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -201,6 +210,8 @@
 		459B25DC1B182F48009BB189 /* VZInspector */ = {
 			isa = PBXGroup;
 			children = (
+				52507B701B6BBF3000674807 /* image */,
+				52507B651B6BB2E500674807 /* device */,
 				459B25DD1B182F48009BB189 /* border */,
 				459B25E01B182F48009BB189 /* console */,
 				459B25E31B182F48009BB189 /* core */,
@@ -441,6 +452,26 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		52507B651B6BB2E500674807 /* device */ = {
+			isa = PBXGroup;
+			children = (
+				52507B661B6BB2E500674807 /* VZDevice.h */,
+				52507B671B6BB2E500674807 /* VZDevice.m */,
+				52507B681B6BB2E500674807 /* VZInspectorDeviceView.h */,
+				52507B691B6BB2E500674807 /* VZInspectorDeviceView.m */,
+			);
+			path = device;
+			sourceTree = "<group>";
+		};
+		52507B701B6BBF3000674807 /* image */ = {
+			isa = PBXGroup;
+			children = (
+				52507B711B6BBF3000674807 /* VZImageInspector.h */,
+				52507B721B6BBF3000674807 /* VZImageInspector.mm */,
+			);
+			path = image;
+			sourceTree = "<group>";
+		};
 		AF0FC4FE19D11C66009CCBE4 = {
 			isa = PBXGroup;
 			children = (
@@ -520,7 +551,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0600;
-				ORGANIZATIONNAME = VizLabe;
+				ORGANIZATIONNAME = VizLab;
 				TargetAttributes = {
 					AF0FC50619D11C66009CCBE4 = {
 						CreatedOnToolsVersion = 6.0.1;
@@ -590,6 +621,7 @@
 				459B26661B182F49009BB189 /* VZMemoryInspector.m in Sources */,
 				459B26731B182F49009BB189 /* VZRevealInspectorNode.m in Sources */,
 				459B266C1B182F49009BB189 /* VZNetworkObserver.m in Sources */,
+				52507B731B6BBF3000674807 /* VZImageInspector.mm in Sources */,
 				459B26521B182F49009BB189 /* VZInspectorResource.m in Sources */,
 				459B265E1B182F49009BB189 /* VZHeapInspector.m in Sources */,
 				459B26581B182F49009BB189 /* VZCPUInspectorOverView.m in Sources */,
@@ -606,6 +638,7 @@
 				459B266E1B182F49009BB189 /* VZNetworkTransaction.m in Sources */,
 				459B26781B182F49009BB189 /* VZInspectorGridView.m in Sources */,
 				459B266F1B182F49009BB189 /* VZInspectorOverview.m in Sources */,
+				52507B6B1B6BB2E500674807 /* VZInspectorDeviceView.m in Sources */,
 				459B265B1B182F49009BB189 /* VZInspectorCrashView.m in Sources */,
 				459B26791B182F49009BB189 /* VZInspector.m in Sources */,
 				459B264E1B182F49009BB189 /* NSObject+VZInspector.m in Sources */,
@@ -613,6 +646,7 @@
 				459B264D1B182F49009BB189 /* VZInspectorConsoleView.m in Sources */,
 				459B264C1B182F49009BB189 /* VZBorderInspector.m in Sources */,
 				459B26691B182F49009BB189 /* VZInspectorNetworkHistoryView.m in Sources */,
+				52507B6A1B6BB2E500674807 /* VZDevice.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

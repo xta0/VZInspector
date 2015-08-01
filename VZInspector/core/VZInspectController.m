@@ -25,6 +25,8 @@
 #import "VZBorderInspector.h"
 #import "VZInspectorTimer.h"
 #import "VZInspectorRevealView.h"
+#import "VZInspectorDeviceView.h"
+#import "VZImageInspector.h"
 
 @interface VZInspectController()<VZInspectorToolboxViewCallback>
 
@@ -154,6 +156,7 @@
              ||_currentView.class == [VZInspectorCrashRootView class]
              ||_currentView.class == [VZInspectorToolboxView class]
              ||_currentView.class == [VZInspectorNetworkHistoryView class]
+             ||_currentView.class == [VZInspectorDeviceView class]
              )
     {
         return NO;
@@ -336,11 +339,6 @@
             [self showBorder];
             break;
         }
-        case kViewClass:
-        {
-            [self showViewClass];
-            break;
-        }
         case kHeaps:
         {
             [self showHeap];
@@ -366,7 +364,16 @@
             [self showReveal];
             break;
         }
-            
+        case kDevice:
+        {
+            [self showDeviceInfo];
+            break;
+        }
+        case kImage:
+        {
+            [self inspectImage];
+            break;
+        }
         default:
             break;
     }
@@ -451,15 +458,30 @@
     
 }
 
-
 - (void)showBorder
 {
     [[VZBorderInspector sharedInstance] showBorder];
     [self onClose];
 }
 
-- (void)showViewClass
+- (void)inspectImage {
+    [[VZImageInspector sharedInstance] inspect];
+    [self onClose];
+}
+
+- (void)showDeviceInfo
 {
+    VZInspectorDeviceView * deviceView = [[VZInspectorDeviceView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) parentViewController:self];
+    
+    
+    [UIView transitionFromView:self.contentView toView:deviceView duration:0.4 options:UIViewAnimationOptionTransitionFlipFromLeft completion:^(BOOL finished) {
+        
+        [self.contentView removeFromSuperview];
+        [self.view addSubview:deviceView];
+        _currentView = deviceView;
+        _currentIndex = -1;
+        
+    }];
 }
 
 - (void)startMemoryWarning

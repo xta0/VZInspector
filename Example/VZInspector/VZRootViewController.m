@@ -46,6 +46,11 @@
     self.tableView.dataSource = self;
     [self.view addSubview:self.tableView];
     
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"3d2"]];
+    imageView.frame = CGRectMake(20, 20, 80, 80);
+    imageView.clipsToBounds = YES;
+    [self.view addSubview: imageView];
+    
     [self load];
 }
 

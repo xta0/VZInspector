@@ -14,13 +14,14 @@ typedef NS_ENUM(NSInteger, VZToolBoxType)
     kNetworkLogs = 0,
     kHeaps ,
     kBorder,
-    kViewClass,
     kCrashLogs,
     kSandBox,
     kGrids,
     kMemoryWarningOn,
     kMemoryWarningOff,
-    kReveal
+    kReveal,
+    kDevice,
+    kImage
 
 };
 

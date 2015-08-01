@@ -11,28 +11,32 @@
 
 @interface VZInspectorResource : NSObject
 
-+ (UIImage* )logo;
++ (UIImage *)logo;
 
-+ (UIImage* )eye;
++ (UIImage *)eye;
 
-+ (UIImage* )grid;
++ (UIImage *)grid;
 
-+ (UIImage* )sandbox;
++ (UIImage *)sandbox;
 
-+ (UIImage* )network_logs;
++ (UIImage *)network_logs;
 
-+ (UIImage* )crash;
++ (UIImage *)crash;
 
-+ (UIImage* )heap;
++ (UIImage *)heap;
 
-+ (UIImage* )memoryWarningOn;
++ (UIImage *)memoryWarningOn;
 
-+ (UIImage* )memoryWarningOff;
++ (UIImage *)memoryWarningOff;
 
-+ (UIImage* )border;
++ (UIImage *)border;
 
-+ (UIImage* )viewClass;
++ (UIImage *)viewClass;
 
-+ (UIImage* )reveal;
++ (UIImage *)device;
+
++ (UIImage *)reveal;
+
++ (UIImage *)image;
 
 @end
