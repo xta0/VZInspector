@@ -60,6 +60,9 @@
 		45DCAE5E1ADEC05F00A26E01 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45DCAE561ADEC04300A26E01 /* CoreGraphics.framework */; };
 		45DCAE5F1ADEC05F00A26E01 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45DCAE541ADEC03E00A26E01 /* Foundation.framework */; };
 		45DCAE601ADEC05F00A26E01 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 45DCAE521ADEC03A00A26E01 /* libz.dylib */; };
+		52400AE31B6E80D80077CBB3 /* CLLocationManager+FLFake.m in Sources */ = {isa = PBXBuildFile; fileRef = 52400AE01B6E80D80077CBB3 /* CLLocationManager+FLFake.m */; };
+		52400AE41B6E80D80077CBB3 /* FLFakeConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 52400AE21B6E80D80077CBB3 /* FLFakeConfig.m */; };
+		52400AE71B6E84290077CBB3 /* VZInspectorLocationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52400AE61B6E84290077CBB3 /* VZInspectorLocationView.m */; };
 		52507B6A1B6BB2E500674807 /* VZDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 52507B671B6BB2E500674807 /* VZDevice.m */; };
 		52507B6B1B6BB2E500674807 /* VZInspectorDeviceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52507B691B6BB2E500674807 /* VZInspectorDeviceView.m */; };
 		52507B731B6BBF3000674807 /* VZImageInspector.mm in Sources */ = {isa = PBXBuildFile; fileRef = 52507B721B6BBF3000674807 /* VZImageInspector.mm */; };
@@ -174,6 +177,12 @@
 		45DCAE561ADEC04300A26E01 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		45DCAE581ADEC04900A26E01 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		45DCAE5A1ADEC04D00A26E01 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		52400ADF1B6E80D80077CBB3 /* CLLocationManager+FLFake.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CLLocationManager+FLFake.h"; sourceTree = "<group>"; };
+		52400AE01B6E80D80077CBB3 /* CLLocationManager+FLFake.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CLLocationManager+FLFake.m"; sourceTree = "<group>"; };
+		52400AE11B6E80D80077CBB3 /* FLFakeConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLFakeConfig.h; sourceTree = "<group>"; };
+		52400AE21B6E80D80077CBB3 /* FLFakeConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLFakeConfig.m; sourceTree = "<group>"; };
+		52400AE51B6E84290077CBB3 /* VZInspectorLocationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorLocationView.h; sourceTree = "<group>"; };
+		52400AE61B6E84290077CBB3 /* VZInspectorLocationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorLocationView.m; sourceTree = "<group>"; };
 		52507B661B6BB2E500674807 /* VZDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZDevice.h; sourceTree = "<group>"; };
 		52507B671B6BB2E500674807 /* VZDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZDevice.m; sourceTree = "<group>"; };
 		52507B681B6BB2E500674807 /* VZInspectorDeviceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorDeviceView.h; sourceTree = "<group>"; };
@@ -210,6 +219,7 @@
 		459B25DC1B182F48009BB189 /* VZInspector */ = {
 			isa = PBXGroup;
 			children = (
+				52400ADE1B6E80D80077CBB3 /* location */,
 				52507B701B6BBF3000674807 /* image */,
 				52507B651B6BB2E500674807 /* device */,
 				459B25DD1B182F48009BB189 /* border */,
@@ -452,6 +462,19 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		52400ADE1B6E80D80077CBB3 /* location */ = {
+			isa = PBXGroup;
+			children = (
+				52400ADF1B6E80D80077CBB3 /* CLLocationManager+FLFake.h */,
+				52400AE01B6E80D80077CBB3 /* CLLocationManager+FLFake.m */,
+				52400AE11B6E80D80077CBB3 /* FLFakeConfig.h */,
+				52400AE21B6E80D80077CBB3 /* FLFakeConfig.m */,
+				52400AE51B6E84290077CBB3 /* VZInspectorLocationView.h */,
+				52400AE61B6E84290077CBB3 /* VZInspectorLocationView.m */,
+			);
+			path = location;
+			sourceTree = "<group>";
+		};
 		52507B651B6BB2E500674807 /* device */ = {
 			isa = PBXGroup;
 			children = (
@@ -625,7 +648,9 @@
 				459B26521B182F49009BB189 /* VZInspectorResource.m in Sources */,
 				459B265E1B182F49009BB189 /* VZHeapInspector.m in Sources */,
 				459B26581B182F49009BB189 /* VZCPUInspectorOverView.m in Sources */,
+				52400AE41B6E80D80077CBB3 /* FLFakeConfig.m in Sources */,
 				459B26751B182F49009BB189 /* VZInspectorSandBoxSubView.m in Sources */,
+				52400AE31B6E80D80077CBB3 /* CLLocationManager+FLFake.m in Sources */,
 				AF0FC50D19D11C66009CCBE4 /* main.m in Sources */,
 				459B26711B182F49009BB189 /* VZInspectorRevealView.m in Sources */,
 				459B26551B182F49009BB189 /* VZInspectorView.m in Sources */,
@@ -634,6 +659,7 @@
 				459B26591B182F49009BB189 /* VZCrashInspector.m in Sources */,
 				459B26771B182F49009BB189 /* UIWindow+VZInspector.m in Sources */,
 				459B26721B182F49009BB189 /* VZRevealInspector.mm in Sources */,
+				52400AE71B6E84290077CBB3 /* VZInspectorLocationView.m in Sources */,
 				459B26621B182F49009BB189 /* VZInspectorHeapRootView.m in Sources */,
 				459B266E1B182F49009BB189 /* VZNetworkTransaction.m in Sources */,
 				459B26781B182F49009BB189 /* VZInspectorGridView.m in Sources */,

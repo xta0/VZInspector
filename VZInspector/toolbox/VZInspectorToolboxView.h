@@ -21,7 +21,8 @@ typedef NS_ENUM(NSInteger, VZToolBoxType)
     kMemoryWarningOff,
     kReveal,
     kDevice,
-    kImage
+    kImage,
+    kLocation
 
 };
 

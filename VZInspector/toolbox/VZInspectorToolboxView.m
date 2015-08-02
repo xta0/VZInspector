@@ -40,7 +40,8 @@
                    @{@"Reveal":[VZInspectorResource reveal]},
                    @{@"Warning":[VZInspectorResource memoryWarningOn]},
                    @{@"Device":[VZInspectorResource device]},
-                   @{@"Image":[VZInspectorResource image]}
+                   @{@"Image":[VZInspectorResource image]},
+                   @{@"Location":[VZInspectorResource image]}
                    ];
 
         
@@ -170,7 +171,11 @@
             _type = kImage;
             break;
         }
-        
+        case 10:
+        {
+            _type = kLocation;
+            break;
+        }
             
         default:
             break;
