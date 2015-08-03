@@ -7,6 +7,7 @@
 //
 
 #import "FLFakeConfig.h"
+#import "VZDefine.h"
 
 @interface FLFakeConfig ()
 

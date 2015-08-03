@@ -189,6 +189,7 @@
 		52507B691B6BB2E500674807 /* VZInspectorDeviceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorDeviceView.m; sourceTree = "<group>"; };
 		52507B711B6BBF3000674807 /* VZImageInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZImageInspector.h; sourceTree = "<group>"; };
 		52507B721B6BBF3000674807 /* VZImageInspector.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = VZImageInspector.mm; sourceTree = "<group>"; };
+		52C650591B6F713D00C43E0B /* VZDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VZDefine.h; path = ../../VZInspector/VZDefine.h; sourceTree = "<group>"; };
 		AF0FC50719D11C66009CCBE4 /* VZInspector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VZInspector.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF0FC50B19D11C66009CCBE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AF0FC50C19D11C66009CCBE4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -515,6 +516,7 @@
 		AF0FC50919D11C66009CCBE4 /* VZInspector */ = {
 			isa = PBXGroup;
 			children = (
+				52C650591B6F713D00C43E0B /* VZDefine.h */,
 				459BAEC11B21CA7A00739C7E /* 3d2.png */,
 				459B25DC1B182F48009BB189 /* VZInspector */,
 				AF0FC50E19D11C66009CCBE4 /* AppDelegate.h */,

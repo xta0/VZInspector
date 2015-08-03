@@ -8,6 +8,7 @@
 
 #import "CLLocationManager+FLFake.h"
 #import <objc/runtime.h>
+#import "VZDefine.h"
 #import "FLFakeConfig.h"
 
 @implementation CLLocationManager (FLFake)
