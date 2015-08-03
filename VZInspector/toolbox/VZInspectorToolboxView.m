@@ -41,7 +41,7 @@
                    @{@"Warning":[VZInspectorResource memoryWarningOn]},
                    @{@"Device":[VZInspectorResource device]},
                    @{@"Image":[VZInspectorResource image]},
-                   @{@"Location":[VZInspectorResource image]}
+                   @{@"Location":[VZInspectorResource location]}
                    ];
 
         

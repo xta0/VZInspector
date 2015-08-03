@@ -59,7 +59,8 @@ static NSString * const kFLDelay = @"FLDelay";
 }
 
 - (BOOL)enabled {
-    return [[_userDefaults valueForKey:kFLEnable] boolValue];
+    id value = [_userDefaults valueForKey:kFLEnable];
+    return value? [value boolValue] : NO;
 }
 
 - (CLLocation *)location {

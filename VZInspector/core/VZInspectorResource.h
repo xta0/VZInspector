@@ -39,4 +39,6 @@
 
 + (UIImage *)image;
 
++ (UIImage *)location;
+
 @end
