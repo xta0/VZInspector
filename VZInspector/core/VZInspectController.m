@@ -27,6 +27,7 @@
 #import "VZInspectorRevealView.h"
 #import "VZInspectorDeviceView.h"
 #import "VZImageInspector.h"
+#import "VZInspectorLocationView.h"
 
 @interface VZInspectController()<VZInspectorToolboxViewCallback>
 
@@ -157,6 +158,7 @@
              ||_currentView.class == [VZInspectorToolboxView class]
              ||_currentView.class == [VZInspectorNetworkHistoryView class]
              ||_currentView.class == [VZInspectorDeviceView class]
+             ||_currentView.class == [VZInspectorLocationView class]
              )
     {
         return NO;
@@ -374,6 +376,11 @@
             [self inspectImage];
             break;
         }
+        case kLocation:
+        {
+            [self showFakeLocation];
+            break;
+        }
         default:
             break;
     }
@@ -497,6 +504,20 @@
 - (void)showReveal
 {
     //todo...
+}
+- (void)showFakeLocation
+{
+    VZInspectorLocationView * locationView = [[VZInspectorLocationView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) parentViewController:self];
+    
+    
+    [UIView transitionFromView:self.contentView toView:locationView duration:0.4 options:UIViewAnimationOptionTransitionFlipFromLeft completion:^(BOOL finished) {
+        
+        [self.contentView removeFromSuperview];
+        [self.view addSubview:locationView];
+        _currentView = locationView;
+        _currentIndex = -1;
+        
+    }];
 }
 
 @end

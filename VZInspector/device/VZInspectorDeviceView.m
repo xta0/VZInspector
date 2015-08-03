@@ -25,6 +25,15 @@
         
         self.backgroundColor = [UIColor clearColor];
         
+        UILabel *textLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 13, frame.size.width, 18)];
+        textLabel.textAlignment = NSTextAlignmentCenter;
+        textLabel.textColor = [UIColor whiteColor];
+        textLabel.backgroundColor = [UIColor clearColor];
+        textLabel.font = [UIFont systemFontOfSize:18.0f];
+        textLabel.text = @"Device Info";
+        [self addSubview:textLabel];
+        
+        
         _textView = [[UITextView alloc]initWithFrame:CGRectMake(10, 44, CGRectGetWidth(frame)-20, CGRectGetHeight(frame)-20)];
         _textView.font = [UIFont fontWithName:@"Courier-Bold" size:15];
         _textView.textColor = [UIColor orangeColor];
