@@ -46,7 +46,7 @@ inline BOOL operator!=(const CGSize &s1, const CGSize &s2)
 
     CGSize imageSize = imageView.image.size;
     CGSize frameSize = imageView.frame.size;
-    NSString *text = [NSString stringWithFormat:@"%@\n%@", NSStringFromCGSize(imageSize), NSStringFromCGSize(frameSize)];
+    NSString *text = [NSString stringWithFormat:@"%@%@\n%@%@", @(imageView.image.scale), NSStringFromCGSize(imageSize), @([UIScreen mainScreen].scale), NSStringFromCGSize(frameSize)];
             
     VZTextLayer *label = [[VZTextLayer alloc] init];
     label.originBorderColor = imageView.layer.borderColor;
