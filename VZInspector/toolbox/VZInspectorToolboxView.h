@@ -22,8 +22,8 @@ typedef NS_ENUM(NSInteger, VZToolBoxType)
     kReveal,
     kDevice,
     kImage,
-    kLocation
-
+    kLocation,
+    kClean
 };
 
 @protocol VZInspectorToolboxViewCallback <NSObject>

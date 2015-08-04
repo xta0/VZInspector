@@ -176,6 +176,11 @@
             _type = kLocation;
             break;
         }
+        case 11:
+        {
+            _type = kClean;
+            break;
+        }
             
         default:
             break;
