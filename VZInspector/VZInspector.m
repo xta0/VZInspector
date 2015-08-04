@@ -14,9 +14,9 @@
 #import "VZOverviewInspector.h"
 #import "VZSettingInspector.h"
 #import "VZLogInspector.h"
-#import "VZInspectController.h"
 #import "VZNetworkObserver.h"
 #import "VZBorderInspector.h"
+#import "VZInspectorToolboxView.h"
 
 @implementation VZInspector
 
@@ -88,6 +88,10 @@
 + (void)setProductionAPIEnvCallback:(void(^)(void))callback
 {
     [VZSettingInspector sharedInstance].apiProductionCallback = callback;
+}
+
++ (void)addToolWithName:(NSString *)name icon:(NSData *)icon callback:(void (^)(void))callback {
+    [VZInspectorToolboxView addToolwithName:name icon:icon callback:callback];
 }
 
 @end

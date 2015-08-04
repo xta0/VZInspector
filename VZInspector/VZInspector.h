@@ -66,4 +66,6 @@
  */
 + (void)setProductionAPIEnvCallback:(void(^)(void))callback;
 
++ (void)addToolWithName:(NSString *)name icon:(NSData *)icon callback:(void(^)(void))callback;
+
 @end

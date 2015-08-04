@@ -37,4 +37,6 @@ typedef NS_ENUM(NSInteger, VZToolBoxType)
 @property(nonatomic,assign,readonly) VZToolBoxType type;
 @property(nonatomic,weak) id<VZInspectorToolboxViewCallback> callback;
 
++ (void)addToolwithName:(NSString *)name icon:(NSData *)icon callback:(void(^)(void))callback;
+
 @end
