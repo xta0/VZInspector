@@ -66,6 +66,31 @@
 {
     return 44;
 }
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
+    return YES;
+}
+
+-(UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return UITableViewCellEditingStyleDelete;
+}
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (editingStyle ==UITableViewCellEditingStyleDelete) {
+        NSString* filename = self.items[indexPath.row];
+        NSString * path = [NSString stringWithFormat:@"%@/%@", self.currentDir, filename];
+        
+        [[NSFileManager defaultManager] removeItemAtPath:path error:nil];
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            NSArray * files = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:self.currentDir error:NULL];
+            self.items = [NSMutableArray new];
+            [self.items addObjectsFromArray:files];
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.tableView reloadData];
+            });
+        });
+    }
+}
 
 - (UITableViewCell* )tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
