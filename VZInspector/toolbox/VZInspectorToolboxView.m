@@ -10,15 +10,30 @@
 #import "VZInspectorResource.h"
 #import <objc/runtime.h>
 
+@interface VZToolItem : NSObject
+
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) UIImage *icon;
+@property (nonatomic, strong) void(^callback)(void);
+
+@end
+
+@implementation VZToolItem
+
+@end
+
+static NSMutableArray *tools;
 
 @interface VZInspectorToolboxView()
 {
     int  _marginTop;
     NSArray* _icons;
+    NSArray* _originalIcons;
 }
 
 
 @end
+
 
 @implementation VZInspectorToolboxView
 
@@ -27,22 +42,27 @@
     self = [super initWithFrame:frame];
     if (self) {
         
-        _type = kDefault;
         _marginTop = 120;
        
         
-        _icons = @[@{@"Logs":[VZInspectorResource network_logs]},
-                   @{@"Heap":[VZInspectorResource heap]},
-                   @{@"Crash":[VZInspectorResource crash]},
-                   @{@"SandBox":[VZInspectorResource sandbox]},
-                   @{@"Gird":[VZInspectorResource grid]},
-                   @{@"Border":[VZInspectorResource viewClass]},
-                   @{@"Reveal":[VZInspectorResource reveal]},
-                   @{@"Warning":[VZInspectorResource memoryWarningOn]},
-                   @{@"Device":[VZInspectorResource device]},
-                   @{@"Image":[VZInspectorResource image]},
-                   @{@"Location":[VZInspectorResource location]}
-                   ];
+        _originalIcons = @[@{@"Logs":[VZInspectorResource network_logs]},
+                                 @{@"Heap":[VZInspectorResource heap]},
+                                 @{@"Crash":[VZInspectorResource crash]},
+                                 @{@"SandBox":[VZInspectorResource sandbox]},
+                                 @{@"Gird":[VZInspectorResource grid]},
+                                 @{@"Border":[VZInspectorResource viewClass]},
+                                 @{@"Reveal":[VZInspectorResource reveal]},
+                                 @{@"Warning":[VZInspectorResource memoryWarningOn]},
+                                 @{@"Device":[VZInspectorResource device]},
+                                 @{@"Image":[VZInspectorResource image]},
+                                 @{@"Location":[VZInspectorResource location]}
+                                 ];
+        
+        NSMutableArray *additionIcons = [NSMutableArray arrayWithArray:_originalIcons];
+        for (VZToolItem *item in tools) {
+            [additionIcons addObject:@{item.name: item.icon}];
+        }
+        _icons = additionIcons;
 
         
         UIImage* logo = [VZInspectorResource logo];
@@ -178,14 +198,32 @@
         }
             
         default:
+            _type = kDefault;
             break;
     }
     
-    if ([self.callback respondsToSelector:@selector(onToolBoxViewClicked:)]) {
+    if (_type == kDefault) {
+        NSInteger index = sender.tag - _originalIcons.count;
+        if (index >= 0 && index < tools.count) {
+            VZToolItem *item = tools[index];
+            item.callback();
+        }
+    } else if ([self.callback respondsToSelector:@selector(onToolBoxViewClicked:)]) {
         [self.callback onToolBoxViewClicked:_type];
     }
 
     
+}
+
++ (void)addToolwithName:(NSString *)name icon:(NSData *)icon callback:(void(^)(void))callback {
+    if (!tools) {
+        tools = [NSMutableArray array];
+    }
+    VZToolItem *tool = [[VZToolItem alloc] init];
+    tool.name = name;
+    tool.icon = [UIImage imageWithData:icon scale:2.0];
+    tool.callback = callback;
+    [tools addObject:tool];
 }
 
 @end
