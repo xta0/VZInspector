@@ -15,9 +15,11 @@
 
 @end
 
+static NSString * const kMainBundleName = @"_Main Bundle_";
+
 @implementation VZInspectorSandBoxSubView
 
-- (id)initWithFrame:(CGRect)frame Dir:(NSString* )dir
+- (id)initWithFrame:(CGRect)frame dir:(NSString* )dir appendBundle:(BOOL)appendBundle
 {
     self = [super initWithFrame:frame];
     
@@ -28,6 +30,10 @@
         
         self.currentDir = dir;
         self.items = [NSMutableArray new];
+        
+        if (appendBundle) {
+            [_items addObject:kMainBundleName];
+        }
         
         self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
         self.tableView.backgroundColor = [UIColor clearColor];
@@ -121,6 +127,13 @@
     NSInteger index = view.tag;
     
     NSString* filename = self.items[index];
+    
+    if ([filename isEqualToString:kMainBundleName]) {
+        if ([self.delegate respondsToSelector:@selector(onSubViewDidSelect:FileName:)]) {
+            [self.delegate onSubViewDidSelect:index FileName:[[NSBundle mainBundle] bundlePath]];
+        }
+    }
+    
     NSString * path = [NSString stringWithFormat:@"%@/%@", self.currentDir, filename];
     NSDictionary * attributes = [[NSFileManager defaultManager] attributesOfItemAtPath:path error:NULL];
    
@@ -159,6 +172,18 @@
                 textView.tag = 998;
                 [textView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTextViewClosed:)]];
                 textView.text = [NSString stringWithFormat:@"%@",plist];
+                [self addSubview:textView];
+                
+                
+            }
+            else if ( [path hasSuffix:@".log"] || [path hasSuffix:@".txt"] )
+            {
+                NSString* str = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+                
+                UITextView* textView = [[UITextView alloc]initWithFrame:CGRectMake(20, 20, self.bounds.size.width - 40, self.bounds.size.height -40)];
+                textView.tag = 998;
+                [textView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTextViewClosed:)]];
+                textView.text = str;
                 [self addSubview:textView];
                 
                 
