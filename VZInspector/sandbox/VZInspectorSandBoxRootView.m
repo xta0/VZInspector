@@ -84,7 +84,7 @@
 
 - (void)loadRootView
 {
-    VZInspectorSandBoxSubView* rootView = [[VZInspectorSandBoxSubView alloc]initWithFrame:CGRectMake(0, 44, self.frame.size.width, self.frame.size.height-44) Dir:self.homepath];
+    VZInspectorSandBoxSubView* rootView = [[VZInspectorSandBoxSubView alloc]initWithFrame:CGRectMake(0, 44, self.frame.size.width, self.frame.size.height-44) dir:self.homepath appendBundle:YES];
     rootView.layer.borderColor = [UIColor colorWithWhite:0.5f alpha:1.0f].CGColor;
     rootView.layer.borderWidth = 2.0f;
     rootView.delegate = self;
@@ -101,7 +101,7 @@
 
 - (void)push
 {
-    VZInspectorSandBoxSubView* targetView = [[VZInspectorSandBoxSubView alloc]initWithFrame:CGRectMake(self.frame.size.width, 44, self.frame.size.width, self.frame.size.height-44) Dir:self.filepath];
+    VZInspectorSandBoxSubView* targetView = [[VZInspectorSandBoxSubView alloc]initWithFrame:CGRectMake(self.frame.size.width, 44, self.frame.size.width, self.frame.size.height-44) dir:self.filepath appendBundle:NO];
     targetView.delegate = self;
     targetView.alpha = 0.0f;
     [self addSubview:targetView];

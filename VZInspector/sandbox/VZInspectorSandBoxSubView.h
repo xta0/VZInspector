@@ -27,6 +27,6 @@
 @property(nonatomic,weak) id<VZInspectorSandBoxSubViewCallBackProtocol> delegate;
 @property(nonatomic,strong)NSString* currentDir;
 
-- (id)initWithFrame:(CGRect)frame Dir:(NSString* )dir;
+- (id)initWithFrame:(CGRect)frame dir:(NSString* )dir appendBundle:(BOOL)appendBundle;
 
 @end
