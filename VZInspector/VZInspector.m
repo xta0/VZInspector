@@ -22,8 +22,19 @@
 
 + (void)showOnStatusBar
 {
-    [VZInspectorOverlay show];
+    
+    // 在iOS9下立即调用会出现错误无法运行
+    UIWindow *keyWindow = [UIApplication sharedApplication].keyWindow;
+    if (keyWindow && !keyWindow.isHidden) {
+        [VZInspectorOverlay show];
+    } else {
+        // Application windows are expected to have a root view controller at the end of application launch
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self showOnStatusBar];
+        });
+    }
 }
+
 + (BOOL)isShow
 {
     return ![VZInspectorWindow sharedInstance].hidden;

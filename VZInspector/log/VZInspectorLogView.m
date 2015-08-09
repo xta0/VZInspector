@@ -52,7 +52,7 @@
         
         _indicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
         _indicator.color = [UIColor grayColor];
-        _indicator.frame = CGRectMake((_textView.frame.size.width-20)/2, (_textView.frame.size.height - 20)/2, 20, 20);
+        _indicator.center = _textView.center;
         _indicator.hidesWhenStopped=true;
         [self addSubview:_indicator];
         
