@@ -114,14 +114,11 @@ static NSMutableArray *tools;
             
             [btn setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
             [btn.titleLabel setFont:[UIFont systemFontOfSize:12.0]];
-            [btn setContentVerticalAlignment:UIControlContentVerticalAlignmentCenter];
-            
-            CGFloat spacing = 6.0;
+
+            CGFloat spacing = 12.0;
             CGSize imageSize = btn.imageView.frame.size;
-            btn.titleEdgeInsets = UIEdgeInsetsMake(0.0, - imageSize.width, - (imageSize.height + spacing), 0.0);
-   
-            CGSize titleSize = btn.titleLabel.frame.size;
-            btn.imageEdgeInsets = UIEdgeInsetsMake(- (titleSize.height + spacing), (w-32)/2, 0.0, 0.0);//icon width = 32
+            btn.titleEdgeInsets = UIEdgeInsetsMake(32 + spacing, -imageSize.width, 0, 0);
+            btn.imageEdgeInsets = UIEdgeInsetsMake(w / 5, (w - imageSize.width) / 2.0, 24, (w - imageSize.width) / 2.0);//icon width = 32
 
             [btn addTarget:self action:@selector(onBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
             [self addSubview:btn];
