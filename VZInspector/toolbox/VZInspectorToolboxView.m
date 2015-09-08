@@ -43,28 +43,28 @@ static NSMutableArray *tools;
     if (self) {
         
         _marginTop = 120;
-       
+        
         
         _originalIcons = @[@{@"Logs":[VZInspectorResource network_logs]},
-                                 @{@"Heap":[VZInspectorResource heap]},
-                                 @{@"Crash":[VZInspectorResource crash]},
-                                 @{@"SandBox":[VZInspectorResource sandbox]},
-                                 @{@"Gird":[VZInspectorResource grid]},
-                                 @{@"Border":[VZInspectorResource viewClass]},
-                                 @{@"Reveal":[VZInspectorResource reveal]},
-                                 @{@"Warning":[VZInspectorResource memoryWarningOn]},
-                                 @{@"Device":[VZInspectorResource device]},
-                                 @{@"Image":[VZInspectorResource image]},
-                                 @{@"Location":[VZInspectorResource location]},
-                                 @{@"FrameRate":[VZInspectorResource frameRate]}
-                                 ];
+                           @{@"Heap":[VZInspectorResource heap]},
+                           @{@"Crash":[VZInspectorResource crash]},
+                           @{@"SandBox":[VZInspectorResource sandbox]},
+                           @{@"Gird":[VZInspectorResource grid]},
+                           @{@"Border":[VZInspectorResource viewClass]},
+                           @{@"Reveal":[VZInspectorResource reveal]},
+                           @{@"Warning":[VZInspectorResource memoryWarningOn]},
+                           @{@"Device":[VZInspectorResource device]},
+                           @{@"Image":[VZInspectorResource image]},
+                           @{@"Location":[VZInspectorResource location]},
+                           @{@"FrameRate":[VZInspectorResource frameRate]}
+                           ];
         
         NSMutableArray *additionIcons = [NSMutableArray arrayWithArray:_originalIcons];
         for (VZToolItem *item in tools) {
             [additionIcons addObject:@{item.name: item.icon}];
         }
         _icons = additionIcons;
-
+        
         
         UIImage* logo = [VZInspectorResource logo];
         
@@ -77,7 +77,7 @@ static NSMutableArray *tools;
         
         //draw grid
         for (int i=0; i<6; i++) {
-        
+            
             int x1 = i*w;
             int y1 = _marginTop;
             
@@ -98,7 +98,7 @@ static NSMutableArray *tools;
             horizontalLine.backgroundColor = [UIColor grayColor];
             [self addSubview:horizontalLine];
         }
-
+        
         for (int i=0; i<_icons.count; i++) {
             
             int x =   w*(i%5);
@@ -115,25 +115,26 @@ static NSMutableArray *tools;
             
             [btn setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
             [btn.titleLabel setFont:[UIFont systemFontOfSize:12.0]];
-
+            
             CGFloat spacing = 12.0;
             CGSize imageSize = btn.imageView.frame.size;
             btn.titleEdgeInsets = UIEdgeInsetsMake(32 + spacing, -imageSize.width, 0, 0);
             btn.imageEdgeInsets = UIEdgeInsetsMake(w / 5, (w - imageSize.width) / 2.0, 24, (w - imageSize.width) / 2.0);//icon width = 32
-
+            
             [btn addTarget:self action:@selector(onBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
             [self addSubview:btn];
         }
     }
+    
     return self;
 }
 
 
 - (void)onBtnClicked:(UIView* )sender
 {
-
+    
     switch (sender.tag) {
-        
+            
         case 0:
         {
             _type = kNetworkLogs;
@@ -218,7 +219,7 @@ static NSMutableArray *tools;
     } else if ([self.callback respondsToSelector:@selector(onToolBoxViewClicked:)]) {
         [self.callback onToolBoxViewClicked:_type];
     }
-
+    
     
 }
 
