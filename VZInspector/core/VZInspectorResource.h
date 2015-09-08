@@ -41,4 +41,6 @@
 
 + (UIImage *)location;
 
++ (UIImage *)frameRate;
+
 @end

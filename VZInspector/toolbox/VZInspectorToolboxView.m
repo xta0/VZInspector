@@ -55,7 +55,8 @@ static NSMutableArray *tools;
                                  @{@"Warning":[VZInspectorResource memoryWarningOn]},
                                  @{@"Device":[VZInspectorResource device]},
                                  @{@"Image":[VZInspectorResource image]},
-                                 @{@"Location":[VZInspectorResource location]}
+                                 @{@"Location":[VZInspectorResource location]},
+                                 @{@"FrameRate":[VZInspectorResource frameRate]}
                                  ];
         
         NSMutableArray *additionIcons = [NSMutableArray arrayWithArray:_originalIcons];
@@ -191,6 +192,15 @@ static NSMutableArray *tools;
         case 10:
         {
             _type = kLocation;
+            break;
+        }
+        case 11:
+        {
+            if (_type != kFrameRateOn) {
+                _type = kFrameRateOn;
+            } else {
+                _type = kFrameRateOff;
+            }
             break;
         }
             

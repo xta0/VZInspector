@@ -28,6 +28,7 @@
 #import "VZInspectorDeviceView.h"
 #import "VZImageInspector.h"
 #import "VZInspectorLocationView.h"
+#import "VZFrameRateOverlay.h"
 
 @interface VZInspectController()<VZInspectorToolboxViewCallback>
 
@@ -197,8 +198,6 @@
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark - Private API
-
-
 
 //tab clicked:
 - (void)onBtnClikced:(UIButton* )sender
@@ -381,6 +380,16 @@
             [self showFakeLocation];
             break;
         }
+        case kFrameRateOn:
+        {
+            [self showFrameRate];
+            break;
+        }
+        case kFrameRateOff:
+        {
+            [self hideFrameRate];
+            break;
+        }
         default:
             break;
     }
@@ -505,6 +514,7 @@
 {
     //todo...
 }
+
 - (void)showFakeLocation
 {
     VZInspectorLocationView * locationView = [[VZInspectorLocationView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) parentViewController:self];
@@ -518,6 +528,16 @@
         _currentIndex = -1;
         
     }];
+}
+
+- (void)showFrameRate {
+    [VZFrameRateOverlay start];
+    [self onClose];
+}
+
+- (void)hideFrameRate {
+    [VZFrameRateOverlay stop];
+    [self onClose];
 }
 
 @end
