@@ -44,6 +44,15 @@
  */
 + (void)setObserveCallback:(NSString* (^)(void)) callback;
 
+/**
+ *  注入自定义工具
+ *
+ *  @param name     工具名称
+ *  @param icon     工具icon
+ *  @param callback 回调
+ */
+//+ (void)addToolWithName:(NSString *)name icon:(NSData *)icon callback:(void(^)(void))callback;
+
 @end
 
 
@@ -66,6 +75,5 @@
  */
 + (void)setProductionAPIEnvCallback:(void(^)(void))callback;
 
-+ (void)addToolWithName:(NSString *)name icon:(NSData *)icon callback:(void(^)(void))callback;
 
 @end

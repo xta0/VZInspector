@@ -54,9 +54,9 @@ static NSMutableArray *tools;
                            @{@"Reveal":[VZInspectorResource reveal]},
                            @{@"Warning":[VZInspectorResource memoryWarningOn]},
                            @{@"Device":[VZInspectorResource device]},
-                           @{@"Image":[VZInspectorResource image]},
-                           @{@"Location":[VZInspectorResource location]},
-                           @{@"FrameRate":[VZInspectorResource frameRate]}
+                           //@{@"Image":[VZInspectorResource image]},
+                           @{@"Location":[VZInspectorResource location]}
+                           //@{@"FrameRate":[VZInspectorResource frameRate]}
                            ];
         
         NSMutableArray *additionIcons = [NSMutableArray arrayWithArray:_originalIcons];
@@ -185,26 +185,26 @@ static NSMutableArray *tools;
             _type = kDevice;
             break;
         }
+//        case 9:
+//        {
+//            _type = kImage;
+//            break;
+//        }
         case 9:
-        {
-            _type = kImage;
-            break;
-        }
-        case 10:
         {
             _type = kLocation;
             break;
         }
-        case 11:
-        {
-            if (_type != kFrameRateOn) {
-                _type = kFrameRateOn;
-            } else {
-                _type = kFrameRateOff;
-            }
-            break;
-        }
-            
+//        case 11:
+//        {
+//            if (_type != kFrameRateOn) {
+//                _type = kFrameRateOn;
+//            } else {
+//                _type = kFrameRateOff;
+//            }
+//            break;
+//        }
+//            
         default:
             _type = kDefault;
             break;

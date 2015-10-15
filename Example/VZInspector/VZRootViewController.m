@@ -46,10 +46,10 @@
     self.tableView.dataSource = self;
     [self.view addSubview:self.tableView];
     
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"3d2"]];
-    imageView.frame = CGRectMake(20, 20, 80, 80);
-    imageView.clipsToBounds = YES;
-    [self.view addSubview: imageView];
+//    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"3d2"]];
+//    imageView.frame = CGRectMake(20, 20, 80, 80);
+//    imageView.clipsToBounds = YES;
+//    [self.view addSubview: imageView];
     
     [self load];
 }
@@ -117,12 +117,20 @@
 
 - (void)memoryPeek
 {
+    UIAlertView* alert = [[UIAlertView alloc]initWithTitle:@"alloc memory" message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    [alert show];
+    
+
     _list = [NSMutableArray new];
     
-    for (int i=0; i<100000; i++) {
+    for (int i=0; i<999999; i++) {
+
+       // @autoreleasepool {
+            NSObject* obj = [NSObject new];
+            [_list addObject:obj];
+       // }
         
-        NSObject* obj = [NSObject new];
-        [_list addObject:obj];
+  
     }
     
 }
