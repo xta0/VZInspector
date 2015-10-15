@@ -33,28 +33,22 @@
 //    }
     
 
-    dispatch_async(dispatch_get_main_queue(), ^{
-        
         [VZInspector setClassPrefixName:@"VZ"];
         [VZInspector setShouldHandleCrash:true];
         [VZInspector setShouldHookNetworkRequest:true];
         [VZInspector setLogNumbers:10];
         [VZInspector setObserveCallback:^NSString *{
-            
-            NSString* v = [NSString stringWithFormat:@"System Ver:%@\n",[UIDevice currentDevice].systemVersion];
-            NSString* n = [NSString stringWithFormat:@"System Name:%@\n",[UIDevice currentDevice].systemName];
-            
-            NSString* ret = [v stringByAppendingString:n];
-            
+
+        NSString* v = [NSString stringWithFormat:@"System Ver:%@\n",[UIDevice currentDevice].systemVersion];
+        NSString* n = [NSString stringWithFormat:@"System Name:%@\n",[UIDevice currentDevice].systemName];
+
+        NSString* ret = [v stringByAppendingString:n];
+
             return ret;
         }];
-        
+
         [VZInspector setDefaultAPIEnvIndex:2];
         [VZInspector showOnStatusBar];
-    });
-
-
-
     
     return YES;
 }
