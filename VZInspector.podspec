@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.author       = { "akadealloc" => "jayson.xu@foxmail.com" }
   s.platform     = :ios, "7.0"
   s.ios.deployment_target = "7.0"
-  s.source       = { :git => "https://github.com/akaDealloc/VZInspector.git", :tag => "#{s.version}" }
+  s.source       = { :git => "https://github.com/vizlabxt/VZInspector.git", :tag => "#{s.version}" }
   s.requires_arc = true
   s.framework    = 'Foundation', 'UIKit', 'CoreGraphics', 'QuartzCore'
   s.source_files  = 'VZInspector/**/*'
