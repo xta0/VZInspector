@@ -74,6 +74,10 @@
  *配置线上环境API环境
  */
 + (void)setProductionAPIEnvCallback:(void(^)(void))callback;
+/**
+ *  增加API环境的配置
+ */
++ (void)addAPIEnvType:(NSString* )type Callback:(void(^)(void))callback;
 
 
 @end

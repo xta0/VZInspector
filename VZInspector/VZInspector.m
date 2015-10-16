@@ -75,6 +75,12 @@
     [VZOverviewInspector sharedInstance].observingCallback = callback;
 }
 
+
++ (void)addToolWithName:(NSString *)name icon:(NSData *)icon callback:(void (^)(void))callback {
+    [VZInspectorToolboxView addToolwithName:name icon:icon callback:callback];
+}
+
+
 + (void)setDefaultAPIEnvIndex:(NSInteger)index
 {
     [VZSettingInspector sharedInstance].defaultEnvIndex = index;
@@ -95,8 +101,10 @@
     [VZSettingInspector sharedInstance].apiProductionCallback = callback;
 }
 
-+ (void)addToolWithName:(NSString *)name icon:(NSData *)icon callback:(void (^)(void))callback {
-    [VZInspectorToolboxView addToolwithName:name icon:icon callback:callback];
++ (void)addAPIEnvType:(NSString* )type Callback:(void(^)(void))callback
+{
+    //todo...
+    
 }
 
 @end
