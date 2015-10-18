@@ -57,23 +57,6 @@
 
 
 @interface VZInspector(env)
-
-/*
- *默认配置index
- */
-+ (void)setDefaultAPIEnvIndex:(NSInteger)index;
-/*
- *配置开发API环境
- */
-+ (void)setDevAPIEnvCallback:(void(^)(void))callback;
-/*
- *配置预发布API环境
- */
-+ (void)setTestAPIEnvCallback:(void(^)(void))callback;
-/*
- *配置线上环境API环境
- */
-+ (void)setProductionAPIEnvCallback:(void(^)(void))callback;
 /**
  *  增加API环境的配置
  */

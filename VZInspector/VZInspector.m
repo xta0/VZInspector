@@ -80,30 +80,9 @@
     [VZInspectorToolboxView addToolwithName:name icon:icon callback:callback];
 }
 
-
-+ (void)setDefaultAPIEnvIndex:(NSInteger)index
-{
-    [VZSettingInspector sharedInstance].defaultEnvIndex = index;
-}
-
-+ (void)setDevAPIEnvCallback:(void(^)(void))callback
-{
-    [VZSettingInspector sharedInstance].apiDevCallback = callback;
-}
-
-+ (void)setTestAPIEnvCallback:(void(^)(void))callback
-{
-    [VZSettingInspector sharedInstance].apiTestCallback = callback;
-}
-
-+ (void)setProductionAPIEnvCallback:(void(^)(void))callback
-{
-    [VZSettingInspector sharedInstance].apiProductionCallback = callback;
-}
-
 + (void)addAPIEnvType:(NSString* )type Callback:(void(^)(void))callback
 {
-    //todo...
+    [VZSettingInspector  addAPIEnvType:type Callback:[callback copy]];
     
 }
 

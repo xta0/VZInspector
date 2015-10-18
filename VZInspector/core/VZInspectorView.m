@@ -26,4 +26,9 @@
     return self;
 }
 
+- (void)update
+{
+    //noop
+}
+
 @end

@@ -13,5 +13,6 @@
 @property(nonatomic,weak) UIViewController* parentViewController;
 
 - (id)initWithFrame:(CGRect)frame parentViewController:(UIViewController* )controller;
+- (void)update;
 
 @end

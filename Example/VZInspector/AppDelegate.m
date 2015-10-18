@@ -46,8 +46,18 @@
 
             return ret;
         }];
+    
+        [VZInspector addAPIEnvType:@"Dev-aaa" Callback:^{
+           
+            NSLog(@"Dev-aaa clicked!");
+            
+        }];
+    
+        [VZInspector addAPIEnvType:@"Release" Callback:^{
+           
+            NSLog(@"Release clicked!");
+        }];
 
-        [VZInspector setDefaultAPIEnvIndex:2];
         [VZInspector showOnStatusBar];
     
     return YES;

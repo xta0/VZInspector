@@ -9,6 +9,9 @@
 #import "VZSettingInspector.h"
 
 @implementation VZSettingInspector
+{
+    NSMutableArray* _envs;
+}
 
 + (VZSettingInspector* )sharedInstance
 {
@@ -21,5 +24,30 @@
     
     return instance;
 }
+
+- (id)init
+{
+    self = [super init];
+    
+    if (self) {
+        _envs = [[NSMutableArray alloc]initWithCapacity:3];
+        
+    }
+    return self;
+}
+
++ (NSDictionary* )currentAPIEnvs
+{
+    return [[VZSettingInspector sharedInstance] -> _envs copy];
+}
+
++ (void)addAPIEnvType:(NSString* )type Callback:(vz_api_env_callback)callback{
+    
+    if (type && callback) {
+        [[VZSettingInspector sharedInstance] -> _envs addObject:@{type:callback}];
+    }
+    
+}
+
 
 @end
