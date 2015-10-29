@@ -194,7 +194,7 @@
     }
     else if (_currentView.class == [O2OMethodTraceView class])
     {
-        if (pt.y > 90) {
+        if (pt.y > 20) {
             return YES;
         }
         return NO;

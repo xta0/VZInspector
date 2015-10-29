@@ -41,6 +41,138 @@ void addArguments(NSInvocation *invocation, va_list list) {
                 [invocation setArgument:&argument atIndex:i];
                 break;
             }
+            case O2OMethodTraceTypeInt:
+            {
+                int argument = va_arg(list, int);
+                [invocation setArgument:&argument atIndex:i];
+                break;
+            }
+            case O2OMethodTraceTypeShort:
+            {
+                short argument = va_arg(list, int);
+                [invocation setArgument:&argument atIndex:i];
+                break;
+            }
+            case O2OMethodTraceTypeLong:
+            {
+                long argument = va_arg(list, long);
+                [invocation setArgument:&argument atIndex:i];
+                break;
+            }
+            case O2OMethodTraceTypeLongLong:
+            {
+                long long argument = va_arg(list, long long);
+                [invocation setArgument:&argument atIndex:i];
+                break;
+            }
+            case O2OMethodTraceTypeUnsignedChar:
+            {
+                unsigned char argument = va_arg(list, int);
+                [invocation setArgument:&argument atIndex:i];
+                break;
+            }
+            case O2OMethodTraceTypeUnsignedInt:
+            {
+                unsigned int argument = va_arg(list, unsigned int);
+                [invocation setArgument:&argument atIndex:i];
+                break;
+            }
+            case O2OMethodTraceTypeUnsignedShort:
+            {
+                unsigned short argument = va_arg(list, int);
+                [invocation setArgument:&argument atIndex:i];
+                break;
+            }
+            case O2OMethodTraceTypeUnsignedLong:
+            {
+                unsigned long argument = va_arg(list, unsigned long);
+                [invocation setArgument:&argument atIndex:i];
+                break;
+            }
+            case O2OMethodTraceTypeUnsignedLongLong:
+            {
+                unsigned long long argument = va_arg(list, unsigned long long);
+                [invocation setArgument:&argument atIndex:i];
+                break;
+            }
+            case O2OMethodTraceTypeFloat:
+            {
+                float argument = va_arg(list, double);
+                [invocation setArgument:&argument atIndex:i];
+                break;
+            }
+            case O2OMethodTraceTypeDouble:
+            {
+                double argument = va_arg(list, double);
+                [invocation setArgument:&argument atIndex:i];
+                break;
+            }
+            case O2OMethodTraceTypeBool:
+            {
+                BOOL argument = va_arg(list, int);
+                [invocation setArgument:&argument atIndex:i];
+                break;
+            }
+            case O2OMethodTraceTypeCharPointer:
+            {
+                char* argument = va_arg(list, char*);
+                [invocation setArgument:&argument atIndex:i];
+                break;
+            }
+            case O2OMethodTraceTypeObject:
+            {
+                id argument = va_arg(list, id);
+                [invocation setArgument:&argument atIndex:i];
+                break;
+            }
+            case O2OMethodTraceTypeClass:
+            {
+                Class argument = va_arg(list, Class);
+                [invocation setArgument:&argument atIndex:i];
+                break;
+            }
+            case O2OMethodTraceTypeSelector:
+            {
+                SEL argument = va_arg(list, SEL);
+                [invocation setArgument:&argument atIndex:i];
+                break;
+            }
+            case O2OMethodTraceTypeCGRect:
+            {
+                CGRect argument = va_arg(list, CGRect);
+                [invocation setArgument:&argument atIndex:i];
+                break;
+            }
+            case O2OMethodTraceTypeCGPoint:
+            {
+                CGPoint argument = va_arg(list, CGPoint);
+                [invocation setArgument:&argument atIndex:i];
+                break;
+            }
+            case O2OMethodTraceTypeCGSize:
+            {
+                CGSize argument = va_arg(list, CGSize);
+                [invocation setArgument:&argument atIndex:i];
+                break;
+            }
+            case O2OMethodTraceTypeCGAffineTransform:
+            {
+                CGAffineTransform argument = va_arg(list, CGAffineTransform);
+                [invocation setArgument:&argument atIndex:i];
+                break;
+            }
+            case O2OMethodTraceTypeUIEdgeInsets:
+            {
+                UIEdgeInsets argument = va_arg(list, UIEdgeInsets);
+                [invocation setArgument:&argument atIndex:i];
+                break;
+            }
+            case O2OMethodTraceTypeUIOffset:
+            {
+                UIOffset argument = va_arg(list, UIOffset);
+                [invocation setArgument:&argument atIndex:i];
+                break;
+            }
             default:
                 break;
         }
