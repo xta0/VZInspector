@@ -24,7 +24,8 @@ typedef NS_ENUM(NSInteger, VZToolBoxType)
     kImage,
     kLocation,
     kFrameRateOn,
-    kFrameRateOff
+    kFrameRateOff,
+    kMethodTrace
 };
 
 @protocol VZInspectorToolboxViewCallback <NSObject>

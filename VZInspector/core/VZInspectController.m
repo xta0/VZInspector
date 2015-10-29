@@ -29,6 +29,8 @@
 #import "VZImageInspector.h"
 #import "VZInspectorLocationView.h"
 #import "VZFrameRateOverlay.h"
+#import "O2OMethodTraceHeader.h"
+#import "O2OMethodTraceInputView.h"
 
 @interface VZInspectController()<VZInspectorToolboxViewCallback>
 
@@ -37,6 +39,10 @@
 @property(nonatomic,strong) VZInspectorLogView* logView;
 @property(nonatomic,strong) VZInspectorSettingView* settingView;
 @property(nonatomic,strong) VZInspectorToolboxView* toolboxView;
+@property(nonatomic,strong) O2OMethodTraceView *traceView;
+
+@property(nonatomic,strong,readwrite) UIView* currentView;
+@property(nonatomic,assign,readwrite) NSInteger currentIndex;
 
 @end
 
@@ -74,7 +80,7 @@
     
     //4,settingsview
     self.settingView = [[VZInspectorSettingView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-40) parentViewController:self];
-
+    
     
     
     //4:tab
@@ -132,7 +138,7 @@
 - (void)start
 {
     [self.overview startTimer];
-
+    
 }
 - (void)stop
 {
@@ -160,6 +166,7 @@
              ||_currentView.class == [VZInspectorNetworkHistoryView class]
              ||_currentView.class == [VZInspectorDeviceView class]
              ||_currentView.class == [VZInspectorLocationView class]
+             //             ||_currentView.class == [O2OMethodTraceView class]
              )
     {
         return NO;
@@ -184,6 +191,13 @@
         }
         else
             return YES;
+    }
+    else if (_currentView.class == [O2OMethodTraceView class])
+    {
+        if (pt.y > 90) {
+            return YES;
+        }
+        return NO;
     }
     else
     {
@@ -213,7 +227,7 @@
     if (sender.tag != 14) {
         [sender setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
     }
-
+    
     switch (sender.tag) {
         case 10:
         {
@@ -322,7 +336,7 @@
             [self showNetworkLogs];
             break;
         }
-        
+            
         case kCrashLogs:
         {
             [self showCrashLogs];
@@ -390,6 +404,10 @@
             [self hideFrameRate];
             break;
         }
+        case kMethodTrace:
+        {
+            [self showMethodTrace];
+        }
         default:
             break;
     }
@@ -400,13 +418,13 @@
 {
     VZInspectorSandBoxRootView* sandBoxView = [[VZInspectorSandBoxRootView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) parentViewController:self];
     
-    
+    __weak typeof(self) weakSelf = self;
     [UIView transitionFromView:self.contentView toView:sandBoxView duration:0.4 options:UIViewAnimationOptionTransitionFlipFromLeft completion:^(BOOL finished) {
         
-        [self.contentView removeFromSuperview];
-        [self.view addSubview:sandBoxView];
-        _currentView = sandBoxView;
-        _currentIndex = -1;
+        [weakSelf.contentView removeFromSuperview];
+        [weakSelf.view addSubview:sandBoxView];
+        weakSelf.currentView = sandBoxView;
+        weakSelf.currentIndex = -1;
         
     }];
 }
@@ -415,11 +433,11 @@
 {
     VZInspectorGridView* gridView = [[VZInspectorGridView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) parentViewController:self];
     
-    
+    __weak typeof(self) weakSelf = self;
     [UIView transitionFromView:self.contentView toView:gridView duration:0.4 options:UIViewAnimationOptionTransitionFlipFromLeft completion:^(BOOL finished) {
         
-        [self.contentView removeFromSuperview];
-        [self.view addSubview:gridView];
+        [weakSelf.contentView removeFromSuperview];
+        [weakSelf.view addSubview:gridView];
         _currentView = gridView;
         _currentIndex = -1;
         
@@ -430,14 +448,15 @@
 {
     VZInspectorHeapRootView* heapView = [[VZInspectorHeapRootView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) parentViewController:self];
     
+    __weak typeof(self) weakSelf = self;
     [UIView transitionFromView:self.contentView toView:heapView
                       duration:0.4 options:UIViewAnimationOptionTransitionFlipFromLeft
                     completion:^(BOOL finished) {
                         
-                        [self.contentView removeFromSuperview];
-                        [self.view addSubview:heapView];
-                        _currentView = heapView;
-                        _currentIndex = -1;
+                        [weakSelf.contentView removeFromSuperview];
+                        [weakSelf.view addSubview:heapView];
+                        weakSelf.currentView = heapView;
+                        weakSelf.currentIndex = -1;
                     }];
     
 }
@@ -446,14 +465,15 @@
 {
     VZInspectorNetworkHistoryView* networkView = [[VZInspectorNetworkHistoryView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) parentViewController:self];
     
+    __weak typeof(self) weakSelf = self;
     [UIView transitionFromView:self.contentView toView:networkView
                       duration:0.4 options:UIViewAnimationOptionTransitionFlipFromLeft
                     completion:^(BOOL finished) {
                         
-                        [self.contentView removeFromSuperview];
-                        [self.view addSubview:networkView];
-                        _currentView = networkView;
-                        _currentIndex = -1;
+                        [weakSelf.contentView removeFromSuperview];
+                        [weakSelf.view addSubview:networkView];
+                        weakSelf.currentView = networkView;
+                        weakSelf.currentIndex = -1;
                     }];
     
 }
@@ -462,14 +482,15 @@
 {
     VZInspectorCrashRootView* crashView = [[VZInspectorCrashRootView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) parentViewController:self];
     
+    __weak typeof(self) weakSelf = self;
     [UIView transitionFromView:self.contentView toView:crashView
                       duration:0.4 options:UIViewAnimationOptionTransitionFlipFromLeft
                     completion:^(BOOL finished) {
                         
-                        [self.contentView removeFromSuperview];
-                        [self.view addSubview:crashView];
-                        _currentView = crashView;
-                        _currentIndex = -1;
+                        [weakSelf.contentView removeFromSuperview];
+                        [weakSelf.view addSubview:crashView];
+                        weakSelf.currentView = crashView;
+                        weakSelf.currentIndex = -1;
                     }];
     
 }
@@ -489,13 +510,13 @@
 {
     VZInspectorDeviceView * deviceView = [[VZInspectorDeviceView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) parentViewController:self];
     
-    
+    __weak typeof(self) weakSelf = self;
     [UIView transitionFromView:self.contentView toView:deviceView duration:0.4 options:UIViewAnimationOptionTransitionFlipFromLeft completion:^(BOOL finished) {
         
-        [self.contentView removeFromSuperview];
-        [self.view addSubview:deviceView];
-        _currentView = deviceView;
-        _currentIndex = -1;
+        [weakSelf.contentView removeFromSuperview];
+        [weakSelf.view addSubview:deviceView];
+        weakSelf.currentView = deviceView;
+        weakSelf.currentIndex = -1;
         
     }];
 }
@@ -519,13 +540,12 @@
 {
     VZInspectorLocationView * locationView = [[VZInspectorLocationView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) parentViewController:self];
     
-    
+    __weak typeof(self) weakSelf = self;
     [UIView transitionFromView:self.contentView toView:locationView duration:0.4 options:UIViewAnimationOptionTransitionFlipFromLeft completion:^(BOOL finished) {
-        
-        [self.contentView removeFromSuperview];
-        [self.view addSubview:locationView];
-        _currentView = locationView;
-        _currentIndex = -1;
+        [weakSelf.contentView removeFromSuperview];
+        [weakSelf.view addSubview:locationView];
+        weakSelf.currentView = locationView;
+        weakSelf.currentIndex = -1;
         
     }];
 }
@@ -538,6 +558,25 @@
 - (void)hideFrameRate {
     [VZFrameRateOverlay stop];
     [self onClose];
+}
+
+- (void)showMethodTrace {
+    __weak typeof(self) weakSelf = self;
+    O2OMethodTraceInputView *inputView = [O2OMethodTrace inputView];
+    inputView.showTraceViewBlock = ^(NSString *className) {
+        [weakSelf.contentView removeFromSuperview];
+        [weakSelf.view addSubview:[weakSelf traceViewWithClassName:className]];
+        weakSelf.currentView = weakSelf.traceView;
+        weakSelf.currentIndex = -1;
+    };
+    [_currentView addSubview:inputView];
+}
+
+- (O2OMethodTraceView *)traceViewWithClassName:(NSString *)className {
+    _traceView = [[O2OMethodTraceView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) parentViewController:self];
+    _traceView.className = className;
+    
+    return _traceView;
 }
 
 @end
