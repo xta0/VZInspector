@@ -29,8 +29,13 @@
     Method *methodList = class_copyMethodList(className, &methodCount);
     
     for (int i = 0; i < methodCount; i++) {
+        if ([NSStringFromSelector(method_getName(methodList[i])) isEqualToString:@"dealloc"]) {
+            continue;
+        }
+        
         char returnTypeBuffer[dstLength];
         method_getReturnType(methodList[i], returnTypeBuffer, dstLength);
+        
         O2OMethodTraceType returnType = typeEncoding([NSString stringWithUTF8String:returnTypeBuffer]);
         SEL originSelector = method_getName(methodList[i]);
         NSString *swizzleName = [NSString stringWithFormat:@"%@_%@", o2oSwizzlePrefix, NSStringFromSelector(originSelector)];
@@ -79,6 +84,9 @@
                 break;
             case O2OMethodTraceTypeVoid:
                 didAddMethod = class_addMethod(className, newSelector, (IMP)voidMethodImp, method_getTypeEncoding(methodList[i]));
+                break;
+            case O2OMethodTraceTypeVoidPointer:
+                didAddMethod = class_addMethod(className, newSelector, (IMP)voidPointerMethodImp, method_getTypeEncoding(methodList[i]));
                 break;
             case O2OMethodTraceTypeCharPointer:
                 didAddMethod = class_addMethod(className, newSelector, (IMP)charPointerMethodImp, method_getTypeEncoding(methodList[i]));

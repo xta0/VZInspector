@@ -41,6 +41,8 @@ O2OMethodTraceType typeEncoding(NSString* type) {
         return O2OMethodTraceTypeBool;
     } else if (strncmp([type UTF8String], "v", 1) == 0) {
         return O2OMethodTraceTypeVoid;
+    } else if (strncmp([type UTF8String], "^", 1) == 0) {
+        return O2OMethodTraceTypeVoidPointer;
     } else if (strncmp([type UTF8String], "*", 1) == 0) {
         return O2OMethodTraceTypeCharPointer;
     } else if (strncmp([type UTF8String], "@", 1) == 0) {

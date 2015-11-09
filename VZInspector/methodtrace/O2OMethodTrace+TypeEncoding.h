@@ -24,6 +24,7 @@ typedef NS_ENUM(NSUInteger, O2OMethodTraceType) {
     O2OMethodTraceTypeDouble,
     O2OMethodTraceTypeBool,
     O2OMethodTraceTypeVoid,
+    O2OMethodTraceTypeVoidPointer,
     O2OMethodTraceTypeCharPointer,
     O2OMethodTraceTypeObject,
     O2OMethodTraceTypeClass,

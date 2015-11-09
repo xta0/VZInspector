@@ -40,6 +40,8 @@ BOOL boolMethodImp(id self, SEL _cmd, ...);
 
 void voidMethodImp(id self, SEL _cmd, ...);
 
+void* voidPointerMethodImp(id self, SEL _cmd, ...);
+
 char* charPointerMethodImp(id self, SEL _cmd, ...);
 
 id idMethodImp(id self, SEL _cmd, ...);

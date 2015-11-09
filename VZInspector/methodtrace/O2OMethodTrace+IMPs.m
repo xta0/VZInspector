@@ -113,9 +113,15 @@ void addArguments(NSInvocation *invocation, va_list list) {
                 [invocation setArgument:&argument atIndex:i];
                 break;
             }
+            case O2OMethodTraceTypeVoidPointer:
+            {
+                char *argument = va_arg(list, void*);
+                [invocation setArgument:argument atIndex:i];
+                break;
+            }
             case O2OMethodTraceTypeCharPointer:
             {
-                char* argument = va_arg(list, char*);
+                char *argument = va_arg(list, char*);
                 [invocation setArgument:&argument atIndex:i];
                 break;
             }
@@ -299,6 +305,15 @@ BOOL boolMethodImp(id self, SEL _cmd, ...) {
 void voidMethodImp(id self, SEL _cmd, ...) {
     createAndCallInvocation;
     statisticsSnippet;
+}
+
+void* voidPointerMethodImp(id self, SEL _cmd, ...) {
+    createAndCallInvocation;
+    statisticsSnippet;
+    
+    void *returnValue;
+    [invocation getReturnValue:&returnValue];
+    return returnValue;
 }
 
 char* charPointerMethodImp(id self, SEL _cmd, ...) {

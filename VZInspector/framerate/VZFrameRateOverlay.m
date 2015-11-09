@@ -11,9 +11,13 @@
 #import "VZInspectorResource.h"
 #import "VZInspectorOverlay.h"
 
+#define kVZHistoryTimeStampLength 42
+
 @interface VZFrameRateOverlay ()
 @property (nonatomic, strong) CADisplayLink *displayLink;
 @property (nonatomic, strong) UILabel *frameRateLabel;
+@property (nonatomic, assign) CFTimeInterval lastTimeStamp;
+@property (nonatomic, assign) CFTimeInterval *historyTimeStamp;
 @end
 
 @implementation VZFrameRateOverlay
@@ -56,6 +60,9 @@
     if (self) {
         self.backgroundColor = [UIColor clearColor];
         
+        _lastTimeStamp = CACurrentMediaTime();
+        _historyTimeStamp = malloc(sizeof(CFTimeInterval) * kVZHistoryTimeStampLength);
+        
         _displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(displayLinkTick:)];
         [_displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
         _displayLink.paused = YES;
@@ -94,8 +101,22 @@
 }
 
 - (void)displayLinkTick:(CADisplayLink *)displayLink {
-    CGFloat frameRate = 1/displayLink.duration < 60 ? 1/displayLink.duration : 60;
-    _frameRateLabel.text = [NSString stringWithFormat:@"%.ffps", frameRate];
+    CFTimeInterval frameInterval = displayLink.timestamp - self.lastTimeStamp;
+    NSUInteger totalCount = 0;
+    CFTimeInterval totalInterval;
+    
+    for (NSUInteger i = kVZHistoryTimeStampLength - 1; i > 0; i--) {
+        self.historyTimeStamp[i] = self.historyTimeStamp[i - 1];
+        totalCount++;
+        totalInterval += self.historyTimeStamp[i - 1];
+    }
+    self.historyTimeStamp[0] = frameInterval;
+    totalCount++;
+    totalInterval += frameInterval;
+    
+    self.lastTimeStamp = displayLink.timestamp;
+
+    self.frameRateLabel.text = [NSString stringWithFormat:@"%.ffps", 1 / (totalInterval / totalCount)];
 }
 
 - (void)onSelfClicked:(UILabel *)sender {
