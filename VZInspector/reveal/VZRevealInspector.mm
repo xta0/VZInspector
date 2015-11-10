@@ -14,7 +14,7 @@
 
 - (void)show
 {
-    UIWindow* wnd = [[UIApplication sharedApplication].delegate window];
+    //UIWindow* wnd = [[UIApplication sharedApplication].delegate window];
     
     
 }

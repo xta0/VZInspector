@@ -212,7 +212,7 @@ void NS_INLINE vz_drawSingleLine(CGContextRef context, CGPoint startPt, CGPoint 
 
 void NS_INLINE vz_drawStringInRect(NSString* str, CGRect rect, UIFont* font)
 {
-    CGSize sz = [str sizeWithFont:font constrainedToSize:rect.size];
+   // CGSize sz = [str sizeWithFont:font constrainedToSize:rect.size];
     
     [str drawInRect:rect withFont:font lineBreakMode:NSLineBreakByTruncatingTail alignment:NSTextAlignmentCenter];
 }

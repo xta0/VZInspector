@@ -52,10 +52,9 @@ void vz_SignalHandler(int sig)
     int frames = backtrace(callstack, 128);
     char **strs = backtrace_symbols(callstack, frames);
     
-    int i;
     NSMutableArray *backtrace = [NSMutableArray arrayWithCapacity:frames];
     
-    for (i = 0;i < 32;i++)
+    for (int i = 0;i < 32;i++)
     {
         [backtrace addObject:[NSString stringWithUTF8String:strs[i]]];
     }
@@ -219,14 +218,15 @@ void vz_SignalHandler(int sig)
         NSLog(@"VZInspector:save crash report succeed!");
     
     [_plist insertObject:dateString atIndex:0];
-    [_plist writeToFile:[_crashLogPath stringByAppendingPathComponent:@"crashLog.plist"] atomically:YES];
+   // [_plist writeToFile:[_crashLogPath stringByAppendingPathComponent:@"crashLog.plist"] atomically:YES];
     
     if (_plist.count > maxCrashLogNum)
     {
         [[NSFileManager defaultManager] removeItemAtPath:[_crashLogPath stringByAppendingPathComponent:_plist[0]] error:nil];
-        [_plist removeObject:0];
-        [_plist writeToFile:[_crashLogPath stringByAppendingPathComponent:@"crashLog.plist"] atomically:YES];
+        [_plist removeObjectAtIndex:0];
+        
     }
+    [_plist writeToFile:[_crashLogPath stringByAppendingPathComponent:@"crashLog.plist"] atomically:YES];
 }
 
 @end

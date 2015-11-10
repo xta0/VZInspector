@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1F022CD61ADD581F00325F3C /* VZRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F022CD51ADD581F00325F3C /* VZRootViewController.m */; };
 		1FFC39B81B9EB6620062A0F1 /* VZFrameRateOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FFC39B71B9EB6620062A0F1 /* VZFrameRateOverlay.m */; };
+		4597A29B1BE9DC5F003EFFF9 /* VZFPSInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = 4597A29A1BE9DC5F003EFFF9 /* VZFPSInspector.m */; };
 		459B264C1B182F49009BB189 /* VZBorderInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = 459B25DF1B182F48009BB189 /* VZBorderInspector.m */; };
 		459B264D1B182F49009BB189 /* VZInspectorConsoleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 459B25E21B182F48009BB189 /* VZInspectorConsoleView.m */; };
 		459B264E1B182F49009BB189 /* NSObject+VZInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = 459B25E51B182F48009BB189 /* NSObject+VZInspector.m */; };
@@ -79,6 +80,8 @@
 		1F022CD51ADD581F00325F3C /* VZRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZRootViewController.m; sourceTree = "<group>"; };
 		1FFC39B61B9EB6620062A0F1 /* VZFrameRateOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZFrameRateOverlay.h; sourceTree = "<group>"; };
 		1FFC39B71B9EB6620062A0F1 /* VZFrameRateOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZFrameRateOverlay.m; sourceTree = "<group>"; };
+		4597A2991BE9DC5F003EFFF9 /* VZFPSInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZFPSInspector.h; sourceTree = "<group>"; };
+		4597A29A1BE9DC5F003EFFF9 /* VZFPSInspector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZFPSInspector.m; sourceTree = "<group>"; };
 		459B25DE1B182F48009BB189 /* VZBorderInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZBorderInspector.h; sourceTree = "<group>"; };
 		459B25DF1B182F48009BB189 /* VZBorderInspector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZBorderInspector.m; sourceTree = "<group>"; };
 		459B25E11B182F48009BB189 /* VZInspectorConsoleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorConsoleView.h; sourceTree = "<group>"; };
@@ -229,9 +232,19 @@
 			path = framerate;
 			sourceTree = "<group>";
 		};
+		4597A2981BE9DC48003EFFF9 /* fps */ = {
+			isa = PBXGroup;
+			children = (
+				4597A2991BE9DC5F003EFFF9 /* VZFPSInspector.h */,
+				4597A29A1BE9DC5F003EFFF9 /* VZFPSInspector.m */,
+			);
+			path = fps;
+			sourceTree = "<group>";
+		};
 		459B25DC1B182F48009BB189 /* VZInspector */ = {
 			isa = PBXGroup;
 			children = (
+				4597A2981BE9DC48003EFFF9 /* fps */,
 				459B25E31B182F48009BB189 /* core */,
 				52400ADE1B6E80D80077CBB3 /* location */,
 				1FFC39B51B9EB6380062A0F1 /* framerate */,
@@ -685,6 +698,7 @@
 				459B26791B182F49009BB189 /* VZInspector.m in Sources */,
 				459B264E1B182F49009BB189 /* NSObject+VZInspector.m in Sources */,
 				459B26561B182F49009BB189 /* VZInspectorWindow.m in Sources */,
+				4597A29B1BE9DC5F003EFFF9 /* VZFPSInspector.m in Sources */,
 				459B264D1B182F49009BB189 /* VZInspectorConsoleView.m in Sources */,
 				459B264C1B182F49009BB189 /* VZBorderInspector.m in Sources */,
 				459B26691B182F49009BB189 /* VZInspectorNetworkHistoryView.m in Sources */,
