@@ -10,14 +10,7 @@
 
 #define kVZDefaultNumberOfLogs 20
 
-@interface VZLogInspectorEntity:NSObject
 
-@property (nonatomic, strong)   NSDate *date;
-@property (nonatomic, copy)     NSString *sender;
-@property (nonatomic, copy)     NSString *messageText;
-@property (nonatomic, assign)   long long messageID;
-
-@end
 
 @interface VZLogInspector : NSObject
 

@@ -7,14 +7,68 @@
 //
 
 #import "VZLogInspector.h"
-#import <asl.h>
-# include <stdio.h>
 #import "VZInspectorUtility.h"
+#include <asl.h>
+#include <stdio.h>
 
 
-@interface VZLogInspectorEntity()
+@interface VZLogInspectorEntity:NSObject
 
-+ (instancetype)messageFromASLMessage:(aslmsg)aslMessage;
+@property (nonatomic, strong)   NSDate *date;
+@property (nonatomic, copy)     NSString *sender;
+@property (nonatomic, copy)     NSString *messageText;
+@property (nonatomic, assign)   long long messageID;
+
++(instancetype)messageFromASLMessage:(aslmsg)aslMessage;
+
+@end
+
+
+@implementation VZLogInspectorEntity
+
++(instancetype)messageFromASLMessage:(aslmsg)aslMessage
+{
+    VZLogInspectorEntity *logMessage = [[VZLogInspectorEntity alloc] init];
+    
+    const char *timestamp = asl_get(aslMessage, ASL_KEY_TIME);
+    if (timestamp) {
+        NSTimeInterval timeInterval = [@(timestamp) integerValue];
+        const char *nanoseconds = asl_get(aslMessage, ASL_KEY_TIME_NSEC);
+        if (nanoseconds) {
+            timeInterval += [@(nanoseconds) doubleValue] / NSEC_PER_SEC;
+        }
+        logMessage.date = [NSDate dateWithTimeIntervalSince1970:timeInterval];
+    }
+    
+    const char *sender = asl_get(aslMessage, ASL_KEY_SENDER);
+    if (sender) {
+        logMessage.sender = @(sender);
+    }
+    
+    const char *messageText = asl_get(aslMessage, ASL_KEY_MSG);
+    if (messageText) {
+        logMessage.messageText = @(messageText);
+        
+    }
+    
+    const char *messageID = asl_get(aslMessage, ASL_KEY_MSG_ID);
+    if (messageID) {
+        logMessage.messageID = [@(messageID) longLongValue];
+        
+    }
+    
+    return logMessage;
+}
+
+- (BOOL)isEqual:(id)object
+{
+    return [object isKindOfClass:[VZLogInspectorEntity class]] && self.messageID == [object messageID];
+}
+
+- (NSUInteger)hash
+{
+    return (NSUInteger)self.messageID;
+}
 
 @end
 
@@ -51,6 +105,8 @@ extern void asl_release(asl_object_t obj) __attribute__((weak_import));
 + (NSArray* )logs
 {
 
+    NSArray* ret = @[];
+    
     asl_object_t query = asl_new(ASL_TYPE_QUERY);
     char pidStr[100];
     sprintf(pidStr,"%d",[[NSProcessInfo processInfo] processIdentifier]);
@@ -58,30 +114,51 @@ extern void asl_release(asl_object_t obj) __attribute__((weak_import));
     
     //this is too slow!
     aslresponse response = asl_search(NULL, query);
-    NSUInteger numberOfLogs = [VZLogInspector sharedInstance].numberOfLogs;
-    NSMutableArray *logMessages = [NSMutableArray arrayWithCapacity:numberOfLogs];
- 
-    for (int i=0; i<numberOfLogs; i++) {
-        
-        size_t count = asl_count(response);
-        
-        size_t index = count - numberOfLogs - 1 + i;
-        
-        aslmsg msg = asl_get_index(response, index);
-   
-        if (msg != NULL) {
-            
-            VZLogInspectorEntity* entity = [VZLogInspectorEntity messageFromASLMessage:msg];
-            [logMessages insertObject:entity atIndex:0];
-        }
-        else
-            break;
-    }
-
-    asl_release(response);
-    [VZLogInspector sharedInstance].logMessages = logMessages;
     
-    return logMessages;
+    if (response != NULL) {
+        
+        NSUInteger numberOfLogs = [VZLogInspector sharedInstance].numberOfLogs;
+        NSMutableArray *logMessages = [NSMutableArray arrayWithCapacity:numberOfLogs];
+        
+        for (int i=0; i<numberOfLogs; i++) {
+            
+            size_t count = asl_count(response);
+            
+            size_t index = count - numberOfLogs - 1 + i;
+            
+            aslmsg msg = asl_get_index(response, index);
+            
+            if (msg != NULL) {
+                
+                VZLogInspectorEntity* entity = [VZLogInspectorEntity messageFromASLMessage:msg];
+                [logMessages insertObject:entity atIndex:0];
+            }
+            else
+                break;
+        }
+        
+        [VZLogInspector sharedInstance].logMessages = logMessages;
+        ret = [logMessages copy];
+
+    }
+    else{
+        VZLogInspectorEntity* entity = [VZLogInspectorEntity new];
+        entity.date = [NSDate date];
+        entity.sender = @"VZInspector";
+        entity.messageText = @"[Error]-->Can not read device log!";
+        entity.messageID = -1;
+        ret = @[entity];
+    }
+    
+    if (query != NULL) {
+        asl_free(query);
+    }
+    
+    if (response != NULL) {
+        asl_release(response);
+    }
+ 
+    return ret;
 }
 
 
@@ -128,50 +205,5 @@ extern void asl_release(asl_object_t obj) __attribute__((weak_import));
 @end
 
 
-@implementation VZLogInspectorEntity
 
-+(instancetype)messageFromASLMessage:(aslmsg)aslMessage
-{
-    VZLogInspectorEntity *logMessage = [[VZLogInspectorEntity alloc] init];
-    
-    const char *timestamp = asl_get(aslMessage, ASL_KEY_TIME);
-    if (timestamp) {
-        NSTimeInterval timeInterval = [@(timestamp) integerValue];
-        const char *nanoseconds = asl_get(aslMessage, ASL_KEY_TIME_NSEC);
-        if (nanoseconds) {
-            timeInterval += [@(nanoseconds) doubleValue] / NSEC_PER_SEC;
-        }
-        logMessage.date = [NSDate dateWithTimeIntervalSince1970:timeInterval];
-    }
-    
-    const char *sender = asl_get(aslMessage, ASL_KEY_SENDER);
-    if (sender) {
-        logMessage.sender = @(sender);
-    }
-    
-    const char *messageText = asl_get(aslMessage, ASL_KEY_MSG);
-    if (messageText) {
-        logMessage.messageText = @(messageText);
-        
-    }
-    
-    const char *messageID = asl_get(aslMessage, ASL_KEY_MSG_ID);
-    if (messageID) {
-        logMessage.messageID = [@(messageID) longLongValue];
-
-    }
-    
-    return logMessage;
-}
-
-- (BOOL)isEqual:(id)object
-{
-    return [object isKindOfClass:[VZLogInspectorEntity class]] && self.messageID == [object messageID];
-}
-
-- (NSUInteger)hash
-{
-    return (NSUInteger)self.messageID;
-}
-
-@end
+//@end

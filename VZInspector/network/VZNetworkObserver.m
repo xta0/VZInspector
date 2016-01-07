@@ -495,15 +495,33 @@ didBecomeDownloadTask:(NSURLSessionDownloadTask *)downloadTask delegate:(id <NSU
             }
             
             NSURLSessionTask *(^asyncDataOrDownloadSwizzleBlock)(Class, id, NSURLSessionAsyncCompletion) = ^NSURLSessionTask *(Class slf, id argument, NSURLSessionAsyncCompletion completion) {
+               
                 NSURLSessionTask *task = nil;
+                
+                //监控开启
                 if ([VZNetworkObserver isEnabled]) {
+                
+                    //获取本次request对应的id
                     NSString *requestID = [self nextRequestID];
+                    
+                    //获取方法名
                     NSString *mechanism = [self mechansimFromClassMethod:selector onClass:class];
+      
+                    //回调callback
                     NSURLSessionAsyncCompletion completionWrapper = [self asyncCompletionWrapperForRequestID:requestID mechanism:mechanism completion:completion];
+                    
                     task = ((id(*)(id, SEL, id, id))objc_msgSend)(slf, swizzledSelector, argument, completionWrapper);
+                    
+                    //记录这次请求
+                    [[VZNetworkRecorder defaultRecorder] recordRequestWillBeSentWithRequestID:requestID request:task.currentRequest redirectResponse:nil];
+                    
                     [self setRequestID:requestID forConnectionOrTask:task];
-                } else {
+                
+                }
+                else
+                {
                     task = ((id(*)(id, SEL, id, id))objc_msgSend)(slf, swizzledSelector, argument, completion);
+
                 }
                 return task;
             };
