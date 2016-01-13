@@ -12,13 +12,15 @@
 #import "VZNetworkRecorder.h"
 #import <objc/runtime.h>
 
-@interface UITableViewCell(Index)
+
+
+@interface UITableViewCell(VZIndex)
 
 @property(nonatomic,strong) NSIndexPath* indexPath;
 
 @end
 
-@implementation UITableViewCell(Index)
+@implementation UITableViewCell(VZIndex)
 
 - (void)setIndexPath:(NSIndexPath *)indexPath
 {
@@ -31,6 +33,8 @@
 }
 
 @end
+
+
 
 @interface VZInspectorNetworkDetailSection : NSObject
 
@@ -311,6 +315,8 @@
         postBodySizeRow.detailText = [NSByteCountFormatter stringFromByteCount:[transaction.request.HTTPBody length] countStyle:NSByteCountFormatterCountStyleBinary];
         [rows addObject:postBodySizeRow];
         
+        
+        
         VZInspectorNetworkDetailRow *postBodyRow = [[VZInspectorNetworkDetailRow alloc] init];
         postBodyRow.title = @"Request Body";
         postBodyRow.detailText = @"tap to view";
@@ -359,8 +365,10 @@
     
     VZInspectorNetworkDetailRow *responseSizeRow = [[VZInspectorNetworkDetailRow alloc] init];
     responseSizeRow.title = @"Response Size";
-    responseSizeRow.detailText = [NSByteCountFormatter stringFromByteCount:transaction.receivedDataLength countStyle:NSByteCountFormatterCountStyleBinary];
+    responseSizeRow.detailText = [[[[NSByteCountFormatter stringFromByteCount:transaction.receivedDataLength countStyle:NSByteCountFormatterCountStyleBinary] stringByAppendingString:@"/ "] stringByAppendingString:[NSByteCountFormatter stringFromByteCount:transaction.gzipDataLength countStyle:NSByteCountFormatterCountStyleBinary]] stringByAppendingString:@"(gzip)"];
     [rows addObject:responseSizeRow];
+    
+    
     
     VZInspectorNetworkDetailRow *mimeTypeRow = [[VZInspectorNetworkDetailRow alloc] init];
     mimeTypeRow.title = @"MIME Type";
@@ -475,3 +483,4 @@
 
 
 @end
+

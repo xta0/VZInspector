@@ -32,7 +32,7 @@ typedef NS_ENUM(NSInteger, VZNetworkTransactionState) {
 @property (nonatomic, strong) NSDate *startTime;
 @property (nonatomic, assign) NSTimeInterval latency;
 @property (nonatomic, assign) NSTimeInterval duration;
-
+@property (nonatomic, assign) int64_t gzipDataLength;
 @property (nonatomic, assign) int64_t receivedDataLength;
 
 /// Only applicable for image downloads. A small thumbnail to preview the full response.
