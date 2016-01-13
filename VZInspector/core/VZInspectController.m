@@ -29,8 +29,6 @@
 #import "VZImageInspector.h"
 #import "VZInspectorLocationView.h"
 #import "VZFrameRateOverlay.h"
-#import "O2OMethodTraceHeader.h"
-#import "O2OMethodTraceInputView.h"
 
 @interface VZInspectController()<VZInspectorToolboxViewCallback>
 
@@ -39,8 +37,6 @@
 @property(nonatomic,strong) VZInspectorLogView* logView;
 @property(nonatomic,strong) VZInspectorSettingView* settingView;
 @property(nonatomic,strong) VZInspectorToolboxView* toolboxView;
-@property(nonatomic,strong) O2OMethodTraceView *traceView;
-
 @property(nonatomic,strong,readwrite) UIView* currentView;
 @property(nonatomic,assign,readwrite) NSInteger currentIndex;
 
@@ -166,7 +162,6 @@
              ||_currentView.class == [VZInspectorNetworkHistoryView class]
              ||_currentView.class == [VZInspectorDeviceView class]
              ||_currentView.class == [VZInspectorLocationView class]
-             //             ||_currentView.class == [O2OMethodTraceView class]
              )
     {
         return NO;
@@ -183,20 +178,6 @@
     }
     else if (_currentView == self.settingView)
     {
-        if (pt.y < 40) {
-            return NO;
-        }
-        else if (pt.y > h-40 ) {
-            return NO;
-        }
-        else
-            return YES;
-    }
-    else if (_currentView.class == [O2OMethodTraceView class])
-    {
-        if (pt.y > 20) {
-            return YES;
-        }
         return NO;
     }
     else
@@ -404,10 +385,6 @@
             [self hideFrameRate];
             break;
         }
-        case kMethodTrace:
-        {
-            [self showMethodTrace];
-        }
         default:
             break;
     }
@@ -560,23 +537,5 @@
     [self onClose];
 }
 
-- (void)showMethodTrace {
-    __weak typeof(self) weakSelf = self;
-    O2OMethodTraceInputView *inputView = [O2OMethodTrace inputView];
-    inputView.showTraceViewBlock = ^(NSString *className) {
-        [weakSelf.contentView removeFromSuperview];
-        [weakSelf.view addSubview:[weakSelf traceViewWithClassName:className]];
-        weakSelf.currentView = weakSelf.traceView;
-        weakSelf.currentIndex = -1;
-    };
-    [_currentView addSubview:inputView];
-}
-
-- (O2OMethodTraceView *)traceViewWithClassName:(NSString *)className {
-    _traceView = [[O2OMethodTraceView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) parentViewController:self];
-    _traceView.className = className;
-    
-    return _traceView;
-}
 
 @end

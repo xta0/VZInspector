@@ -56,8 +56,7 @@ static NSMutableArray *tools;
                            @{@"Device":[VZInspectorResource device]},
                            @{@"Image":[VZInspectorResource image]},
                            @{@"Location":[VZInspectorResource location]},
-                           @{@"FrameRate":[VZInspectorResource frameRate]},
-                           @{@"MTrace":[VZInspectorResource location]}
+                           @{@"FrameRate":[VZInspectorResource frameRate]}
                            ];
         
         NSMutableArray *additionIcons = [NSMutableArray arrayWithArray:_originalIcons];
@@ -203,12 +202,6 @@ static NSMutableArray *tools;
             }
             break;
         }
-        case 12:
-        {
-            _type = kMethodTrace;
-            break;
-        }
-
         default:
             _type = kDefault;
             break;

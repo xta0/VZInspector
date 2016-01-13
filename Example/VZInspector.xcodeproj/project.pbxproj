@@ -9,13 +9,6 @@
 /* Begin PBXBuildFile section */
 		1F022CD61ADD581F00325F3C /* VZRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F022CD51ADD581F00325F3C /* VZRootViewController.m */; };
 		1FFC39B81B9EB6620062A0F1 /* VZFrameRateOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FFC39B71B9EB6620062A0F1 /* VZFrameRateOverlay.m */; };
-		45007D481BF18DB0001B3C4E /* O2OMethodTrace+IMPs.m in Sources */ = {isa = PBXBuildFile; fileRef = 45007D3C1BF18DB0001B3C4E /* O2OMethodTrace+IMPs.m */; };
-		45007D491BF18DB0001B3C4E /* O2OMethodTrace+Statistic.m in Sources */ = {isa = PBXBuildFile; fileRef = 45007D3E1BF18DB0001B3C4E /* O2OMethodTrace+Statistic.m */; };
-		45007D4A1BF18DB0001B3C4E /* O2OMethodTrace+TypeEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 45007D401BF18DB0001B3C4E /* O2OMethodTrace+TypeEncoding.m */; };
-		45007D4B1BF18DB0001B3C4E /* O2OMethodTrace.m in Sources */ = {isa = PBXBuildFile; fileRef = 45007D421BF18DB0001B3C4E /* O2OMethodTrace.m */; };
-		45007D4C1BF18DB0001B3C4E /* O2OMethodTraceInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45007D451BF18DB0001B3C4E /* O2OMethodTraceInputView.m */; };
-		45007D4D1BF18DB0001B3C4E /* O2OMethodTraceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45007D471BF18DB0001B3C4E /* O2OMethodTraceView.m */; };
-		4597A29B1BE9DC5F003EFFF9 /* VZFPSInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = 4597A29A1BE9DC5F003EFFF9 /* VZFPSInspector.m */; };
 		459B264C1B182F49009BB189 /* VZBorderInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = 459B25DF1B182F48009BB189 /* VZBorderInspector.m */; };
 		459B264D1B182F49009BB189 /* VZInspectorConsoleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 459B25E21B182F48009BB189 /* VZInspectorConsoleView.m */; };
 		459B264E1B182F49009BB189 /* NSObject+VZInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = 459B25E51B182F48009BB189 /* NSObject+VZInspector.m */; };
@@ -86,21 +79,6 @@
 		1F022CD51ADD581F00325F3C /* VZRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZRootViewController.m; sourceTree = "<group>"; };
 		1FFC39B61B9EB6620062A0F1 /* VZFrameRateOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZFrameRateOverlay.h; sourceTree = "<group>"; };
 		1FFC39B71B9EB6620062A0F1 /* VZFrameRateOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZFrameRateOverlay.m; sourceTree = "<group>"; };
-		45007D3B1BF18DB0001B3C4E /* O2OMethodTrace+IMPs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "O2OMethodTrace+IMPs.h"; sourceTree = "<group>"; };
-		45007D3C1BF18DB0001B3C4E /* O2OMethodTrace+IMPs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "O2OMethodTrace+IMPs.m"; sourceTree = "<group>"; };
-		45007D3D1BF18DB0001B3C4E /* O2OMethodTrace+Statistic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "O2OMethodTrace+Statistic.h"; sourceTree = "<group>"; };
-		45007D3E1BF18DB0001B3C4E /* O2OMethodTrace+Statistic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "O2OMethodTrace+Statistic.m"; sourceTree = "<group>"; };
-		45007D3F1BF18DB0001B3C4E /* O2OMethodTrace+TypeEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "O2OMethodTrace+TypeEncoding.h"; sourceTree = "<group>"; };
-		45007D401BF18DB0001B3C4E /* O2OMethodTrace+TypeEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "O2OMethodTrace+TypeEncoding.m"; sourceTree = "<group>"; };
-		45007D411BF18DB0001B3C4E /* O2OMethodTrace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = O2OMethodTrace.h; sourceTree = "<group>"; };
-		45007D421BF18DB0001B3C4E /* O2OMethodTrace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = O2OMethodTrace.m; sourceTree = "<group>"; };
-		45007D431BF18DB0001B3C4E /* O2OMethodTraceHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = O2OMethodTraceHeader.h; sourceTree = "<group>"; };
-		45007D441BF18DB0001B3C4E /* O2OMethodTraceInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = O2OMethodTraceInputView.h; sourceTree = "<group>"; };
-		45007D451BF18DB0001B3C4E /* O2OMethodTraceInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = O2OMethodTraceInputView.m; sourceTree = "<group>"; };
-		45007D461BF18DB0001B3C4E /* O2OMethodTraceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = O2OMethodTraceView.h; sourceTree = "<group>"; };
-		45007D471BF18DB0001B3C4E /* O2OMethodTraceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = O2OMethodTraceView.m; sourceTree = "<group>"; };
-		4597A2991BE9DC5F003EFFF9 /* VZFPSInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZFPSInspector.h; sourceTree = "<group>"; };
-		4597A29A1BE9DC5F003EFFF9 /* VZFPSInspector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZFPSInspector.m; sourceTree = "<group>"; };
 		459B25DE1B182F48009BB189 /* VZBorderInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZBorderInspector.h; sourceTree = "<group>"; };
 		459B25DF1B182F48009BB189 /* VZBorderInspector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZBorderInspector.m; sourceTree = "<group>"; };
 		459B25E11B182F48009BB189 /* VZInspectorConsoleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorConsoleView.h; sourceTree = "<group>"; };
@@ -251,40 +229,9 @@
 			path = framerate;
 			sourceTree = "<group>";
 		};
-		45007D3A1BF18DB0001B3C4E /* methodtrace */ = {
-			isa = PBXGroup;
-			children = (
-				45007D3B1BF18DB0001B3C4E /* O2OMethodTrace+IMPs.h */,
-				45007D3C1BF18DB0001B3C4E /* O2OMethodTrace+IMPs.m */,
-				45007D3D1BF18DB0001B3C4E /* O2OMethodTrace+Statistic.h */,
-				45007D3E1BF18DB0001B3C4E /* O2OMethodTrace+Statistic.m */,
-				45007D3F1BF18DB0001B3C4E /* O2OMethodTrace+TypeEncoding.h */,
-				45007D401BF18DB0001B3C4E /* O2OMethodTrace+TypeEncoding.m */,
-				45007D411BF18DB0001B3C4E /* O2OMethodTrace.h */,
-				45007D421BF18DB0001B3C4E /* O2OMethodTrace.m */,
-				45007D431BF18DB0001B3C4E /* O2OMethodTraceHeader.h */,
-				45007D441BF18DB0001B3C4E /* O2OMethodTraceInputView.h */,
-				45007D451BF18DB0001B3C4E /* O2OMethodTraceInputView.m */,
-				45007D461BF18DB0001B3C4E /* O2OMethodTraceView.h */,
-				45007D471BF18DB0001B3C4E /* O2OMethodTraceView.m */,
-			);
-			path = methodtrace;
-			sourceTree = "<group>";
-		};
-		4597A2981BE9DC48003EFFF9 /* fps */ = {
-			isa = PBXGroup;
-			children = (
-				4597A2991BE9DC5F003EFFF9 /* VZFPSInspector.h */,
-				4597A29A1BE9DC5F003EFFF9 /* VZFPSInspector.m */,
-			);
-			path = fps;
-			sourceTree = "<group>";
-		};
 		459B25DC1B182F48009BB189 /* VZInspector */ = {
 			isa = PBXGroup;
 			children = (
-				45007D3A1BF18DB0001B3C4E /* methodtrace */,
-				4597A2981BE9DC48003EFFF9 /* fps */,
 				459B25E31B182F48009BB189 /* core */,
 				52400ADE1B6E80D80077CBB3 /* location */,
 				1FFC39B51B9EB6380062A0F1 /* framerate */,
@@ -704,7 +651,6 @@
 				459B264F1B182F49009BB189 /* VZInspectController.m in Sources */,
 				459B26761B182F49009BB189 /* VZInspectorToolboxView.m in Sources */,
 				459B26641B182F49009BB189 /* VZInspectorLogView.m in Sources */,
-				45007D4B1BF18DB0001B3C4E /* O2OMethodTrace.m in Sources */,
 				459B266D1B182F49009BB189 /* VZNetworkRecorder.m in Sources */,
 				459B26671B182F49009BB189 /* VZMemoryInspectorOverView.m in Sources */,
 				AF0FC51019D11C66009CCBE4 /* AppDelegate.m in Sources */,
@@ -719,16 +665,12 @@
 				459B26581B182F49009BB189 /* VZCPUInspectorOverView.m in Sources */,
 				52400AE41B6E80D80077CBB3 /* FLFakeConfig.m in Sources */,
 				459B26751B182F49009BB189 /* VZInspectorSandBoxSubView.m in Sources */,
-				45007D481BF18DB0001B3C4E /* O2OMethodTrace+IMPs.m in Sources */,
 				52400AE31B6E80D80077CBB3 /* CLLocationManager+FLFake.m in Sources */,
 				AF0FC50D19D11C66009CCBE4 /* main.m in Sources */,
-				45007D491BF18DB0001B3C4E /* O2OMethodTrace+Statistic.m in Sources */,
 				459B26711B182F49009BB189 /* VZInspectorRevealView.m in Sources */,
 				1FFC39B81B9EB6620062A0F1 /* VZFrameRateOverlay.m in Sources */,
 				459B26551B182F49009BB189 /* VZInspectorView.m in Sources */,
-				45007D4D1BF18DB0001B3C4E /* O2OMethodTraceView.m in Sources */,
 				459B265A1B182F49009BB189 /* VZInspectorCrashRootView.m in Sources */,
-				45007D4A1BF18DB0001B3C4E /* O2OMethodTrace+TypeEncoding.m in Sources */,
 				459B26681B182F49009BB189 /* VZInspectorNetworkDetailView.m in Sources */,
 				459B26591B182F49009BB189 /* VZCrashInspector.m in Sources */,
 				459B26771B182F49009BB189 /* UIWindow+VZInspector.m in Sources */,
@@ -742,9 +684,7 @@
 				459B265B1B182F49009BB189 /* VZInspectorCrashView.m in Sources */,
 				459B26791B182F49009BB189 /* VZInspector.m in Sources */,
 				459B264E1B182F49009BB189 /* NSObject+VZInspector.m in Sources */,
-				45007D4C1BF18DB0001B3C4E /* O2OMethodTraceInputView.m in Sources */,
 				459B26561B182F49009BB189 /* VZInspectorWindow.m in Sources */,
-				4597A29B1BE9DC5F003EFFF9 /* VZFPSInspector.m in Sources */,
 				459B264D1B182F49009BB189 /* VZInspectorConsoleView.m in Sources */,
 				459B264C1B182F49009BB189 /* VZBorderInspector.m in Sources */,
 				459B26691B182F49009BB189 /* VZInspectorNetworkHistoryView.m in Sources */,

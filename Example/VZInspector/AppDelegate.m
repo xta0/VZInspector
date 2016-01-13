@@ -57,7 +57,7 @@
            
             NSLog(@"Release clicked!");
         }];
-
+    
         [VZInspector showOnStatusBar];
     
     return YES;

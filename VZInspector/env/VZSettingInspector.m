@@ -36,7 +36,7 @@
     return self;
 }
 
-+ (NSDictionary* )currentAPIEnvs
++ (NSArray* )currentAPIEnvs
 {
     return [[VZSettingInspector sharedInstance] -> _envs copy];
 }

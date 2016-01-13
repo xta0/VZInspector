@@ -19,12 +19,24 @@
     self = [super initWithFrame:frame];
     if (self) {
         
-        NSArray* envs = [VZSettingInspector currentAPIEnvs];
-
-        for (int i=0; i<envs.count; i++) {
+        
+        NSArray* btns     = [VZSettingInspector currentAPIEnvs];
+        
+        NSUInteger count = btns.count;
+        if (count > 4) {
+            count = 4;
+        }
+        
+        int w = CGRectGetWidth(frame)/count;
+        int h = 40;
+        
+        for (int i=0; i<btns.count; i++) {
             
-            NSDictionary* env = envs[i];
-            UIButton* btn = [[UIButton alloc]initWithFrame:CGRectMake(frame.size.width/envs.count*i, 0, frame.size.width/envs.count, 40)];
+            int x =   w*(i%count);
+            int y =  (i/count)*h;
+            
+            NSDictionary* env = btns[i];
+            UIButton* btn = [[UIButton alloc]initWithFrame:CGRectMake(x,y, w, 40)];
             btn.tag = i;
             btn.backgroundColor = [UIColor darkGrayColor];
             btn.layer.borderColor = [UIColor lightGrayColor].CGColor;
@@ -34,7 +46,7 @@
             [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
             [btn addTarget:self action:@selector(onBtnClikced:) forControlEvents:UIControlEventTouchUpInside];
             [self addSubview:btn];
-            
+
         }
     }
     
