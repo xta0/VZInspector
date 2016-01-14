@@ -168,67 +168,20 @@
         transaction.transactionState = VZNetworkTransactionStateFinished;
         transaction.duration = -[transaction.startTime timeIntervalSinceDate:finishedDate];
         
+        
         //calculate gzip length
         transaction.gzipDataLength = [responseBody vz_getGzipData].length;
         
         BOOL shouldCache = [responseBody length] > 0;
-        if (!self.shouldCacheMediaResponses) {
-            NSArray *ignoredMIMETypePrefixes = @[ @"audio", @"image", @"video" ];
-            for (NSString *ignoredPrefix in ignoredMIMETypePrefixes) {
-                shouldCache = shouldCache && ![transaction.response.MIMEType hasPrefix:ignoredPrefix];
-            }
-        }
         
+        //兼容json，html，protocol buffer三种格式
+        NSArray* shouldCacheMIMETypePrefixes = @[@"application/json",@"text/html",@"application/protobuf"];
+        for (NSString* prefix in shouldCacheMIMETypePrefixes) {
+            shouldCache = shouldCache && [transaction.response.MIMEType hasPrefix:prefix];
+        }
         if (shouldCache) {
             [self.responseCache setObject:responseBody forKey:requestID cost:[responseBody length]];
         }
-        
-        NSString *mimeType = transaction.response.MIMEType;
-        
-        //只兼容json格式
-        if ([mimeType hasPrefix:@"application/json"])
-        {
-           
-            
-        }
-        else if ([mimeType hasPrefix:@"text/html"])
-        {
-        
-        }
-        else
-        {
-            [self.orderedTransactions removeObject:transaction];
-        }
-        
-        
-//        if ([mimeType hasPrefix:@"image/"] && [responseBody length] > 0) {
-//            // Thumbnail image previews on a separate background queue
-//            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-//                NSInteger maxPixelDimension = [[UIScreen mainScreen] scale] * 32.0;
-//                transaction.responseThumbnail = [VZUtility thumbnailedImageWithMaxPixelDimension:maxPixelDimension fromImageData:responseBody];
-//                [self postUpdateNotificationForTransaction:transaction];
-//            });
-//        } else if ([mimeType isEqual:@"application/json"]) {
-//            transaction.responseThumbnail = [VZResources jsonIcon];
-//        } else if ([mimeType isEqual:@"text/plain"]){
-//            transaction.responseThumbnail = [VZResources textPlainIcon];
-//        } else if ([mimeType isEqual:@"text/html"]) {
-//            transaction.responseThumbnail = [VZResources htmlIcon];
-//        } else if ([mimeType isEqual:@"application/x-plist"]) {
-//            transaction.responseThumbnail = [VZResources plistIcon];
-//        } else if ([mimeType isEqual:@"application/octet-stream"] || [mimeType isEqual:@"application/binary"]) {
-//            transaction.responseThumbnail = [VZResources binaryIcon];
-//        } else if ([mimeType rangeOfString:@"javascript"].length > 0) {
-//            transaction.responseThumbnail = [VZResources jsIcon];
-//        } else if ([mimeType rangeOfString:@"xml"].length > 0) {
-//            transaction.responseThumbnail = [VZResources xmlIcon];
-//        } else if ([mimeType hasPrefix:@"audio"]) {
-//            transaction.responseThumbnail = [VZResources audioIcon];
-//        } else if ([mimeType hasPrefix:@"video"]) {
-//            transaction.responseThumbnail = [VZResources videoIcon];
-//        } else if ([mimeType hasPrefix:@"text"]) {
-//            transaction.responseThumbnail = [VZResources textIcon];
-//        }
     });
 }
 
