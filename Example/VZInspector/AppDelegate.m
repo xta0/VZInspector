@@ -47,13 +47,13 @@
             return ret;
         }];
     
-        [VZInspector addAPIEnvType:@"Dev-aaa" Callback:^{
+        [VZInspector addAPIEnvType:@"Dev-aaa" Selected:YES Callback:^{
            
             NSLog(@"Dev-aaa clicked!");
             
         }];
     
-        [VZInspector addAPIEnvType:@"Release" Callback:^{
+        [VZInspector addAPIEnvType:@"Release" Selected: NO Callback:^{
            
             NSLog(@"Release clicked!");
         }];

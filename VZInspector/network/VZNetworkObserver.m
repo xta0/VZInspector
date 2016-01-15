@@ -152,6 +152,9 @@ didBecomeDownloadTask:(NSURLSessionDownloadTask *)downloadTask delegate:(id <NSU
 /// The superclass implementation (and implementations in classes above that) will be executed without inteference if called from the original implementation.
 + (void)sniffWithoutDuplicationForObject:(NSObject *)object selector:(SEL)selector sniffingBlock:(void (^)(void))sniffingBlock originalImplementationBlock:(void (^)(void))originalImplementationBlock
 {
+    if (!object) {
+        return;
+    }
     const void *key = selector;
     
     // Don't run the sniffing block if we're inside a nested call

@@ -80,9 +80,9 @@
     [VZInspectorToolboxView addToolwithName:name icon:icon callback:callback];
 }
 
-+ (void)addAPIEnvType:(NSString* )type Callback:(void(^)(void))callback
++ (void)addAPIEnvType:(NSString* )type Selected:(BOOL)b Callback:(void(^)(void))callback
 {
-    [VZSettingInspector  addAPIEnvType:type Callback:[callback copy]];
+    [VZSettingInspector  addAPIEnvType:type isSelected:b  Callback:[callback copy]];
     
 }
 

@@ -13,7 +13,7 @@ typedef void(^vz_api_env_callback)(void);
 @interface VZSettingInspector : NSObject
 
 + (VZSettingInspector* )sharedInstance;
-+ (void)addAPIEnvType:(NSString* )type Callback:(vz_api_env_callback)callback;
++ (void)addAPIEnvType:(NSString* )type isSelected:(BOOL)b Callback:(vz_api_env_callback)callback;
 + (NSArray* )currentAPIEnvs;
 
 @end

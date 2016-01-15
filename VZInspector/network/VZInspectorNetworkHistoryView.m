@@ -17,6 +17,7 @@
 @property(nonatomic,strong)UITextField* searchBar;
 @property(nonatomic,strong)UILabel* textLabel;
 @property(nonatomic,strong)UIButton* backBtn;
+@property(nonatomic,strong)UIButton* clearBtn;
 @property(nonatomic,strong)UIButton* refreshBtn;
 @property(nonatomic,strong)UITableView* tableView;
 @property(nonatomic,strong)NSArray* items;
@@ -70,12 +71,23 @@
 #pragma clang diagnostic pop
         [headerView addSubview:self.backBtn];
         
-        self.refreshBtn = [[UIButton alloc]initWithFrame:CGRectMake(frame.size.width-10-44, 0, 44, 44)];
-        self.refreshBtn.backgroundColor = [UIColor clearColor];
+        
+        self.clearBtn = [[UIButton alloc] initWithFrame:CGRectMake(frame.size.width - 10 - 60, 7, 30, 30)];
+        self.clearBtn.layer.cornerRadius = 15.0f;
+        self.clearBtn.layer.masksToBounds = true;
+        [self.clearBtn setTitle:@"C" forState:UIControlStateNormal];
+        [self.clearBtn setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
+        [self.clearBtn addTarget:self action:@selector(onClear) forControlEvents:UIControlEventTouchUpInside];
+        [headerView addSubview:self.clearBtn];
+        
+        self.refreshBtn = [[UIButton alloc]initWithFrame:CGRectMake(frame.size.width-10-30, 7, 30, 30)];
+        self.refreshBtn.layer.cornerRadius = 15.0f;
+        self.refreshBtn.layer.masksToBounds = true;
         [self.refreshBtn setTitle:@"R" forState:UIControlStateNormal];
         [self.refreshBtn setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
         [self.refreshBtn addTarget:self action:@selector(onRefresh) forControlEvents:UIControlEventTouchUpInside];
         [headerView addSubview:self.refreshBtn];
+        
         
         
         self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0,0, frame.size.width, frame.size.height)];
@@ -183,6 +195,13 @@
 #pragma clang diagnostic ignored "-Wundeclared-selector"
     [self.parentViewController performSelector:@selector(onBack) withObject:btn];
 #pragma clang diagnostic pop
+}
+
+- (void)onClear
+{
+    [[VZNetworkRecorder defaultRecorder] clearRecordedActivity];
+    self.items = @[];
+    [self.tableView reloadData];
 }
 
 - (void)onRefresh

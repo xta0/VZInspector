@@ -60,7 +60,7 @@
 /**
  *  增加API环境的配置
  */
-+ (void)addAPIEnvType:(NSString* )type Callback:(void(^)(void))callback;
++ (void)addAPIEnvType:(NSString* )type Selected:(BOOL)b Callback:(void(^)(void))callback;
 
 
 @end

@@ -41,10 +41,10 @@
     return [[VZSettingInspector sharedInstance] -> _envs copy];
 }
 
-+ (void)addAPIEnvType:(NSString* )type Callback:(vz_api_env_callback)callback{
++ (void)addAPIEnvType:(NSString* )type isSelected:(BOOL)b Callback:(vz_api_env_callback)callback{
     
     if (type && callback) {
-        [[VZSettingInspector sharedInstance] -> _envs addObject:@{type:callback}];
+        [[VZSettingInspector sharedInstance] -> _envs addObject:@[type,@(b),callback]];
     }
     
 }
