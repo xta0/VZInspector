@@ -100,11 +100,34 @@ extern void asl_release(asl_object_t obj) __attribute__((weak_import));
     return instance;
 }
 
-
+//from : https://github.com/CocoaLumberjack/CocoaLumberjack/blob/master/Classes/DDASLLogCapture.m
+static aslmsg (*dd_asl_next)(aslresponse obj);
+static void (*dd_asl_release)(aslresponse obj);
++ (void)initialize
+{
+#if (defined(DDASL_IOS_PIVOT_VERSION) && __IPHONE_OS_VERSION_MAX_ALLOWED >= DDASL_IOS_PIVOT_VERSION) || (defined(DDASL_OSX_PIVOT_VERSION) && __MAC_OS_X_VERSION_MAX_ALLOWED >= DDASL_OSX_PIVOT_VERSION)
+#if __IPHONE_OS_VERSION_MIN_REQUIRED < DDASL_IOS_PIVOT_VERSION || __MAC_OS_X_VERSION_MIN_REQUIRED < DDASL_OSX_PIVOT_VERSION
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+    // Building on falsely advertised SDK, targeting deprecated API
+    dd_asl_next    = &aslresponse_next;
+    dd_asl_release = &aslresponse_free;
+#pragma GCC diagnostic pop
+#else
+    // Building on lastest, correct SDK, targeting latest API
+    dd_asl_next    = &asl_next;
+    dd_asl_release = &asl_release;
+#endif
+#else
+    // Building on old SDKs, targeting deprecated API
+    dd_asl_next    = &aslresponse_next;
+    dd_asl_release = &aslresponse_free;
+#endif
+}
 
 + (NSArray* )logs
 {
-
+    
     NSArray* ret = @[];
     
     asl_object_t query = asl_new(ASL_TYPE_QUERY);
@@ -114,32 +137,20 @@ extern void asl_release(asl_object_t obj) __attribute__((weak_import));
     
     //this is too slow!
     aslresponse response = asl_search(NULL, query);
-    
+    aslmsg msg;
     if (response != NULL) {
         
         NSUInteger numberOfLogs = [VZLogInspector sharedInstance].numberOfLogs;
         NSMutableArray *logMessages = [NSMutableArray arrayWithCapacity:numberOfLogs];
         
-        for (int i=0; i<numberOfLogs; i++) {
-            
-            size_t count = asl_count(response);
-            
-            size_t index = count - numberOfLogs - 1 + i;
-            
-            aslmsg msg = asl_get_index(response, index);
-            
-            if (msg != NULL) {
-                
-                VZLogInspectorEntity* entity = [VZLogInspectorEntity messageFromASLMessage:msg];
-                [logMessages insertObject:entity atIndex:0];
-            }
-            else
-                break;
+        while ((msg = dd_asl_next(response)))
+        {
+            VZLogInspectorEntity* entity = [VZLogInspectorEntity messageFromASLMessage:msg];
+            [logMessages insertObject:entity atIndex:0];
         }
-        
         [VZLogInspector sharedInstance].logMessages = logMessages;
         ret = [logMessages copy];
-
+        
     }
     else{
         VZLogInspectorEntity* entity = [VZLogInspectorEntity new];
@@ -155,7 +166,7 @@ extern void asl_release(asl_object_t obj) __attribute__((weak_import));
     }
     
     if (response != NULL) {
-        asl_release(response);
+        dd_asl_release(response);
     }
  
     return ret;
