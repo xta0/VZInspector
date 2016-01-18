@@ -177,7 +177,12 @@
         //兼容json，html，protocol buffer三种格式
         NSArray* shouldCacheMIMETypePrefixes = @[@"application/json",@"text/html",@"application/protobuf"];
         for (NSString* prefix in shouldCacheMIMETypePrefixes) {
-            shouldCache = shouldCache && [transaction.response.MIMEType hasPrefix:prefix];
+            
+            if ([transaction.response.MIMEType hasPrefix:prefix])
+            {
+                shouldCache = YES;
+                break;
+            }
         }
         if (shouldCache) {
             [self.responseCache setObject:responseBody forKey:requestID cost:[responseBody length]];
