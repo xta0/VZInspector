@@ -113,7 +113,7 @@
     
     if (redirectResponse) {
         [self recordResponseReceivedWithRequestID:requestID response:redirectResponse];
-        [self recordLoadingFinishedWithRequestID:requestID responseBody:nil];
+       // [self recordLoadingFinishedWithRequestID:requestID responseBody:nil];
     }
     
     dispatch_async(_queue, ^{
@@ -158,9 +158,14 @@
 
 - (void)recordLoadingFinishedWithRequestID:(NSString *)requestID responseBody:(NSData *)responseBody
 {
+    if (!responseBody) {
+        return;
+    }
+    
     NSDate *finishedDate = [NSDate date];
     
     dispatch_async(_queue, ^{
+        
         VZNetworkTransaction *transaction = [self.networkTransactionsForRequestIdentifiers objectForKey:requestID];
         if (!transaction) {
             return;
