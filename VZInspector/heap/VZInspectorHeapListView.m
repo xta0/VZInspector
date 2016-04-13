@@ -155,7 +155,18 @@
 {
     UIView* cell = reg.view;
     
-    id obj = self.items[cell.tag];
+    
+    NSArray* items = nil;
+    
+    if (self.searchBar.text.length > 0) {
+        items = self.filterItems;
+    }
+    else{
+        items = self.items;
+    }
+    
+    id obj = items[cell.tag];
+    
     [self.delegate performSelector:@selector(push:object:) withObject:@"VZInspectorHeapObjectView" withObject:obj];
 
 }
