@@ -56,7 +56,7 @@
             
             NSUInteger step = 0;
             
-            for ( NSNumber * value in _plots )
+            for ( NSNumber * value in [_plots copy])
             {
                 CGFloat v = value.floatValue;
                 
