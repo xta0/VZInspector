@@ -36,7 +36,7 @@
 +(void)hide
 {
     for (UIWindow* window in [UIApplication sharedApplication].windows) {
-        if ([window isKindOfClass:[VZInspector class]]) {
+        if ([window isKindOfClass:[VZInspectorOverlay class]]) {
             window.hidden = YES;
             break;
         }

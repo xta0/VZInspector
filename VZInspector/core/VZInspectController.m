@@ -10,35 +10,43 @@
 #import "VZInspector.h"
 #import "VZInspectController.h"
 #import "VZInspectorWindow.h"
+#import "VZInspectorResource.h"
 #import "VZInspectorOverlay.h"
 #import "VZInspectorLogView.h"
-#import "VZInspectorCrashRootView.h"
 #import "VZInspectorSettingView.h"
 #import "VZInspectorToolboxView.h"
 #import "VZInspectorGridView.h"
 #import "VZInspectorSandBoxRootView.h"
-#import "VZInspectorHeapRootView.h"
 #import "VZInspectorOverview.h"
 #import "VZInspectorNetworkHistoryView.h"
 #import "UIWindow+VZInspector.h"
 #import "NSObject+VZInspector.h"
 #import "VZBorderInspector.h"
 #import "VZInspectorTimer.h"
-#import "VZInspectorRevealView.h"
-#import "VZInspectorDeviceView.h"
-#import "VZImageInspector.h"
+#import "VZInspectorImageInfoView.h"
 #import "VZInspectorLocationView.h"
 #import "VZFrameRateOverlay.h"
+#import "VZDesignDraftView.h"
+#import "VZInspectorColorPickerView.h"
+#import "VZInspectorCrashRootView.h"
+#import "VZInspectorMermoryManager.h"
+#import "VZInspectorMermoryUtil.h"
 
-@interface VZInspectController()<VZInspectorToolboxViewCallback>
+
+#define kVZInspectorCloseButtonTitle @"Close"
+#define kVZInspectorTabBarHeight 40
+
+
+@interface VZInspectController()
 
 @property(nonatomic,strong) UIView* contentView;
 @property(nonatomic,strong) VZInspectorOverview* overview;
 @property(nonatomic,strong) VZInspectorLogView* logView;
-@property(nonatomic,strong) VZInspectorSettingView* settingView;
-@property(nonatomic,strong) VZInspectorToolboxView* toolboxView;
+@property(nonatomic,strong) NSDictionary* views;
+
 @property(nonatomic,strong,readwrite) UIView* currentView;
-@property(nonatomic,assign,readwrite) NSInteger currentIndex;
+
+@property (nonatomic, strong) VZInspectorToolItem *mermoryCheckItem;
 
 @end
 
@@ -53,67 +61,60 @@
 {
     [super viewDidLoad];
     
-    _currentIndex = 0;
-    
     //create content view
     self.contentView = [[UIView alloc]initWithFrame:CGRectMake(0, 0,self.view.frame.size.width, self.view.frame.size.height)];
     self.contentView.userInteractionEnabled = YES;
     [self.view addSubview:self.contentView];
     
-    //create four views:
+    //create views:
+    
+    CGRect rect = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-kVZInspectorTabBarHeight);
     
     //1,overview
-    self.overview = [[VZInspectorOverview alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-40) parentViewController:self];
+    self.overview = [[VZInspectorOverview alloc]initWithFrame:rect parentViewController:self.parentViewController];
     _currentView = self.overview;
-    [self.view addSubview:self.overview];
     
     //2,logview
-    self.logView = [[VZInspectorLogView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-40) parentViewController:self];
+    self.logView = [[VZInspectorLogView alloc]initWithFrame:rect parentViewController:self];
     
     //3,toolboxView
-    self.toolboxView = [[VZInspectorToolboxView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-40) parentViewController:self];
-    self.toolboxView.callback = self;
+    self.toolboxView = [[VZInspectorToolboxView alloc]initWithFrame:rect parentViewController:self];
+    [self registerBuiltinTools];
     
-    //4,settingsview
-    self.settingView = [[VZInspectorSettingView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-40) parentViewController:self];
+    //4,plugin
+    self.pluginView = [[VZInspectorToolboxView alloc]initWithFrame:rect parentViewController:self];
+    [self.pluginView setIcon:[VZInspectorResource pluginIcon]];
+    [self registerAdditionTools];
     
     
+    self.views = @{
+                   @"Status":self.overview,
+                   @"Log":self.logView,
+                   @"Toolbox":self.toolboxView,
+                   @"Plugin":self.pluginView
+                   };
     
-    //4:tab
-    for (int i=0; i<5; i++) {
-        
-        
-        CGRect screenBounds = [UIScreen mainScreen].bounds;
-        int w = screenBounds.size.width/5;
-        UIButton* btn = [[UIButton alloc]initWithFrame:CGRectMake(w*i, self.view.frame.size.height-40, w, 40)];
-        btn.tag = i+10;
+    //5,tab
+    NSArray<NSString *> *titles = [@[@"Status", @"Log", @"Toolbox", @"Plugin"] arrayByAddingObject:kVZInspectorCloseButtonTitle];
+    int w = [UIScreen mainScreen].bounds.size.width / titles.count;
+    
+    for (int i=0; i<titles.count; i++) {
+        UIButton* btn = [[UIButton alloc]initWithFrame:CGRectMake(w*i, self.view.frame.size.height-kVZInspectorTabBarHeight, w, kVZInspectorTabBarHeight)];
         btn.backgroundColor = [UIColor darkGrayColor];
         btn.layer.borderColor = [UIColor lightGrayColor].CGColor;
         btn.layer.borderWidth = 2.0f;
         btn.titleLabel.font = [UIFont boldSystemFontOfSize:12.0f];
         [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [btn addTarget:self action:@selector(onBtnClikced:) forControlEvents:UIControlEventTouchUpInside];
-        
-        if (i==0) {
-            [btn setTitle:@"Status" forState:UIControlStateNormal];
-            [btn setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
-        }
-        if (i==1) {
-            [btn setTitle:@"Log" forState:UIControlStateNormal];
-        }
-        if (i==2) {
-            [btn setTitle:@"Toolbox" forState:UIControlStateNormal];
-        }
-        if (i==3) {
-            [btn setTitle:@"ENV" forState:UIControlStateNormal];
-        }
-        if (i==4) {
-            
-            [btn setTitle:@"Close" forState:UIControlStateNormal];
-        }
+        [btn setTitle:titles[i] forState:UIControlStateNormal];
         [self.contentView addSubview:btn];
+        
+        if (i == 0) {
+            [self onBtnClikced:btn];
+        }
     }
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateMermoryCheckStatus) name:KVZInspectorMermoryCheckStatusChange object:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -126,6 +127,7 @@
 - (void)dealloc
 {
     //NSLog(@"[%@]-->dealloc",self.class);
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -133,155 +135,14 @@
 //
 - (void)start
 {
+    [self.overview updateGlobalInfo];
     [self.overview startTimer];
     
 }
+
 - (void)stop
 {
     [self.overview stopTimer];
-}
-
-- (BOOL)canTouchPassThrough:(CGPoint)pt
-{
-    int w = self.view.bounds.size.width;
-    int h = self.view.bounds.size.height;
-    
-    if (_currentView.class == [VZInspectorGridView class]) {
-        
-        if (pt.y < 20) {
-            return NO;
-        }
-        else
-            return YES;
-    }
-    else if (_currentView.class == [VZInspectorLogView class]
-             ||_currentView.class == [VZInspectorSandBoxRootView class]
-             ||_currentView.class == [VZInspectorHeapRootView class]
-             ||_currentView.class == [VZInspectorCrashRootView class]
-             ||_currentView.class == [VZInspectorToolboxView class]
-             ||_currentView.class == [VZInspectorNetworkHistoryView class]
-             ||_currentView.class == [VZInspectorDeviceView class]
-             ||_currentView.class == [VZInspectorLocationView class]
-             )
-    {
-        return NO;
-    }
-    else if (_currentView == self.overview)
-    {
-        if (pt.y > h-40) {
-            return NO;
-        } else if (pt.y > h-(40+10+54) && pt.x > w-(10+54)) {
-            return NO;
-        }
-        else
-            return YES;
-    }
-    else if (_currentView == self.settingView)
-    {
-        return NO;
-    }
-    else
-    {
-        if (pt.y > h-40 ) {
-            return NO;
-        }
-        else
-            return YES;
-    }
-    
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////
-#pragma mark - Private API
-
-//tab clicked:
-- (void)onBtnClikced:(UIButton* )sender
-{
-    
-    for (UIView* v in self.contentView.subviews) {
-        if ([v isKindOfClass:[UIButton class]]) {
-            UIButton* btn = (UIButton* )v;
-            [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        }
-    }
-    
-    if (sender.tag != 14) {
-        [sender setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
-    }
-    
-    switch (sender.tag) {
-        case 10:
-        {
-            if (_currentIndex == 0) {
-                return;
-            }
-            
-            [UIView transitionFromView:_currentView toView:self.overview duration:0.4 options:UIViewAnimationOptionTransitionCrossDissolve completion:^(BOOL finished) {
-                
-                [_currentView removeFromSuperview];
-                [self.contentView addSubview:self.overview];
-                _currentView = self.overview;
-                _currentIndex = 0;
-                
-            }];
-            
-            break;
-        }
-        case 11:
-        {
-            
-            if (_currentIndex == 1) {
-                return;
-            }
-            [UIView transitionFromView:_currentView toView:self.logView duration:0.4 options:UIViewAnimationOptionTransitionCrossDissolve completion:^(BOOL finished) {
-                
-                [_currentView removeFromSuperview];
-                [self.contentView addSubview:self.logView];
-                _currentView = self.logView;
-                _currentIndex = 1;
-            }];
-            
-            break;
-        }
-            
-        case 12:
-        {
-            if (_currentIndex == 2) {
-                return;
-            }
-            
-            [UIView transitionFromView:_currentView toView:self.toolboxView duration:0.4 options:UIViewAnimationOptionTransitionCrossDissolve completion:^(BOOL finished) {
-                
-                [_currentView removeFromSuperview];
-                [self.contentView addSubview:self.toolboxView];
-                _currentView = self.toolboxView;
-                _currentIndex = 2;
-                
-            }];
-            
-            break;
-        }
-        case 13:
-        {
-            [UIView transitionFromView:_currentView toView:self.settingView duration:0.4 options:UIViewAnimationOptionTransitionCrossDissolve completion:^(BOOL finished) {
-                
-                [_currentView removeFromSuperview];
-                [self.contentView addSubview:self.settingView];
-                _currentView = self.settingView;
-                _currentIndex = 3;
-            }];
-            
-            break;
-        }
-        case 14:
-        {
-            [self onClose];
-            break;
-        }
-        default:
-            break;
-    }
-    
 }
 
 - (void)onClose
@@ -290,252 +151,158 @@
     [VZInspector hide];
 }
 
-- (void)onBack
+- (BOOL)canTouchPassThrough:(CGPoint)pt
 {
-    [UIView transitionFromView:_currentView toView:self.contentView duration:0.4 options:UIViewAnimationOptionTransitionFlipFromRight completion:^(BOOL finished) {
-        
-        [_currentView removeFromSuperview];
-        [self.view addSubview:self.contentView];
-        [self.contentView addSubview:self.toolboxView];
-        
-        _currentView = self.toolboxView;
-        _currentIndex = 2;
-        
-    }];
+    int w = self.view.bounds.size.width;
+    int h = self.view.bounds.size.height;
     
-}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////
-#pragma mark -  callback
-
-
-- (void)onToolBoxViewClicked:(VZToolBoxType)type
-{
-    switch (type) {
-        case kNetworkLogs:
-        {
-            [self showNetworkLogs];
-            break;
-        }
-            
-        case kCrashLogs:
-        {
-            [self showCrashLogs];
-            break;
-        }
-            
-        case kSandBox:
-        {
-            [self showSandBox];
-            break;
-        }
-            
-        case kBorder:
-        {
-            [self showBorder];
-            break;
-        }
-        case kHeaps:
-        {
-            [self showHeap];
-            break;
-        }
-        case kGrids:
-        {
-            [self showGrid];
-            break;
-        }
-        case kMemoryWarningOn:
-        {
-            [self startMemoryWarning];
-            break;
-        }
-        case kMemoryWarningOff:
-        {
-            [self stopMemoryWarning];
-            break;
-        }
-        case kReveal:
-        {
-            [self showReveal];
-            break;
-        }
-        case kDevice:
-        {
-            [self showDeviceInfo];
-            break;
-        }
-        case kImage:
-        {
-            [self inspectImage];
-            break;
-        }
-        case kLocation:
-        {
-            [self showFakeLocation];
-            break;
-        }
-        case kFrameRateOn:
-        {
-            [self showFrameRate];
-            break;
-        }
-        case kFrameRateOff:
-        {
-            [self hideFrameRate];
-            break;
-        }
-        default:
-            break;
+    if ([_currentView isKindOfClass:[VZInspectorView class]]) {
+        return [(VZInspectorView *)_currentView canTouchPassThrough:pt];
+    }
+    else {
+        return pt.y < h-kVZInspectorTabBarHeight;
     }
 }
 
-
-- (void)showSandBox
+- (void)transitionToView:(UIView *)view
 {
-    VZInspectorSandBoxRootView* sandBoxView = [[VZInspectorSandBoxRootView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) parentViewController:self];
-    
     __weak typeof(self) weakSelf = self;
-    [UIView transitionFromView:self.contentView toView:sandBoxView duration:0.4 options:UIViewAnimationOptionTransitionFlipFromLeft completion:^(BOOL finished) {
-        
-        [weakSelf.contentView removeFromSuperview];
-        [weakSelf.view addSubview:sandBoxView];
-        weakSelf.currentView = sandBoxView;
-        weakSelf.currentIndex = -1;
-        
+    [UIView transitionFromView:self.contentView toView:view duration:0.4 options:UIViewAnimationOptionTransitionFlipFromLeft completion:^(BOOL finished) {
+        weakSelf.currentView = view;
     }];
 }
 
-- (void)showGrid
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark - Private API
+
+//tab clicked:
+- (void)onBtnClikced:(UIButton* )sender
 {
-    VZInspectorGridView* gridView = [[VZInspectorGridView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) parentViewController:self];
-    
-    __weak typeof(self) weakSelf = self;
-    [UIView transitionFromView:self.contentView toView:gridView duration:0.4 options:UIViewAnimationOptionTransitionFlipFromLeft completion:^(BOOL finished) {
+    NSString *title = sender.currentTitle;
+    if ([kVZInspectorCloseButtonTitle isEqualToString:title]) {
+        [self onClose];
+        return;
+    }
+    else if (![_currentTab isEqualToString:title]) {
+        for (UIView* v in self.contentView.subviews) {
+            if ([v isKindOfClass:[UIButton class]]) {
+                UIButton* btn = (UIButton* )v;
+                [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+            }
+        }
         
-        [weakSelf.contentView removeFromSuperview];
-        [weakSelf.view addSubview:gridView];
-        _currentView = gridView;
-        _currentIndex = -1;
+        [sender setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
         
+        UIView *view = self.views[title];
+        [UIView transitionFromView:_currentView toView:view duration:0.4 options:UIViewAnimationOptionTransitionCrossDissolve completion:^(BOOL finished) {
+            
+            [self.contentView addSubview:view];
+            _currentView = view;
+            _currentTab = title;
+        }];
+    }
+}
+
+- (void)onBack
+{
+    [UIView transitionFromView:_currentView toView:self.contentView duration:0.4 options:UIViewAnimationOptionTransitionFlipFromRight completion:^(BOOL finished) {
+        _currentView = self.views[_currentTab];
     }];
 }
 
-- (void)showHeap
-{
-    VZInspectorHeapRootView* heapView = [[VZInspectorHeapRootView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) parentViewController:self];
+- (void)registerBuiltinTools {
+    [self.toolboxView addToolItem:[VZInspectorToolItem itemWithName:@"Logs" icon:[VZInspectorResource network_logs] callback:^{
+        VZInspectorNetworkHistoryView* networkView = [[VZInspectorNetworkHistoryView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) parentViewController:self];
+        [self transitionToView:networkView];
+    }]];
+    [self.toolboxView addToolItem:[VZInspectorToolItem itemWithName:@"Crash" icon:[VZInspectorResource crash] callback:^{
+        VZInspectorCrashRootView* crashView = [[VZInspectorCrashRootView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) parentViewController:self];
+        [self transitionToView:crashView];
+    }]];
+    [self.toolboxView addToolItem:[VZInspectorToolItem itemWithName:@"SandBox" icon:[VZInspectorResource sandbox] callback:^{
+        VZInspectorSandBoxRootView* sandBoxView = [[VZInspectorSandBoxRootView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) parentViewController:self];
+        [self transitionToView:sandBoxView];
+    }]];
+    [self.toolboxView addToolItem:[VZInspectorToolItem itemWithName:@"Gird" icon:[VZInspectorResource grid] callback:^{
+        VZInspectorGridView* gridView = [[VZInspectorGridView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) parentViewController:self];
+        [self transitionToView:gridView];
+    }]];
+    [self.toolboxView addToolItem:[VZInspectorToolItem switchItemWithName:@"Border" icon:[VZInspectorResource viewClass] callback:^BOOL(BOOL on){
+        [[VZBorderInspector sharedInstance] showBorder];
+        [self onClose];
+        return !on;
+    }]];
+    [self.toolboxView addToolItem:[VZInspectorToolItem switchItemWithName:@"Warning" icon:[VZInspectorResource memoryWarning] callback:^BOOL(BOOL on) {
+        if (on) {
+            self.overview.memoryWarning = false;
+        }
+        else {
+            self.overview.memoryWarning = true;
+        }
+        return !on;
+    }]];
+    [self.toolboxView addToolItem:[VZInspectorToolItem itemWithName:@"Image" icon:[VZInspectorResource image] callback:^{
+        VZInspectorImageInfoView *view = [[VZInspectorImageInfoView alloc] initWithFrame:self.view.bounds parentViewController:self];
+        [self transitionToView:view];
+    }]];
+    [self.toolboxView addToolItem:[VZInspectorToolItem itemWithName:@"Location" icon:[VZInspectorResource location] callback:^{
+        VZInspectorLocationView * locationView = [[VZInspectorLocationView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) parentViewController:self];
+        [self transitionToView:locationView];
+    }]];
+    [self.toolboxView addToolItem:[VZInspectorToolItem switchItemWithName:@"FrameRate" icon:[VZInspectorResource frameRate] callback:^BOOL(BOOL on) {
+        if (on) {
+            [self onClose];
+            [VZFrameRateOverlay stop];
+        }
+        else {
+            [self onClose];
+            [VZFrameRateOverlay start];
+        }
+        return !on;
+    }]];
+    [self.toolboxView addToolItem:[VZInspectorToolItem itemWithName:@"colorPicker" icon:[VZInspectorResource colorPickerIcon] callback:^{
+        VZInspectorColorPickerView* colorPickerView = [[VZInspectorColorPickerView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) parentViewController:self];
+        [self transitionToView:colorPickerView];
+    }]];
+    [self.toolboxView addToolItem:[VZInspectorToolItem itemWithName:@"Design" icon:[VZDesignDraftView icon] callback:^{
+        VZDesignDraftView *draftView = [[VZDesignDraftView alloc] initWithFrame:self.view.bounds parentViewController:self];
+        [self transitionToView:draftView];
+    }]];
     
-    __weak typeof(self) weakSelf = self;
-    [UIView transitionFromView:self.contentView toView:heapView
-                      duration:0.4 options:UIViewAnimationOptionTransitionFlipFromLeft
-                    completion:^(BOOL finished) {
-                        
-                        [weakSelf.contentView removeFromSuperview];
-                        [weakSelf.view addSubview:heapView];
-                        weakSelf.currentView = heapView;
-                        weakSelf.currentIndex = -1;
-                    }];
-    
-}
-
-- (void)showNetworkLogs
-{
-    VZInspectorNetworkHistoryView* networkView = [[VZInspectorNetworkHistoryView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) parentViewController:self];
-    
-    __weak typeof(self) weakSelf = self;
-    [UIView transitionFromView:self.contentView toView:networkView
-                      duration:0.4 options:UIViewAnimationOptionTransitionFlipFromLeft
-                    completion:^(BOOL finished) {
-                        
-                        [weakSelf.contentView removeFromSuperview];
-                        [weakSelf.view addSubview:networkView];
-                        weakSelf.currentView = networkView;
-                        weakSelf.currentIndex = -1;
-                    }];
-    
-}
-
-- (void)showCrashLogs
-{
-    VZInspectorCrashRootView* crashView = [[VZInspectorCrashRootView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) parentViewController:self];
-    
-    __weak typeof(self) weakSelf = self;
-    [UIView transitionFromView:self.contentView toView:crashView
-                      duration:0.4 options:UIViewAnimationOptionTransitionFlipFromLeft
-                    completion:^(BOOL finished) {
-                        
-                        [weakSelf.contentView removeFromSuperview];
-                        [weakSelf.view addSubview:crashView];
-                        weakSelf.currentView = crashView;
-                        weakSelf.currentIndex = -1;
-                    }];
-    
-}
-
-- (void)showBorder
-{
-    [[VZBorderInspector sharedInstance] showBorder];
-    [self onClose];
-}
-
-- (void)inspectImage {
-    [[VZImageInspector sharedInstance] inspect];
-    [self onClose];
-}
-
-- (void)showDeviceInfo
-{
-    VZInspectorDeviceView * deviceView = [[VZInspectorDeviceView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) parentViewController:self];
-    
-    __weak typeof(self) weakSelf = self;
-    [UIView transitionFromView:self.contentView toView:deviceView duration:0.4 options:UIViewAnimationOptionTransitionFlipFromLeft completion:^(BOOL finished) {
-        
-        [weakSelf.contentView removeFromSuperview];
-        [weakSelf.view addSubview:deviceView];
-        weakSelf.currentView = deviceView;
-        weakSelf.currentIndex = -1;
-        
+    _mermoryCheckItem =[VZInspectorToolItem itemWithName:@"Leak" icon:[VZInspectorMermoryManager icon] callback:^{
+        [[VZInspectorMermoryManager sharedInstance] toggle];
+        [self onClose];
     }];
-}
-
-- (void)startMemoryWarning
-{
-    self.overview.memoryWarning = true;
-}
-
-- (void)stopMemoryWarning
-{
-    self.overview.memoryWarning = false;
-}
-
-- (void)showReveal
-{
-    //todo...
-}
-
-- (void)showFakeLocation
-{
-    VZInspectorLocationView * locationView = [[VZInspectorLocationView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) parentViewController:self];
     
-    __weak typeof(self) weakSelf = self;
-    [UIView transitionFromView:self.contentView toView:locationView duration:0.4 options:UIViewAnimationOptionTransitionFlipFromLeft completion:^(BOOL finished) {
-        [weakSelf.contentView removeFromSuperview];
-        [weakSelf.view addSubview:locationView];
-        weakSelf.currentView = locationView;
-        weakSelf.currentIndex = -1;
-        
-    }];
+
+    _mermoryCheckItem.status = [self mermoryCheckStatus] ?@"ON":nil;
+
+    [self.toolboxView addToolItem:_mermoryCheckItem];
+
+    
 }
 
-- (void)showFrameRate {
-    [VZFrameRateOverlay start];
-    [self onClose];
+- (BOOL)mermoryCheckStatus{
+    NSUserDefaults *defaults =[NSUserDefaults standardUserDefaults];
+    BOOL checkSwitch;
+    if(defaults){
+        checkSwitch = [[defaults objectForKey:KVZInspectorMermoryCheckSwitch] boolValue];
+    }
+
+    return checkSwitch;
 }
 
-- (void)hideFrameRate {
-    [VZFrameRateOverlay stop];
-    [self onClose];
+- (void)updateMermoryCheckStatus{
+    _mermoryCheckItem.status = [self mermoryCheckStatus] ?@"ON":@"OFF";
+
+    [self.toolboxView updateCollectionView];
+
 }
 
+- (void)registerAdditionTools {
+    for (VZInspectorToolItem *item in [VZInspector additionTools]) {
+        [self.pluginView addToolItem:item];
+    }
+}
 
 @end

@@ -9,7 +9,6 @@
 #import "VZInspector.h"
 #import "VZInspectorOverlay.h"
 #import "VZInspectorWindow.h"
-#import "VZHeapInspector.h"
 #import "VZCrashInspector.h"
 #import "VZOverviewInspector.h"
 #import "VZSettingInspector.h"
@@ -17,8 +16,20 @@
 #import "VZNetworkObserver.h"
 #import "VZBorderInspector.h"
 #import "VZInspectorToolboxView.h"
+#import "VZDevice.h"
+#import "VZInspectorMermoryManager.h"
 
 @implementation VZInspector
+
++ (void)load {
+    [self showOnStatusBar];
+    
+    [[VZInspectorMermoryManager sharedInstance] startTrackingIfNeed];
+    
+    [self addObserveCallback:^NSString *{
+        return [[VZDevice infoArray] componentsJoinedByString:@"\n"];
+    }];
+}
 
 + (void)showOnStatusBar
 {
@@ -36,18 +47,27 @@
 
 + (void)show
 {
+//    NSData *data = [NSData dataWithContentsOfFile:@"/Users/lingwan/ios-phone-o2o-debug/APInspector/aa.png"];
+//    NSUInteger len = [data length];
+//    Byte *byteData = (Byte*)malloc(len);
+//    memcpy(byteData, [data bytes], len);
+//
+//    for (int i=0; i<len; i++) {
+//        printf("0x%x,",byteData[i]);
+//    }
+    
     [VZInspectorWindow sharedInstance].hidden = NO;
+    [VZInspectorOverlay hide];
 }
 
 + (void)hide
 {
     [VZInspectorWindow sharedInstance].hidden = YES;
-    
+    [VZInspectorOverlay show];
 }
 
 + (void)setClassPrefixName:(NSString *)name
 {
-    [VZHeapInspector   setClassPrefixName:name];
     [VZBorderInspector setViewClassPrefixName:name];
 }
 
@@ -70,20 +90,32 @@
     [VZLogInspector setNumberOfLogs:num];
 }
 
-+ (void)setObserveCallback:(NSString* (^)(void)) callback;
++ (void)addObserveCallback:(NSString* (^)(void)) callback;
 {
-    [VZOverviewInspector sharedInstance].observingCallback = callback;
+    [[VZOverviewInspector sharedInstance].observingCallbacks addObject:callback];
 }
 
-
-+ (void)addToolWithName:(NSString *)name icon:(NSData *)icon callback:(void (^)(void))callback {
-    [VZInspectorToolboxView addToolwithName:name icon:icon callback:callback];
++ (NSMutableArray *)_addtionTools {
+    static NSMutableArray *additionTools;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        additionTools = [NSMutableArray array];
+    });
+    return additionTools;
 }
 
-+ (void)addAPIEnvType:(NSString* )type Selected:(BOOL)b Callback:(void(^)(void))callback
-{
-    [VZSettingInspector  addAPIEnvType:type isSelected:b  Callback:[callback copy]];
-    
++ (NSArray *)additionTools {
+    return [self _addtionTools];
 }
+
++ (void)addToolItem:(VZInspectorToolItem *)toolItem {
+    [[self _addtionTools] addObject:toolItem];
+}
+
++ (void)addDashboardSwitch:(NSString* )type Highlight:(BOOL)highligh Callback:(void(^)(void))callback{
+
+    [VZSettingInspector  addAPIEnvButtonWithName:type Selected:highligh Callback:callback];
+}
+
 
 @end

@@ -8,6 +8,11 @@
 
 #import "VZInspectorUtility.h"
 #import <zlib.h>
+#import <objc/runtime.h>
+#import "VZNetworkRecorder.h"
+#import "VZNetworkInspector.h"
+#import "VZDefine.h"
+
 
 @implementation VZInspectorUtility
 
@@ -51,19 +56,57 @@
     return queryDictionary;
 }
 
++ (NSString *)prettyStringFromRequestBodyForTransaction:(VZNetworkTransaction *)transaction
+{
+    NSData *data = transaction.postBodyData;
+    u_int8_t gzipBytes[] = {0x1f,0x8b,0x08,0x00};
+    NSData *gzipPrefix = [NSData dataWithBytes:gzipBytes length:sizeof(gzipBytes)];
+    if (data.length > 4 && [[data subdataWithRange:NSMakeRange(0, 4)] isEqualToData:gzipPrefix]) {
+        NSData *deflatedData = [VZInspectorUtility inflatedDataFromCompressedData:data];
+        if (deflatedData.length > 0) {
+            data = deflatedData;
+        }
+    }
+    NSString *decodedRequest = [[VZNetworkInspector sharedInstance] decodeResponseData:data withTransaction:transaction];
+    if (decodedRequest) {
+        return decodedRequest;
+    }
+    return [VZInspectorUtility prettyJSONStringFromData:data];
+}
+
++ (NSString *)prettyStringFromResponseBodyForTransaction:(id)transaction
+{
+    NSData *responseData = [[VZNetworkRecorder defaultRecorder] cachedResponseBodyForTransaction:transaction];
+    if ([responseData length] > 0)
+    {
+        NSString *decodedResponse = [[VZNetworkInspector sharedInstance] decodeResponseData:responseData withTransaction:transaction];
+        if (decodedResponse) {
+            return decodedResponse;
+        }
+        return [VZInspectorUtility prettyJSONStringFromData:responseData];
+    }
+    return nil;
+}
+
 + (NSString *)prettyJSONStringFromData:(NSData *)data
 {
-    NSString *prettyString = nil;
     
     id jsonObject = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
+    NSString *prettyString = [self prettyJSONStringFromObject:jsonObject];
+    if (!prettyString) {
+        prettyString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    }
+    return prettyString;
+}
+
++ (NSString *)prettyJSONStringFromObject:(id)jsonObject
+{
+    NSString *prettyString = nil;
     if ([NSJSONSerialization isValidJSONObject:jsonObject]) {
         prettyString = [[NSString alloc] initWithData:[NSJSONSerialization dataWithJSONObject:jsonObject options:NSJSONWritingPrettyPrinted error:NULL] encoding:NSUTF8StringEncoding];
         // NSJSONSerialization escapes forward slashes. We want pretty json, so run through and unescape the slashes.
         prettyString = [prettyString stringByReplacingOccurrencesOfString:@"\\/" withString:@"/"];
-    } else {
-        prettyString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     }
-    
     return prettyString;
 }
 
@@ -161,4 +204,131 @@
 }
 
 
++ (UILabel *)simpleLabel:(CGRect)frame f:(int)size tc:(UIColor *)color t:(NSString *)text
+{
+    UILabel *label = [[UILabel alloc] initWithFrame:frame];
+    label.backgroundColor = [UIColor clearColor];
+    label.font = [UIFont systemFontOfSize:size];
+    label.textColor = color;
+    label.text = text;
+    
+    return label;
+}
+
++ (UIButton *)simpleButton:(CGRect)frame f:(int)size tc:(UIColor *)color t:(nullable NSString *)text
+{
+    UIButton *tagLabel;
+    tagLabel = [UIButton buttonWithType:UIButtonTypeCustom];
+    tagLabel.backgroundColor = [UIColor clearColor];
+    tagLabel.frame = frame;
+    tagLabel.titleLabel.font = [UIFont systemFontOfSize:size];
+    tagLabel.titleLabel.lineBreakMode = NSLineBreakByTruncatingTail;
+    tagLabel.tintColor = color;
+    [tagLabel setTitleColor:tagLabel.tintColor forState:UIControlStateNormal];
+    tagLabel.layer.borderColor = tagLabel.tintColor.CGColor;
+    tagLabel.layer.borderWidth = 0;
+    tagLabel.layer.cornerRadius = 0;
+    //按钮不响应时间
+    tagLabel.userInteractionEnabled = YES;
+    tagLabel.clipsToBounds = YES;
+    [tagLabel setTitle:text forState:UIControlStateNormal];
+    return tagLabel;
+}
+
+
++ (UILabel *)simpleBorderLabel:(CGRect)frame f:(int)size tc:(UIColor *)color t:(NSString *)text
+{
+    UILabel *label = [[UILabel alloc] initWithFrame:frame];
+    label.backgroundColor = [UIColor clearColor];
+    label.font = [UIFont systemFontOfSize:size];
+    label.textColor = color;
+    label.textAlignment = NSTextAlignmentCenter;
+    label.text = text;
+    label.layer.borderColor = color.CGColor;
+    label.layer.borderWidth = 1;
+    label.layer.cornerRadius = 3;
+    
+    return label;
+}
+
++ (UIImage *)imageWithColor:(UIColor *)color {
+    CGRect rect = CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
+    UIGraphicsBeginImageContext(rect.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    CGContextSetFillColorWithColor(context, [color CGColor]);
+    CGContextFillRect(context, rect);
+    
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return image;
+}
+
++ (BOOL)isNumber:(NSString *)string{
+    return [VZInspectorUtility validateRegularExpression:@"^[0-9]*$" string:string];
+}
+
++ (BOOL)validateRegularExpression:(NSString *)pattern string:(NSString *)string{
+    if(!vz_IsStringValid(pattern)){
+        return YES;
+    }
+    NSRegularExpression *regularexpression = [[NSRegularExpression alloc] initWithPattern:pattern options:NSRegularExpressionCaseInsensitive error:nil];
+    return ([regularexpression numberOfMatchesInString:string options:NSMatchingReportProgress range:NSMakeRange(0, string.length)] > 0);
+}
+
++ (UIWindow *)mainWindow {
+    id<UIApplicationDelegate> appDelegate = [UIApplication sharedApplication].delegate;
+    if (appDelegate
+        && [appDelegate respondsToSelector:@selector(window)]) {
+        return [appDelegate window];
+    }
+    
+    NSArray *windows = [UIApplication sharedApplication].windows;
+    if (windows.count == 1) {
+        return windows.firstObject;
+    } else {
+        for (UIWindow *window in windows) {
+            if (window.windowLevel == UIWindowLevelNormal) {
+                return window;
+            }
+        }
+    }
+    return nil;
+}
+
 @end
+
+void VZSwapClassMethods(Class cls, SEL original, SEL replacement)
+{
+    Method originalMethod = class_getClassMethod(cls, original);
+    IMP originalImplementation = method_getImplementation(originalMethod);
+    const char *originalArgTypes = method_getTypeEncoding(originalMethod);
+    
+    Method replacementMethod = class_getClassMethod(cls, replacement);
+    IMP replacementImplementation = method_getImplementation(replacementMethod);
+    const char *replacementArgTypes = method_getTypeEncoding(replacementMethod);
+    
+    if (class_addMethod(cls, original, replacementImplementation, replacementArgTypes)) {
+        class_replaceMethod(cls, replacement, originalImplementation, originalArgTypes);
+    } else {
+        method_exchangeImplementations(originalMethod, replacementMethod);
+    }
+}
+
+void VZSwapInstanceMethods(Class cls, SEL original, SEL replacement)
+{
+    Method originalMethod = class_getInstanceMethod(cls, original);
+    IMP originalImplementation = method_getImplementation(originalMethod);
+    const char *originalArgTypes = method_getTypeEncoding(originalMethod);
+    
+    Method replacementMethod = class_getInstanceMethod(cls, replacement);
+    IMP replacementImplementation = method_getImplementation(replacementMethod);
+    const char *replacementArgTypes = method_getTypeEncoding(replacementMethod);
+    
+    if (class_addMethod(cls, original, replacementImplementation, replacementArgTypes)) {
+        class_replaceMethod(cls, replacement, originalImplementation, originalArgTypes);
+    } else {
+        method_exchangeImplementations(originalMethod, replacementMethod);
+    }
+}

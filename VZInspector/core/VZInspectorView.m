@@ -31,4 +31,17 @@
     //noop
 }
 
+- (void)pop
+{
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wundeclared-selector"
+    [self.parentViewController performSelector:@selector(onBack)];
+#pragma clang diagnostic pop
+}
+
+- (BOOL)canTouchPassThrough:(CGPoint)pt
+{
+    return NO;
+}
+
 @end

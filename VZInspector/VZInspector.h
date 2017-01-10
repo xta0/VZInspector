@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "VZInspectController.h"
+#import "VZInspectorToolItem.h"
 
 @interface VZInspector : NSObject
 
@@ -42,25 +44,25 @@
 /*
  *注入要观察的全局信息
  */
-+ (void)setObserveCallback:(NSString* (^)(void)) callback;
-
++ (void)addObserveCallback:(NSString* (^)(void)) callback;
 /**
- *  注入自定义工具
- *
- *  @param name     工具名称
- *  @param icon     工具icon
- *  @param callback 回调
+ *  注入自定义插件
  */
-//+ (void)addToolWithName:(NSString *)name icon:(NSData *)icon callback:(void(^)(void))callback;
++ (void)addToolItem:(VZInspectorToolItem *)toolItem;
+/*
+ *  返回所有注册的自定义插件
+ */
++ (NSArray *)additionTools;
 
 @end
 
 
 @interface VZInspector(env)
 /**
- *  增加API环境的配置
+ *  增加 Dashboard 头部开关
  */
-+ (void)addAPIEnvType:(NSString* )type Selected:(BOOL)b Callback:(void(^)(void))callback;
++ (void)addDashboardSwitch:(NSString* )type Highlight:(BOOL)highligh Callback:(void(^)(void))callback;
+
 
 
 @end

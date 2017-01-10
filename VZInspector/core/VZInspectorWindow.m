@@ -29,6 +29,9 @@
     
 }
 
++ (VZInspectController *)sharedController {
+    return [[self sharedInstance] debuggerVC];
+}
 
 - (id)init
 {
@@ -43,6 +46,7 @@
         self.userInteractionEnabled = NO;
         
         self.debuggerVC = [VZInspectController new];
+        self.rootViewController = self.debuggerVC;
         [self addSubview:self.debuggerVC.view];
         
     }
@@ -68,6 +72,16 @@
 {
     CGPoint pt = [self convertPoint:point toView:self.debuggerVC.view];
     
+    if (self.debuggerVC.presentedViewController) {
+        for (int i = self.subviews.count - 1; i >= 0; i --) {
+            UIView *subview = self.subviews[i];
+            CGPoint convertedPoint = [subview convertPoint:point fromView:self];
+            UIView *hited = [subview hitTest:convertedPoint withEvent:event];
+            if (hited) {
+                return hited;
+            }
+        }
+    }
     if ([self.debuggerVC canTouchPassThrough:pt]) {
         return [super hitTest:point withEvent:event];
     }

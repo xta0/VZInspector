@@ -14,5 +14,7 @@
 
 - (id)initWithFrame:(CGRect)frame parentViewController:(UIViewController* )controller;
 - (void)update;
+- (void)pop;
+- (BOOL)canTouchPassThrough:(CGPoint)pt;
 
 @end

@@ -7,37 +7,13 @@
 //
 
 #import "VZInspectorView.h"
-
-typedef NS_ENUM(NSInteger, VZToolBoxType)
-{
-    kDefault = -1,
-    kNetworkLogs = 0,
-    kHeaps ,
-    kBorder,
-    kCrashLogs,
-    kSandBox,
-    kGrids,
-    kMemoryWarningOn,
-    kMemoryWarningOff,
-    kReveal,
-    kDevice,
-    kImage,
-    kLocation,
-    kFrameRateOn,
-    kFrameRateOff,
-};
-
-@protocol VZInspectorToolboxViewCallback <NSObject>
-
-- (void)onToolBoxViewClicked:(VZToolBoxType)type;
-
-@end
+#import "VZInspectorToolItem.h"
 
 @interface VZInspectorToolboxView : VZInspectorView
 
-@property(nonatomic,assign,readonly) VZToolBoxType type;
-@property(nonatomic,weak) id<VZInspectorToolboxViewCallback> callback;
+- (void)addToolItem:(VZInspectorToolItem *)toolItem;
+- (void)setIcon:(UIImage *)icon;
 
-+ (void)addToolwithName:(NSString *)name icon:(NSData *)icon callback:(void(^)(void))callback;
+- (void)updateCollectionView;
 
 @end

@@ -13,6 +13,8 @@
 
 @property(nonatomic,assign) BOOL memoryWarning;
 
+- (void)updateGlobalInfo;
+
 - (void)startTimer;
 
 - (void)stopTimer;

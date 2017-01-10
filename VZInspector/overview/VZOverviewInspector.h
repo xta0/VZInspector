@@ -14,8 +14,6 @@ typedef NSString*(^vz_overview_callback)(void);
 
 + (VZOverviewInspector* )sharedInstance;
 
-@property(nonatomic,copy) vz_overview_callback  observingCallback;
-
-
+@property(nonatomic,copy) NSMutableArray<vz_overview_callback> *observingCallbacks;
 
 @end

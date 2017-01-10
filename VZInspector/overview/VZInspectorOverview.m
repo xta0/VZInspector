@@ -8,20 +8,20 @@
 
 #import "VZInspectorOverview.h"
 #import "VZMemoryInspectorOverView.h"
-#import "VZNetworkInspectorOverView.h"
 #import "VZMemoryInspector.h"
-#import "VZCPUInspectorOverView.h"
 #import "VZInspectorTimer.h"
 #import "VZOverviewInspector.h"
 #import "NSObject+VZInspector.h"
 #import "VZBorderInspector.h"
+#import "VZInspectorSettingView.h"
+#import "VZControllerStack.h"
+
 #import <objc/runtime.h>
 
 @interface VZInspectorOverview()
 
-@property(nonatomic,strong) VZNetworkInspectorOverView* httpView;
 @property(nonatomic,strong) VZMemoryInspectorOverView* memoryView;
-@property(nonatomic,strong) VZCPUInspectorOverView* cpuView;
+@property(nonatomic, strong) VZInspectorSettingView* settingView;
 @property(nonatomic,strong) UITextView* infoView;
 @property(nonatomic,strong) UIButton* refreshBtn;
 
@@ -34,44 +34,30 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        
-        
-//        CGFloat height = 100;
         CGFloat width = self.frame.size.width;
         
+        //envView
+        CGRect envFrame;
+        envFrame.origin         = CGPointMake(0, 10);
+        envFrame.size.width     = width;
+        envFrame.size.height    = [VZInspectorSettingView heightForEnvButtons];
+        _settingView = [[VZInspectorSettingView alloc]initWithFrame:CGRectInset(envFrame, 10, 0) parentViewController:self.parentViewController];
+        [self addSubview:_settingView];
         
         //total memory
         CGRect memoryFrame;
-        memoryFrame.origin      = CGPointZero;
+        memoryFrame.origin      = CGPointMake(0, CGRectGetMaxY(_settingView.frame) + 10);
         memoryFrame.size.width  = width;
         memoryFrame.size.height = 65;
         
         _memoryView = [[VZMemoryInspectorOverView alloc] initWithFrame:memoryFrame];
         [self addSubview:_memoryView];
         
-        //cpu usage
-        CGRect cpuFrame;
-        cpuFrame.origin      = CGPointMake(0, memoryFrame.size.height - 1);;
-        cpuFrame.size.width  = width;
-        cpuFrame.size.height = 65;
-        
-        _cpuView = [[VZCPUInspectorOverView alloc] initWithFrame:cpuFrame];
-        [self addSubview:_cpuView];
-        
-        //network
-        CGRect networkFrame;
-        networkFrame.origin = CGPointMake(0, memoryFrame.size.height + cpuFrame.size.height - 2);
-        networkFrame.size.width = width;
-        networkFrame.size.height = 65;
-        
-        _httpView = [[VZNetworkInspectorOverView alloc]initWithFrame:networkFrame];
-        [self addSubview:_httpView];
-        
-        
+        //infoView
         CGRect infoFrame;
-        infoFrame.origin = CGPointMake(0, networkFrame.origin.y + networkFrame.size.height);
-        infoFrame.size.width = width;
-        infoFrame.size.height = frame.size.height - infoFrame.origin.y;
+        infoFrame.origin        = CGPointMake(0, CGRectGetMaxY(_memoryView.frame) - 1);
+        infoFrame.size.width    = width;
+        infoFrame.size.height   = frame.size.height - infoFrame.origin.y;
   
         _infoView = [[UITextView alloc] initWithFrame:CGRectInset(infoFrame, 10, 10)];
         _infoView.font = [UIFont fontWithName:@"Courier-Bold" size:14];
@@ -82,39 +68,30 @@
         _infoView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.6f];
         [self addSubview:_infoView];
         
-        _refreshBtn = [[UIButton alloc]initWithFrame:CGRectMake(CGRectGetWidth(_infoView.bounds) - 54, CGRectGetHeight(_infoView.bounds)-54, 44, 44)];
+        _refreshBtn = [[UIButton alloc]initWithFrame:CGRectMake(CGRectGetMaxX(_infoView.frame) - 54, CGRectGetMaxY(_infoView.frame)-54, 44, 44)];
         _refreshBtn.layer.cornerRadius = 22;
         _refreshBtn.layer.masksToBounds = true;
-        _refreshBtn.layer.borderColor = [UIColor orangeColor].CGColor;
+        _refreshBtn.layer.borderColor = [UIColor grayColor].CGColor;
         _refreshBtn.layer.borderWidth = 2.0f;
         [_refreshBtn setTitle:@"R" forState:UIControlStateNormal];
-        [_refreshBtn setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
+        [_refreshBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
         [_refreshBtn addTarget:self action:@selector(updateGlobalInfo) forControlEvents:UIControlEventTouchUpInside];
-        [_infoView addSubview:_refreshBtn];
+        [self addSubview:_refreshBtn];
         
-        if ([VZOverviewInspector sharedInstance].observingCallback) {
-            
-            NSString* result = [VZOverviewInspector sharedInstance].observingCallback();
-            _infoView.text = result;
-    
-        }
+        [self updateGlobalInfo];
         
         //start timer
         __weak typeof(self) weakSelf = self;
         [VZInspectorTimer sharedInstance].readCallback = ^{
-            
-   
             [weakSelf handleRead];
         };
         
         [VZInspectorTimer sharedInstance].writeCallback = ^{
-            
-            
             [[NSNotificationCenter defaultCenter] postNotificationName:(NSString* const)kVZTimerWriteCallbackString object:nil];
             [weakSelf handleWrite];
         };
-
     }
+    
     return self;
 }
 
@@ -125,12 +102,13 @@
 
 - (void)updateGlobalInfo
 {
-    if ([VZOverviewInspector sharedInstance].observingCallback) {
-        
-        NSString* result = [VZOverviewInspector sharedInstance].observingCallback();
-        _infoView.text = result;
-        
+    NSMutableString *text = [NSMutableString new];
+    for (vz_overview_callback callback in [VZOverviewInspector sharedInstance].observingCallbacks) {
+        [text appendString:callback()];
+        [text appendString:@"\n\n"];
     }
+    [text appendFormat:@"Controller堆栈:\n%@", [VZControllerStack controllerStack]];
+    _infoView.text = text;
 }
 
 - (void)startTimer
@@ -147,8 +125,8 @@
 - (void)handleRead
 {
     [self.memoryView handleRead];
-    [self.cpuView handleRead];
-    [self.httpView handleRead];
+//    [self.cpuView handleRead];
+//    [self.httpView handleRead];
     
     if (self.memoryWarning) {
         
@@ -170,8 +148,8 @@
 - (void)handleWrite
 {
     [self.memoryView handleWrite];
-    [self.cpuView handleWrite];
-    [self.httpView handleWrite];
+//    [self.cpuView handleWrite];
+//    [self.httpView handleWrite];
 }
 
 

@@ -8,10 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+#import "VZInspectController.h"
+
 @interface VZInspectorWindow : UIWindow
 
 
 +(instancetype)sharedInstance;
++(VZInspectController *)sharedController;
 
 
 @end

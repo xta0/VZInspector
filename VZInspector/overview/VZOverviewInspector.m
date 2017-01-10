@@ -15,6 +15,13 @@
 
 @implementation VZOverviewInspector
 
+- (instancetype)init {
+    if (self = [super init]) {
+        _observingCallbacks = [NSMutableArray array];
+    }
+    return self;
+}
+
 + (VZOverviewInspector* )sharedInstance
 {
     static VZOverviewInspector* instance = nil;
