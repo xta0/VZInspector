@@ -89,7 +89,7 @@ Toolbox 界面提供了一些常用小工具，例如网络日志查看、控件
 
 <img src="https://zos.alipayobjects.com/rmsportal/fNixjLqfAZOzvhfpFrBX.png" width=42%>
 
-### Logs {#logs}
+### Logs
 
 Logs 用来实时查看网络请求的状态、返回等，需要自行配置网关信息，如下所示：
 
@@ -128,7 +128,10 @@ Logs 用来实时查看网络请求的状态、返回等，需要自行配置网
 Your browser does not support the video tag.
 </video>
 
-### Crash {#crash}
+[![]()](http://p.tb.cn/rmsportal_602_network_log.mov)
+
+
+### Crash
 
 可以捕获 App 的 Crash 日志，开启方法：
 
@@ -142,7 +145,7 @@ Your browser does not support the video tag.
 Your browser does not support the video tag.
 </video>
 
-### Sandbox {#sandbox}
+### Sandbox
 
 用来展示应用沙盒文件，对于文本和图片文件，点击可以预览。
 
@@ -152,7 +155,7 @@ Your browser does not support the video tag.
 
 <img src="https://zos.alipayobjects.com/rmsportal/EVGZIRjXWrjtCpLrTCkr.png" width=42%>
 
-#### Border {#border}
+#### Border
 
 边框检查工具能显示当前界面所有控件的边框，可以用来进行视觉检查。此外你可以设置类前缀关键词，比如“O2O”，这样就会将所有“O2O”开头的类的类名显示出来。
 
@@ -163,13 +166,13 @@ Your browser does not support the video tag.
 
 <img src="https://zos.alipayobjects.com/rmsportal/qVJYiNunPUEbBJlICCZz.png" width=42%>
 
-#### Warning {#warning}
+#### Warning
 
 Warning 用来模拟内存警告，可以帮你验证 `didReceiveMemoryWarning` 里的逻辑，当打开的时候，可以在 “Memory Usage” 区域看到红色闪烁标识。
 
 <img src="https://zos.alipayobjects.com/rmsportal/VrKmCCmDOtRDHDOpxplj.gif" width=42%>
 
-#### Image {#image}
+#### Image
 
 Image 工具用于检查界面上的图片，比如查看图片尺寸，图片 URL。
 
@@ -191,19 +194,19 @@ Your browser does not support the video tag.
 
 如果点击的位置有多个重叠的图片，可以多次点击来切换选择的图片。
 
-#### Location {#location}
+#### Location
 
 Location 工具用来模拟经纬度，打开开关后输入经纬度即可。界面上也提供了一些常用城市的经纬度。
 
 <img src="https://zos.alipayobjects.com/rmsportal/oIFVRjmlSVobavjaQpmG.png" width=42%>
 
-#### FrameRate {#frameRate}
+#### FrameRate
 
 帧率监测工具可以将帧率显示在状态栏上。注：模拟器无法精准检测帧率，仅在真机上有效。
 
 <img src="https://zos.alipayobjects.com/rmsportal/CcYGjANpxFKwWGwClIfk.png" width=42%>
  
-#### ColorPicker {#colorPicker}
+#### ColorPicker
 
 提供屏幕取色的功能。
 - 按像素取值，并将颜色展示在下面控制板
@@ -215,7 +218,7 @@ Location 工具用来模拟经纬度，打开开关后输入经纬度即可。�
 Your browser does not support the video tag.
 </video>
 
-#### Design {#design}
+#### Design
 
 提供设计稿对比工具。
 - 将设计稿存入相册后，点击选图，选中设计稿。
@@ -228,7 +231,7 @@ Your browser does not support the video tag.
 </video>
 
 
-#### 内存泄漏 {#mermoryprofiler}
+#### 内存泄漏
 
 内存泄漏主要检查oc的循环依赖，提供如下功能
 
