@@ -237,7 +237,7 @@ Location 工具用来模拟经纬度，打开开关后输入经纬度即可。�
 
 - 循环依赖总开关，开启才会纪录内存对象
 
-<img src="https://zos.alipayobjects.com/rmsportal/pqDPHMOfcrvUqQtZNtGa.gif" width=54%>
+<img src="https://zos.alipayobjects.com/rmsportal/opuPxUYoHwytvrviXlhL.gif" width=54%>
 
 ## 3.4. Plugin
 
