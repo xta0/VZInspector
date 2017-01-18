@@ -123,13 +123,7 @@ Logs 用来实时查看网络请求的状态、返回等，需要自行配置网
 }
 ```
 
-<video width=54% autoplay loop>
-  <source src="http://p.tb.cn/rmsportal_602_network_log.mov" type="video/mp4">
-Your browser does not support the video tag.
-</video>
-
-[![]()](http://p.tb.cn/rmsportal_602_network_log.mov)
-
+<img src="https://zos.alipayobjects.com/rmsportal/CZsKCOoQqvVShvXuBvMe.gif" width=54%>
 
 ### Crash
 
@@ -140,10 +134,7 @@ Your browser does not support the video tag.
 [VZInspector setShouldHandleCrash:YES];
 ```
 
-<video width=54% autoplay loop>
-  <source src="http://p.tb.cn/rmsportal_602_crash.mov" type="video/mp4">
-Your browser does not support the video tag.
-</video>
+<img src="https://zos.alipayobjects.com/rmsportal/lAoYNvmeocPzOvSxFJCd.gif" width=54%>
 
 ### Sandbox
 
@@ -187,10 +178,7 @@ Image 工具用于检查界面上的图片，比如查看图片尺寸，图片 U
 选择图片后会把图片置顶显示，并显示出被裁剪的部分。  
 屏幕上方（或下方）显示图片和 View 的尺寸、scale、宽高比，图片帧数。另外 O2O 中额外增加了图片 URL 的显示。
 
-<video width="375px" autoplay loop>
-  <source src="https://os.alipayobjects.com/rmsportal/bzLahKsFxGiczejLyjSK.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video>
+<img src="https://zos.alipayobjects.com/rmsportal/YYVyPwuknwdmMoIyjxKE.gif" width=54%>
 
 如果点击的位置有多个重叠的图片，可以多次点击来切换选择的图片。
 
@@ -213,23 +201,15 @@ Location 工具用来模拟经纬度，打开开关后输入经纬度即可。�
 - 拖动底部的slider可以控制放大倍率（5 ~ 30倍)
 - 拖动取色器可以移动取色的位置，在取色器外滑动可以慢速移动，方便按像素取值移动
 
-<video width=54% autoplay loop>
-  <source src="http://p.tb.cn/rmsportal_602_color-picker.mov" type="video/mp4">
-Your browser does not support the video tag.
-</video>
+<img src="https://zos.alipayobjects.com/rmsportal/aXzSooMHomzqjxPqfKlo.gif" width=54%>
 
 #### Design
 
-提供设计稿对比工具。
+提供设计稿对比工具。演示可以查看这个 [视频](https://os.alipayobjects.com/rmsportal/sZLAZAuTqKqJXSdvDMQR.mp4)
+
 - 将设计稿存入相册后，点击选图，选中设计稿。
 - 打开调整开关，调整设计稿的透明度、大小和位置。
 - 关闭开关可以正常操作界面，并对比与设计稿的差异。
-
-<video width=54% autoplay loop>
-  <source src="https://os.alipayobjects.com/rmsportal/sZLAZAuTqKqJXSdvDMQR.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video>
-
 
 #### 内存泄漏
 
@@ -247,7 +227,6 @@ Your browser does not support the video tag.
     
     ```
 
-
 - 内存对象搜索功能
    
 - 点击内存对象，检查该对象下的循环依赖
@@ -258,8 +237,7 @@ Your browser does not support the video tag.
 
 - 循环依赖总开关，开启才会纪录内存对象
 
-<video width=54% autoplay loop>
-  <source src="https://os.alipayobjects.com/rmsportal/FHTivbwpcUZpHUiTYshL.mp4" type="video/mp4"></video>
+<img src="https://zos.alipayobjects.com/rmsportal/pqDPHMOfcrvUqQtZNtGa.gif" width=54%>
 
 ## 3.4. Plugin
 
