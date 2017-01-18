@@ -134,7 +134,7 @@ Logs 用来实时查看网络请求的状态、返回等，需要自行配置网
 [VZInspector setShouldHandleCrash:YES];
 ```
 
-<img src="https://zos.alipayobjects.com/rmsportal/lAoYNvmeocPzOvSxFJCd.gif" width=54%>
+<img src="https://zos.alipayobjects.com/rmsportal/JEpbpkJsULSLTcaYIsJf.gif" width=54%>
 
 ### Sandbox
 
