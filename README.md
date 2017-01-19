@@ -55,7 +55,7 @@ App 当前内存占用显示在 Status 顶部，折线显示内存占用变化�
 
 在 Memory Usage 区域上面有一个自定义区域，供你放置一些开关，例如我们在这里做了环境切换、清理内存缓存的功能，环境切换功能深受测试同学喜欢。自定义示例如下：
 
-<img src="https://zos.alipayobjects.com/rmsportal/OUifqYUTwmKVBcglGezK.png" width=42%>
+<img src="https://zos.alipayobjects.com/rmsportal/FsTJcKeWkrnHbvJZSsWy.png" width=42%>
 
 ```c
 //自定义 Dashboard 开关
@@ -87,7 +87,7 @@ Log 界面显示 NSLog 输出的信息，可以在不连接 Xcode 时直接查�
 
 Toolbox 界面提供了一些常用小工具，例如网络日志查看、控件检查、帧率监测。开关类的工具在打开时会在右上角显示 `ON`。
 
-<img src="https://zos.alipayobjects.com/rmsportal/fNixjLqfAZOzvhfpFrBX.png" width=42%>
+<img src="https://zos.alipayobjects.com/rmsportal/iqLtZuFJsJeLZTwviERS.png" width=42%>
 
 ### Logs
 
@@ -134,7 +134,7 @@ Logs 用来实时查看网络请求的状态、返回等，需要自行配置网
 [VZInspector setShouldHandleCrash:YES];
 ```
 
-<img src="https://zos.alipayobjects.com/rmsportal/JEpbpkJsULSLTcaYIsJf.gif" width=54%>
+<img src="https://zos.alipayobjects.com/rmsportal/YjLMjsSjCyRKllehFVjF.gif" width=54%>
 
 ### Sandbox
 
@@ -237,11 +237,11 @@ Location 工具用来模拟经纬度，打开开关后输入经纬度即可。�
 
 - 循环依赖总开关，开启才会纪录内存对象
 
-## 3.4. Plugin
+## 3.4 Plugin
 
 插件界面方便你在 VZInspector 中放置自己开发的插件，如下图所示。这部分完全是业务相关的工具，可以使用下面的代码进行自定义。
 
-<img src="https://zos.alipayobjects.com/rmsportal/ZFJkBgvFSvKENAouGPBi.png" width=42%>
+<img src="https://zos.alipayobjects.com/rmsportal/rppyFgFjBgKijArhvTOZ.png" width=42%>
 
 ```c
 //添加自定义插件
