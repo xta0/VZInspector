@@ -26,7 +26,7 @@ VZInspector 在类加载时会被自动添加至状态栏，只需确保 VZInspe
 
 这部分按照 VZInspector 界面上的功能区块，分别介绍 VZInspector 内置的功能以及可自定义的功能。
 
-![](https://zos.alipayobjects.com/rmsportal/qpznjCATRHEWltpKwlLd.png)
+![](https://zos.alipayobjects.com/rmsportal/LziKlFNakXIhEocKDXiz.png)
 
 ## 3.1 Status
 
@@ -144,7 +144,7 @@ Logs 用来实时查看网络请求的状态、返回等，需要自行配置网
 
 网格工具用来做视觉检查，比如简单的控件对齐、控件尺寸等。
 
-<img src="https://zos.alipayobjects.com/rmsportal/EVGZIRjXWrjtCpLrTCkr.png" width=42%>
+<img src="https://zos.alipayobjects.com/rmsportal/keAaCYqIrWXrDrIKTlle.png" width=42%>
 
 #### Border
 
@@ -155,7 +155,7 @@ Logs 用来实时查看网络请求的状态、返回等，需要自行配置网
 [VZInspector setClassPrefixName:@"O2O"];
 ```
 
-<img src="https://zos.alipayobjects.com/rmsportal/qVJYiNunPUEbBJlICCZz.png" width=42%>
+<img src="https://zos.alipayobjects.com/rmsportal/peZONIaIGMrgXVHRtoIX.png" width=42%>
 
 #### Warning
 
@@ -168,17 +168,17 @@ Warning 用来模拟内存警告，可以帮你验证 `didReceiveMemoryWarning` 
 Image 工具用于检查界面上的图片，比如查看图片尺寸，图片 URL。
 
 <img width="375" src="https://zos.alipayobjects.com/rmsportal/sLcDoANhuJAnCJLGUUhu.png"/>  
+
 工具栏的按钮从左到右依次为：
 - **返回**
 - **分享**，可以在手机上把当前选择的图片 AirDrop 到电脑上
 - **复制**，可以把选择的图片和描述复制到剪切板，再按 Ctrl+C 从模拟器复制出来
 - **切换**，点击切换是否开启选择模式，关闭选择模式来操作界面
-
-<img width="375" src="https://zos.alipayobjects.com/rmsportal/wGGSoIqsxCfrVEKeVUgl.png"/>  
+ 
 选择图片后会把图片置顶显示，并显示出被裁剪的部分。  
 屏幕上方（或下方）显示图片和 View 的尺寸、scale、宽高比，图片帧数。另外 O2O 中额外增加了图片 URL 的显示。
 
-<img src="https://zos.alipayobjects.com/rmsportal/YYVyPwuknwdmMoIyjxKE.gif" width=54%>
+<img src="https://zos.alipayobjects.com/rmsportal/NilgLxXiNvseQvMWZrrw.gif" width=54%>
 
 如果点击的位置有多个重叠的图片，可以多次点击来切换选择的图片。
 
