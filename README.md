@@ -186,7 +186,7 @@ Image 工具用于检查界面上的图片，比如查看图片尺寸，图片 U
 
 Location 工具用来模拟经纬度，打开开关后输入经纬度即可。界面上也提供了一些常用城市的经纬度。
 
-<img src="https://zos.alipayobjects.com/rmsportal/oIFVRjmlSVobavjaQpmG.png" width=42%>
+<img src="https://zos.alipayobjects.com/rmsportal/SvxVXKmZCZdAKoIfNxKa.png" width=42%>
 
 #### FrameRate
 
