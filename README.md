@@ -250,3 +250,11 @@ VZInspectorToolItem *scan = [VZInspectorToolItem itemWithName:@"scan" icon:icon 
 }];
 [VZInspector addToolItem:scan];
 ```
+
+# 4. License
+
+VZInspector 基于 MIT License，更多信息查看：https://opensource.org/licenses/MIT
+
+# 5. Contribution
+
+欢迎任何建议 & Pull request。
