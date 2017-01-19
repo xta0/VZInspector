@@ -87,7 +87,7 @@ Log 界面显示 NSLog 输出的信息，可以在不连接 Xcode 时直接查�
 
 Toolbox 界面提供了一些常用小工具，例如网络日志查看、控件检查、帧率监测。开关类的工具在打开时会在右上角显示 `ON`。
 
-<img src="https://zos.alipayobjects.com/rmsportal/iqLtZuFJsJeLZTwviERS.png" width=42%>
+<img src="https://zos.alipayobjects.com/rmsportal/NFjyyyDYlWranbwqqrGJ.png" width=42%>
 
 ### Logs
 
