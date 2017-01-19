@@ -26,7 +26,7 @@ VZInspector 在类加载时会被自动添加至状态栏，只需确保 VZInspe
 
 这部分按照 VZInspector 界面上的功能区块，分别介绍 VZInspector 内置的功能以及可自定义的功能。
 
-![](https://zos.alipayobjects.com/rmsportal/AknMInqxAbjRcFRTmMiO.png)
+![](https://zos.alipayobjects.com/rmsportal/RPZQsqbWsOwTxWJOlmnu.png)
 
 ## 3.1 Status
 
