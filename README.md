@@ -26,7 +26,7 @@ VZInspector 在类加载时会被自动添加至状态栏，只需确保 VZInspe
 
 这部分按照 VZInspector 界面上的功能区块，分别介绍 VZInspector 内置的功能以及可自定义的功能。
 
-![](https://zos.alipayobjects.com/rmsportal/LziKlFNakXIhEocKDXiz.png)
+![](https://zos.alipayobjects.com/rmsportal/AknMInqxAbjRcFRTmMiO.png)
 
 ## 3.1 Status
 
@@ -49,7 +49,7 @@ App 当前内存占用显示在 Status 顶部，折线显示内存占用变化�
 
 ```
 
-<img src="https://zos.alipayobjects.com/rmsportal/zUYUkAdakRGXahBPdSOp.png" width=42%>
+<img src="https://zos.alipayobjects.com/rmsportal/oYPnOnEaNHBpHFtZuYZC.png" width=42%>
 
 #### 自定义
 
@@ -68,7 +68,7 @@ App 当前内存占用显示在 Status 顶部，折线显示内存占用变化�
 
 Log 界面显示 NSLog 输出的信息，可以在不连接 Xcode 时直接查看日志，最新的日志在顶部显示。此外顶部提供了过滤功能；右下区域的三个按钮分别对应 `回到顶部`、`打开/关闭自动刷新` 和 `刷新` 操作。  
 
-<img src="https://zos.alipayobjects.com/rmsportal/VucgzDnqUEcIKlUCaYnb.png" width=42%>
+<img src="https://zos.alipayobjects.com/rmsportal/PlhYfAHDWHckNlzDRxvC.png" width=42%>
 
 #### 自定义
 
