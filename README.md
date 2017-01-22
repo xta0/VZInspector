@@ -213,7 +213,7 @@ Location 工具用来模拟经纬度，打开开关后输入经纬度即可。�
 
 #### 内存泄漏
 
-内存泄漏主要检查oc的循环依赖，提供如下功能。使用演示可以查看 [视频](https://os.alipayobjects.com/rmsportal/FHTivbwpcUZpHUiTYshL.mp4)
+内存泄漏主要检查oc的循环依赖，提供如下功能。使用演示可以查看 [视频](https://os.alipayobjects.com/rmsportal/RvlURFYUUrzoSgdTSHNC.mp4)
 
 - 支持配置黑白名单，黑白名单均是是以hasPrefix 来判断前缀过滤的。只有前缀在白名单内的才能在工具上显示，前缀在黑名单里面的不会在工具里面显示。合理利用黑白名单，可以节省大量检查时间，具体操作如下：
 
