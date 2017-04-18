@@ -98,18 +98,31 @@
     NSString* url = @"https://api.app.net/stream/0/posts/stream/global";
     [[[NSURLSession sharedSession] dataTaskWithURL:[NSURL URLWithString:url] completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         
-        NSDictionary* JSON = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+        if(data){
         
-        for (NSDictionary* dict in JSON[@"data"]) {
-            [self.items addObject:dict];
+            NSDictionary* JSON = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
             
+            for (NSDictionary* dict in JSON[@"data"]) {
+                [self.items addObject:dict];
+                
+            }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                self.tableView.tableFooterView = nil;
+                [self.tableView reloadData];
+                
+            });
         }
-        dispatch_async(dispatch_get_main_queue(), ^{
-            
-            self.tableView.tableFooterView = nil;
-            [self.tableView reloadData];
-            
-        });
+        else{
+        
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                UIAlertView* alert = [[UIAlertView alloc]initWithTitle:@"Error" message:error.description delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                [alert show];
+                self.tableView.tableFooterView = nil;
+            });
+        }
+   
         
     }] resume];
     
