@@ -1,0 +1,12 @@
+PODS:
+  - VZInspector (0.1.3)
+
+DEPENDENCIES:
+  - VZInspector (= 0.1.3)
+
+SPEC CHECKSUMS:
+  VZInspector: ea21b641b9e976d72fa74dcf8b8e8a98e1f989bc
+
+PODFILE CHECKSUM: 385811d6bb7b72b30555d4036a4fe396ff617f1b
+
+COCOAPODS: 1.2.1
