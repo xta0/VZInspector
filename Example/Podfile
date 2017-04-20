@@ -8,6 +8,6 @@ target 'VZInspector' do
   use_frameworks!
 
   # Pods for VZInspector
-  pod 'VZInspector','0.1.3'
+  pod 'VZInspector', :path => '../'
 
 end
