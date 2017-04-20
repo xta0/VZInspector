@@ -2,6 +2,7 @@ language: objective-c
 xcode_workspace: ./Example/VZInspector.xcworkspace
 xcode_scheme: VZInspector
 cache: cocoapods
+podfile: ./Example/Podfile
 branches:
   only:
   - master
