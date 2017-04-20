@@ -1,5 +1,8 @@
 language: objective-c
 xcode_project: ./Example/VZInspector.xcodeproj
 xcode_scheme: VZInspector
+branches:
+  only:
+  - master
 osx_image: xcode7.3
 xcode_sdk: iphonesimulator
