@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   s.source        = { :git => "https://github.com/vizlabxt/VZInspector.git", :tag => "#{s.version}" }
   s.requires_arc  = true
   s.framework     = 'Foundation', 'UIKit', 'CoreGraphics', 'QuartzCore'
-  s.source_files  = 'VZInspector/**/*'
+  s.source_files  = 'VZInspector/**/*.{h,c,m,mm}'
   s.libraries     = "z", "c++"
   mrr_files = [
     'VZInspector/toolbox/mermoryProfile/vendor/allocationTrack/NSObject+VZAllocationTracker.mm',
