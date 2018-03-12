@@ -22,7 +22,7 @@
 @implementation VZInspector
 
 + (void)load {
-    [self showOnStatusBar];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showOnStatusBar) name:UIApplicationDidFinishLaunchingNotification object:nil];
     
     [[VZInspectorMermoryManager sharedInstance] startTrackingIfNeed];
     
