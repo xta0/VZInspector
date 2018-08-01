@@ -1,11 +1,6 @@
 
 ![VZInspector](https://github.com/akaDealloc/VZInspector/blob/master/logo.png)
 
-[![Build Status](https://travis-ci.org/vizlabxt/VZInspector.svg)](https://travis-ci.org/akaDealloc/VZInspector)
-[![Version](http://img.shields.io/cocoapods/v/VZInspector.svg)](http://cocoapods.org/?q=VZInspector)
-[![Platform](http://img.shields.io/cocoapods/p/VZInspector.svg)]()
-[![License](http://img.shields.io/cocoapods/l/VZInspector.svg)](https://github.com/akaDealloc/VZInspector/blob/master/LICENSE)
-
 # 1. 简介
 
 VZInspector 是一个给 iOS 开发者使用的 debug 工具，包含日志查询、取色、控件检查、视觉稿比对等功能，同时提供了丰富的接口方便自行定制。
