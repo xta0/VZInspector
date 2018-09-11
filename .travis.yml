@@ -1,7 +1,4 @@
 language: objective-c
-xcode_project: ./VZInspectorDemo.xcodeproj
-xcode_scheme: VZInspectorDemo
-cache: cocoapods
 osx_image: xcode8.3
-xcode_sdk: iphonesimulator
+scripts: xcodebuild -project VZInspectorDemo.xcodeproj -scheme VZInspectorDemo -sdk iphonesimulator
 
