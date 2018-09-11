@@ -54,11 +54,6 @@
 		45A4AB9B214782DD0003F640 /* VZColorPanelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A4AB3A214782DD0003F640 /* VZColorPanelView.m */; };
 		45A4AB9C214782DD0003F640 /* VZInspectorColorPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A4AB3B214782DD0003F640 /* VZInspectorColorPickerView.m */; };
 		45A4AB9D214782DD0003F640 /* VZInspectorToolItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A4AB3D214782DD0003F640 /* VZInspectorToolItem.m */; };
-		45A4AB9E214782DD0003F640 /* LICENSE_FBAllocationTracker in Resources */ = {isa = PBXBuildFile; fileRef = 45A4AB40214782DD0003F640 /* LICENSE_FBAllocationTracker */; };
-		45A4AB9F214782DD0003F640 /* LICENSE_FBRetainCycleDetector in Resources */ = {isa = PBXBuildFile; fileRef = 45A4AB44214782DD0003F640 /* LICENSE_FBRetainCycleDetector */; };
-		45A4ABA0214782DD0003F640 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 45A4AB46214782DD0003F640 /* LICENSE */; };
-		45A4ABA1214782DD0003F640 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 45A4AB47214782DD0003F640 /* README.md */; };
-		45A4ABA2214782DD0003F640 /* Circle-LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 45A4AB4A214782DD0003F640 /* Circle-LICENSE */; };
 		45A4ABA3214782DD0003F640 /* VZInspectorToolboxView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A4AB53214782DD0003F640 /* VZInspectorToolboxView.m */; };
 		45A4ABA4214782DD0003F640 /* VZInspectorGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A4AB56214782DD0003F640 /* VZInspectorGridView.m */; };
 		45A4ABA5214782DD0003F640 /* UIWindow+VZInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A4AB58214782DD0003F640 /* UIWindow+VZInspector.m */; };
@@ -73,6 +68,7 @@
 		45A4ABAE214782DD0003F640 /* VZInspectorSettingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A4AB6C214782DD0003F640 /* VZInspectorSettingView.m */; };
 		45A4ABAF214782DD0003F640 /* VZDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A4AB73214782DD0003F640 /* VZDevice.m */; };
 		45A4ABB0214782DD0003F640 /* VZInspectorOverview.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A4AB74214782DD0003F640 /* VZInspectorOverview.m */; };
+		45A4ABB421478B9C0003F640 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A4ABB221478AF30003F640 /* libz.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -172,11 +168,6 @@
 		45A4AB3B214782DD0003F640 /* VZInspectorColorPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorColorPickerView.m; sourceTree = "<group>"; };
 		45A4AB3C214782DD0003F640 /* VZColorDisplayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZColorDisplayView.h; sourceTree = "<group>"; };
 		45A4AB3D214782DD0003F640 /* VZInspectorToolItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorToolItem.m; sourceTree = "<group>"; };
-		45A4AB40214782DD0003F640 /* LICENSE_FBAllocationTracker */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE_FBAllocationTracker; sourceTree = "<group>"; };
-		45A4AB44214782DD0003F640 /* LICENSE_FBRetainCycleDetector */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE_FBRetainCycleDetector; sourceTree = "<group>"; };
-		45A4AB46214782DD0003F640 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		45A4AB47214782DD0003F640 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		45A4AB4A214782DD0003F640 /* Circle-LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Circle-LICENSE"; sourceTree = "<group>"; };
 		45A4AB53214782DD0003F640 /* VZInspectorToolboxView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorToolboxView.m; sourceTree = "<group>"; };
 		45A4AB55214782DD0003F640 /* UIWindow+VZInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+VZInspector.h"; sourceTree = "<group>"; };
 		45A4AB56214782DD0003F640 /* VZInspectorGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorGridView.m; sourceTree = "<group>"; };
@@ -204,6 +195,7 @@
 		45A4AB72214782DD0003F640 /* VZDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZDevice.h; sourceTree = "<group>"; };
 		45A4AB73214782DD0003F640 /* VZDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZDevice.m; sourceTree = "<group>"; };
 		45A4AB74214782DD0003F640 /* VZInspectorOverview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorOverview.m; sourceTree = "<group>"; };
+		45A4ABB221478AF30003F640 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,6 +203,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45A4ABB421478B9C0003F640 /* libz.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -223,6 +216,7 @@
 				45A4AAD8214782DD0003F640 /* VZInspector */,
 				45A4A9E821477E770003F640 /* VZInspectorDemo */,
 				45A4A9E721477E770003F640 /* Products */,
+				45A4ABB121478AF30003F640 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -355,7 +349,6 @@
 				45A4AB30214782DD0003F640 /* sandbox */,
 				45A4AB35214782DD0003F640 /* colorPicker */,
 				45A4AB3D214782DD0003F640 /* VZInspectorToolItem.m */,
-				45A4AB3E214782DD0003F640 /* mermoryProfile */,
 				45A4AB53214782DD0003F640 /* VZInspectorToolboxView.m */,
 				45A4AB54214782DD0003F640 /* grid */,
 			);
@@ -468,138 +461,6 @@
 			path = colorPicker;
 			sourceTree = "<group>";
 		};
-		45A4AB3E214782DD0003F640 /* mermoryProfile */ = {
-			isa = PBXGroup;
-			children = (
-				45A4AB3F214782DD0003F640 /* vendor */,
-			);
-			path = mermoryProfile;
-			sourceTree = "<group>";
-		};
-		45A4AB3F214782DD0003F640 /* vendor */ = {
-			isa = PBXGroup;
-			children = (
-				45A4AB40214782DD0003F640 /* LICENSE_FBAllocationTracker */,
-				45A4AB41214782DD0003F640 /* Associations */,
-				45A4AB43214782DD0003F640 /* Filtering */,
-				45A4AB44214782DD0003F640 /* LICENSE_FBRetainCycleDetector */,
-				45A4AB45214782DD0003F640 /* fishhook */,
-				45A4AB48214782DD0003F640 /* Layout */,
-				45A4AB4E214782DD0003F640 /* Graph */,
-				45A4AB51214782DD0003F640 /* allocationTrack */,
-				45A4AB52214782DD0003F640 /* Detector */,
-			);
-			path = vendor;
-			sourceTree = "<group>";
-		};
-		45A4AB41214782DD0003F640 /* Associations */ = {
-			isa = PBXGroup;
-			children = (
-				45A4AB42214782DD0003F640 /* Internal */,
-			);
-			path = Associations;
-			sourceTree = "<group>";
-		};
-		45A4AB42214782DD0003F640 /* Internal */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Internal;
-			sourceTree = "<group>";
-		};
-		45A4AB43214782DD0003F640 /* Filtering */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Filtering;
-			sourceTree = "<group>";
-		};
-		45A4AB45214782DD0003F640 /* fishhook */ = {
-			isa = PBXGroup;
-			children = (
-				45A4AB46214782DD0003F640 /* LICENSE */,
-				45A4AB47214782DD0003F640 /* README.md */,
-			);
-			path = fishhook;
-			sourceTree = "<group>";
-		};
-		45A4AB48214782DD0003F640 /* Layout */ = {
-			isa = PBXGroup;
-			children = (
-				45A4AB49214782DD0003F640 /* Blocks */,
-				45A4AB4B214782DD0003F640 /* Classes */,
-			);
-			path = Layout;
-			sourceTree = "<group>";
-		};
-		45A4AB49214782DD0003F640 /* Blocks */ = {
-			isa = PBXGroup;
-			children = (
-				45A4AB4A214782DD0003F640 /* Circle-LICENSE */,
-			);
-			path = Blocks;
-			sourceTree = "<group>";
-		};
-		45A4AB4B214782DD0003F640 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				45A4AB4C214782DD0003F640 /* Parser */,
-				45A4AB4D214782DD0003F640 /* Reference */,
-			);
-			path = Classes;
-			sourceTree = "<group>";
-		};
-		45A4AB4C214782DD0003F640 /* Parser */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Parser;
-			sourceTree = "<group>";
-		};
-		45A4AB4D214782DD0003F640 /* Reference */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Reference;
-			sourceTree = "<group>";
-		};
-		45A4AB4E214782DD0003F640 /* Graph */ = {
-			isa = PBXGroup;
-			children = (
-				45A4AB4F214782DD0003F640 /* Specialization */,
-				45A4AB50214782DD0003F640 /* Internal */,
-			);
-			path = Graph;
-			sourceTree = "<group>";
-		};
-		45A4AB4F214782DD0003F640 /* Specialization */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Specialization;
-			sourceTree = "<group>";
-		};
-		45A4AB50214782DD0003F640 /* Internal */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Internal;
-			sourceTree = "<group>";
-		};
-		45A4AB51214782DD0003F640 /* allocationTrack */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = allocationTrack;
-			sourceTree = "<group>";
-		};
-		45A4AB52214782DD0003F640 /* Detector */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Detector;
-			sourceTree = "<group>";
-		};
 		45A4AB54214782DD0003F640 /* grid */ = {
 			isa = PBXGroup;
 			children = (
@@ -679,6 +540,14 @@
 			path = device;
 			sourceTree = "<group>";
 		};
+		45A4ABB121478AF30003F640 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				45A4ABB221478AF30003F640 /* libz.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -736,14 +605,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				45A4ABA2214782DD0003F640 /* Circle-LICENSE in Resources */,
-				45A4ABA0214782DD0003F640 /* LICENSE in Resources */,
 				45A4A9F621477E780003F640 /* LaunchScreen.storyboard in Resources */,
 				45A4A9F321477E780003F640 /* Assets.xcassets in Resources */,
-				45A4ABA1214782DD0003F640 /* README.md in Resources */,
 				45A4A9F121477E770003F640 /* Main.storyboard in Resources */,
-				45A4AB9F214782DD0003F640 /* LICENSE_FBRetainCycleDetector in Resources */,
-				45A4AB9E214782DD0003F640 /* LICENSE_FBAllocationTracker in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
