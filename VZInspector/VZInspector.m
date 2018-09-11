@@ -17,19 +17,11 @@
 #import "VZBorderInspector.h"
 #import "VZInspectorToolboxView.h"
 #import "VZDevice.h"
-#import "VZInspectorMermoryManager.h"
+
 
 @implementation VZInspector
 
-+ (void)load {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showOnStatusBar) name:UIApplicationDidFinishLaunchingNotification object:nil];
-    
-    [[VZInspectorMermoryManager sharedInstance] startTrackingIfNeed];
-    
-    [self addObserveCallback:^NSString *{
-        return [[VZDevice infoArray] componentsJoinedByString:@"\n"];
-    }];
-}
+
 
 + (void)showOnStatusBar
 {

@@ -1,16 +1,16 @@
 PODS:
-  - VZInspector (0.1.3)
+  - VZInspector (0.1.4)
 
 DEPENDENCIES:
   - VZInspector (from `../`)
 
 EXTERNAL SOURCES:
   VZInspector:
-    :path: ../
+    :path: "../"
 
 SPEC CHECKSUMS:
-  VZInspector: 51e17f5036a14fa93bdfbdae5b14443f3856b31f
+  VZInspector: c9f6548b093575e5d05564ec14266db014de9e3c
 
 PODFILE CHECKSUM: 0c5247a173645c8f5137d8c5793f0a718e885bc9
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.5.0

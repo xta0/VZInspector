@@ -59,7 +59,5 @@
 
 + (UIImage *)searchBarIcon;
 
-+ (UIImage *)mermoryArrowIcon;
-
 
 @end

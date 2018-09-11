@@ -29,8 +29,7 @@
 #import "VZDesignDraftView.h"
 #import "VZInspectorColorPickerView.h"
 #import "VZInspectorCrashRootView.h"
-#import "VZInspectorMermoryManager.h"
-#import "VZInspectorMermoryUtil.h"
+
 
 
 #define kVZInspectorCloseButtonTitle @"Close"
@@ -46,7 +45,7 @@
 
 @property(nonatomic,strong,readwrite) UIView* currentView;
 
-@property (nonatomic, strong) VZInspectorToolItem *mermoryCheckItem;
+
 
 @end
 
@@ -113,8 +112,6 @@
             [self onBtnClikced:btn];
         }
     }
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateMermoryCheckStatus) name:KVZInspectorMermoryCheckStatusChange object:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -153,7 +150,7 @@
 
 - (BOOL)canTouchPassThrough:(CGPoint)pt
 {
-    int w = self.view.bounds.size.width;
+//    int w = self.view.bounds.size.width;
     int h = self.view.bounds.size.height;
     
     if ([_currentView isKindOfClass:[VZInspectorView class]]) {
@@ -269,35 +266,16 @@
         [self transitionToView:draftView];
     }]];
     
-    _mermoryCheckItem =[VZInspectorToolItem itemWithName:@"Leak" icon:[VZInspectorMermoryManager icon] callback:^{
-        [[VZInspectorMermoryManager sharedInstance] toggle];
-        [self onClose];
-    }];
+
+
     
-
-    _mermoryCheckItem.status = [self mermoryCheckStatus] ?@"ON":nil;
-
-    [self.toolboxView addToolItem:_mermoryCheckItem];
 
     
 }
 
-- (BOOL)mermoryCheckStatus{
-    NSUserDefaults *defaults =[NSUserDefaults standardUserDefaults];
-    BOOL checkSwitch;
-    if(defaults){
-        checkSwitch = [[defaults objectForKey:KVZInspectorMermoryCheckSwitch] boolValue];
-    }
 
-    return checkSwitch;
-}
 
-- (void)updateMermoryCheckStatus{
-    _mermoryCheckItem.status = [self mermoryCheckStatus] ?@"ON":@"OFF";
 
-    [self.toolboxView updateCollectionView];
-
-}
 
 - (void)registerAdditionTools {
     for (VZInspectorToolItem *item in [VZInspector additionTools]) {

@@ -206,31 +206,6 @@ Location 工具用来模拟经纬度，打开开关后输入经纬度即可。�
 - 打开调整开关，调整设计稿的透明度、大小和位置。
 - 关闭开关可以正常操作界面，并对比与设计稿的差异。
 
-#### 内存泄漏
-
-内存泄漏主要检查oc的循环依赖，提供如下功能。使用演示可以查看 [视频](https://os.alipayobjects.com/rmsportal/RvlURFYUUrzoSgdTSHNC.mp4)
-
-- 支持配置黑白名单，黑白名单均是是以hasPrefix 来判断前缀过滤的。只有前缀在白名单内的才能在工具上显示，前缀在黑名单里面的不会在工具里面显示。合理利用黑白名单，可以节省大量检查时间，具体操作如下：
-
-    ```objc
-    
-    [[VZMermoryProfilerManager sharedManager] updateMermoryClassWhiteKeys:@[  
-    @"O2O", @"VZF", @"VZA", @"VZT"]];
-    
-    [[VZMermoryProfilerManager sharedManager] updateMermoryClassBlackKeys:@[  
-    @"VZFStackNode", @"VZFBlockGesture", @"VZMermory"]];
-    
-    ```
-
-- 内存对象搜索功能
-   
-- 点击内存对象，检查该对象下的循环依赖
-
-- 循环依赖对象筛选
-
-- 全部循环依赖对象检查，停止功能
-
-- 循环依赖总开关，开启才会纪录内存对象
 
 ## 3.4 Plugin
 
