@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1F022CD61ADD581F00325F3C /* VZRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F022CD51ADD581F00325F3C /* VZRootViewController.m */; };
+		458F32BE214770B5003AA736 /* VZInspectorUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 458F32BD214770B5003AA736 /* VZInspectorUITests.m */; };
 		45DCAE5C1ADEC05F00A26E01 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45DCAE5A1ADEC04D00A26E01 /* QuartzCore.framework */; };
 		45DCAE5D1ADEC05F00A26E01 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45DCAE581ADEC04900A26E01 /* UIKit.framework */; };
 		45DCAE5E1ADEC05F00A26E01 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45DCAE561ADEC04300A26E01 /* CoreGraphics.framework */; };
@@ -21,11 +22,24 @@
 		D7B8AC58A3CB113947AAB6BE /* Pods_VZInspector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00E1806A615ED1749555DD3F /* Pods_VZInspector.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		458F32C0214770B5003AA736 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AF0FC4FF19D11C66009CCBE4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AF0FC50619D11C66009CCBE4;
+			remoteInfo = VZInspector;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		00E1806A615ED1749555DD3F /* Pods_VZInspector.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VZInspector.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		05F50B46CABB1623D3DEE617 /* Pods-VZInspector.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VZInspector.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VZInspector/Pods-VZInspector.debug.xcconfig"; sourceTree = "<group>"; };
 		1F022CD41ADD581F00325F3C /* VZRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZRootViewController.h; sourceTree = "<group>"; };
 		1F022CD51ADD581F00325F3C /* VZRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZRootViewController.m; sourceTree = "<group>"; };
+		458F32BB214770B5003AA736 /* VZInspectorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VZInspectorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		458F32BD214770B5003AA736 /* VZInspectorUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VZInspectorUITests.m; sourceTree = "<group>"; };
+		458F32BF214770B5003AA736 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45DCAE521ADEC03A00A26E01 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		45DCAE541ADEC03E00A26E01 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		45DCAE561ADEC04300A26E01 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -44,6 +58,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		458F32B8214770B5003AA736 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AF0FC50419D11C66009CCBE4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -69,6 +90,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		458F32BC214770B5003AA736 /* VZInspectorUITests */ = {
+			isa = PBXGroup;
+			children = (
+				458F32BD214770B5003AA736 /* VZInspectorUITests.m */,
+				458F32BF214770B5003AA736 /* Info.plist */,
+			);
+			path = VZInspectorUITests;
+			sourceTree = "<group>";
+		};
 		45DCAE511ADEC02500A26E01 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				AF0FC50919D11C66009CCBE4 /* VZInspector */,
+				458F32BC214770B5003AA736 /* VZInspectorUITests */,
 				AF0FC50819D11C66009CCBE4 /* Products */,
 				DBDCC9F96A81535B825E3DAD /* Frameworks */,
 				0FACA3B66AC16F3E7CEB0EB3 /* Pods */,
@@ -95,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				AF0FC50719D11C66009CCBE4 /* VZInspector.app */,
+				458F32BB214770B5003AA736 /* VZInspectorUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -136,6 +168,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		458F32BA214770B5003AA736 /* VZInspectorUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 458F32C2214770B5003AA736 /* Build configuration list for PBXNativeTarget "VZInspectorUITests" */;
+			buildPhases = (
+				458F32B7214770B5003AA736 /* Sources */,
+				458F32B8214770B5003AA736 /* Frameworks */,
+				458F32B9214770B5003AA736 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				458F32C1214770B5003AA736 /* PBXTargetDependency */,
+			);
+			name = VZInspectorUITests;
+			productName = VZInspectorUITests;
+			productReference = 458F32BB214770B5003AA736 /* VZInspectorUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		AF0FC50619D11C66009CCBE4 /* VZInspector */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = AF0FC52A19D11C66009CCBE4 /* Build configuration list for PBXNativeTarget "VZInspector" */;
@@ -164,6 +214,12 @@
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = VizLab;
 				TargetAttributes = {
+					458F32BA214770B5003AA736 = {
+						CreatedOnToolsVersion = 9.4.1;
+						DevelopmentTeam = GW8XWHWQR7;
+						ProvisioningStyle = Automatic;
+						TestTargetID = AF0FC50619D11C66009CCBE4;
+					};
 					AF0FC50619D11C66009CCBE4 = {
 						CreatedOnToolsVersion = 6.0.1;
 					};
@@ -183,11 +239,19 @@
 			projectRoot = "";
 			targets = (
 				AF0FC50619D11C66009CCBE4 /* VZInspector */,
+				458F32BA214770B5003AA736 /* VZInspectorUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		458F32B9214770B5003AA736 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AF0FC50519D11C66009CCBE4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -240,6 +304,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		458F32B7214770B5003AA736 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				458F32BE214770B5003AA736 /* VZInspectorUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AF0FC50319D11C66009CCBE4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -251,6 +323,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		458F32C1214770B5003AA736 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AF0FC50619D11C66009CCBE4 /* VZInspector */;
+			targetProxy = 458F32C0214770B5003AA736 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		AF0FC51419D11C66009CCBE4 /* Main.storyboard */ = {
@@ -272,6 +352,55 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		458F32C3214770B5003AA736 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = GW8XWHWQR7;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = VZInspectorUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.xtao.me.VZInspectorUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = VZInspector;
+			};
+			name = Debug;
+		};
+		458F32C4214770B5003AA736 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = GW8XWHWQR7;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = VZInspectorUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.xtao.me.VZInspectorUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = VZInspector;
+			};
+			name = Release;
+		};
 		AF0FC52819D11C66009CCBE4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -423,6 +552,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		458F32C2214770B5003AA736 /* Build configuration list for PBXNativeTarget "VZInspectorUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				458F32C3214770B5003AA736 /* Debug */,
+				458F32C4214770B5003AA736 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		AF0FC50219D11C66009CCBE4 /* Build configuration list for PBXProject "VZInspector" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
