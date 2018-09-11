@@ -1,4 +1,11 @@
 language: objective-c
 osx_image: xcode8.3
-scripts: xcodebuild -project VZInspectorDemo.xcodeproj -scheme VZInspectorDemo -sdk iphonesimulator
+branches:
+  only:
+    - master
+script:
+  - set -o pipefail
+  - xcodebuild -project VZInspectorDemo.xcodeproj -scheme VZInspectorDemo -sdk iphonesimulator 
+  
+
 

@@ -2,6 +2,10 @@
 ![VZInspector](https://github.com/akaDealloc/VZInspector/blob/master/logo.png)
 
 
+[![Build Status](https://travis-ci.org/Vizzle/VZInspector.svg?branch=master)](https://travis-ci.org/Vizzle/VZInspector)
+[![Version](https://img.shields.io/cocoapods/v/VZInspector.svg?style=flat)](http://cocoapods.org/pods/VZInspector)
+[![License](https://img.shields.io/cocoapods/l/VZInspector.svg?style=flat)](http://cocoapods.org/pods/VZInspector)
+[![Platform](https://img.shields.io/cocoapods/p/VZInspector.svg?style=flat)](http://cocoapods.org/pods/VZInspector)
 
 
 # 1. 简介
