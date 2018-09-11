@@ -5,7 +5,5 @@ cache: cocoapods
 podfile: ./Example/Podfile
 osx_image: xcode8.3
 xcode_sdk: iphonesimulator
-before_scripts:
-- pod install
-scripts: 
-- xcodebuild -workspace ./Example/VZInspector.xcworkspace -scheme VZInspector -sdk iphonesimulator
+before_scripts: pod install
+scripts: xcodebuild -workspace ./Example/VZInspector.xcworkspace -scheme VZInspector -sdk iphonesimulator
