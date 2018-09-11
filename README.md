@@ -1,7 +1,7 @@
 
 ![VZInspector](https://github.com/akaDealloc/VZInspector/blob/master/logo.png)
 
-![](https://badge.fury.io/hooks/github)
+
 
 
 # 1. 简介
