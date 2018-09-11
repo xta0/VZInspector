@@ -1,5 +1,5 @@
 language: objective-c
-xcode_project: ./VZInspectorDemo/VZInspectorDemo.xcodeproj
+xcode_project: ./VZInspectorDemo.xcodeproj
 xcode_scheme: VZInspectorDemo
 cache: cocoapods
 osx_image: xcode8.3

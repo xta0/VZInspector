@@ -1,0 +1,1008 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		45A4A9EB21477E770003F640 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A4A9EA21477E770003F640 /* AppDelegate.m */; };
+		45A4A9EE21477E770003F640 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A4A9ED21477E770003F640 /* ViewController.m */; };
+		45A4A9F121477E770003F640 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45A4A9EF21477E770003F640 /* Main.storyboard */; };
+		45A4A9F321477E780003F640 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45A4A9F221477E780003F640 /* Assets.xcassets */; };
+		45A4A9F621477E780003F640 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45A4A9F421477E780003F640 /* LaunchScreen.storyboard */; };
+		45A4A9F921477E780003F640 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A4A9F821477E780003F640 /* main.m */; };
+		45A4AB75214782DD0003F640 /* VZInspectorResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A4AADB214782DD0003F640 /* VZInspectorResource.m */; };
+		45A4AB76214782DD0003F640 /* VZInspectorOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A4AADD214782DD0003F640 /* VZInspectorOverlay.m */; };
+		45A4AB77214782DD0003F640 /* VZInspectorWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A4AAE0214782DD0003F640 /* VZInspectorWindow.m */; };
+		45A4AB78214782DD0003F640 /* VZInspectController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A4AAE3214782DD0003F640 /* VZInspectController.m */; };
+		45A4AB79214782DD0003F640 /* VZInspectorBizLogManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A4AAE7214782DD0003F640 /* VZInspectorBizLogManager.m */; };
+		45A4AB7A214782DD0003F640 /* VZInspectorUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A4AAE8214782DD0003F640 /* VZInspectorUtility.m */; };
+		45A4AB7B214782DD0003F640 /* VZInspectorBizLogItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A4AAEC214782DD0003F640 /* VZInspectorBizLogItem.m */; };
+		45A4AB7C214782DD0003F640 /* VZInspectorTagListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A4AAF1214782DD0003F640 /* VZInspectorTagListView.m */; };
+		45A4AB7D214782DD0003F640 /* VZInspectorMaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A4AAF2214782DD0003F640 /* VZInspectorMaskView.m */; };
+		45A4AB7E214782DD0003F640 /* VZInspectorSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A4AAF3214782DD0003F640 /* VZInspectorSearchBar.m */; };
+		45A4AB7F214782DD0003F640 /* VZInspectorTagView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A4AAF7214782DD0003F640 /* VZInspectorTagView.m */; };
+		45A4AB80214782DD0003F640 /* VZInspectorBizLogToolBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A4AAF8214782DD0003F640 /* VZInspectorBizLogToolBarItem.m */; };
+		45A4AB81214782DD0003F640 /* VZInspectorBizLogCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A4AAFA214782DD0003F640 /* VZInspectorBizLogCell.m */; };
+		45A4AB82214782DD0003F640 /* VZInspectorBizLogView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A4AAFC214782DD0003F640 /* VZInspectorBizLogView.m */; };
+		45A4AB83214782DD0003F640 /* VZKeyCommands.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A4AAFE214782DD0003F640 /* VZKeyCommands.m */; };
+		45A4AB84214782DD0003F640 /* NSObject+VZInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A4AB00214782DD0003F640 /* NSObject+VZInspector.m */; };
+		45A4AB85214782DD0003F640 /* VZInspectorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A4AB02214782DD0003F640 /* VZInspectorView.m */; };
+		45A4AB86214782DD0003F640 /* VZInspectorTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A4AB03214782DD0003F640 /* VZInspectorTimer.m */; };
+		45A4AB87214782DD0003F640 /* VZInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A4AB05214782DD0003F640 /* VZInspector.m */; };
+		45A4AB88214782DD0003F640 /* VZBorderInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A4AB08214782DD0003F640 /* VZBorderInspector.m */; };
+		45A4AB89214782DD0003F640 /* VZInspectorLocationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A4AB0D214782DD0003F640 /* VZInspectorLocationView.m */; };
+		45A4AB8A214782DD0003F640 /* CLLocationManager+FLFake.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A4AB0F214782DD0003F640 /* CLLocationManager+FLFake.m */; };
+		45A4AB8B214782DD0003F640 /* FLFakeConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A4AB11214782DD0003F640 /* FLFakeConfig.m */; };
+		45A4AB8C214782DD0003F640 /* VZNetworkInspectorOverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A4AB14214782DD0003F640 /* VZNetworkInspectorOverView.m */; };
+		45A4AB8D214782DD0003F640 /* VZNetworkObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A4AB15214782DD0003F640 /* VZNetworkObserver.m */; };
+		45A4AB8E214782DD0003F640 /* VZNetworkInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A4AB17214782DD0003F640 /* VZNetworkInspector.m */; };
+		45A4AB8F214782DD0003F640 /* VZNetworkTransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A4AB18214782DD0003F640 /* VZNetworkTransaction.m */; };
+		45A4AB90214782DD0003F640 /* VZNetworkRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A4AB1C214782DD0003F640 /* VZNetworkRecorder.m */; };
+		45A4AB91214782DD0003F640 /* VZInspectorNetworkHistoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A4AB1E214782DD0003F640 /* VZInspectorNetworkHistoryView.m */; };
+		45A4AB92214782DD0003F640 /* VZInspectorNetworkDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A4AB1F214782DD0003F640 /* VZInspectorNetworkDetailView.m */; };
+		45A4AB93214782DD0003F640 /* VZInspectorCrashRootView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A4AB24214782DD0003F640 /* VZInspectorCrashRootView.m */; };
+		45A4AB94214782DD0003F640 /* VZInspectorCrashView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A4AB25214782DD0003F640 /* VZInspectorCrashView.m */; };
+		45A4AB95214782DD0003F640 /* VZCrashInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A4AB26214782DD0003F640 /* VZCrashInspector.m */; };
+		45A4AB96214782DD0003F640 /* VZInspectorImageInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A4AB2B214782DD0003F640 /* VZInspectorImageInfoView.m */; };
+		45A4AB97214782DD0003F640 /* VZFrameRateOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A4AB2E214782DD0003F640 /* VZFrameRateOverlay.m */; };
+		45A4AB98214782DD0003F640 /* VZInspectorSandBoxRootView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A4AB33214782DD0003F640 /* VZInspectorSandBoxRootView.m */; };
+		45A4AB99214782DD0003F640 /* VZInspectorSandBoxSubView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A4AB34214782DD0003F640 /* VZInspectorSandBoxSubView.m */; };
+		45A4AB9A214782DD0003F640 /* VZColorDisplayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A4AB39214782DD0003F640 /* VZColorDisplayView.m */; };
+		45A4AB9B214782DD0003F640 /* VZColorPanelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A4AB3A214782DD0003F640 /* VZColorPanelView.m */; };
+		45A4AB9C214782DD0003F640 /* VZInspectorColorPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A4AB3B214782DD0003F640 /* VZInspectorColorPickerView.m */; };
+		45A4AB9D214782DD0003F640 /* VZInspectorToolItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A4AB3D214782DD0003F640 /* VZInspectorToolItem.m */; };
+		45A4AB9E214782DD0003F640 /* LICENSE_FBAllocationTracker in Resources */ = {isa = PBXBuildFile; fileRef = 45A4AB40214782DD0003F640 /* LICENSE_FBAllocationTracker */; };
+		45A4AB9F214782DD0003F640 /* LICENSE_FBRetainCycleDetector in Resources */ = {isa = PBXBuildFile; fileRef = 45A4AB44214782DD0003F640 /* LICENSE_FBRetainCycleDetector */; };
+		45A4ABA0214782DD0003F640 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 45A4AB46214782DD0003F640 /* LICENSE */; };
+		45A4ABA1214782DD0003F640 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 45A4AB47214782DD0003F640 /* README.md */; };
+		45A4ABA2214782DD0003F640 /* Circle-LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 45A4AB4A214782DD0003F640 /* Circle-LICENSE */; };
+		45A4ABA3214782DD0003F640 /* VZInspectorToolboxView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A4AB53214782DD0003F640 /* VZInspectorToolboxView.m */; };
+		45A4ABA4214782DD0003F640 /* VZInspectorGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A4AB56214782DD0003F640 /* VZInspectorGridView.m */; };
+		45A4ABA5214782DD0003F640 /* UIWindow+VZInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A4AB58214782DD0003F640 /* UIWindow+VZInspector.m */; };
+		45A4ABA6214782DD0003F640 /* VZInspectorLogView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A4AB5A214782DD0003F640 /* VZInspectorLogView.m */; };
+		45A4ABA7214782DD0003F640 /* VZLogInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A4AB5B214782DD0003F640 /* VZLogInspector.m */; };
+		45A4ABA8214782DD0003F640 /* VZOverviewInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A4AB5F214782DD0003F640 /* VZOverviewInspector.m */; };
+		45A4ABA9214782DD0003F640 /* VZInspectorPlotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A4AB60214782DD0003F640 /* VZInspectorPlotView.m */; };
+		45A4ABAA214782DD0003F640 /* VZMemoryInspectorOverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A4AB62214782DD0003F640 /* VZMemoryInspectorOverView.m */; };
+		45A4ABAB214782DD0003F640 /* VZMemoryInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A4AB63214782DD0003F640 /* VZMemoryInspector.m */; };
+		45A4ABAC214782DD0003F640 /* VZControllerStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A4AB69214782DD0003F640 /* VZControllerStack.m */; };
+		45A4ABAD214782DD0003F640 /* VZSettingInspector.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A4AB6B214782DD0003F640 /* VZSettingInspector.m */; };
+		45A4ABAE214782DD0003F640 /* VZInspectorSettingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A4AB6C214782DD0003F640 /* VZInspectorSettingView.m */; };
+		45A4ABAF214782DD0003F640 /* VZDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A4AB73214782DD0003F640 /* VZDevice.m */; };
+		45A4ABB0214782DD0003F640 /* VZInspectorOverview.m in Sources */ = {isa = PBXBuildFile; fileRef = 45A4AB74214782DD0003F640 /* VZInspectorOverview.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		45A4A9E621477E770003F640 /* VZInspectorDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VZInspectorDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		45A4A9E921477E770003F640 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		45A4A9EA21477E770003F640 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		45A4A9EC21477E770003F640 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		45A4A9ED21477E770003F640 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		45A4A9F021477E770003F640 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		45A4A9F221477E780003F640 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		45A4A9F521477E780003F640 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		45A4A9F721477E780003F640 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		45A4A9F821477E780003F640 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		45A4AAD9214782DD0003F640 /* VZInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspector.h; sourceTree = "<group>"; };
+		45A4AADB214782DD0003F640 /* VZInspectorResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorResource.m; sourceTree = "<group>"; };
+		45A4AADC214782DD0003F640 /* VZInspectorUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorUtility.h; sourceTree = "<group>"; };
+		45A4AADD214782DD0003F640 /* VZInspectorOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorOverlay.m; sourceTree = "<group>"; };
+		45A4AADE214782DD0003F640 /* NSObject+VZInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+VZInspector.h"; sourceTree = "<group>"; };
+		45A4AADF214782DD0003F640 /* VZInspectorAssert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorAssert.h; sourceTree = "<group>"; };
+		45A4AAE0214782DD0003F640 /* VZInspectorWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorWindow.m; sourceTree = "<group>"; };
+		45A4AAE1214782DD0003F640 /* VZInspectorTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorTimer.h; sourceTree = "<group>"; };
+		45A4AAE2214782DD0003F640 /* VZInspectorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorView.h; sourceTree = "<group>"; };
+		45A4AAE3214782DD0003F640 /* VZInspectController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectController.m; sourceTree = "<group>"; };
+		45A4AAE4214782DD0003F640 /* VZInspectorOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorOverlay.h; sourceTree = "<group>"; };
+		45A4AAE6214782DD0003F640 /* VZInspectorBizLogManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorBizLogManager.h; sourceTree = "<group>"; };
+		45A4AAE7214782DD0003F640 /* VZInspectorBizLogManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorBizLogManager.m; sourceTree = "<group>"; };
+		45A4AAE8214782DD0003F640 /* VZInspectorUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorUtility.m; sourceTree = "<group>"; };
+		45A4AAE9214782DD0003F640 /* VZInspectorResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorResource.h; sourceTree = "<group>"; };
+		45A4AAEB214782DD0003F640 /* VZInspectorBizLogItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorBizLogItem.h; sourceTree = "<group>"; };
+		45A4AAEC214782DD0003F640 /* VZInspectorBizLogItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorBizLogItem.m; sourceTree = "<group>"; };
+		45A4AAED214782DD0003F640 /* VZInspectorWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorWindow.h; sourceTree = "<group>"; };
+		45A4AAEF214782DD0003F640 /* VZInspectorBizLogToolBarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorBizLogToolBarItem.h; sourceTree = "<group>"; };
+		45A4AAF0214782DD0003F640 /* VZInspectorTagView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorTagView.h; sourceTree = "<group>"; };
+		45A4AAF1214782DD0003F640 /* VZInspectorTagListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorTagListView.m; sourceTree = "<group>"; };
+		45A4AAF2214782DD0003F640 /* VZInspectorMaskView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorMaskView.m; sourceTree = "<group>"; };
+		45A4AAF3214782DD0003F640 /* VZInspectorSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorSearchBar.m; sourceTree = "<group>"; };
+		45A4AAF4214782DD0003F640 /* VZInspectorBizLogCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorBizLogCell.h; sourceTree = "<group>"; };
+		45A4AAF5214782DD0003F640 /* VZInspectorBizLogView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorBizLogView.h; sourceTree = "<group>"; };
+		45A4AAF6214782DD0003F640 /* VZInspectorTagListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorTagListView.h; sourceTree = "<group>"; };
+		45A4AAF7214782DD0003F640 /* VZInspectorTagView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorTagView.m; sourceTree = "<group>"; };
+		45A4AAF8214782DD0003F640 /* VZInspectorBizLogToolBarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorBizLogToolBarItem.m; sourceTree = "<group>"; };
+		45A4AAF9214782DD0003F640 /* VZInspectorMaskView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorMaskView.h; sourceTree = "<group>"; };
+		45A4AAFA214782DD0003F640 /* VZInspectorBizLogCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorBizLogCell.m; sourceTree = "<group>"; };
+		45A4AAFB214782DD0003F640 /* VZInspectorSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorSearchBar.h; sourceTree = "<group>"; };
+		45A4AAFC214782DD0003F640 /* VZInspectorBizLogView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorBizLogView.m; sourceTree = "<group>"; };
+		45A4AAFE214782DD0003F640 /* VZKeyCommands.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZKeyCommands.m; sourceTree = "<group>"; };
+		45A4AAFF214782DD0003F640 /* VZKeyCommands.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZKeyCommands.h; sourceTree = "<group>"; };
+		45A4AB00214782DD0003F640 /* NSObject+VZInspector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+VZInspector.m"; sourceTree = "<group>"; };
+		45A4AB01214782DD0003F640 /* VZInspectController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectController.h; sourceTree = "<group>"; };
+		45A4AB02214782DD0003F640 /* VZInspectorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorView.m; sourceTree = "<group>"; };
+		45A4AB03214782DD0003F640 /* VZInspectorTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorTimer.m; sourceTree = "<group>"; };
+		45A4AB04214782DD0003F640 /* VZDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZDefine.h; sourceTree = "<group>"; };
+		45A4AB05214782DD0003F640 /* VZInspector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspector.m; sourceTree = "<group>"; };
+		45A4AB08214782DD0003F640 /* VZBorderInspector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZBorderInspector.m; sourceTree = "<group>"; };
+		45A4AB09214782DD0003F640 /* VZBorderInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZBorderInspector.h; sourceTree = "<group>"; };
+		45A4AB0B214782DD0003F640 /* VZInspectorToolItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorToolItem.h; sourceTree = "<group>"; };
+		45A4AB0D214782DD0003F640 /* VZInspectorLocationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorLocationView.m; sourceTree = "<group>"; };
+		45A4AB0E214782DD0003F640 /* FLFakeConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLFakeConfig.h; sourceTree = "<group>"; };
+		45A4AB0F214782DD0003F640 /* CLLocationManager+FLFake.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CLLocationManager+FLFake.m"; sourceTree = "<group>"; };
+		45A4AB10214782DD0003F640 /* VZInspectorLocationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorLocationView.h; sourceTree = "<group>"; };
+		45A4AB11214782DD0003F640 /* FLFakeConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLFakeConfig.m; sourceTree = "<group>"; };
+		45A4AB12214782DD0003F640 /* CLLocationManager+FLFake.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CLLocationManager+FLFake.h"; sourceTree = "<group>"; };
+		45A4AB14214782DD0003F640 /* VZNetworkInspectorOverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZNetworkInspectorOverView.m; sourceTree = "<group>"; };
+		45A4AB15214782DD0003F640 /* VZNetworkObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZNetworkObserver.m; sourceTree = "<group>"; };
+		45A4AB16214782DD0003F640 /* VZNetworkRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZNetworkRecorder.h; sourceTree = "<group>"; };
+		45A4AB17214782DD0003F640 /* VZNetworkInspector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZNetworkInspector.m; sourceTree = "<group>"; };
+		45A4AB18214782DD0003F640 /* VZNetworkTransaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZNetworkTransaction.m; sourceTree = "<group>"; };
+		45A4AB19214782DD0003F640 /* VZInspectorNetworkDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorNetworkDetailView.h; sourceTree = "<group>"; };
+		45A4AB1A214782DD0003F640 /* VZInspectorNetworkHistoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorNetworkHistoryView.h; sourceTree = "<group>"; };
+		45A4AB1B214782DD0003F640 /* VZNetworkInspectorOverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZNetworkInspectorOverView.h; sourceTree = "<group>"; };
+		45A4AB1C214782DD0003F640 /* VZNetworkRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZNetworkRecorder.m; sourceTree = "<group>"; };
+		45A4AB1D214782DD0003F640 /* VZNetworkObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZNetworkObserver.h; sourceTree = "<group>"; };
+		45A4AB1E214782DD0003F640 /* VZInspectorNetworkHistoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorNetworkHistoryView.m; sourceTree = "<group>"; };
+		45A4AB1F214782DD0003F640 /* VZInspectorNetworkDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorNetworkDetailView.m; sourceTree = "<group>"; };
+		45A4AB20214782DD0003F640 /* VZNetworkTransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZNetworkTransaction.h; sourceTree = "<group>"; };
+		45A4AB21214782DD0003F640 /* VZNetworkInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZNetworkInspector.h; sourceTree = "<group>"; };
+		45A4AB22214782DD0003F640 /* VZInspectorToolboxView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorToolboxView.h; sourceTree = "<group>"; };
+		45A4AB24214782DD0003F640 /* VZInspectorCrashRootView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorCrashRootView.m; sourceTree = "<group>"; };
+		45A4AB25214782DD0003F640 /* VZInspectorCrashView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorCrashView.m; sourceTree = "<group>"; };
+		45A4AB26214782DD0003F640 /* VZCrashInspector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZCrashInspector.m; sourceTree = "<group>"; };
+		45A4AB27214782DD0003F640 /* VZInspectorCrashRootView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorCrashRootView.h; sourceTree = "<group>"; };
+		45A4AB28214782DD0003F640 /* VZCrashInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZCrashInspector.h; sourceTree = "<group>"; };
+		45A4AB29214782DD0003F640 /* VZInspectorCrashView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorCrashView.h; sourceTree = "<group>"; };
+		45A4AB2B214782DD0003F640 /* VZInspectorImageInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorImageInfoView.m; sourceTree = "<group>"; };
+		45A4AB2C214782DD0003F640 /* VZInspectorImageInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorImageInfoView.h; sourceTree = "<group>"; };
+		45A4AB2E214782DD0003F640 /* VZFrameRateOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZFrameRateOverlay.m; sourceTree = "<group>"; };
+		45A4AB2F214782DD0003F640 /* VZFrameRateOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZFrameRateOverlay.h; sourceTree = "<group>"; };
+		45A4AB31214782DD0003F640 /* VZInspectorSandBoxRootView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorSandBoxRootView.h; sourceTree = "<group>"; };
+		45A4AB32214782DD0003F640 /* VZInspectorSandBoxSubView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorSandBoxSubView.h; sourceTree = "<group>"; };
+		45A4AB33214782DD0003F640 /* VZInspectorSandBoxRootView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorSandBoxRootView.m; sourceTree = "<group>"; };
+		45A4AB34214782DD0003F640 /* VZInspectorSandBoxSubView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorSandBoxSubView.m; sourceTree = "<group>"; };
+		45A4AB36214782DD0003F640 /* VZInspectorColorPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorColorPickerView.h; sourceTree = "<group>"; };
+		45A4AB37214782DD0003F640 /* VZColorPanelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZColorPanelView.h; sourceTree = "<group>"; };
+		45A4AB38214782DD0003F640 /* VZColorPickerDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZColorPickerDefine.h; sourceTree = "<group>"; };
+		45A4AB39214782DD0003F640 /* VZColorDisplayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZColorDisplayView.m; sourceTree = "<group>"; };
+		45A4AB3A214782DD0003F640 /* VZColorPanelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZColorPanelView.m; sourceTree = "<group>"; };
+		45A4AB3B214782DD0003F640 /* VZInspectorColorPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorColorPickerView.m; sourceTree = "<group>"; };
+		45A4AB3C214782DD0003F640 /* VZColorDisplayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZColorDisplayView.h; sourceTree = "<group>"; };
+		45A4AB3D214782DD0003F640 /* VZInspectorToolItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorToolItem.m; sourceTree = "<group>"; };
+		45A4AB40214782DD0003F640 /* LICENSE_FBAllocationTracker */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE_FBAllocationTracker; sourceTree = "<group>"; };
+		45A4AB44214782DD0003F640 /* LICENSE_FBRetainCycleDetector */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE_FBRetainCycleDetector; sourceTree = "<group>"; };
+		45A4AB46214782DD0003F640 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		45A4AB47214782DD0003F640 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		45A4AB4A214782DD0003F640 /* Circle-LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Circle-LICENSE"; sourceTree = "<group>"; };
+		45A4AB53214782DD0003F640 /* VZInspectorToolboxView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorToolboxView.m; sourceTree = "<group>"; };
+		45A4AB55214782DD0003F640 /* UIWindow+VZInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+VZInspector.h"; sourceTree = "<group>"; };
+		45A4AB56214782DD0003F640 /* VZInspectorGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorGridView.m; sourceTree = "<group>"; };
+		45A4AB57214782DD0003F640 /* VZInspectorGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorGridView.h; sourceTree = "<group>"; };
+		45A4AB58214782DD0003F640 /* UIWindow+VZInspector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+VZInspector.m"; sourceTree = "<group>"; };
+		45A4AB5A214782DD0003F640 /* VZInspectorLogView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorLogView.m; sourceTree = "<group>"; };
+		45A4AB5B214782DD0003F640 /* VZLogInspector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZLogInspector.m; sourceTree = "<group>"; };
+		45A4AB5C214782DD0003F640 /* VZLogInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZLogInspector.h; sourceTree = "<group>"; };
+		45A4AB5D214782DD0003F640 /* VZInspectorLogView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorLogView.h; sourceTree = "<group>"; };
+		45A4AB5F214782DD0003F640 /* VZOverviewInspector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZOverviewInspector.m; sourceTree = "<group>"; };
+		45A4AB60214782DD0003F640 /* VZInspectorPlotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorPlotView.m; sourceTree = "<group>"; };
+		45A4AB62214782DD0003F640 /* VZMemoryInspectorOverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZMemoryInspectorOverView.m; sourceTree = "<group>"; };
+		45A4AB63214782DD0003F640 /* VZMemoryInspector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZMemoryInspector.m; sourceTree = "<group>"; };
+		45A4AB64214782DD0003F640 /* VZMemoryInspectorOverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZMemoryInspectorOverView.h; sourceTree = "<group>"; };
+		45A4AB65214782DD0003F640 /* VZMemoryInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZMemoryInspector.h; sourceTree = "<group>"; };
+		45A4AB66214782DD0003F640 /* VZInspectorOverview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorOverview.h; sourceTree = "<group>"; };
+		45A4AB68214782DD0003F640 /* VZControllerStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZControllerStack.h; sourceTree = "<group>"; };
+		45A4AB69214782DD0003F640 /* VZControllerStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZControllerStack.m; sourceTree = "<group>"; };
+		45A4AB6B214782DD0003F640 /* VZSettingInspector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZSettingInspector.m; sourceTree = "<group>"; };
+		45A4AB6C214782DD0003F640 /* VZInspectorSettingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorSettingView.m; sourceTree = "<group>"; };
+		45A4AB6D214782DD0003F640 /* VZInspectorSettingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorSettingView.h; sourceTree = "<group>"; };
+		45A4AB6E214782DD0003F640 /* VZSettingInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZSettingInspector.h; sourceTree = "<group>"; };
+		45A4AB6F214782DD0003F640 /* VZOverviewInspector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZOverviewInspector.h; sourceTree = "<group>"; };
+		45A4AB70214782DD0003F640 /* VZInspectorPlotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZInspectorPlotView.h; sourceTree = "<group>"; };
+		45A4AB72214782DD0003F640 /* VZDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VZDevice.h; sourceTree = "<group>"; };
+		45A4AB73214782DD0003F640 /* VZDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZDevice.m; sourceTree = "<group>"; };
+		45A4AB74214782DD0003F640 /* VZInspectorOverview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VZInspectorOverview.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		45A4A9E321477E770003F640 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		45A4A9DD21477E770003F640 = {
+			isa = PBXGroup;
+			children = (
+				45A4AAD8214782DD0003F640 /* VZInspector */,
+				45A4A9E821477E770003F640 /* VZInspectorDemo */,
+				45A4A9E721477E770003F640 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		45A4A9E721477E770003F640 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				45A4A9E621477E770003F640 /* VZInspectorDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		45A4A9E821477E770003F640 /* VZInspectorDemo */ = {
+			isa = PBXGroup;
+			children = (
+				45A4A9E921477E770003F640 /* AppDelegate.h */,
+				45A4A9EA21477E770003F640 /* AppDelegate.m */,
+				45A4A9EC21477E770003F640 /* ViewController.h */,
+				45A4A9ED21477E770003F640 /* ViewController.m */,
+				45A4A9EF21477E770003F640 /* Main.storyboard */,
+				45A4A9F221477E780003F640 /* Assets.xcassets */,
+				45A4A9F421477E780003F640 /* LaunchScreen.storyboard */,
+				45A4A9F721477E780003F640 /* Info.plist */,
+				45A4A9F821477E780003F640 /* main.m */,
+			);
+			path = VZInspectorDemo;
+			sourceTree = "<group>";
+		};
+		45A4AAD8214782DD0003F640 /* VZInspector */ = {
+			isa = PBXGroup;
+			children = (
+				45A4AAD9214782DD0003F640 /* VZInspector.h */,
+				45A4AADA214782DD0003F640 /* core */,
+				45A4AB04214782DD0003F640 /* VZDefine.h */,
+				45A4AB05214782DD0003F640 /* VZInspector.m */,
+				45A4AB06214782DD0003F640 /* toolbox */,
+				45A4AB59214782DD0003F640 /* log */,
+				45A4AB5E214782DD0003F640 /* overview */,
+			);
+			path = VZInspector;
+			sourceTree = "<group>";
+		};
+		45A4AADA214782DD0003F640 /* core */ = {
+			isa = PBXGroup;
+			children = (
+				45A4AADB214782DD0003F640 /* VZInspectorResource.m */,
+				45A4AADC214782DD0003F640 /* VZInspectorUtility.h */,
+				45A4AADD214782DD0003F640 /* VZInspectorOverlay.m */,
+				45A4AADE214782DD0003F640 /* NSObject+VZInspector.h */,
+				45A4AADF214782DD0003F640 /* VZInspectorAssert.h */,
+				45A4AAE0214782DD0003F640 /* VZInspectorWindow.m */,
+				45A4AAE1214782DD0003F640 /* VZInspectorTimer.h */,
+				45A4AAE2214782DD0003F640 /* VZInspectorView.h */,
+				45A4AAE3214782DD0003F640 /* VZInspectController.m */,
+				45A4AAE4214782DD0003F640 /* VZInspectorOverlay.h */,
+				45A4AAE5214782DD0003F640 /* manager */,
+				45A4AAE8214782DD0003F640 /* VZInspectorUtility.m */,
+				45A4AAE9214782DD0003F640 /* VZInspectorResource.h */,
+				45A4AAEA214782DD0003F640 /* item */,
+				45A4AAED214782DD0003F640 /* VZInspectorWindow.h */,
+				45A4AAEE214782DD0003F640 /* view */,
+				45A4AAFD214782DD0003F640 /* keycommand */,
+				45A4AB00214782DD0003F640 /* NSObject+VZInspector.m */,
+				45A4AB01214782DD0003F640 /* VZInspectController.h */,
+				45A4AB02214782DD0003F640 /* VZInspectorView.m */,
+				45A4AB03214782DD0003F640 /* VZInspectorTimer.m */,
+			);
+			path = core;
+			sourceTree = "<group>";
+		};
+		45A4AAE5214782DD0003F640 /* manager */ = {
+			isa = PBXGroup;
+			children = (
+				45A4AAE6214782DD0003F640 /* VZInspectorBizLogManager.h */,
+				45A4AAE7214782DD0003F640 /* VZInspectorBizLogManager.m */,
+			);
+			path = manager;
+			sourceTree = "<group>";
+		};
+		45A4AAEA214782DD0003F640 /* item */ = {
+			isa = PBXGroup;
+			children = (
+				45A4AAEB214782DD0003F640 /* VZInspectorBizLogItem.h */,
+				45A4AAEC214782DD0003F640 /* VZInspectorBizLogItem.m */,
+			);
+			path = item;
+			sourceTree = "<group>";
+		};
+		45A4AAEE214782DD0003F640 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				45A4AAEF214782DD0003F640 /* VZInspectorBizLogToolBarItem.h */,
+				45A4AAF0214782DD0003F640 /* VZInspectorTagView.h */,
+				45A4AAF1214782DD0003F640 /* VZInspectorTagListView.m */,
+				45A4AAF2214782DD0003F640 /* VZInspectorMaskView.m */,
+				45A4AAF3214782DD0003F640 /* VZInspectorSearchBar.m */,
+				45A4AAF4214782DD0003F640 /* VZInspectorBizLogCell.h */,
+				45A4AAF5214782DD0003F640 /* VZInspectorBizLogView.h */,
+				45A4AAF6214782DD0003F640 /* VZInspectorTagListView.h */,
+				45A4AAF7214782DD0003F640 /* VZInspectorTagView.m */,
+				45A4AAF8214782DD0003F640 /* VZInspectorBizLogToolBarItem.m */,
+				45A4AAF9214782DD0003F640 /* VZInspectorMaskView.h */,
+				45A4AAFA214782DD0003F640 /* VZInspectorBizLogCell.m */,
+				45A4AAFB214782DD0003F640 /* VZInspectorSearchBar.h */,
+				45A4AAFC214782DD0003F640 /* VZInspectorBizLogView.m */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		45A4AAFD214782DD0003F640 /* keycommand */ = {
+			isa = PBXGroup;
+			children = (
+				45A4AAFE214782DD0003F640 /* VZKeyCommands.m */,
+				45A4AAFF214782DD0003F640 /* VZKeyCommands.h */,
+			);
+			path = keycommand;
+			sourceTree = "<group>";
+		};
+		45A4AB06214782DD0003F640 /* toolbox */ = {
+			isa = PBXGroup;
+			children = (
+				45A4AB07214782DD0003F640 /* border */,
+				45A4AB0A214782DD0003F640 /* designdraft */,
+				45A4AB0B214782DD0003F640 /* VZInspectorToolItem.h */,
+				45A4AB0C214782DD0003F640 /* location */,
+				45A4AB13214782DD0003F640 /* network */,
+				45A4AB22214782DD0003F640 /* VZInspectorToolboxView.h */,
+				45A4AB23214782DD0003F640 /* crash */,
+				45A4AB2A214782DD0003F640 /* image */,
+				45A4AB2D214782DD0003F640 /* framerate */,
+				45A4AB30214782DD0003F640 /* sandbox */,
+				45A4AB35214782DD0003F640 /* colorPicker */,
+				45A4AB3D214782DD0003F640 /* VZInspectorToolItem.m */,
+				45A4AB3E214782DD0003F640 /* mermoryProfile */,
+				45A4AB53214782DD0003F640 /* VZInspectorToolboxView.m */,
+				45A4AB54214782DD0003F640 /* grid */,
+			);
+			path = toolbox;
+			sourceTree = "<group>";
+		};
+		45A4AB07214782DD0003F640 /* border */ = {
+			isa = PBXGroup;
+			children = (
+				45A4AB08214782DD0003F640 /* VZBorderInspector.m */,
+				45A4AB09214782DD0003F640 /* VZBorderInspector.h */,
+			);
+			path = border;
+			sourceTree = "<group>";
+		};
+		45A4AB0A214782DD0003F640 /* designdraft */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = designdraft;
+			sourceTree = "<group>";
+		};
+		45A4AB0C214782DD0003F640 /* location */ = {
+			isa = PBXGroup;
+			children = (
+				45A4AB0D214782DD0003F640 /* VZInspectorLocationView.m */,
+				45A4AB0E214782DD0003F640 /* FLFakeConfig.h */,
+				45A4AB0F214782DD0003F640 /* CLLocationManager+FLFake.m */,
+				45A4AB10214782DD0003F640 /* VZInspectorLocationView.h */,
+				45A4AB11214782DD0003F640 /* FLFakeConfig.m */,
+				45A4AB12214782DD0003F640 /* CLLocationManager+FLFake.h */,
+			);
+			path = location;
+			sourceTree = "<group>";
+		};
+		45A4AB13214782DD0003F640 /* network */ = {
+			isa = PBXGroup;
+			children = (
+				45A4AB14214782DD0003F640 /* VZNetworkInspectorOverView.m */,
+				45A4AB15214782DD0003F640 /* VZNetworkObserver.m */,
+				45A4AB16214782DD0003F640 /* VZNetworkRecorder.h */,
+				45A4AB17214782DD0003F640 /* VZNetworkInspector.m */,
+				45A4AB18214782DD0003F640 /* VZNetworkTransaction.m */,
+				45A4AB19214782DD0003F640 /* VZInspectorNetworkDetailView.h */,
+				45A4AB1A214782DD0003F640 /* VZInspectorNetworkHistoryView.h */,
+				45A4AB1B214782DD0003F640 /* VZNetworkInspectorOverView.h */,
+				45A4AB1C214782DD0003F640 /* VZNetworkRecorder.m */,
+				45A4AB1D214782DD0003F640 /* VZNetworkObserver.h */,
+				45A4AB1E214782DD0003F640 /* VZInspectorNetworkHistoryView.m */,
+				45A4AB1F214782DD0003F640 /* VZInspectorNetworkDetailView.m */,
+				45A4AB20214782DD0003F640 /* VZNetworkTransaction.h */,
+				45A4AB21214782DD0003F640 /* VZNetworkInspector.h */,
+			);
+			path = network;
+			sourceTree = "<group>";
+		};
+		45A4AB23214782DD0003F640 /* crash */ = {
+			isa = PBXGroup;
+			children = (
+				45A4AB24214782DD0003F640 /* VZInspectorCrashRootView.m */,
+				45A4AB25214782DD0003F640 /* VZInspectorCrashView.m */,
+				45A4AB26214782DD0003F640 /* VZCrashInspector.m */,
+				45A4AB27214782DD0003F640 /* VZInspectorCrashRootView.h */,
+				45A4AB28214782DD0003F640 /* VZCrashInspector.h */,
+				45A4AB29214782DD0003F640 /* VZInspectorCrashView.h */,
+			);
+			path = crash;
+			sourceTree = "<group>";
+		};
+		45A4AB2A214782DD0003F640 /* image */ = {
+			isa = PBXGroup;
+			children = (
+				45A4AB2B214782DD0003F640 /* VZInspectorImageInfoView.m */,
+				45A4AB2C214782DD0003F640 /* VZInspectorImageInfoView.h */,
+			);
+			path = image;
+			sourceTree = "<group>";
+		};
+		45A4AB2D214782DD0003F640 /* framerate */ = {
+			isa = PBXGroup;
+			children = (
+				45A4AB2E214782DD0003F640 /* VZFrameRateOverlay.m */,
+				45A4AB2F214782DD0003F640 /* VZFrameRateOverlay.h */,
+			);
+			path = framerate;
+			sourceTree = "<group>";
+		};
+		45A4AB30214782DD0003F640 /* sandbox */ = {
+			isa = PBXGroup;
+			children = (
+				45A4AB31214782DD0003F640 /* VZInspectorSandBoxRootView.h */,
+				45A4AB32214782DD0003F640 /* VZInspectorSandBoxSubView.h */,
+				45A4AB33214782DD0003F640 /* VZInspectorSandBoxRootView.m */,
+				45A4AB34214782DD0003F640 /* VZInspectorSandBoxSubView.m */,
+			);
+			path = sandbox;
+			sourceTree = "<group>";
+		};
+		45A4AB35214782DD0003F640 /* colorPicker */ = {
+			isa = PBXGroup;
+			children = (
+				45A4AB36214782DD0003F640 /* VZInspectorColorPickerView.h */,
+				45A4AB37214782DD0003F640 /* VZColorPanelView.h */,
+				45A4AB38214782DD0003F640 /* VZColorPickerDefine.h */,
+				45A4AB39214782DD0003F640 /* VZColorDisplayView.m */,
+				45A4AB3A214782DD0003F640 /* VZColorPanelView.m */,
+				45A4AB3B214782DD0003F640 /* VZInspectorColorPickerView.m */,
+				45A4AB3C214782DD0003F640 /* VZColorDisplayView.h */,
+			);
+			path = colorPicker;
+			sourceTree = "<group>";
+		};
+		45A4AB3E214782DD0003F640 /* mermoryProfile */ = {
+			isa = PBXGroup;
+			children = (
+				45A4AB3F214782DD0003F640 /* vendor */,
+			);
+			path = mermoryProfile;
+			sourceTree = "<group>";
+		};
+		45A4AB3F214782DD0003F640 /* vendor */ = {
+			isa = PBXGroup;
+			children = (
+				45A4AB40214782DD0003F640 /* LICENSE_FBAllocationTracker */,
+				45A4AB41214782DD0003F640 /* Associations */,
+				45A4AB43214782DD0003F640 /* Filtering */,
+				45A4AB44214782DD0003F640 /* LICENSE_FBRetainCycleDetector */,
+				45A4AB45214782DD0003F640 /* fishhook */,
+				45A4AB48214782DD0003F640 /* Layout */,
+				45A4AB4E214782DD0003F640 /* Graph */,
+				45A4AB51214782DD0003F640 /* allocationTrack */,
+				45A4AB52214782DD0003F640 /* Detector */,
+			);
+			path = vendor;
+			sourceTree = "<group>";
+		};
+		45A4AB41214782DD0003F640 /* Associations */ = {
+			isa = PBXGroup;
+			children = (
+				45A4AB42214782DD0003F640 /* Internal */,
+			);
+			path = Associations;
+			sourceTree = "<group>";
+		};
+		45A4AB42214782DD0003F640 /* Internal */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Internal;
+			sourceTree = "<group>";
+		};
+		45A4AB43214782DD0003F640 /* Filtering */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Filtering;
+			sourceTree = "<group>";
+		};
+		45A4AB45214782DD0003F640 /* fishhook */ = {
+			isa = PBXGroup;
+			children = (
+				45A4AB46214782DD0003F640 /* LICENSE */,
+				45A4AB47214782DD0003F640 /* README.md */,
+			);
+			path = fishhook;
+			sourceTree = "<group>";
+		};
+		45A4AB48214782DD0003F640 /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				45A4AB49214782DD0003F640 /* Blocks */,
+				45A4AB4B214782DD0003F640 /* Classes */,
+			);
+			path = Layout;
+			sourceTree = "<group>";
+		};
+		45A4AB49214782DD0003F640 /* Blocks */ = {
+			isa = PBXGroup;
+			children = (
+				45A4AB4A214782DD0003F640 /* Circle-LICENSE */,
+			);
+			path = Blocks;
+			sourceTree = "<group>";
+		};
+		45A4AB4B214782DD0003F640 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				45A4AB4C214782DD0003F640 /* Parser */,
+				45A4AB4D214782DD0003F640 /* Reference */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		45A4AB4C214782DD0003F640 /* Parser */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Parser;
+			sourceTree = "<group>";
+		};
+		45A4AB4D214782DD0003F640 /* Reference */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Reference;
+			sourceTree = "<group>";
+		};
+		45A4AB4E214782DD0003F640 /* Graph */ = {
+			isa = PBXGroup;
+			children = (
+				45A4AB4F214782DD0003F640 /* Specialization */,
+				45A4AB50214782DD0003F640 /* Internal */,
+			);
+			path = Graph;
+			sourceTree = "<group>";
+		};
+		45A4AB4F214782DD0003F640 /* Specialization */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Specialization;
+			sourceTree = "<group>";
+		};
+		45A4AB50214782DD0003F640 /* Internal */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Internal;
+			sourceTree = "<group>";
+		};
+		45A4AB51214782DD0003F640 /* allocationTrack */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = allocationTrack;
+			sourceTree = "<group>";
+		};
+		45A4AB52214782DD0003F640 /* Detector */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Detector;
+			sourceTree = "<group>";
+		};
+		45A4AB54214782DD0003F640 /* grid */ = {
+			isa = PBXGroup;
+			children = (
+				45A4AB55214782DD0003F640 /* UIWindow+VZInspector.h */,
+				45A4AB56214782DD0003F640 /* VZInspectorGridView.m */,
+				45A4AB57214782DD0003F640 /* VZInspectorGridView.h */,
+				45A4AB58214782DD0003F640 /* UIWindow+VZInspector.m */,
+			);
+			path = grid;
+			sourceTree = "<group>";
+		};
+		45A4AB59214782DD0003F640 /* log */ = {
+			isa = PBXGroup;
+			children = (
+				45A4AB5A214782DD0003F640 /* VZInspectorLogView.m */,
+				45A4AB5B214782DD0003F640 /* VZLogInspector.m */,
+				45A4AB5C214782DD0003F640 /* VZLogInspector.h */,
+				45A4AB5D214782DD0003F640 /* VZInspectorLogView.h */,
+			);
+			path = log;
+			sourceTree = "<group>";
+		};
+		45A4AB5E214782DD0003F640 /* overview */ = {
+			isa = PBXGroup;
+			children = (
+				45A4AB5F214782DD0003F640 /* VZOverviewInspector.m */,
+				45A4AB60214782DD0003F640 /* VZInspectorPlotView.m */,
+				45A4AB61214782DD0003F640 /* memory */,
+				45A4AB66214782DD0003F640 /* VZInspectorOverview.h */,
+				45A4AB67214782DD0003F640 /* controller */,
+				45A4AB6A214782DD0003F640 /* env */,
+				45A4AB6F214782DD0003F640 /* VZOverviewInspector.h */,
+				45A4AB70214782DD0003F640 /* VZInspectorPlotView.h */,
+				45A4AB71214782DD0003F640 /* device */,
+				45A4AB74214782DD0003F640 /* VZInspectorOverview.m */,
+			);
+			path = overview;
+			sourceTree = "<group>";
+		};
+		45A4AB61214782DD0003F640 /* memory */ = {
+			isa = PBXGroup;
+			children = (
+				45A4AB62214782DD0003F640 /* VZMemoryInspectorOverView.m */,
+				45A4AB63214782DD0003F640 /* VZMemoryInspector.m */,
+				45A4AB64214782DD0003F640 /* VZMemoryInspectorOverView.h */,
+				45A4AB65214782DD0003F640 /* VZMemoryInspector.h */,
+			);
+			path = memory;
+			sourceTree = "<group>";
+		};
+		45A4AB67214782DD0003F640 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				45A4AB68214782DD0003F640 /* VZControllerStack.h */,
+				45A4AB69214782DD0003F640 /* VZControllerStack.m */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		45A4AB6A214782DD0003F640 /* env */ = {
+			isa = PBXGroup;
+			children = (
+				45A4AB6B214782DD0003F640 /* VZSettingInspector.m */,
+				45A4AB6C214782DD0003F640 /* VZInspectorSettingView.m */,
+				45A4AB6D214782DD0003F640 /* VZInspectorSettingView.h */,
+				45A4AB6E214782DD0003F640 /* VZSettingInspector.h */,
+			);
+			path = env;
+			sourceTree = "<group>";
+		};
+		45A4AB71214782DD0003F640 /* device */ = {
+			isa = PBXGroup;
+			children = (
+				45A4AB72214782DD0003F640 /* VZDevice.h */,
+				45A4AB73214782DD0003F640 /* VZDevice.m */,
+			);
+			path = device;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		45A4A9E521477E770003F640 /* VZInspectorDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 45A4A9FC21477E780003F640 /* Build configuration list for PBXNativeTarget "VZInspectorDemo" */;
+			buildPhases = (
+				45A4A9E221477E770003F640 /* Sources */,
+				45A4A9E321477E770003F640 /* Frameworks */,
+				45A4A9E421477E770003F640 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VZInspectorDemo;
+			productName = VZInspectorDemo;
+			productReference = 45A4A9E621477E770003F640 /* VZInspectorDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		45A4A9DE21477E770003F640 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = "Tao Xu";
+				TargetAttributes = {
+					45A4A9E521477E770003F640 = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+				};
+			};
+			buildConfigurationList = 45A4A9E121477E770003F640 /* Build configuration list for PBXProject "VZInspectorDemo" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 45A4A9DD21477E770003F640;
+			productRefGroup = 45A4A9E721477E770003F640 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				45A4A9E521477E770003F640 /* VZInspectorDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		45A4A9E421477E770003F640 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				45A4ABA2214782DD0003F640 /* Circle-LICENSE in Resources */,
+				45A4ABA0214782DD0003F640 /* LICENSE in Resources */,
+				45A4A9F621477E780003F640 /* LaunchScreen.storyboard in Resources */,
+				45A4A9F321477E780003F640 /* Assets.xcassets in Resources */,
+				45A4ABA1214782DD0003F640 /* README.md in Resources */,
+				45A4A9F121477E770003F640 /* Main.storyboard in Resources */,
+				45A4AB9F214782DD0003F640 /* LICENSE_FBRetainCycleDetector in Resources */,
+				45A4AB9E214782DD0003F640 /* LICENSE_FBAllocationTracker in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		45A4A9E221477E770003F640 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				45A4AB96214782DD0003F640 /* VZInspectorImageInfoView.m in Sources */,
+				45A4AB81214782DD0003F640 /* VZInspectorBizLogCell.m in Sources */,
+				45A4AB80214782DD0003F640 /* VZInspectorBizLogToolBarItem.m in Sources */,
+				45A4A9EE21477E770003F640 /* ViewController.m in Sources */,
+				45A4AB78214782DD0003F640 /* VZInspectController.m in Sources */,
+				45A4AB88214782DD0003F640 /* VZBorderInspector.m in Sources */,
+				45A4A9F921477E780003F640 /* main.m in Sources */,
+				45A4AB90214782DD0003F640 /* VZNetworkRecorder.m in Sources */,
+				45A4ABAB214782DD0003F640 /* VZMemoryInspector.m in Sources */,
+				45A4AB98214782DD0003F640 /* VZInspectorSandBoxRootView.m in Sources */,
+				45A4AB8A214782DD0003F640 /* CLLocationManager+FLFake.m in Sources */,
+				45A4ABA9214782DD0003F640 /* VZInspectorPlotView.m in Sources */,
+				45A4ABAC214782DD0003F640 /* VZControllerStack.m in Sources */,
+				45A4AB8F214782DD0003F640 /* VZNetworkTransaction.m in Sources */,
+				45A4AB95214782DD0003F640 /* VZCrashInspector.m in Sources */,
+				45A4AB7A214782DD0003F640 /* VZInspectorUtility.m in Sources */,
+				45A4AB7C214782DD0003F640 /* VZInspectorTagListView.m in Sources */,
+				45A4ABA7214782DD0003F640 /* VZLogInspector.m in Sources */,
+				45A4AB8C214782DD0003F640 /* VZNetworkInspectorOverView.m in Sources */,
+				45A4ABAA214782DD0003F640 /* VZMemoryInspectorOverView.m in Sources */,
+				45A4ABA8214782DD0003F640 /* VZOverviewInspector.m in Sources */,
+				45A4AB92214782DD0003F640 /* VZInspectorNetworkDetailView.m in Sources */,
+				45A4ABA3214782DD0003F640 /* VZInspectorToolboxView.m in Sources */,
+				45A4AB76214782DD0003F640 /* VZInspectorOverlay.m in Sources */,
+				45A4AB94214782DD0003F640 /* VZInspectorCrashView.m in Sources */,
+				45A4ABA6214782DD0003F640 /* VZInspectorLogView.m in Sources */,
+				45A4ABB0214782DD0003F640 /* VZInspectorOverview.m in Sources */,
+				45A4AB7B214782DD0003F640 /* VZInspectorBizLogItem.m in Sources */,
+				45A4ABA4214782DD0003F640 /* VZInspectorGridView.m in Sources */,
+				45A4AB9C214782DD0003F640 /* VZInspectorColorPickerView.m in Sources */,
+				45A4ABAD214782DD0003F640 /* VZSettingInspector.m in Sources */,
+				45A4AB83214782DD0003F640 /* VZKeyCommands.m in Sources */,
+				45A4AB8B214782DD0003F640 /* FLFakeConfig.m in Sources */,
+				45A4AB84214782DD0003F640 /* NSObject+VZInspector.m in Sources */,
+				45A4AB7F214782DD0003F640 /* VZInspectorTagView.m in Sources */,
+				45A4A9EB21477E770003F640 /* AppDelegate.m in Sources */,
+				45A4AB7E214782DD0003F640 /* VZInspectorSearchBar.m in Sources */,
+				45A4AB75214782DD0003F640 /* VZInspectorResource.m in Sources */,
+				45A4AB86214782DD0003F640 /* VZInspectorTimer.m in Sources */,
+				45A4AB8D214782DD0003F640 /* VZNetworkObserver.m in Sources */,
+				45A4AB9A214782DD0003F640 /* VZColorDisplayView.m in Sources */,
+				45A4AB93214782DD0003F640 /* VZInspectorCrashRootView.m in Sources */,
+				45A4AB79214782DD0003F640 /* VZInspectorBizLogManager.m in Sources */,
+				45A4AB9D214782DD0003F640 /* VZInspectorToolItem.m in Sources */,
+				45A4ABAE214782DD0003F640 /* VZInspectorSettingView.m in Sources */,
+				45A4AB9B214782DD0003F640 /* VZColorPanelView.m in Sources */,
+				45A4ABA5214782DD0003F640 /* UIWindow+VZInspector.m in Sources */,
+				45A4AB91214782DD0003F640 /* VZInspectorNetworkHistoryView.m in Sources */,
+				45A4AB87214782DD0003F640 /* VZInspector.m in Sources */,
+				45A4AB82214782DD0003F640 /* VZInspectorBizLogView.m in Sources */,
+				45A4AB99214782DD0003F640 /* VZInspectorSandBoxSubView.m in Sources */,
+				45A4ABAF214782DD0003F640 /* VZDevice.m in Sources */,
+				45A4AB7D214782DD0003F640 /* VZInspectorMaskView.m in Sources */,
+				45A4AB85214782DD0003F640 /* VZInspectorView.m in Sources */,
+				45A4AB77214782DD0003F640 /* VZInspectorWindow.m in Sources */,
+				45A4AB8E214782DD0003F640 /* VZNetworkInspector.m in Sources */,
+				45A4AB97214782DD0003F640 /* VZFrameRateOverlay.m in Sources */,
+				45A4AB89214782DD0003F640 /* VZInspectorLocationView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		45A4A9EF21477E770003F640 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				45A4A9F021477E770003F640 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		45A4A9F421477E780003F640 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				45A4A9F521477E780003F640 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		45A4A9FA21477E780003F640 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		45A4A9FB21477E780003F640 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		45A4A9FD21477E780003F640 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GW8XWHWQR7;
+				INFOPLIST_FILE = VZInspectorDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.xta0.VZInspectorDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		45A4A9FE21477E780003F640 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = GW8XWHWQR7;
+				INFOPLIST_FILE = VZInspectorDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.xta0.VZInspectorDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		45A4A9E121477E770003F640 /* Build configuration list for PBXProject "VZInspectorDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				45A4A9FA21477E780003F640 /* Debug */,
+				45A4A9FB21477E780003F640 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		45A4A9FC21477E780003F640 /* Build configuration list for PBXNativeTarget "VZInspectorDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				45A4A9FD21477E780003F640 /* Debug */,
+				45A4A9FE21477E780003F640 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 45A4A9DE21477E770003F640 /* Project object */;
+}
