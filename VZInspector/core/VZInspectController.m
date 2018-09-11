@@ -26,7 +26,6 @@
 #import "VZInspectorImageInfoView.h"
 #import "VZInspectorLocationView.h"
 #import "VZFrameRateOverlay.h"
-#import "VZDesignDraftView.h"
 #import "VZInspectorColorPickerView.h"
 #import "VZInspectorCrashRootView.h"
 
@@ -194,8 +193,8 @@
         [UIView transitionFromView:_currentView toView:view duration:0.4 options:UIViewAnimationOptionTransitionCrossDissolve completion:^(BOOL finished) {
             
             [self.contentView addSubview:view];
-            _currentView = view;
-            _currentTab = title;
+            self->_currentView = view;
+            self->_currentTab = title;
         }];
     }
 }
@@ -260,21 +259,8 @@
     [self.toolboxView addToolItem:[VZInspectorToolItem itemWithName:@"colorPicker" icon:[VZInspectorResource colorPickerIcon] callback:^{
         VZInspectorColorPickerView* colorPickerView = [[VZInspectorColorPickerView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) parentViewController:self];
         [self transitionToView:colorPickerView];
-    }]];
-    [self.toolboxView addToolItem:[VZInspectorToolItem itemWithName:@"Design" icon:[VZDesignDraftView icon] callback:^{
-        VZDesignDraftView *draftView = [[VZDesignDraftView alloc] initWithFrame:self.view.bounds parentViewController:self];
-        [self transitionToView:draftView];
-    }]];
-    
-
-
-    
-
-    
+    }]];    
 }
-
-
-
 
 
 - (void)registerAdditionTools {

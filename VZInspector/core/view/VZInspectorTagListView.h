@@ -36,7 +36,6 @@ typedef void (^VZInspectorTagViewTap)(NSArray *);
 @property (nonatomic ,strong)VZInspectorTagViewTap tagViewTap;
 
 - (void)addTagItems:(NSArray<VZInspectorBizLogToolBarItem *> *)tagItems;
-- (VZInspectorTagView *)addTag:(NSString *)title;
 - (void)removeTag:(NSString *)title;
 - (void)removeAllTags;
 

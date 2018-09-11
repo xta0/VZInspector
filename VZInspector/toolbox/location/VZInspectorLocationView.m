@@ -156,9 +156,11 @@ static NSInteger const kCityTagBase = 2000;
     sep.backgroundColor = [UIColor colorWithWhite:0.5f alpha:1.0f];
     [_scrollView addSubview:sep];
     
+    typeof(self) __weak weakSelf = self;
+    
     [[self locationList] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         VZLocationItem *item = obj;
-        UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(8, top, _scrollView.frame.size.width - 8 * 2, lineHeight)];
+        UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(8, top, weakSelf.scrollView.frame.size.width - 8 * 2, lineHeight)];
         top = top + lineHeight;
         btn.titleLabel.font = [UIFont fontWithName:@"Courier-Bold" size:15];
         btn.backgroundColor = [UIColor clearColor];
@@ -166,8 +168,8 @@ static NSInteger const kCityTagBase = 2000;
         [btn setTitle:[NSString stringWithFormat:@"%@   %@, %@", item.city, @(item.latitude), @(item.longitude)] forState:UIControlStateNormal];
         btn.tag = kCityTagBase + idx;
         btn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-        [btn addTarget:self action:@selector(selectConfig:) forControlEvents:UIControlEventTouchUpInside];
-        [_scrollView addSubview:btn];
+        [btn addTarget:weakSelf action:@selector(selectConfig:) forControlEvents:UIControlEventTouchUpInside];
+        [weakSelf.scrollView addSubview:btn];
         
     }];
     

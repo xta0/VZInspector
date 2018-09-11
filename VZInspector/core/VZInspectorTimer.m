@@ -18,19 +18,19 @@ NSString const*  kVZTimerStartCallbackString = @"kVZTimerStartCallbackString";
 NSString const*  kVZTimerStopCallbackString  = @"kVZTimerStopCallbackString";
 
 @interface NSTimer(VZInspector)
-+(NSTimer* )scheduledTimerWithTimeInterval:(NSTimeInterval)ti block:(void(^)())block userInfo:(id)userInfo repeats:(BOOL)repeat;
++(NSTimer* )scheduledTimerWithTimeInterval:(NSTimeInterval)ti block:(void(^)(void))block userInfo:(id)userInfo repeats:(BOOL)repeat;
 @end
 
 @implementation NSTimer(VZInspector)
 
-+ (NSTimer* )scheduledTimerWithTimeInterval:(NSTimeInterval)ti block:(void (^)())block userInfo:(id)userInfo repeats:(BOOL)repeat
++ (NSTimer* )scheduledTimerWithTimeInterval:(NSTimeInterval)ti block:(void (^)(void))block userInfo:(id)userInfo repeats:(BOOL)repeat
 {
     return [NSTimer scheduledTimerWithTimeInterval:ti target:self selector:@selector(onTimerFired:) userInfo:[block copy] repeats:repeat];
 }
 
 + (void)onTimerFired:(NSTimer* )timer
 {
-    void(^block)() = timer.userInfo;
+    void(^block)(void) = timer.userInfo;
     
     if (block) {
         block();

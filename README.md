@@ -198,13 +198,6 @@ Location 工具用来模拟经纬度，打开开关后输入经纬度即可。�
 
 <img src="https://zos.alipayobjects.com/rmsportal/aXzSooMHomzqjxPqfKlo.gif" width=54%>
 
-#### Design
-
-提供设计稿对比工具。演示可以查看这个 [视频](https://os.alipayobjects.com/rmsportal/sZLAZAuTqKqJXSdvDMQR.mp4)
-
-- 将设计稿存入相册后，点击选图，选中设计稿。
-- 打开调整开关，调整设计稿的透明度、大小和位置。
-- 关闭开关可以正常操作界面，并对比与设计稿的差异。
 
 
 ## 3.4 Plugin

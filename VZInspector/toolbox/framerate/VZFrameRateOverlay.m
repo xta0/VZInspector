@@ -103,7 +103,7 @@
 - (void)displayLinkTick:(CADisplayLink *)displayLink {
     CFTimeInterval frameInterval = displayLink.timestamp - self.lastTimeStamp;
     NSUInteger totalCount = 0;
-    CFTimeInterval totalInterval;
+    CFTimeInterval totalInterval = 0;
     
     for (NSUInteger i = kVZHistoryTimeStampLength - 1; i > 0; i--) {
         self.historyTimeStamp[i] = self.historyTimeStamp[i - 1];

@@ -139,7 +139,7 @@ static BOOL RCTIsIOS8OrEarlier()
     static NSTimeInterval lastCommand = 0;
     static NSTimeInterval lastDoubleCommand = 0;
     static NSString *lastInput = nil;
-    static UIKeyModifierFlags lastModifierFlags = nil;
+    static UIKeyModifierFlags lastModifierFlags = 0;
     
     if (firstPress) {
         for (VZKeyCommand *command in [VZKeyCommands sharedInstance].commands) {

@@ -122,12 +122,12 @@
     return [labels copy];
 }
 
-- (NSString *)textForRatio:(NSInteger)ratio {
-    return [NSString stringWithFormat:@"x%d",ratio];
+- (NSString *)textForRatio:(long)ratio {
+    return [NSString stringWithFormat:@"x%ld",ratio];
 }
 
 - (void)didSlide:(id)sender {
-    NSInteger ratio = floor(self.ratioControl.value + 0.5);
+    int ratio = floor(self.ratioControl.value + 0.5);
     if (ratio < 1) {
         ratio = 1;
     }
@@ -158,15 +158,15 @@
     [self.floatValues objectAtIndex:2].text = [NSString stringWithFormat:@"%.3f", blue];
     [self.floatValues objectAtIndex:3].text = [NSString stringWithFormat:@"%.3f", alpha];
     
-    [self.hexValues objectAtIndex:0].text = [NSString stringWithFormat:@"0x%x", (NSInteger)floor(red * 255 + 0.5)];
-    [self.hexValues objectAtIndex:1].text = [NSString stringWithFormat:@"0x%x", (NSInteger)floor(green * 255 + 0.5)];
-    [self.hexValues objectAtIndex:2].text = [NSString stringWithFormat:@"0x%x", (NSInteger)floor(blue * 255 + 0.5)];
-    [self.hexValues objectAtIndex:3].text = [NSString stringWithFormat:@"0x%x", (NSInteger)floor(alpha * 255 + 0.5)];
+    [self.hexValues objectAtIndex:0].text = [NSString stringWithFormat:@"0x%x", (int)floor(red * 255 + 0.5)];
+    [self.hexValues objectAtIndex:1].text = [NSString stringWithFormat:@"0x%x", (int)floor(green * 255 + 0.5)];
+    [self.hexValues objectAtIndex:2].text = [NSString stringWithFormat:@"0x%x", (int)floor(blue * 255 + 0.5)];
+    [self.hexValues objectAtIndex:3].text = [NSString stringWithFormat:@"0x%x", (int)floor(alpha * 255 + 0.5)];
     
-    [self.decValues objectAtIndex:0].text = [NSString stringWithFormat:@"%d", (NSInteger)floor(red * 255 + 0.5)];
-    [self.decValues objectAtIndex:1].text = [NSString stringWithFormat:@"%d", (NSInteger)floor(green * 255 + 0.5)];
-    [self.decValues objectAtIndex:2].text = [NSString stringWithFormat:@"%d", (NSInteger)floor(blue * 255 + 0.5)];
-    [self.decValues objectAtIndex:3].text = [NSString stringWithFormat:@"%d", (NSInteger)floor(alpha * 255 + 0.5)];
+    [self.decValues objectAtIndex:0].text = [NSString stringWithFormat:@"%d", (int)floor(red * 255 + 0.5)];
+    [self.decValues objectAtIndex:1].text = [NSString stringWithFormat:@"%d", (int)floor(green * 255 + 0.5)];
+    [self.decValues objectAtIndex:2].text = [NSString stringWithFormat:@"%d", (int)floor(blue * 255 + 0.5)];
+    [self.decValues objectAtIndex:3].text = [NSString stringWithFormat:@"%d", (int)floor(alpha * 255 + 0.5)];
     
 }
 

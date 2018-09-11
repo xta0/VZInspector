@@ -71,11 +71,11 @@
     if (_rootView && _backgroudView) {
         
         [UIView animateWithDuration:0.3 animations:^{
-            _backgroudView.alpha = 0.0;
+            self->_backgroudView.alpha = 0.0;
             
         } completion:^(BOOL finished) {
-            [_backgroudView removeFromSuperview];
-            _showing = NO;
+            [self->_backgroudView removeFromSuperview];
+            self->_showing = NO;
         }];
     }
 }

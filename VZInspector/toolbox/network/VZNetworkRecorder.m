@@ -186,45 +186,12 @@
         {
             if([transaction.response.MIMEType hasPrefix:prefix] && responseBody.length > 0)
             {
-//                NSString* contentType =  [transaction.request valueForHTTPHeaderField:@"Content-Type"];
-//                if ([contentType isEqualToString:@"application/protobuf"]) {
-//                    
-//                }
-
                 [self.responseCache setObject:responseBody forKey:requestID cost:[responseBody length]];
             }
         }
 
         [[NSNotificationCenter defaultCenter] postNotificationName:kVZNetworkInspectorRequestFinishedNotification object:nil userInfo:@{ @"transaction":transaction}];
         
-//        if ([mimeType hasPrefix:@"image/"] && [responseBody length] > 0) {
-//            // Thumbnail image previews on a separate background queue
-//            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-//                NSInteger maxPixelDimension = [[UIScreen mainScreen] scale] * 32.0;
-//                transaction.responseThumbnail = [VZUtility thumbnailedImageWithMaxPixelDimension:maxPixelDimension fromImageData:responseBody];
-//                [self postUpdateNotificationForTransaction:transaction];
-//            });
-//        } else if ([mimeType isEqual:@"application/json"]) {
-//            transaction.responseThumbnail = [VZResources jsonIcon];
-//        } else if ([mimeType isEqual:@"text/plain"]){
-//            transaction.responseThumbnail = [VZResources textPlainIcon];
-//        } else if ([mimeType isEqual:@"text/html"]) {
-//            transaction.responseThumbnail = [VZResources htmlIcon];
-//        } else if ([mimeType isEqual:@"application/x-plist"]) {
-//            transaction.responseThumbnail = [VZResources plistIcon];
-//        } else if ([mimeType isEqual:@"application/octet-stream"] || [mimeType isEqual:@"application/binary"]) {
-//            transaction.responseThumbnail = [VZResources binaryIcon];
-//        } else if ([mimeType rangeOfString:@"javascript"].length > 0) {
-//            transaction.responseThumbnail = [VZResources jsIcon];
-//        } else if ([mimeType rangeOfString:@"xml"].length > 0) {
-//            transaction.responseThumbnail = [VZResources xmlIcon];
-//        } else if ([mimeType hasPrefix:@"audio"]) {
-//            transaction.responseThumbnail = [VZResources audioIcon];
-//        } else if ([mimeType hasPrefix:@"video"]) {
-//            transaction.responseThumbnail = [VZResources videoIcon];
-//        } else if ([mimeType hasPrefix:@"text"]) {
-//            transaction.responseThumbnail = [VZResources textIcon];
-//        }
     });
 }
 

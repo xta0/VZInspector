@@ -60,7 +60,7 @@
 
 + (void)onTimerFired:(NSTimer* )timer
 {
-    void(^block)() = timer.userInfo;
+    void(^block)(void) = timer.userInfo;
     
     if (block) {
         block();

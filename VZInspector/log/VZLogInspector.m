@@ -219,7 +219,7 @@ static void (*dd_asl_release)(aslresponse obj);
     NSMutableAttributedString* attr = [NSMutableAttributedString new];
     
     for (VZLogInspectorEntity* entity in logs) {
-        NSMutableAttributedString* logAttr = [VZLogInspector formatLog:entity searchkey:searchKey];
+        NSMutableAttributedString* logAttr = [[VZLogInspector formatLog:entity searchkey:searchKey] mutableCopy];
         if (logAttr) {
             [attr appendAttributedString:logAttr];
         }

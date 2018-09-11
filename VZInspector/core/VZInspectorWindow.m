@@ -73,7 +73,7 @@
     CGPoint pt = [self convertPoint:point toView:self.debuggerVC.view];
     
     if (self.debuggerVC.presentedViewController) {
-        for (int i = self.subviews.count - 1; i >= 0; i --) {
+        for (long i = self.subviews.count - 1; i >= 0; i --) {
             UIView *subview = self.subviews[i];
             CGPoint convertedPoint = [subview convertPoint:point fromView:self];
             UIView *hited = [subview hitTest:convertedPoint withEvent:event];

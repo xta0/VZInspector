@@ -477,20 +477,7 @@
     {
         
         if (isImage) {
-            UIImage *image = nil;
-            id cls = [UIImage class];
-            if ([contentType isEqualToString:@"image/gif"]) {
-                if ([cls respondsToSelector:@selector(apmm_animatedGIFWithData:)]) {
-                    image = [cls performSelector:@selector(apmm_animatedGIFWithData:) withObject:responseData];
-                }
-            } else if ([contentType isEqualToString:@"image/webp"]) {
-                if ([cls respondsToSelector:@selector(sd_imageWithWebPData:)]) {
-                    image = [cls performSelector:@selector(sd_imageWithWebPData:) withObject:responseData];
-                }
-            } else {
-                image = [[UIImage alloc] initWithData:responseData];
-            }
-            
+            UIImage *image = [[UIImage alloc] initWithData:responseData];
             responseBodyRow.detailText = [NSString stringWithFormat:@"tap to view %@ %@", [contentType stringByReplacingOccurrencesOfString:@"image/" withString:@""], NSStringFromCGSize(image.size)];;
             if (image) {
                 responseBodyRow.responseImage = image;

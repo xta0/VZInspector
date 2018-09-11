@@ -29,8 +29,6 @@
 
 + (UIImage *)crash;
 
-+ (UIImage *)heap;
-
 + (UIImage *)memoryWarning;
 
 + (UIImage *)border;

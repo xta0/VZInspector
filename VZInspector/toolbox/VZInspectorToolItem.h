@@ -16,7 +16,7 @@
 @property (nonatomic, strong) NSString *status;
 @property (nonatomic, strong) NSString *(^callback)(NSString *status);
 
-+ (instancetype)itemWithName:(NSString *)name icon:(UIImage *)icon callback:(void(^)())callback;
++ (instancetype)itemWithName:(NSString *)name icon:(UIImage *)icon callback:(void(^)(void))callback;
 + (instancetype)switchItemWithName:(NSString *)name icon:(UIImage *)icon callback:(BOOL(^)(BOOL on))callback;
 + (instancetype)statusItemWithName:(NSString *)name icon:(UIImage *)icon callback:(NSString *(^)(NSString *status))callback;
 

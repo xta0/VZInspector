@@ -206,7 +206,7 @@ static const uint8_t vz_inspector_image_info_share[] = {0x89,0x50,0x4e,0x47,0xd,
         _imageView.frame = newRect;
         _imageView.alpha = 0;
         [UIView animateWithDuration:0.25 animations:^{
-            _imageView.alpha = 1;
+            self->_imageView.alpha = 1;
         }];
         
         _infoLabel.text = [self infoForImageView:imageView];
