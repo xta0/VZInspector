@@ -4,4 +4,4 @@ xcode_scheme: VZInspector
 cache: cocoapods
 podfile: ./Example/Podfile
 osx_image: xcode8.3
-xcode_sdk: iphonesimulator8.4
+xcode_sdk: iphonesimulator
