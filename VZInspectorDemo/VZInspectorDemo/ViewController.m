@@ -1,39 +1,28 @@
 //
 //  ViewController.m
-//  VZInspector
+//  VZInspectorDemo
 //
-//  Created by moxin.xt on 14-9-23.
-//  Copyright (c) 2014年 VizLab. All rights reserved.
+//  Created by moxin on 9/11/18.
+//  Copyright © 2018 Tao Xu. All rights reserved.
 //
 
-#import "VZRootViewController.h"
+#import "ViewController.h"
 
-@interface VZRootViewController ()<UITableViewDataSource,UITableViewDelegate>
-
+@interface ViewController()<UITableViewDataSource,UITableViewDelegate>
 @property(nonatomic,strong) id list;
 @property(nonatomic,strong) UITableView* tableView;
 @property(nonatomic,strong) NSMutableArray* items;
 
 @end
 
-@implementation VZRootViewController
+@implementation ViewController
 
-- (UIView* )loadingFooterView
-{
-    UIView* v = [[UIView alloc]initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 44)];
-    UIActivityIndicatorView* indicator = [[UIActivityIndicatorView alloc]initWithFrame:CGRectMake((CGRectGetWidth(self.view.bounds)-20)/2, 11, 20, 20)];
-    indicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
-    [indicator startAnimating];
-    [v addSubview:indicator];
-   
-    return v;
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     
- 
+    
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(load)];
@@ -46,10 +35,10 @@
     self.tableView.dataSource = self;
     [self.view addSubview:self.tableView];
     
-//    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"3d2"]];
-//    imageView.frame = CGRectMake(20, 20, 80, 80);
-//    imageView.clipsToBounds = YES;
-//    [self.view addSubview: imageView];
+    //    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"3d2"]];
+    //    imageView.frame = CGRectMake(20, 20, 80, 80);
+    //    imageView.clipsToBounds = YES;
+    //    [self.view addSubview: imageView];
     
     [self load];
 }
@@ -86,7 +75,7 @@
     [cell.textLabel sizeToFit];
     
     return cell;
-
+    
 }
 
 - (void)load
@@ -99,7 +88,7 @@
     [[[NSURLSession sharedSession] dataTaskWithURL:[NSURL URLWithString:url] completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         
         if(data){
-        
+            
             NSDictionary* JSON = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
             
             for (NSDictionary* dict in JSON[@"data"]) {
@@ -114,7 +103,7 @@
             });
         }
         else{
-        
+            
             dispatch_async(dispatch_get_main_queue(), ^{
                 
                 UIAlertView* alert = [[UIAlertView alloc]initWithTitle:@"Error" message:error.description delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
@@ -122,7 +111,7 @@
                 self.tableView.tableFooterView = nil;
             });
         }
-   
+        
         
     }] resume];
     
@@ -133,19 +122,30 @@
     UIAlertView* alert = [[UIAlertView alloc]initWithTitle:@"alloc memory" message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     [alert show];
     
-
+    
     _list = [NSMutableArray new];
     
     for (int i=0; i<999999; i++) {
-
-       // @autoreleasepool {
-            NSObject* obj = [NSObject new];
-            [_list addObject:obj];
-       // }
         
-  
+        // @autoreleasepool {
+        NSObject* obj = [NSObject new];
+        [_list addObject:obj];
+        // }
+        
+        
     }
     
 }
+- (UIView* )loadingFooterView
+{
+    UIView* v = [[UIView alloc]initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 44)];
+    UIActivityIndicatorView* indicator = [[UIActivityIndicatorView alloc]initWithFrame:CGRectMake((CGRectGetWidth(self.view.bounds)-20)/2, 11, 20, 20)];
+    indicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
+    [indicator startAnimating];
+    [v addSubview:indicator];
+    
+    return v;
+}
+
 
 @end

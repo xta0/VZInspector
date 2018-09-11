@@ -1,6 +1,9 @@
 
 ![VZInspector](https://github.com/akaDealloc/VZInspector/blob/master/logo.png)
 
+![](https://badge.fury.io/hooks/github)
+
+
 # 1. 简介
 
 VZInspector 是一个给 iOS 开发者使用的 debug 工具，包含日志查询、取色、控件检查、视觉稿比对等功能，同时提供了丰富的接口方便自行定制。

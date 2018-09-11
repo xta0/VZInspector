@@ -1,9 +1,9 @@
 //
 //  main.m
-//  VZInspector
+//  VZInspectorDemo
 //
-//  Created by moxin.xt on 14-9-23.
-//  Copyright (c) 2014年 VizLab. All rights reserved.
+//  Created by moxin on 9/11/18.
+//  Copyright © 2018 Tao Xu. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
