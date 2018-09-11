@@ -18,7 +18,6 @@ DerivedData
 *.ipa
 *.xcuserstate
 xcuserdata/
-xcshareddata/
 *.xccheckout
 contents.xcworkspacedata
 

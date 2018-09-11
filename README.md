@@ -1,6 +1,7 @@
 
 ![VZInspector](https://github.com/akaDealloc/VZInspector/blob/master/logo.png)
 
+# VZInspector
 
 [![Build Status](https://travis-ci.org/Vizzle/VZInspector.svg?branch=master)](https://travis-ci.org/Vizzle/VZInspector)
 [![Version](https://img.shields.io/cocoapods/v/VZInspector.svg?style=flat)](http://cocoapods.org/pods/VZInspector)
@@ -8,23 +9,42 @@
 [![Platform](https://img.shields.io/cocoapods/p/VZInspector.svg?style=flat)](http://cocoapods.org/pods/VZInspector)
 
 
-# 1. 简介
+## 简介
 
 VZInspector 是一个给 iOS 开发者使用的 debug 工具，包含日志查询、取色、控件检查、视觉稿比对等功能，同时提供了丰富的接口方便自行定制。
 
-# 2. 接入
+## 接入
 
-#### 使用 Cocoapods
+### 使用 Cocoapods
 
 ```
 pod 'VZInspector'
 ```
 
-#### 添加到界面
+Pod安装成功后，在`AppDelegate.m`中引入头文件：
 
-VZInspector 在类加载时会被自动添加至状态栏，只需确保 VZInspector 被正确添加到工程即可。
+```objc
+#import "VZInspector/VZInspector.h"
+```
 
-# 3. 如何使用
+在`AppDelegate.m`中配置`VZInspector`插件，并显示
+
+```objc
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions{
+    
+    //some code above...
+
+    [VZInspector setClassPrefixName:@"VZ"];
+    [VZInspector setShouldHandleCrash:true];
+    [VZInspector setShouldHookNetworkRequest:true];
+    [VZInspector setLogNumbers:10];
+    [VZInspector showOnStatusBar];
+
+    //some code below
+}
+```
+
+### 如何使用
 
 这部分按照 VZInspector 界面上的功能区块，分别介绍 VZInspector 内置的功能以及可自定义的功能。
 
