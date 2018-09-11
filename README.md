@@ -3,7 +3,7 @@
 
 # VZInspector
 
-[![Build Status](https://travis-ci.org/Vizzle/VZInspector.svg?branch=master)](https://travis-ci.org/Vizzle/VZInspector)
+[![Build Status](https://travis-ci.org/xta0/VZInspector.svg?branch=master)](http://cocoapods.org/pods/VZInspector)
 [![Version](https://img.shields.io/cocoapods/v/VZInspector.svg?style=flat)](http://cocoapods.org/pods/VZInspector)
 [![License](https://img.shields.io/cocoapods/l/VZInspector.svg?style=flat)](http://cocoapods.org/pods/VZInspector)
 [![Platform](https://img.shields.io/cocoapods/p/VZInspector.svg?style=flat)](http://cocoapods.org/pods/VZInspector)
