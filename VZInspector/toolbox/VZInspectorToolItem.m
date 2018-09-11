@@ -10,7 +10,15 @@
 
 @implementation VZInspectorToolItem
 
-+ (instancetype)itemWithName:(NSString *)name icon:(UIImage *)icon callback:(void (^)())callback {
++ (instancetype)statusItemWithName:(NSString *)name icon:(UIImage *)icon callback:(NSString *(^)(NSString *status))callback {
+    VZInspectorToolItem *item = [VZInspectorToolItem new];
+    item.name = name;
+    item.icon = icon;
+    item.callback = callback;
+    return item;
+}
+
++ (instancetype)itemWithName:(NSString *)name icon:(UIImage *)icon callback:(void (^)(void))callback {
     return [self statusItemWithName:name icon:icon callback:^NSString *(NSString *status) {
         callback();
         return status;
@@ -23,13 +31,7 @@
     }];
 }
 
-+ (instancetype)statusItemWithName:(NSString *)name icon:(UIImage *)icon callback:(NSString *(^)(NSString *status))callback {
-    VZInspectorToolItem *item = [VZInspectorToolItem new];
-    item.name = name;
-    item.icon = icon;
-    item.callback = callback;
-    return item;
-}
+
 
 - (void)performAction {
     if (self.callback) {

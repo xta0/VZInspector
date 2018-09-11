@@ -202,7 +202,7 @@
 - (void)onBack
 {
     [UIView transitionFromView:_currentView toView:self.contentView duration:0.4 options:UIViewAnimationOptionTransitionFlipFromRight completion:^(BOOL finished) {
-        _currentView = self.views[_currentTab];
+        self->_currentView = self.views[self->_currentTab];
     }];
 }
 

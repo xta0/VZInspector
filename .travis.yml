@@ -3,8 +3,5 @@ xcode_workspace: ./Example/VZInspector.xcworkspace
 xcode_scheme: VZInspector
 cache: cocoapods
 podfile: ./Example/Podfile
-branches:
-  only:
-  - master
 osx_image: xcode8.3
-xcode_sdk: iphonesimulator
+xcode_sdk: iphonesimulator8.4

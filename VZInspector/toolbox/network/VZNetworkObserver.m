@@ -785,7 +785,7 @@ didBecomeDownloadTask:(NSURLSessionDownloadTask *)downloadTask delegate:(id <NSU
         [self sniffWithoutDuplicationForObject:session selector:selector sniffingBlock:^{
             undefinedBlock(slf, session, task, response, newRequest, completionHandler);
         } originalImplementationBlock:^{
-            ((id(*)(id, SEL, id, id, id, id, void(^)()))objc_msgSend)(slf, swizzledSelector, session, task, response, newRequest, completionHandler);
+            ((id(*)(id, SEL, id, id, id, id, void(^)(NSURLRequest* )))objc_msgSend)(slf, swizzledSelector, session, task, response, newRequest, completionHandler);
         }];
     };
     

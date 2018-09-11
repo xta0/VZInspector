@@ -48,12 +48,12 @@
 
 
 @interface NSTimer(VZBorderInspector)
-+(NSTimer* )scheduledTimerWithTimeInterval:(NSTimeInterval)ti block:(void(^)())block userInfo:(id)userInfo repeats:(BOOL)repeat;
++(NSTimer* )scheduledTimerWithTimeInterval:(NSTimeInterval)ti block:(void(^)(void))block userInfo:(id)userInfo repeats:(BOOL)repeat;
 @end
 
 @implementation NSTimer(VZBorderInspector)
 
-+ (NSTimer* )scheduledTimerWithTimeInterval:(NSTimeInterval)ti block:(void (^)())block userInfo:(id)userInfo repeats:(BOOL)repeat
++ (NSTimer* )scheduledTimerWithTimeInterval:(NSTimeInterval)ti block:(void (^)(void))block userInfo:(id)userInfo repeats:(BOOL)repeat
 {
     return [NSTimer scheduledTimerWithTimeInterval:ti target:self selector:@selector(onTimerFired:) userInfo:[block copy] repeats:repeat];
 }
