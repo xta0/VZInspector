@@ -27,7 +27,7 @@ Pod安装成功后，在`AppDelegate.m`中引入头文件：
 #import "VZInspector/VZInspector.h"
 ```
 
-在`AppDelegate.m`中配置`VZInspector`插件，并显示
+在`AppDelegate.m`中配置`VZInspector`插件
 
 ```objc
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions{
@@ -44,21 +44,19 @@ Pod安装成功后，在`AppDelegate.m`中引入头文件：
 }
 ```
 
-### 如何使用
+## 功能说明
 
 这部分按照 VZInspector 界面上的功能区块，分别介绍 VZInspector 内置的功能以及可自定义的功能。
 
 ![](https://zos.alipayobjects.com/rmsportal/RPZQsqbWsOwTxWJOlmnu.png)
 
-## 3.1 Status
-
-#### 内存占用
+### 内存占用
 
 App 当前内存占用显示在 Status 顶部，折线显示内存占用变化趋势。
 
 <img src="https://zos.alipayobjects.com/rmsportal/afguRqvEaRvWTWUqyQqT.png" width=42%>
 
-#### Dashboard
+### Dashboard
 
 这里显示一些常用信息，比如 uid、视图栈、特定 UserDefaults 的值等，默认显示设备信息和视图栈，可以通过以下代码自定义该区域内容。点击“R”按钮会重新获取该区域内容。
 
@@ -73,7 +71,7 @@ App 当前内存占用显示在 Status 顶部，折线显示内存占用变化�
 
 <img src="https://zos.alipayobjects.com/rmsportal/oYPnOnEaNHBpHFtZuYZC.png" width=42%>
 
-#### 自定义
+### 自定义
 
 在 Memory Usage 区域上面有一个自定义区域，供你放置一些开关，例如我们在这里做了环境切换、清理内存缓存的功能，环境切换功能深受测试同学喜欢。自定义示例如下：
 
@@ -86,13 +84,13 @@ App 当前内存占用显示在 Status 顶部，折线显示内存占用变化�
 }];
 ```
 
-## 3.2 Log
+## Log
 
 Log 界面显示 NSLog 输出的信息，可以在不连接 Xcode 时直接查看日志，最新的日志在顶部显示。此外顶部提供了过滤功能；右下区域的三个按钮分别对应 `回到顶部`、`打开/关闭自动刷新` 和 `刷新` 操作。  
 
 <img src="https://zos.alipayobjects.com/rmsportal/PlhYfAHDWHckNlzDRxvC.png" width=42%>
 
-#### 自定义
+### 自定义
 
 顶部搜索框可以进行简单过滤，为了避免每次输入相同关键词，你可以用下面的代码添加关键词过滤按钮。
 
@@ -105,7 +103,7 @@ Log 界面显示 NSLog 输出的信息，可以在不连接 Xcode 时直接查�
 
 <img src="https://zos.alipayobjects.com/rmsportal/EOeXOWnEXmUIJzhPPVcn.png" width=42%>
 
-## 3.3 Toolbox
+## Toolbox
 
 Toolbox 界面提供了一些常用小工具，例如网络日志查看、控件检查、帧率监测。开关类的工具在打开时会在右上角显示 `ON`。
 
@@ -162,7 +160,7 @@ Logs 用来实时查看网络请求的状态、返回等，需要自行配置网
 
 用来展示应用沙盒文件，对于文本和图片文件，点击可以预览。
 
-#### Grid
+### Grid
 
 网格工具用来做视觉检查，比如简单的控件对齐、控件尺寸等。
 
@@ -179,13 +177,13 @@ Logs 用来实时查看网络请求的状态、返回等，需要自行配置网
 
 <img src="https://zos.alipayobjects.com/rmsportal/peZONIaIGMrgXVHRtoIX.png" width=42%>
 
-#### Warning
+### Warning
 
 Warning 用来模拟内存警告，可以帮你验证 `didReceiveMemoryWarning` 里的逻辑，当打开的时候，可以在 “Memory Usage” 区域看到红色闪烁标识。
 
 <img src="https://zos.alipayobjects.com/rmsportal/VrKmCCmDOtRDHDOpxplj.gif" width=42%>
 
-#### Image
+### Image
 
 Image 工具用于检查界面上的图片，比如查看图片尺寸，图片 URL。
 
@@ -204,19 +202,19 @@ Image 工具用于检查界面上的图片，比如查看图片尺寸，图片 U
 
 如果点击的位置有多个重叠的图片，可以多次点击来切换选择的图片。
 
-#### Location
+### Location
 
 Location 工具用来模拟经纬度，打开开关后输入经纬度即可。界面上也提供了一些常用城市的经纬度。
 
 <img src="https://zos.alipayobjects.com/rmsportal/SvxVXKmZCZdAKoIfNxKa.png" width=42%>
 
-#### FrameRate
+### FrameRate
 
 帧率监测工具可以将帧率显示在状态栏上。注：模拟器无法精准检测帧率，仅在真机上有效。
 
 <img src="https://zos.alipayobjects.com/rmsportal/CcYGjANpxFKwWGwClIfk.png" width=42%>
  
-#### ColorPicker
+### ColorPicker
 
 提供屏幕取色的功能。
 - 按像素取值，并将颜色展示在下面控制板
@@ -227,7 +225,7 @@ Location 工具用来模拟经纬度，打开开关后输入经纬度即可。�
 
 
 
-## 3.4 Plugin
+## Plugin
 
 插件界面方便你在 VZInspector 中放置自己开发的插件，如下图所示。这部分完全是业务相关的工具，可以使用下面的代码进行自定义。
 
@@ -241,10 +239,10 @@ VZInspectorToolItem *scan = [VZInspectorToolItem itemWithName:@"scan" icon:icon 
 [VZInspector addToolItem:scan];
 ```
 
-# 4. License
+# License
 
 VZInspector 基于 MIT License，更多信息查看：https://opensource.org/licenses/MIT
 
-# 5. Contribution
+# Contribution
 
 欢迎任何建议 & Pull request。
