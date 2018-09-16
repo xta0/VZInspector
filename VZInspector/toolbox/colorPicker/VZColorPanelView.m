@@ -43,7 +43,7 @@
         CGFloat x = tipIcon.frame.origin.x + tipIcon.frame.size.width + 5;
         UILabel *tip = [[UILabel alloc] initWithFrame:CGRectMake(tipIcon.frame.origin.x + tipIcon.frame.size.width + 5, tipIcon.frame.origin.y, self.toolBar.frame.size.width - x - 10, tipIcon.frame.size.height)];
         tip.adjustsFontSizeToFitWidth = YES;
-        tip.text = @"拖动圆窗口、空白处滑动都可以移动焦点，幅度不同";
+//        tip.text = @"拖动圆窗口、空白处滑动都可以移动焦点，幅度不同";
         tip.font = [UIFont systemFontOfSize:14];
         tip.textAlignment = NSTextAlignmentLeft;
         tip.textColor = [UIColor colorWithWhite:0.3 alpha:1];

@@ -107,7 +107,7 @@
         [text appendString:callback()];
         [text appendString:@"\n\n"];
     }
-    [text appendFormat:@"Controller堆栈:\n%@", [VZControllerStack controllerStack]];
+    [text appendFormat:@"Controller Stacks:\n%@", [VZControllerStack controllerStack]];
     _infoView.text = text;
 }
 

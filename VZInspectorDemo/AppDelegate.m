@@ -31,19 +31,8 @@
         return ret;
     }];
     
-    [VZInspector addDashboardSwitch:@"Dev" Highlight:YES Callback:^{
-        NSLog(@"Dev clicked!");
-    }];
-    
-    [VZInspector addDashboardSwitch:@"Release" Highlight: NO Callback:^{
-        
-        NSLog(@"Release clicked!");
-    }];
-    
     //add custom plugin
     [self addCustomPlugin];
-    
-    
     [VZInspector showOnStatusBar];
     
     return YES;
@@ -73,14 +62,14 @@
                 [str appendString:@"}"];
                 [UIPasteboard generalPasteboard].string = str;
                 
-                message = [NSString stringWithFormat:@"'%@'\n已拷贝至模拟器的剪切板", file];
+                message = [NSString stringWithFormat:@"'%@'\nCopy to clipboard", file];
             }
             else {
-                message = [NSString stringWithFormat:@"无法读取路径 '%@' 的内容", file];
+                message = [NSString stringWithFormat:@"Can not read from'%@' ", file];
             }
         }
         else {
-            message = @"请将文件路径拷贝到模拟器的剪切板";
+            message = @"Please copy the file path to clipboard";
         }
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:message delegate:nil cancelButtonTitle:nil otherButtonTitles:nil];

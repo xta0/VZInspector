@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#include <memory>
 
 @interface ViewController()<UITableViewDataSource,UITableViewDelegate>
 @property(nonatomic,strong) id list;
@@ -21,10 +22,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
-    
+    [self setTitle:@"Inspector Demo"];
     self.edgesForExtendedLayout = UIRectEdgeNone;
-    
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(load)];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(memoryPeek)];
     
@@ -34,18 +33,9 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.view addSubview:self.tableView];
-    
-    //    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"3d2"]];
-    //    imageView.frame = CGRectMake(20, 20, 80, 80);
-    //    imageView.clipsToBounds = YES;
-    //    [self.view addSubview: imageView];
-    
     [self load];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
+    
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -60,19 +50,23 @@
 
 - (UITableViewCell* )tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"vzline"];
+    static NSString* identifier = @"vzinspectordemo";
+    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     
     if (!cell) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"vzline"];
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
     }
     
     NSDictionary* info = self.items[indexPath.row];
-    
-    
-    cell.textLabel.font = [UIFont systemFontOfSize:14.0f];
+    cell.textLabel.font = [UIFont boldSystemFontOfSize:18.0f];
     cell.textLabel.numberOfLines = 0;
-    cell.textLabel.text = info[@"text"];
+    cell.textLabel.text = info[@"title"];
     [cell.textLabel sizeToFit];
+    
+    cell.detailTextLabel.text = info[@"body"];
+    cell.detailTextLabel.font = [UIFont systemFontOfSize:12.0f];
+    cell.detailTextLabel.numberOfLines = 0;
+    [cell.detailTextLabel sizeToFit];
     
     return cell;
     
@@ -84,16 +78,17 @@
     [self.tableView reloadData];
     self.tableView.tableFooterView = [self loadingFooterView];
     
-    NSString* url = @"https://api.app.net/stream/0/posts/stream/global";
+    NSString* url = @"https://jsonplaceholder.typicode.com/posts/";
     [[[NSURLSession sharedSession] dataTaskWithURL:[NSURL URLWithString:url] completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        
+
         if(data){
-            
+        
             NSDictionary* JSON = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
             
-            for (NSDictionary* dict in JSON[@"data"]) {
+            NSLog(@"%@",JSON);
+            
+            for (NSDictionary* dict in JSON) {
                 [self.items addObject:dict];
-                
             }
             dispatch_async(dispatch_get_main_queue(), ^{
                 
@@ -103,11 +98,9 @@
             });
         }
         else{
-            
             dispatch_async(dispatch_get_main_queue(), ^{
                 
-                UIAlertView* alert = [[UIAlertView alloc]initWithTitle:@"Error" message:error.description delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-                [alert show];
+                [self alert:@"Error"];
                 self.tableView.tableFooterView = nil;
             });
         }
@@ -119,23 +112,31 @@
 
 - (void)memoryPeek
 {
-    UIAlertView* alert = [[UIAlertView alloc]initWithTitle:@"alloc memory" message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-    [alert show];
+    static int* _ptr = nullptr;
+    static std::allocator<int> _allocator;
+//    static std::allocator<int>::size_type sz_4gb = 1024*1024*1024*sizeof(int); //this will trigger memory warning
+    static std::allocator<int>::size_type sz_400mb = 1024*1024*sizeof(int);
     
-    
-    _list = [NSMutableArray new];
-    
-    for (int i=0; i<999999; i++) {
-        
-        // @autoreleasepool {
-        NSObject* obj = [NSObject new];
-        [_list addObject:obj];
-        // }
-        
-        
+    if(_ptr){
+        _allocator.deallocate(_ptr, sz_400mb);
+        _ptr = nullptr;
+        [self alert:@"Clear"];
+    }else{
+
+        //alloc 4GB memory
+        _ptr = _allocator.allocate(sz_400mb);
+        _allocator.construct(_ptr, 0);
+        [self alert:@"Alloc 500MB memory"];
     }
-    
 }
+#pragma mark - private method
+
+- (void)alert:(NSString*) title{
+    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:title message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    [alert show];
+}
+
+
 - (UIView* )loadingFooterView
 {
     UIView* v = [[UIView alloc]initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 44)];

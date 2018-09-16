@@ -3,7 +3,7 @@
 Pod::Spec.new do |s|
 
   s.name          = "VZInspector"
-  s.version       = "0.1.7"
+  s.version       = "0.1.8"
   s.summary       = "an iOS app runtime debugger"
   s.homepage      = "https://github.com/xta0/VZInspector"
   s.license       = "MIT"
