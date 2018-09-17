@@ -114,19 +114,18 @@
 {
     static int* _ptr = nullptr;
     static std::allocator<int> _allocator;
-//    static std::allocator<int>::size_type sz_4gb = 1024*1024*1024*sizeof(int); //this will trigger memory warning
-    static std::allocator<int>::size_type sz_400mb = 1024*1024*sizeof(int);
+//    static std::allocator<int>::size_type sz = 1024*1024*1024*sizeof(int); //this will trigger memory warning
+    static std::allocator<int>::size_type sz = 1024*1024*sizeof(int);
     
     if(_ptr){
-        _allocator.deallocate(_ptr, sz_400mb);
+        _allocator.deallocate(_ptr, sz);
         _ptr = nullptr;
         [self alert:@"Clear"];
     }else{
-
-        //alloc 4GB memory
-        _ptr = _allocator.allocate(sz_400mb);
+        _ptr = _allocator.allocate(sz);
         _allocator.construct(_ptr, 0);
-        [self alert:@"Alloc 500MB memory"];
+        NSString* msg = [NSString stringWithFormat:@"Alloc %ld MB memory",sizeof(int)];
+        [self alert:msg];
     }
 }
 #pragma mark - private method

@@ -16,18 +16,13 @@
 
 static BOOL _cancel = YES;
 const char* const kVZInspecotrASLKeyDDLog = "VZLog";
-
 const char* const kVZInspecotrASLDDLogValue = "1";
 
 typedef NS_OPTIONS(NSUInteger, VZLogFlag){
     VZLogFlagError      = (1 << 0),
-    
     VZLogFlagWarning    = (1 << 1),
-    
     VZLogFlagInfo       = (1 << 2),
-    
     VZLogFlagDebug      = (1 << 3),
-
     VZLogFlagVerbose    = (1 << 4)
 };
 
@@ -378,9 +373,7 @@ static void (*dd_asl_release)(aslresponse obj);
     if (!_cancel) {
         return;
     }
-    
     _cancel = NO;
-    
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void) {
         [self captureAslLogs];
     });

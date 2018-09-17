@@ -475,10 +475,10 @@
 		45A4AB59214782DD0003F640 /* log */ = {
 			isa = PBXGroup;
 			children = (
+				45A4AB5D214782DD0003F640 /* VZInspectorLogView.h */,
 				45A4AB5A214782DD0003F640 /* VZInspectorLogView.m */,
 				45A4AB5B214782DD0003F640 /* VZLogInspector.m */,
 				45A4AB5C214782DD0003F640 /* VZLogInspector.h */,
-				45A4AB5D214782DD0003F640 /* VZInspectorLogView.h */,
 			);
 			path = log;
 			sourceTree = "<group>";
