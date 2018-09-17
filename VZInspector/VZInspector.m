@@ -2,7 +2,7 @@
 //  VZInspector.m
 //  VZInspector
 //
-//  Created by moxin.xt on 14-9-23.
+//  Created by Tao Xu on 14-9-23.
 //  Copyright (c) 2014年 VizLab. All rights reserved.
 //
 
@@ -39,7 +39,7 @@
 
 + (void)show
 {
-//    NSData *data = [NSData dataWithContentsOfFile:@"/Users/lingwan/ios-phone-o2o-debug/APInspector/aa.png"];
+//    NSData *data = [NSData dataWithContentsOfFile:@"/Users/lingwan/ios-phone-o2o-debug/VZInspector/aa.png"];
 //    NSUInteger len = [data length];
 //    Byte *byteData = (Byte*)malloc(len);
 //    memcpy(byteData, [data bytes], len);

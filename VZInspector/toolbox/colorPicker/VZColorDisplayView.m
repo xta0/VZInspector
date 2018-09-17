@@ -1,10 +1,10 @@
 
 //
 //  VZColorDisplayView.m
-//  APInspector
+//  VZInspector
 //
 //  Created by pep on 2016/12/3.
-//  Copyright © 2016年 Alipay. All rights reserved.
+//  Copyright © 2016年 Vizlab. All rights reserved.
 //
 
 #import "VZColorDisplayView.h"

@@ -1,9 +1,9 @@
 //
 //  VZInspectorMaskView.m
-//  APInspector
+//  VZInspector
 //
 //  Created by 净枫 on 16/6/14.
-//  Copyright © 2016年 Alipay. All rights reserved.
+//  Copyright © 2016年 Vizlab. All rights reserved.
 //
 
 #import "VZInspectorMaskView.h"

@@ -2,7 +2,7 @@
 //  VZSettingInspector.m
 //  VZInspector
 //
-//  Created by moxin.xt on 14-12-16.
+//  Created by Tao Xu on 14-12-16.
 //  Copyright (c) 2014年 VizLab. All rights reserved.
 //
 
