@@ -1,9 +1,5 @@
 //
-//  VZInspectorTimer.h
-//  VZInspector
-//
-//  Created by moxin on 15/4/20.
-//  Copyright (c) 2015年 VizLab. All rights reserved.
+//  Copyright © 2016年 Vizlab. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>

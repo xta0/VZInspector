@@ -1,9 +1,5 @@
 //
-//  VZInspectorCrashRootView.m
-//  VZInspector
-//
-//  Created by Tao Xu on 14-12-12.
-//  Copyright (c) 2014年 VizLab. All rights reserved.
+//  Copyright © 2016年 Vizlab. All rights reserved.
 //
 
 #import "VZInspectorCrashRootView.h"

@@ -1,9 +1,5 @@
 //
-//  VZDevice.h
-//  VZInspector
-//
-//  Created by John Wong on 5/10/15.
-//  Copyright (c) 2015 VizLabe. All rights reserved.
+//  Copyright © 2016年 Vizlab. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>

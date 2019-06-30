@@ -1,8 +1,4 @@
 //
-//  VZInspectorSearchBar.h
-//  VZInspector
-//
-//  Created by 净枫 on 2016/12/20.
 //  Copyright © 2016年 Vizlab. All rights reserved.
 //
 

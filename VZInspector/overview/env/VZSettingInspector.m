@@ -1,9 +1,5 @@
 //
-//  VZSettingInspector.m
-//  VZInspector
-//
-//  Created by Tao Xu on 14-12-16.
-//  Copyright (c) 2014年 VizLab. All rights reserved.
+//  Copyright © 2016年 Vizlab. All rights reserved.
 //
 
 #import "VZSettingInspector.h"

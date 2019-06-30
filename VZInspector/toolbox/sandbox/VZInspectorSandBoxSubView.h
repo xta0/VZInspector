@@ -1,9 +1,5 @@
 //
-//  VZInspectorSandBoxSubView.h
-//  iCoupon
-//
-//  Created by Tao Xu on 14-10-11.
-//  Copyright (c) 2014年 VizLab. All rights reserved.
+//  Copyright © 2016年 Vizlab. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

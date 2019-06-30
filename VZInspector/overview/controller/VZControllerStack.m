@@ -1,9 +1,5 @@
 //
-//  VZControllerStack.m
-//  VZInspector
-//
-//  Created by John Wong on 6/16/16.
-//  Copyright © 2016 Vizlab. All rights reserved.
+//  Copyright © 2016年 Vizlab. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

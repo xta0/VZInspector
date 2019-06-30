@@ -1,8 +1,4 @@
 //
-//  VZInspectorBizLogItem.h
-//  VZInspector
-//
-//  Created by 净枫 on 16/6/20.
 //  Copyright © 2016年 Vizlab. All rights reserved.
 //
 

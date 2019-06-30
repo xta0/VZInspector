@@ -1,9 +1,5 @@
 //
-//  VZInspectorLogView.m
-//  VZInspector
-//
-//  Created by Tao Xu on 14-11-26.
-//  Copyright (c) 2014年 VizLab. All rights reserved.
+//  Copyright © 2016年 Vizlab. All rights reserved.
 //
 
 #include <QuartzCore/QuartzCore.h>
