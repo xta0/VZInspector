@@ -1,9 +1,5 @@
 //
-//  AppDelegate.h
-//  VZInspectorDemo
-//
-//  Created by moxin on 9/11/18.
-//  Copyright © 2018 Tao Xu. All rights reserved.
+//  Copyright © 2016年 Vizlab. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
