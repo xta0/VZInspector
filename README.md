@@ -8,6 +8,8 @@
 [![License](https://img.shields.io/cocoapods/l/VZInspector.svg?style=flat)](http://cocoapods.org/pods/VZInspector)
 [![Platform](https://img.shields.io/cocoapods/p/VZInspector.svg?style=flat)](http://cocoapods.org/pods/VZInspector)
 
+> This project is no longer being actively developed or maintained.
+
 
 ## 简介
 
